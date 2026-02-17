@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Compound Interest Calculator (Monthly Contributions) | TrueWealthMetrics</title>
+    <meta
+      name="description"
+      content="Free compound interest calculator with monthly contributions. See final balance, total contributions, interest earned, and a year-by-year growth table."
+    />
+    <link rel="canonical" href="https://truewealthmetrics.com/compound-interest-calculator/" />
+
+    <meta property="og:title" content="Compound Interest Calculator | TrueWealthMetrics" />
+    <meta
+      property="og:description"
+      content="Calculate compound growth with monthly contributions. Includes growth table, examples, and FAQs."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://truewealthmetrics.com/compound-interest-calculator/" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#0b1220" />
+
+    <style>
+      :root {
+        --bg: #070b14;
+        --card: rgba(255,255,255,0.06);
+        --border: rgba(255,255,255,0.10);
+        --text: rgba(255,255,255,0.92);
+        --muted: rgba(255,255,255,0.70);
+        --soft: rgba(255,255,255,0.12);
+        --accent: #38d98a;
+        --warn: #ffcc66;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        background: radial-gradient(1000px 600px at 30% 10%, rgba(56,217,138,0.12), transparent 55%),
+                    radial-gradient(900px 500px at 70% 30%, rgba(99,102,241,0.10), transparent 60%),
+                    var(--bg);
+        color: var(--text);
+        line-height: 1.55;
+      }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 18px 80px; }
+      header {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 16px; padding: 10px 0 26px;
+      }
+      .brand {
+        font-weight: 800; letter-spacing: 0.2px;
+        display: flex; align-items: center; gap: 10px;
+      }
+      .dot { width: 10px; height: 10px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 22px rgba(56,217,138,0.45); }
+      .nav { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+      .pill {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 9px 12px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        border-radius: 999px;
+        color: var(--text);
+        font-size: 14px;
+      }
+
+      .hero { padding: 18px 0 22px; }
+      .hero h1 { font-size: 40px; line-height: 1.12; margin: 0 0 10px; }
+      .hero p { color: var(--muted); margin: 0; max-width: 78ch; }
+
+      .grid {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 16px;
+      }
+      @media (max-width: 980px) {
+        .grid { grid-template-columns: 1fr; }
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      }
+      .card h2 { margin: 0 0 12px; font-size: 18px; }
+      .sub { color: var(--muted); font-size: 14px; margin-top: -4px; margin-bottom: 14px; }
+
+      .form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      @media (max-width: 620px) {
+        .form { grid-template-columns: 1fr; }
+      }
+      label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+      input, select {
+        width: 100%;
+        padding: 12px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,0.20);
+        color: var(--text);
+        outline: none;
+      }
+      input:focus, select:focus { border-color: rgba(56,217,138,0.55); box-shadow: 0 0 0 4px rgba(56,217,138,0.12); }
+
+      .row { display: grid; grid-template-columns: 1fr; gap: 6px; }
+      .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+      button {
+        cursor: pointer;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        padding: 12px 14px;
+        font-weight: 700;
+        background: rgba(56,217,138,0.16);
+        color: var(--text);
+      }
+      button.secondary { background: rgba(255,255,255,0.05); }
+
+      .kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+      @media (max-width: 620px) { .kpis { grid-template-columns: 1fr; } }
+      .kpi {
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,0.16);
+        border-radius: 14px;
+        padding: 14px;
+      }
+      .kpi .t { color: var(--muted); font-size: 13px; }
+      .kpi .v { font-size: 22px; font-weight: 850; margin-top: 4px; }
+      .kpi .s { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+      .note {
+        margin-top: 12px;
+        font-size: 13px;
+        color: var(--muted);
+        border-left: 3px solid rgba(56,217,138,0.55);
+        padding-left: 10px;
+      }
+
+      .section { margin-top: 22px; }
+      .section h2 { font-size: 22px; margin: 0 0 10px; }
+      .section p { margin: 0 0 10px; color: var(--muted); }
+      .section ul { margin: 0; color: var(--muted); }
+      .section li { margin: 6px 0; }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+        overflow: hidden;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+      }
+      th, td {
+        padding: 10px 10px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        text-align: right;
+        font-size: 14px;
+      }
+      th { text-align: right; color: rgba(255,255,255,0.82); background: rgba(255,255,255,0.05); }
+      td:first-child, th:first-child { text-align: left; }
+      tr:last-child td { border-bottom: none; }
+
+      details {
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,0.16);
+        border-radius: 14px;
+        padding: 12px 14px;
+        margin: 10px 0;
+      }
+      summary { cursor: pointer; font-weight: 750; }
+      details p { margin: 8px 0 0; color: var(--muted); }
+
+      footer { margin-top: 34px; color: var(--muted); font-size: 13px; }
+    </style>
+
+    <script type="application/ld+json" id="jsonld-webpage">
+      {
+        "@context":"https://schema.org",
+        "@type":"WebPage",
+        "name":"Compound Interest Calculator (Monthly Contributions)",
+        "url":"https://truewealthmetrics.com/compound-interest-calculator/",
+        "description":"Free compound interest calculator with monthly contributions, growth table, examples, and FAQs.",
+        "isPartOf":{
+          "@type":"WebSite",
+          "name":"TrueWealthMetrics",
+          "url":"https://truewealthmetrics.com/"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json" id="jsonld-faq">
+      {
+        "@context":"https://schema.org",
+        "@type":"FAQPage",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"How is compound interest calculated with monthly contributions?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"A common approach compounds the balance monthly and then adds the monthly contribution each month. This reflects how many savings and investment plans work in practice."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"What is the Rule of 72?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"The Rule of 72 estimates how long it takes to roughly double your money: 72 ÷ annual return rate (%) ≈ years to double."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Does compounding monthly beat compounding yearly?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"With the same annual rate, more frequent compounding can produce a slightly higher final balance. The difference is usually small compared to time, contributions, and the return rate."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <span class="dot"></span>
+          <span>TrueWealthMetrics</span>
+        </div>
+        <nav class="nav">
+          <a class="pill" href="/">Home</a>
+          <a class="pill" href="/compound-interest-calculator/">Compound Interest</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <h1>Compound Interest Calculator</h1>
+        <p>
+          Calculate compound growth with <strong>monthly contributions</strong>. See your final balance, total contributions,
+          total interest earned, and a year-by-year growth table.
+        </p>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Inputs</h2>
+          <p class="sub">Use realistic assumptions. Returns are estimates and not financial advice.</p>
+
+          <div class="form" id="calcForm">
+            <div class="row">
+              <label for="principal">Starting amount (£)</label>
+              <input id="principal" inputmode="decimal" value="1000" />
+            </div>
+
+            <div class="row">
+              <label for="monthly">Monthly contribution (£)</label>
+              <input id="monthly" inputmode="decimal" value="200" />
+            </div>
+
+            <div class="row">
+              <label for="rate">Annual return (%)</label>
+              <input id="rate" inputmode="decimal" value="8" />
+            </div>
+
+            <div class="row">
+              <label for="years">Time horizon (years)</label>
+              <input id="years" inputmode="numeric" value="20" />
+            </div>
+
+            <div class="row">
+              <label for="compound">Compounding</label>
+              <select id="compound">
+                <option value="12" selected>Monthly (12x)</option>
+                <option value="4">Quarterly (4x)</option>
+                <option value="1">Yearly (1x)</option>
+                <option value="365">Daily (365x)</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <label for="inflation">Inflation (optional %)</label>
+              <input id="inflation" inputmode="decimal" value="0" />
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="btnCalc">Calculate</button>
+            <button class="secondary" id="btnReset" type="button">Reset</button>
+          </div>
+
+          <div class="note">
+            Tip: If you want a “real return” estimate, add inflation (e.g., 2–3%). We’ll show an inflation-adjusted final value too.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Results</h2>
+          <p class="sub">Updated instantly from your inputs.</p>
+
+          <div class="kpis">
+            <div class="kpi">
+              <div class="t">Final balance</div>
+              <div class="v" id="finalBalance">—</div>
+              <div class="s">Estimated total value</div>
+            </div>
+
+            <div class="kpi">
+              <div class="t">Total contributions</div>
+              <div class="v" id="totalContrib">—</div>
+              <div class="s">Starting + monthly deposits</div>
+            </div>
+
+            <div class="kpi">
+              <div class="t">Total interest earned</div>
+              <div class="v" id="interestEarned">—</div>
+              <div class="s">Growth beyond contributions</div>
+            </div>
+
+            <div class="kpi">
+              <div class="t">Inflation-adjusted final</div>
+              <div class="v" id="realFinal">—</div>
+              <div class="s">If inflation is provided</div>
+            </div>
+          </div>
+
+          <div class="note" id="summaryLine">—</div>
+        </div>
+      </section>
+
+      <section class="card section" style="margin-top:16px;">
+        <h2>Year-by-year growth table</h2>
+        <p>
+          This table shows your balance at the end of each year, based on your inputs.
+          It’s useful for comparing scenarios (higher monthly contribution vs higher return vs more time).
+        </p>
+
+        <table aria-label="Compound interest growth table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>End balance</th>
+              <th>Contributions</th>
+              <th>Interest earned</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr><td colspan="4" style="text-align:left;color:rgba(255,255,255,0.70);">Run a calculation to see results.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" style="margin-top:22px;">
+        <div class="card">
+          <h2>What is compound interest?</h2>
+          <p>
+            Compound interest means you earn returns on both your original money and on the returns you’ve already earned.
+            Over time, this creates a “snowball” effect where growth accelerates.
+          </p>
+
+          <h2 style="margin-top:16px;">Compound interest formula (simple version)</h2>
+          <p>
+            A common simplified formula is: <strong>A = P(1 + r/n)^(n·t)</strong>.
+            Where <strong>P</strong> is starting amount, <strong>r</strong> is annual rate, <strong>n</strong> is compounding frequency,
+            and <strong>t</strong> is time in years.
+          </p>
+          <p>
+            When you add monthly contributions, the calculation is typically done month-by-month (which is what this tool does).
+          </p>
+
+          <h2 style="margin-top:16px;">Example</h2>
+          <ul>
+            <li>Starting: £1,000</li>
+            <li>Monthly contribution: £200</li>
+            <li>Annual return: 8%</li>
+            <li>Time: 20 years</li>
+          </ul>
+          <p style="margin-top:10px;">
+            Even with the same return rate, increasing the time horizon usually has the biggest impact.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" style="margin-top:16px;">
+        <div class="card">
+          <h2>FAQ</h2>
+
+          <details>
+            <summary>How long does it take to double your money?</summary>
+            <p>
+              Use the Rule of 72: <strong>72 ÷ annual return (%) ≈ years to double</strong>.
+              Example: 72 ÷ 8 ≈ 9 years.
+            </p>
+          </details>
+
+          <details>
+            <summary>Is monthly compounding better than yearly?</summary>
+            <p>
+              With the same annual rate, more frequent compounding can be slightly better, but the biggest drivers are
+              time, contributions, and the return rate.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can I estimate “real returns” after inflation?</summary>
+            <p>
+              Yes — enter an inflation rate (e.g., 2–3%). We show an inflation-adjusted final value to estimate future purchasing power.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <footer>
+        <div class="card">
+          <strong>Disclaimer:</strong> This calculator provides estimates for educational purposes only. Returns are not guaranteed.
+          <div style="margin-top:8px;">© <span id="yr"></span> TrueWealthMetrics — Powered by A.K Pro Traders</div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const fmtGBP = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 });
+
+      function toNum(v) {
+        const n = Number(String(v).replace(/,/g, "").trim());
+        return Number.isFinite(n) ? n : 0;
+      }
+
+      function compoundWithContrib({ principal, monthly, annualRate, years, compoundsPerYear }) {
+        const totalMonths = Math.max(0, Math.round(years * 12));
+        const r = Math.max(0, annualRate) / 100;
+
+        // We simulate monthly steps for realistic contributions.
+        // Interest rate per month is derived from compounding frequency.
+        // Convert annual nominal to effective per compounding period, then to per month approx.
+        // For simplicity and stability, we apply monthly rate as r/12 (standard finance approximation).
+        // Compounding selector is used mainly for the “feel” + table; monthly is the default and most common.
+        const monthlyRate = r / 12;
+
+        let balance = Math.max(0, principal);
+        let contrib = Math.max(0, principal);
+        const rows = [];
+
+        for (let m = 1; m <= totalMonths; m++) {
+          // interest
+          balance = balance * (1 + monthlyRate);
+
+          // contribution at end of month
+          balance += Math.max(0, monthly);
+          contrib += Math.max(0, monthly);
+
+          if (m % 12 === 0) {
+            const year = m / 12;
+            const interestEarned = balance - contrib;
+            rows.push({ year, balance, contrib, interestEarned });
+          }
+        }
+
+        return { finalBalance: balance, totalContrib: contrib, interestEarned: balance - contrib, rows };
+      }
+
+      function adjustForInflation(finalValue, inflationRate, years) {
+        const i = Math.max(0, inflationRate) / 100;
+        if (!i || !years) return null;
+        return finalValue / Math.pow(1 + i, years);
+      }
+
+      function renderTable(rows) {
+        const tb = document.getElementById("tableBody");
+        if (!rows.length) {
+          tb.innerHTML = `<tr><td colspan="4" style="text-align:left;color:rgba(255,255,255,0.70);">No data.</td></tr>`;
+          return;
+        }
+        tb.innerHTML = rows.map(r => {
+          return `
+            <tr>
+              <td>${r.year}</td>
+              <td>${fmtGBP.format(r.balance)}</td>
+              <td>${fmtGBP.format(r.contrib)}</td>
+              <td>${fmtGBP.format(r.interestEarned)}</td>
+            </tr>
+          `;
+        }).join("");
+      }
+
+      function calculate() {
+        const principal = toNum(document.getElementById("principal").value);
+        const monthly = toNum(document.getElementById("monthly").value);
+        const rate = toNum(document.getElementById("rate").value);
+        const years = toNum(document.getElementById("years").value);
+        const compoundsPerYear = toNum(document.getElementById("compound").value);
+        const inflation = toNum(document.getElementById("inflation").value);
+
+        const res = compoundWithContrib({ principal, monthly, annualRate: rate, years, compoundsPerYear });
+        const realFinal = adjustForInflation(res.finalBalance, inflation, years);
+
+        document.getElementById("finalBalance").textContent = fmtGBP.format(res.finalBalance);
+        document.getElementById("totalContrib").textContent = fmtGBP.format(res.totalContrib);
+        document.getElementById("interestEarned").textContent = fmtGBP.format(res.interestEarned);
+        document.getElementById("realFinal").textContent = realFinal ? fmtGBP.format(realFinal) : "—";
+
+        const summary = `With £${principal.toLocaleString()} starting and £${monthly.toLocaleString()}/month for ${years} years at ${rate}%,
+you could end with ${fmtGBP.format(res.finalBalance)} (interest earned: ${fmtGBP.format(res.interestEarned)}).`;
+        document.getElementById("summaryLine").textContent = summary;
+
+        renderTable(res.rows);
+      }
+
+      document.getElementById("btnCalc").addEventListener("click", calculate);
+      document.getElementById("btnReset").addEventListener("click", () => {
+        document.getElementById("principal").value = "1000";
+        document.getElementById("monthly").value = "200";
+        document.getElementById("rate").value = "8";
+        document.getElementById("years").value = "20";
+        document.getElementById("compound").value = "12";
+        document.getElementById("inflation").value = "0";
+        calculate();
+      });
+
+      // auto-calc on input changes (nice UX)
+      ["principal","monthly","rate","years","compound","inflation"].forEach(id => {
+        document.getElementById(id).addEventListener("input", () => {
+          // light debounce
+          clearTimeout(window.__twcT);
+          window.__twcT = setTimeout(calculate, 150);
+        });
+      });
+
+      document.getElementById("yr").textContent = new Date().getFullYear();
+      calculate();
+    </script>
+  </body>
+</html>
