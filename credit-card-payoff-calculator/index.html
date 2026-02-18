@@ -1,141 +1,351 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Credit Card Payoff Calculator | TrueWealthMetrics</title>
-<meta name="description" content="Calculate how long it takes to pay off credit card debt. See interest paid, payoff date, and how extra payments save money."/>
-<link rel="canonical" href="https://truewealthmetrics.com/credit-card-payoff-calculator/"/>
-<meta name="robots" content="index,follow"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-<style>
-:root{--bg:#070b14;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--text:rgba(255,255,255,.92);--muted:rgba(255,255,255,.7);--accent:#38d98a}
-body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:radial-gradient(900px 500px at 30% 10%,rgba(56,217,138,.12),transparent 60%),var(--bg);color:var(--text)}
-.wrap{max-width:1100px;margin:auto;padding:28px 18px 140px}
-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px}
-.brand{font-weight:800;display:flex;gap:10px;align-items:center}
-.dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 20px rgba(56,217,138,.5)}
-.nav{display:flex;gap:10px;flex-wrap:wrap}
-.pill{border:1px solid var(--border);padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.04);color:var(--text);text-decoration:none}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:900px){.grid{grid-template-columns:1fr}}
-.card{border:1px solid var(--border);border-radius:18px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.04))}
-input,select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(0,0,0,.2);color:var(--text)}
-label{font-size:13px;color:var(--muted)}
-.actions{margin-top:10px;display:flex;gap:10px}
-button{padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(56,217,138,.18);color:var(--text);font-weight:800;cursor:pointer}
-.kpi{border:1px solid var(--border);border-radius:14px;padding:14px;background:rgba(0,0,0,.2);margin-top:10px}
-.kpi .t{font-size:13px;color:var(--muted)}
-.kpi .v{font-size:22px;font-weight:900;margin-top:4px}
-table{width:100%;border-collapse:collapse;margin-top:12px}
-th,td{padding:8px;border-bottom:1px solid rgba(255,255,255,.08);text-align:right}
-th:first-child,td:first-child{text-align:left}
-footer{margin-top:26px;color:var(--muted);font-size:13px}
-</style>
+  <title>Credit Card Payoff Calculator | TrueWealthMetrics</title>
+  <meta name="description" content="Calculate how long it takes to pay off credit card debt. See total interest, payoff time, and how extra payments save money." />
+  <link rel="canonical" href="https://truewealthmetrics.com/credit-card-payoff-calculator/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b1220" />
+
+  <style>
+    :root {
+      --bg:#070b14;
+      --border: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --accent:#38d98a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1000px 600px at 30% 10%, rgba(56,217,138,0.12), transparent 55%),
+                  radial-gradient(900px 500px at 70% 30%, rgba(99,102,241,0.10), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 120px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 0 18px}
+    .brand{font-weight:800;display:flex;align-items:center;gap:10px}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 22px rgba(56,217,138,.45)}
+    .nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--border);background:rgba(255,255,255,.04);border-radius:999px;color:var(--text);text-decoration:none;font-size:14px}
+    .pill:hover{opacity:.95}
+
+    h1{font-size:40px;line-height:1.12;margin:10px 0 6px}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:80ch}
+
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:980px){.grid{grid-template-columns:1fr} h1{font-size:32px}}
+
+    .card{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+
+    label{display:block;font-size:13px;color:var(--muted);margin:10px 0 6px}
+    input,select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.20);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus,select:focus{border-color:rgba(56,217,138,.55);box-shadow:0 0 0 4px rgba(56,217,138,.12)}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    button{
+      cursor:pointer;
+      border-radius:12px;
+      border:1px solid var(--border);
+      padding:12px 14px;
+      font-weight:800;
+      background:rgba(56,217,138,.16);
+      color:var(--text);
+    }
+    button.secondary{background:rgba(255,255,255,.05)}
+
+    .kpis{display:grid;grid-template-columns:1fr;gap:12px}
+    .kpi{border:1px solid var(--border);background:rgba(0,0,0,.16);border-radius:14px;padding:14px}
+    .kpi .t{color:var(--muted);font-size:13px}
+    .kpi .v{font-size:22px;font-weight:900;margin-top:4px}
+    .kpi .s{color:var(--muted);font-size:13px;margin-top:4px}
+
+    .warn{
+      margin-top:12px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,204,102,.35);
+      background:rgba(255,204,102,.08);
+      color:rgba(255,255,255,.86);
+      display:none;
+      white-space:pre-line;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:12px;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid var(--border);
+    }
+    th,td{padding:10px;border-bottom:1px solid rgba(255,255,255,.08);text-align:right;font-size:14px}
+    th{background:rgba(255,255,255,.05);color:rgba(255,255,255,.82)}
+    th:first-child,td:first-child{text-align:left}
+    tr:last-child td{border-bottom:none}
+
+    footer{margin-top:26px;color:var(--muted);font-size:13px}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Credit Card Payoff Calculator",
+    "url":"https://truewealthmetrics.com/credit-card-payoff-calculator/",
+    "applicationCategory":"FinanceApplication",
+    "operatingSystem":"All"
+  }
+  </script>
 </head>
 
 <body>
-<div class="wrap">
-<header>
-<div class="brand"><span class="dot"></span><span>TrueWealthMetrics</span></div>
-<nav class="nav">
-<a class="pill" href="/">Home</a>
-<a class="pill" href="/loan-repayment-calculator/">Loan</a>
-<a class="pill" href="/compound-interest-calculator/">Compound</a>
-<a class="pill" href="/savings-goal-calculator/">Savings</a>
-</nav>
-</header>
+  <div class="wrap">
+    <header>
+      <div class="brand"><span class="dot"></span><span>TrueWealthMetrics</span></div>
+      <nav class="nav">
+        <a class="pill" href="/">Home</a>
+        <a class="pill" href="/loan-repayment-calculator/">Loan</a>
+        <a class="pill" href="/compound-interest-calculator/">Compound</a>
+        <a class="pill" href="/savings-goal-calculator/">Savings</a>
+      </nav>
+    </header>
 
-<h1>Credit Card Payoff Calculator</h1>
-<p style="color:var(--muted)">See how long it takes to clear your balance and how extra payments save interest.</p>
+    <h1>Credit Card Payoff Calculator</h1>
+    <p class="sub">See how long it takes to clear your balance and how extra payments reduce interest.</p>
 
-<div class="grid">
-<div class="card">
-<label>Balance</label>
-<input id="balance" value="5000" inputmode="decimal"/>
+    <section class="grid">
+      <div class="card">
+        <h2 style="margin:0 0 8px;font-size:18px">Inputs</h2>
 
-<label>APR %</label>
-<input id="apr" value="19.9" inputmode="decimal"/>
+        <label for="balance">Balance</label>
+        <input id="balance" value="5000" inputmode="decimal" />
 
-<label>Minimum monthly payment</label>
-<input id="minpay" value="150" inputmode="decimal"/>
+        <label for="apr">APR %</label>
+        <input id="apr" value="19.9" inputmode="decimal" />
 
-<label>Extra monthly payment</label>
-<input id="extra" value="0" inputmode="decimal"/>
+        <label for="minpay">Minimum monthly payment</label>
+        <input id="minpay" value="150" inputmode="decimal" />
 
-<div class="actions">
-<button onclick="calc()">Calculate</button>
-<button onclick="resetVals()">Reset</button>
-</div>
-</div>
+        <label for="extra">Extra monthly payment</label>
+        <input id="extra" value="0" inputmode="decimal" />
 
-<div class="card">
-<div class="kpi"><div class="t">Months to payoff</div><div class="v" id="months">—</div></div>
-<div class="kpi"><div class="t">Total interest</div><div class="v" id="interest">—</div></div>
-<div class="kpi"><div class="t">Interest saved</div><div class="v" id="saved">—</div></div>
-</div>
-</div>
+        <div class="actions">
+          <button id="btnCalc" type="button">Calculate</button>
+          <button id="btnReset" class="secondary" type="button">Reset</button>
+        </div>
 
-<div class="card" style="margin-top:16px">
-<h2>Payment schedule</h2>
-<table>
-<thead><tr><th>Month</th><th>Payment</th><th>Interest</th><th>Balance</th></tr></thead>
-<tbody id="table"></tbody>
-</table>
-</div>
+        <div class="warn" id="warnBox"></div>
+      </div>
 
-<footer>
-<div class="card">© <span id="yr"></span> TrueWealthMetrics — Estimates only.</div>
-</footer>
-</div>
+      <div class="card">
+        <h2 style="margin:0 0 8px;font-size:18px">Results</h2>
+
+        <div class="kpis">
+          <div class="kpi">
+            <div class="t">Months to payoff</div>
+            <div class="v" id="months">—</div>
+            <div class="s">Estimated duration to clear the balance.</div>
+          </div>
+          <div class="kpi">
+            <div class="t">Total interest</div>
+            <div class="v" id="interest">—</div>
+            <div class="s">Interest paid over the payoff period.</div>
+          </div>
+          <div class="kpi">
+            <div class="t">Interest saved</div>
+            <div class="v" id="saved">—</div>
+            <div class="s">Savings from extra monthly payments.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2 style="margin:0 0 8px;font-size:18px">Payment schedule</h2>
+      <p style="margin:0;color:var(--muted)">Shows the first 24 months for readability. If payoff takes longer, the calculation still uses the full schedule.</p>
+      <table aria-label="Credit card payoff schedule">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Payment</th>
+            <th>Interest</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </section>
+
+    <footer>
+      <div class="card">
+        <strong>Disclaimer:</strong> Estimates only. Credit card terms vary by lender.
+        <div style="margin-top:8px">© <span id="yr"></span> TrueWealthMetrics</div>
+      </div>
+    </footer>
+  </div>
 
 <script>
-function fmt(n){return new Intl.NumberFormat(undefined,{style:"currency",currency:"GBP",maximumFractionDigits:2}).format(n)}
-function toNum(v){return Number(v)||0}
+(function(){
+  const $ = (id) => document.getElementById(id);
 
-function simulate(balance,apr,payment){
-let r=apr/100/12,totalInterest=0,month=0,rows=[]
-while(balance>0&&month<600){
-month++
-let interest=balance*r
-balance+=interest
-let pay=Math.min(payment,balance)
-balance-=pay
-totalInterest+=interest
-rows.push({month,pay,interest,balance})
-if(payment<=interest) break
-}
-return{month,totalInterest,rows}
-}
+  const elBalance = $("balance");
+  const elApr = $("apr");
+  const elMin = $("minpay");
+  const elExtra = $("extra");
 
-function calc(){
-let bal=toNum(balance.value)
-let aprv=toNum(apr.value)
-let min=toNum(minpay.value)
-let extra=toNum(extra.value)
+  const elMonths = $("months");
+  const elInterest = $("interest");
+  const elSaved = $("saved");
+  const elTable = $("tableBody");
+  const elWarn = $("warnBox");
 
-let base=simulate(bal,aprv,min)
-let faster=simulate(bal,aprv,min+extra)
+  const fmtGBP = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 2 });
 
-months.textContent=faster.month
-interest.textContent=fmt(faster.totalInterest)
-saved.textContent=fmt(base.totalInterest-faster.totalInterest)
+  function toNum(v){
+    const n = Number(String(v).replace(/,/g,"").trim());
+    return Number.isFinite(n) ? n : 0;
+  }
 
-table.innerHTML=faster.rows.slice(0,24).map(r=>`
-<tr>
-<td>${r.month}</td>
-<td>${fmt(r.pay)}</td>
-<td>${fmt(r.interest)}</td>
-<td>${fmt(r.balance)}</td>
-</tr>`).join("")
-}
+  function simulate(balance, apr, payment){
+    const r = Math.max(0, apr) / 100 / 12;
+    let totalInterest = 0;
+    let month = 0;
+    const rows = [];
+    const maxMonths = 600; // 50 years safety
 
-function resetVals(){
-balance.value=5000;apr.value=19.9;minpay.value=150;extra.value=0;calc()
-}
+    while(balance > 0.005 && month < maxMonths){
+      month += 1;
+      const interest = balance * r;
+      totalInterest += interest;
+      balance += interest;
 
-document.getElementById("yr").textContent=new Date().getFullYear()
-calc()
+      const pay = Math.min(payment, balance);
+      balance -= pay;
+
+      rows.push({ month, pay, interest, balance });
+
+      if (payment <= interest + 0.005){
+        return { month, totalInterest, rows, never: true };
+      }
+    }
+
+    return { month, totalInterest, rows, never: month >= maxMonths };
+  }
+
+  function showWarn(msg){
+    if(!msg){
+      elWarn.style.display = "none";
+      elWarn.textContent = "";
+      return;
+    }
+    elWarn.style.display = "block";
+    elWarn.textContent = msg;
+  }
+
+  function renderTable(rows){
+    const visible = rows.slice(0, 24);
+    if(!visible.length){
+      elTable.innerHTML = `<tr><td colspan="4" style="text-align:left;color:rgba(255,255,255,0.70)">Run a calculation to see results.</td></tr>`;
+      return;
+    }
+    elTable.innerHTML = visible.map(r => `
+      <tr>
+        <td>${r.month}</td>
+        <td>${fmtGBP.format(r.pay)}</td>
+        <td>${fmtGBP.format(r.interest)}</td>
+        <td>${fmtGBP.format(r.balance)}</td>
+      </tr>
+    `).join("");
+  }
+
+  function calc(){
+    const bal = Math.max(0, toNum(elBalance.value));
+    const apr = Math.max(0, toNum(elApr.value));
+    const min = Math.max(0, toNum(elMin.value));
+    const extra = Math.max(0, toNum(elExtra.value));
+    const pay = min + extra;
+
+    showWarn("");
+
+    if(bal <= 0){
+      elMonths.textContent = "0";
+      elInterest.textContent = fmtGBP.format(0);
+      elSaved.textContent = fmtGBP.format(0);
+      renderTable([]);
+      return;
+    }
+
+    if(pay <= 0){
+      showWarn("Your monthly payment must be greater than £0.");
+      elMonths.textContent = "—";
+      elInterest.textContent = "—";
+      elSaved.textContent = "—";
+      renderTable([]);
+      return;
+    }
+
+    const base = simulate(bal, apr, min);
+    const faster = simulate(bal, apr, pay);
+
+    if(faster.never){
+      showWarn("This payment is too low to ever pay off the balance (monthly interest exceeds payment).\nIncrease the payment or reduce the APR.");
+      elMonths.textContent = "Never";
+      elInterest.textContent = "—";
+      elSaved.textContent = "—";
+      renderTable(faster.rows);
+      return;
+    }
+
+    elMonths.textContent = String(faster.month);
+    elInterest.textContent = fmtGBP.format(faster.totalInterest);
+    const saved = Math.max(0, (base.never ? 0 : base.totalInterest) - faster.totalInterest);
+    elSaved.textContent = fmtGBP.format(saved);
+
+    renderTable(faster.rows);
+  }
+
+  function resetVals(){
+    elBalance.value = "5000";
+    elApr.value = "19.9";
+    elMin.value = "150";
+    elExtra.value = "0";
+    showWarn("");
+    calc();
+  }
+
+  $("btnCalc").addEventListener("click", calc);
+  $("btnReset").addEventListener("click", resetVals);
+
+  ["balance","apr","minpay","extra"].forEach(id => {
+    $(id).addEventListener("input", () => {
+      clearTimeout(window.__twm_cc);
+      window.__twm_cc = setTimeout(calc, 150);
+    });
+  });
+
+  $("yr").textContent = new Date().getFullYear();
+  calc();
+})();
 </script>
 </body>
 </html>
