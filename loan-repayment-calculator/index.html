@@ -306,6 +306,32 @@
         ]
       }
     </script>
+  
+    <script type="application/ld+json" id="jsonld-softwareapp">
+      {
+        "@context":"https://schema.org",
+        "@type":"SoftwareApplication",
+        "name":"Loan Repayment Calculator (Amortization + Extra Payments)",
+        "applicationCategory":"FinanceApplication",
+        "operatingSystem":"Web",
+        "url":"https://truewealthmetrics.com/loan-repayment-calculator/",
+        "description":"Free loan repayment calculator with amortization schedule. Calculate monthly payment, total interest, payoff date, and see how extra payments reduce interest.",
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},
+        "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
+      }
+    </script>
+
+    <script type="application/ld+json" id="jsonld-breadcrumbs">
+      {
+        "@context":"https://schema.org",
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
+          {"@type":"ListItem","position":2,"name":"Loan Repayment Calculator","item":"https://truewealthmetrics.com/loan-repayment-calculator/"}
+        ]
+      }
+    </script>
+
   </head>
 
   <body>
@@ -315,12 +341,21 @@
           <span class="dot"></span>
           <span>TrueWealthMetrics</span>
         </div>
+        
         <nav class="nav">
           <a class="pill" href="/">Home</a>
-          <a class="pill" href="/loan-repayment-calculator/">Loan Calculator</a>
-          <a class="pill" href="/compound-interest-calculator/">Compound Interest</a>
-          <a class="pill" href="/savings-goal-calculator/">Savings Goal</a>
+          <a class="pill" href="/loan-repayment-calculator/">Loan</a>
+          <a class="pill" href="/mortgage-payment-calculator/">Mortgage</a>
+          <a class="pill" href="/budget-planner-calculator/">Budget</a>
+          <a class="pill" href="/compound-interest-calculator/">Compound</a>
+          <a class="pill" href="/savings-goal-calculator/">Savings</a>
+          <a class="pill" href="/credit-card-payoff-calculator/">Credit</a>
+          <a class="pill" href="/debt-snowball-avalanche-calculator/">Debt</a>
+          <a class="pill" href="/roi-calculator/">ROI</a>
+          <a class="pill" href="/investment-fee-impact-calculator/">Fees</a>
+          <a class="pill" href="/retirement-planning-calculator/">Retirement</a>
         </nav>
+
       </header>
 
       <section class="hero">
@@ -495,12 +530,41 @@
         </div>
       </section>
 
+      <section class="section" style="margin-top:16px;">
+        <div class="card">
+          <h2>Related calculators</h2>
+          <p>
+            Use these tools together to plan repayments, improve cash flow, and compare long‑term scenarios.
+          </p>
+          <ul>
+            <li><a href="/mortgage-payment-calculator/">Mortgage Payment Calculator</a> — home loan estimates and amortization.</li>
+            <li><a href="/credit-card-payoff-calculator/">Credit Card Payoff Calculator</a> — model revolving debt and extra payments.</li>
+            <li><a href="/debt-snowball-avalanche-calculator/">Debt Snowball vs Avalanche</a> — compare strategies across multiple debts.</li>
+            <li><a href="/budget-planner-calculator/">Budget Planner</a> — set a realistic monthly repayment amount.</li>
+            <li><a href="/savings-goal-calculator/">Savings Goal Calculator</a> — plan savings after debt payoff.</li>
+            <li><a href="/compound-interest-calculator/">Compound Interest Calculator</a> — estimate growth after redirecting freed payments.</li>
+          </ul>
+        </div>
+      </section>
+
+      
       <footer>
         <div class="card">
-          <strong>Disclaimer:</strong> This calculator provides estimates for educational purposes only.
-          <div style="margin-top:8px;">© <span id="yr"></span> TrueWealthMetrics — Powered by A.K Pro Traders</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+            <div>
+              <strong>Disclaimer:</strong> Educational estimates only. Real loan terms and fees vary by lender.
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <a class="pill" href="/about/">About</a>
+              <a class="pill" href="/contact/">Contact</a>
+              <a class="pill" href="/privacy-policy/">Privacy Policy</a>
+              <a class="pill" href="/terms-of-use/">Terms of Use</a>
+            </div>
+          </div>
+          <div style="margin-top:8px;">© <span id="yr"></span> TrueWealthMetrics</div>
         </div>
       </footer>
+
     </div>
 
     <div class="stickyBar" id="stickyBar" aria-label="Sticky results bar">
