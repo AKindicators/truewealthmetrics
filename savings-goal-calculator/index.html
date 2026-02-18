@@ -212,6 +212,57 @@
         }
       }
     </script>
+  
+
+    <script type="application/ld+json" id="jsonld-softwareapp">
+      {
+        "@context":"https://schema.org",
+        "@type":"SoftwareApplication",
+        "name":"Savings Goal Calculator",
+        "applicationCategory":"FinanceApplication",
+        "operatingSystem":"Web",
+        "url":"https://truewealthmetrics.com/savings-goal-calculator/",
+        "description":"Free savings goal calculator. Estimate time to reach a savings target or the required monthly contribution to reach a goal by a deadline. Includes optional interest and year-by-year breakdown.",
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},
+        "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
+      }
+    </script>
+
+    <script type="application/ld+json" id="jsonld-breadcrumbs">
+      {
+        "@context":"https://schema.org",
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
+          {"@type":"ListItem","position":2,"name":"Savings Goal Calculator","item":"https://truewealthmetrics.com/savings-goal-calculator/"}
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json" id="jsonld-faq">
+      {
+        "@context":"https://schema.org",
+        "@type":"FAQPage",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"Should I include interest in my savings goal?",
+            "acceptedAnswer":{"@type":"Answer","text":"If your savings are in an interest-bearing account (cash ISA, high-yield savings), including an estimated rate can improve accuracy. If unsure, use 0% for a conservative plan."}
+          },
+          {
+            "@type":"Question",
+            "name":"Why does the calculator say the goal is not reached?",
+            "acceptedAnswer":{"@type":"Answer","text":"Your monthly contribution may be too low for the target, rate, and time horizon. Increase the monthly amount, extend the horizon, or adjust the interest rate."}
+          },
+          {
+            "@type":"Question",
+            "name":"Are contributions assumed at the start or end of the month?",
+            "acceptedAnswer":{"@type":"Answer","text":"This calculator assumes contributions are made at the end of each month with monthly compounding. Real products may vary slightly."}
+          }
+        ]
+      }
+    </script>
+
   </head>
 
   <body>
@@ -220,8 +271,16 @@
         <div class="brand">TrueWealthMetrics</div>
         <div class="nav">
           <a href="/">Home</a>
-          <a href="/compound-interest-calculator/">Compound Interest</a>
-          <a href="/savings-goal-calculator/">Savings Goal</a>
+          <a href="/loan-repayment-calculator/">Loan</a>
+          <a href="/mortgage-payment-calculator/">Mortgage</a>
+          <a href="/budget-planner-calculator/">Budget</a>
+          <a href="/compound-interest-calculator/">Compound</a>
+          <a href="/savings-goal-calculator/">Savings</a>
+          <a href="/credit-card-payoff-calculator/">Credit</a>
+          <a href="/debt-snowball-avalanche-calculator/">Debt</a>
+          <a href="/roi-calculator/">ROI</a>
+          <a href="/investment-fee-impact-calculator/">Fees</a>
+          <a href="/retirement-planning-calculator/">Retirement</a>
         </div>
       </div>
 
@@ -370,6 +429,55 @@
           </footer>
         </section>
       </div>
+
+      <section class="card" style="margin-top:16px">
+        <h2 style="margin:0 0 10px;font-size:16px">How this calculator works</h2>
+        <p style="margin:0;color:var(--muted);line-height:1.55">
+          We simulate your balance month‑by‑month. Each month we add interest (if any) using your APY estimate, then add your monthly contribution.
+          In “Required Monthly” mode, we solve for the monthly contribution needed to reach your goal by your deadline.
+          Results are educational estimates and may differ from your bank’s compounding method.
+        </p>
+      </section>
+
+      <section class="card" style="margin-top:16px">
+        <h2 style="margin:0 0 10px;font-size:16px">Related calculators</h2>
+        <p style="margin:0;color:var(--muted);line-height:1.55">Use these tools together to plan your cash flow and long‑term goals:</p>
+        <ul style="margin:12px 0 0;padding-left:18px;color:var(--muted);line-height:1.8;font-size:13px">
+          <li><a href="/budget-planner-calculator/"><b>Budget Planner</b></a> — set a realistic monthly savings amount.</li>
+          <li><a href="/compound-interest-calculator/"><b>Compound Interest Calculator</b></a> — model growth over longer horizons with contributions.</li>
+          <li><a href="/roi-calculator/"><b>ROI Calculator</b></a> — estimate returns for an investment plan.</li>
+          <li><a href="/investment-fee-impact-calculator/"><b>Investment Fee Impact</b></a> — compare low‑fee vs high‑fee outcomes over time.</li>
+          <li><a href="/retirement-planning-calculator/"><b>Retirement Planning</b></a> — connect today’s saving habits to long‑term goals.</li>
+        </ul>
+      </section>
+
+      <section class="card" style="margin-top:16px">
+        <h2 style="margin:0 0 10px;font-size:16px">FAQs</h2>
+        <details style="border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);padding:12px 14px;margin:10px 0">
+          <summary style="cursor:pointer;font-weight:700">Should I include interest in my savings goal?</summary>
+          <div style="margin-top:8px;color:var(--muted);line-height:1.55">If your savings earn interest, include an estimated APY. If you’re unsure, use 0% for a conservative plan.</div>
+        </details>
+        <details style="border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);padding:12px 14px;margin:10px 0">
+          <summary style="cursor:pointer;font-weight:700">Why does the calculator say the goal is not reached?</summary>
+          <div style="margin-top:8px;color:var(--muted);line-height:1.55">Your contribution may be too low for the target and horizon. Increase monthly savings, extend the horizon, or adjust the rate.</div>
+        </details>
+        <details style="border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);padding:12px 14px;margin:10px 0">
+          <summary style="cursor:pointer;font-weight:700">Are contributions assumed at the start or end of the month?</summary>
+          <div style="margin-top:8px;color:var(--muted);line-height:1.55">We assume end-of-month contributions with monthly compounding. Real products may vary slightly.</div>
+        </details>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted);font-size:12px;line-height:1.5;border-top:1px solid var(--line);padding-top:14px">
+        <div><b>Disclaimer:</b> Educational estimates only. Not financial advice.</div>
+        <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="pill" href="/about/">About</a>
+          <a class="pill" href="/contact/">Contact</a>
+          <a class="pill" href="/privacy-policy/">Privacy Policy</a>
+          <a class="pill" href="/terms-of-use/">Terms of Use</a>
+        </div>
+        <div style="margin-top:10px">© 2026 TrueWealthMetrics</div>
+      </footer>
+
     </div>
 
     <script>
