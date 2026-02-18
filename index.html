@@ -1,30 +1,185 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>TrueWealthMetrics</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>TrueWealthMetrics — Free Finance Calculators</title>
+    <meta
+      name="description"
+      content="TrueWealthMetrics offers free, fast financial calculators — compound interest, savings goal planning, and more tools coming soon."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://truewealthmetrics.com/" />
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #0b0f19;
-            color: white;
-            text-align: center;
-            padding-top: 80px;
-        }
-        h1 {
-            font-size: 48px;
-            color: #4ade80;
-        }
-        p {
-            font-size: 20px;
-            opacity: 0.8;
-        }
+      :root{
+        --bg:#0b1220;
+        --card:#101a2f;
+        --muted:#9fb0d0;
+        --text:#eaf0ff;
+        --line:rgba(255,255,255,.10);
+        --accent:#38bdf8;
+        --accent2:#34d399;
+      }
+      *{box-sizing:border-box}
+      body{
+        margin:0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        background: radial-gradient(1200px 600px at 20% -10%, rgba(56,189,248,.25), transparent 55%),
+                    radial-gradient(1200px 600px at 80% 0%, rgba(52,211,153,.18), transparent 55%),
+                    var(--bg);
+        color:var(--text);
+      }
+      a{color:inherit;text-decoration:none}
+      .wrap{max-width:1100px;margin:0 auto;padding:20px 16px 56px}
+      .topbar{
+        display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+        padding:12px 14px;
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.04);
+        border-radius:16px;
+      }
+      .brand{
+        font-weight:800;letter-spacing:.2px;font-size:16px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        -webkit-background-clip:text;background-clip:text;color:transparent;
+      }
+      .nav{display:flex;gap:10px;flex-wrap:wrap}
+      .nav a{
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.03);
+        color:var(--muted);
+        padding:9px 10px;border-radius:12px;
+        font-size:13px;
+      }
+      .nav a:hover{border-color:rgba(56,189,248,.45);color:var(--text)}
+      header{margin-top:22px}
+      h1{margin:0;font-size:40px;letter-spacing:.2px}
+      p.lead{margin:10px 0 0;color:var(--muted);max-width:760px;line-height:1.6}
+      .grid{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:16px;
+        margin-top:18px;
+      }
+      @media (max-width:900px){.grid{grid-template-columns:1fr}}
+      .card{
+        border:1px solid var(--line);
+        background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+        border-radius:18px;
+        padding:16px;
+        box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      }
+      .card h2{margin:0 0 8px;font-size:18px}
+      .card p{margin:0;color:var(--muted);line-height:1.55}
+      .cta{
+        display:flex;gap:10px;flex-wrap:wrap;margin-top:12px
+      }
+      .btn{
+        display:inline-block;
+        border:1px solid rgba(56,189,248,.55);
+        background: linear-gradient(90deg, rgba(56,189,248,.22), rgba(52,211,153,.18));
+        padding:11px 12px;border-radius:12px;
+        font-weight:700;font-size:13px;
+      }
+      .btn.secondary{
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.04);
+        color:var(--muted);
+        font-weight:600;
+      }
+      .list{
+        margin:10px 0 0;
+        padding-left:18px;
+        color:var(--muted);
+        line-height:1.65;
+        font-size:13px;
+      }
+      footer{
+        margin-top:20px;
+        color:var(--muted);
+        font-size:12px;
+        line-height:1.6;
+      }
+      .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+      .pill{
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.04);
+        color:var(--muted);
+        padding:8px 10px;border-radius:999px;
+        font-size:12px;
+      }
     </style>
-</head>
-<body>
-    <h1>TrueWealthMetrics</h1>
-    <p>Your financial tools platform is coming soon.</p>
-    <p>Powered by A.K Pro Traders</p>
-</body>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">TrueWealthMetrics</div>
+        <div class="nav">
+          <a href="/">Home</a>
+          <a href="/compound-interest-calculator/">Compound Interest</a>
+          <a href="/savings-goal-calculator/">Savings Goal</a>
+        </div>
+      </div>
+
+      <header>
+        <h1>Free Finance Calculators</h1>
+        <p class="lead">
+          Simple, fast tools to help you plan money decisions with clarity — compound growth, savings targets,
+          and more calculators coming soon.
+        </p>
+        <div class="pillrow">
+          <span class="pill">Mobile-friendly</span>
+          <span class="pill">No signup</span>
+          <span class="pill">Instant results</span>
+        </div>
+      </header>
+
+      <div class="grid">
+        <section class="card">
+          <h2>Compound Interest Calculator</h2>
+          <p>Estimate how your money can grow over time with contributions and compounding.</p>
+          <div class="cta">
+            <a class="btn" href="/compound-interest-calculator/">Open Calculator</a>
+            <a class="btn secondary" href="/savings-goal-calculator/">Try Savings Goal</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Savings Goal Calculator</h2>
+          <p>Calculate how long it takes to reach a target — or the required monthly savings to hit a deadline.</p>
+          <div class="cta">
+            <a class="btn" href="/savings-goal-calculator/">Open Calculator</a>
+            <a class="btn secondary" href="/compound-interest-calculator/">Try Compound</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Coming Next</h2>
+          <p>We’ll add more high-demand tools in this exact same clean style.</p>
+          <ul class="list">
+            <li>Savings Goal Calculator ✅ (done)</li>
+            <li>Investment Fee Impact Calculator</li>
+            <li>Inflation Calculator</li>
+            <li>FIRE / Retirement Calculator</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Powered by A.K Pro Traders</h2>
+          <p>Built for speed, clarity, and real-world planning.</p>
+          <div class="cta">
+            <a class="btn secondary" href="/compound-interest-calculator/">Start with Compound</a>
+            <a class="btn secondary" href="/savings-goal-calculator/">Start with Savings</a>
+          </div>
+        </section>
+      </div>
+
+      <footer>
+        Disclaimer: Educational estimates only. Not financial advice.
+      </footer>
+    </div>
+  </body>
 </html>
