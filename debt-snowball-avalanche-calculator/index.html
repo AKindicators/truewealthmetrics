@@ -148,19 +148,78 @@
     "description":"Compare the debt snowball and debt avalanche methods and estimate payoff time and interest."
   }
   </script>
+
+
+  <script type="application/ld+json" id="jsonld-softwareapp">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Debt Snowball vs Avalanche Calculator",
+    "applicationCategory":"FinanceApplication",
+    "operatingSystem":"Web",
+    "url":"https://truewealthmetrics.com/debt-snowball-avalanche-calculator/",
+    "description":"Compare debt snowball and debt avalanche payoff methods for multiple debts. Estimate payoff time and total interest.",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},
+    "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
+  }
+  </script>
+
+  <script type="application/ld+json" id="jsonld-breadcrumbs">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
+      {"@type":"ListItem","position":2,"name":"Debt Snowball vs Avalanche Calculator","item":"https://truewealthmetrics.com/debt-snowball-avalanche-calculator/"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json" id="jsonld-faq">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"What is the difference between snowball and avalanche?",
+        "acceptedAnswer":{"@type":"Answer","text":"Snowball pays the smallest balance first for quick wins. Avalanche pays the highest APR first to minimize total interest. Both require paying minimums on all debts."}
+      },
+      {
+        "@type":"Question",
+        "name":"What monthly budget should I enter?",
+        "acceptedAnswer":{"@type":"Answer","text":"Enter the total amount you can pay across all debts each month. It should be at least the sum of all minimum payments, otherwise payoff may not finish."}
+      },
+      {
+        "@type":"Question",
+        "name":"Why can payoff never finish?",
+        "acceptedAnswer":{"@type":"Answer","text":"If your total monthly budget is lower than minimum payments or monthly interest grows faster than payments, balances may not reduce. Increase budget, lower APR, or restructure debts."}
+      }
+    ]
+  }
+  </script>
+
 </head>
 
 <body>
   <div class="wrap">
     <header>
       <div class="brand"><span class="dot"></span><span>TrueWealthMetrics</span></div>
+      
       <nav class="nav">
         <a class="pill" href="/">Home</a>
         <a class="pill" href="/loan-repayment-calculator/">Loan</a>
+        <a class="pill" href="/mortgage-payment-calculator/">Mortgage</a>
+        <a class="pill" href="/budget-planner-calculator/">Budget</a>
         <a class="pill" href="/compound-interest-calculator/">Compound</a>
         <a class="pill" href="/savings-goal-calculator/">Savings</a>
-        <a class="pill" href="/credit-card-payoff-calculator/">Credit Card</a>
+        <a class="pill" href="/credit-card-payoff-calculator/">Credit</a>
+        <a class="pill" href="/debt-snowball-avalanche-calculator/">Debt</a>
+        <a class="pill" href="/roi-calculator/">ROI</a>
+        <a class="pill" href="/investment-fee-impact-calculator/">Fees</a>
+        <a class="pill" href="/retirement-planning-calculator/">Retirement</a>
       </nav>
+
     </header>
 
     <h1>Debt Snowball vs Avalanche Calculator</h1>
@@ -267,12 +326,69 @@
       </div>
     </section>
 
+    <section class="card" style="margin-top:16px">
+      <h2 style="margin:0 0 8px;font-size:18px">How this calculator works</h2>
+      <p style="margin:0;color:var(--muted)">
+        We simulate your debts month‑by‑month. Each month we add interest based on APR, pay all minimum payments,
+        then apply any remaining budget to a single “target” debt (smallest balance first for Snowball, highest APR first for Avalanche).
+        Results are estimates and may differ from lender calculations.
+      </p>
+
+      <div style="margin-top:12px;border:1px solid var(--border);background:rgba(0,0,0,.16);border-radius:14px;padding:14px">
+        <div style="font-weight:900;margin-bottom:6px">Quick tips</div>
+        <ul style="margin:0;padding-left:18px;color:var(--muted)">
+          <li>Always pay at least the sum of minimum payments.</li>
+          <li>Avalanche usually saves more interest; Snowball can be easier to stick with.</li>
+          <li>After payoff, redirect the freed payment into savings or investing.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:12px">
+        <details style="border:1px solid var(--border);border-radius:14px;background:rgba(0,0,0,.16);padding:12px 14px;margin:10px 0">
+          <summary style="cursor:pointer;font-weight:900">What is the difference between snowball and avalanche?</summary>
+          <div style="margin-top:8px;color:var(--muted)">Snowball pays the smallest balance first for quick wins. Avalanche pays the highest APR first to minimize total interest.</div>
+        </details>
+        <details style="border:1px solid var(--border);border-radius:14px;background:rgba(0,0,0,.16);padding:12px 14px;margin:10px 0">
+          <summary style="cursor:pointer;font-weight:900">What monthly budget should I enter?</summary>
+          <div style="margin-top:8px;color:var(--muted)">Enter the total you can pay across all debts each month. It must be at least the sum of minimum payments.</div>
+        </details>
+        <details style="border:1px solid var(--border);border-radius:14px;background:rgba(0,0,0,.16);padding:12px 14px;margin:10px 0">
+          <summary style="cursor:pointer;font-weight:900">Why can payoff never finish?</summary>
+          <div style="margin-top:8px;color:var(--muted)">If your budget is too low or interest grows faster than payments, balances may not reduce. Increase budget or lower APR.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2 style="margin:0 0 8px;font-size:18px">Related calculators</h2>
+      <p style="margin:0;color:var(--muted)">Use these tools together to improve cash flow and plan long‑term goals.</p>
+      <ul style="margin:12px 0 0;padding-left:18px;color:var(--muted)">
+        <li><a href="/credit-card-payoff-calculator/">Credit Card Payoff Calculator</a> — model a single card balance and extra payments.</li>
+        <li><a href="/loan-repayment-calculator/">Loan Repayment Calculator</a> — estimate monthly payments and total interest for loans.</li>
+        <li><a href="/budget-planner-calculator/">Budget Planner</a> — set a realistic monthly debt payoff budget.</li>
+        <li><a href="/savings-goal-calculator/">Savings Goal Calculator</a> — plan savings once high‑interest debt is under control.</li>
+        <li><a href="/compound-interest-calculator/">Compound Interest Calculator</a> — estimate growth after redirecting freed payments.</li>
+      </ul>
+    </section>
+
+    
     <footer>
       <div class="card">
-        <strong>Disclaimer:</strong> Estimates only. Always confirm with lender statements and actual APR rules.
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+          <div>
+            <strong>Disclaimer:</strong> Educational estimates only. Always confirm with lender statements and actual APR rules.
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="pill" href="/about/">About</a>
+            <a class="pill" href="/contact/">Contact</a>
+            <a class="pill" href="/privacy-policy/">Privacy Policy</a>
+            <a class="pill" href="/terms-of-use/">Terms of Use</a>
+          </div>
+        </div>
         <div style="margin-top:8px">© <span id="yr"></span> TrueWealthMetrics</div>
       </div>
     </footer>
+
   </div>
 
   <div class="stickyBar" aria-label="Sticky results bar">
