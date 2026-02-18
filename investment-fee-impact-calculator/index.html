@@ -57,6 +57,17 @@
       }
       .nav a:hover{border-color:rgba(56,217,138,.45);color:var(--text)}
 
+
+      .navlink{
+        border:1px solid var(--border);
+        background:rgba(255,255,255,.03);
+        color:var(--muted);
+        padding:8px 10px;border-radius:999px;
+        font-size:12px;
+      }
+      .navlink:hover{border-color:rgba(56,217,138,.45);color:var(--text)}
+
+
       header{margin-top:22px}
       h1{margin:0;font-size:44px;letter-spacing:.2px}
       .sub{margin:10px 0 0;color:var(--muted);max-width:860px;line-height:1.6}
@@ -182,6 +193,56 @@
       }
       .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
     </style>
+  
+    <script type="application/ld+json" id="jsonld-softwareapp">
+    {
+      "@context":"https://schema.org",
+      "@type":"SoftwareApplication",
+      "name":"Investment Fee Impact Calculator",
+      "applicationCategory":"FinanceApplication",
+      "operatingSystem":"Web",
+      "url":"https://truewealthmetrics.com/investment-fee-impact-calculator/",
+      "description":"Free investment fee impact calculator to compare no-fee vs fee portfolio growth and estimate fee cost over time.",
+      "offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},
+      "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
+    }
+    </script>
+
+    <script type="application/ld+json" id="jsonld-breadcrumbs">
+    {
+      "@context":"https://schema.org",
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
+        {"@type":"ListItem","position":2,"name":"Investment Fee Impact Calculator","item":"https://truewealthmetrics.com/investment-fee-impact-calculator/"}
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json" id="jsonld-faq">
+    {
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+        {
+          "@type":"Question",
+          "name":"What fee should I enter?",
+          "acceptedAnswer":{"@type":"Answer","text":"Enter your all-in annual fee (expense ratio + platform/advice fees if applicable). Many diversified funds range around 0.20%–1.50%, but it varies by provider."}
+        },
+        {
+          "@type":"Question",
+          "name":"How are fees modeled in this calculator?",
+          "acceptedAnswer":{"@type":"Answer","text":"This tool estimates fee impact by reducing the gross return by the annual fee rate (approximation). Real-world fee timing and pricing can differ."}
+        },
+        {
+          "@type":"Question",
+          "name":"Does inflation affect the results?",
+          "acceptedAnswer":{"@type":"Answer","text":"Inflation is optional. If added, the calculator also shows an inflation-adjusted ending value to estimate purchasing power in today’s money."}
+        }
+      ]
+    }
+    </script>
+
   </head>
 
   <body>
@@ -198,6 +259,7 @@
           <a href="/credit-card-payoff-calculator/">Credit</a>
           <a href="/debt-snowball-avalanche-calculator/">Debt</a>
           <a href="/roi-calculator/">ROI</a>
+          <a href="/investment-fee-impact-calculator/">Fees</a>
           <a href="/retirement-planning-calculator/">Retirement</a>
         </div>
       </div>
@@ -352,9 +414,46 @@
         </section>
       </div>
 
+      <section class="card" style="margin-top:16px">
+        <h2 style="margin:0 0 8px;font-size:16px">How this calculator works</h2>
+        <p class="muted" style="margin:0">
+          We simulate your portfolio period‑by‑period. The “no‑fee” path compounds at the full expected return.
+          The “with‑fee” path applies an after‑fee return estimate, so you can see how fees compound against you over time.
+          Results are educational estimates and may differ from provider fee calculations.
+        </p>
+
+        <div class="note" style="margin-top:12px">
+          <b>Quick tip:</b> Fees reduce both your growth and your future growth on that growth. Over long horizons, a small fee difference can produce a large gap.
+        </div>
+      </section>
+
+      <section class="card" style="margin-top:16px">
+        <h2 style="margin:0 0 8px;font-size:16px">Related calculators</h2>
+        <p class="muted" style="margin:0">Use these tools together for better investing and planning decisions:</p>
+        <ul class="muted" style="margin:12px 0 0;padding-left:18px;line-height:1.8">
+          <li><a href="/compound-interest-calculator/"><b>Compound Interest Calculator</b></a> — model long‑term growth with monthly contributions.</li>
+          <li><a href="/roi-calculator/"><b>ROI Calculator</b></a> — estimate profit, ROI %, and CAGR for a single investment.</li>
+          <li><a href="/retirement-planning-calculator/"><b>Retirement Planning Calculator</b></a> — project retirement savings over time.</li>
+          <li><a href="/savings-goal-calculator/"><b>Savings Goal Calculator</b></a> — find the monthly savings needed to reach a target.</li>
+          <li><a href="/budget-planner-calculator/"><b>Budget Planner</b></a> — set a realistic contribution amount based on cash flow.</li>
+        </ul>
+      </section>
+
+      
       <footer>
-        Disclaimer: Educational estimates only. Real investing involves risk, fees, taxes, and market volatility. This tool does not provide financial advice.
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+          <div>
+            Disclaimer: Educational estimates only. Real investing involves risk, fees, taxes, and market volatility. This tool does not provide financial advice.
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="navlink" href="/about/">About</a>
+            <a class="navlink" href="/contact/">Contact</a>
+            <a class="navlink" href="/privacy-policy/">Privacy Policy</a>
+            <a class="navlink" href="/terms-of-use/">Terms of Use</a>
+          </div>
+        </div>
       </footer>
+
     </div>
 
     <script>
