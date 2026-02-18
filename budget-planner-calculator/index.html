@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Monthly Budget Planner Calculator | TrueWealthMetrics</title>
+  <meta name="description" content="Free monthly budget planner. Enter your income, fixed & variable expenses, and savings goals to see leftover cash, budget breakdown, and recommended savings targets." />
+  <link rel="canonical" href="https://truewealthmetrics.com/budget-planner-calculator/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b1220" />
+
+  <style>
+    :root{
+      --bg:#070b14;
+      --card:rgba(255,255,255,.06);
+      --border:rgba(255,255,255,.10);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --accent:#38d98a;
+      --warn:#ffcc66;
+      --bad:#ff6b6b;
+      --good:#38d98a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 30% 10%, rgba(56,217,138,.14), transparent 60%),
+        radial-gradient(900px 520px at 80% 0%, rgba(56,217,138,.08), transparent 60%),
+        var(--bg);
+    }
+    .wrap{max-width:1180px;margin:0 auto;padding:28px 18px 120px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:18px}
+    .brand{font-weight:800;display:flex;gap:10px;align-items:center}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 20px rgba(56,217,138,.55)}
+    nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .pill{
+      border:1px solid var(--border);
+      padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,.04);
+      color:var(--text);text-decoration:none;font-size:13px
+    }
+    .pill:hover{border-color:rgba(56,217,138,.45)}
+    h1{margin:18px 0 6px;font-size:44px;letter-spacing:-.02em}
+    .sub{margin:0 0 18px;color:var(--muted);max-width:900px;line-height:1.5}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media (max-width: 980px){.grid{grid-template-columns:1fr}}
+    .card{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      border-radius:20px;
+      padding:18px;
+      box-shadow:0 18px 60px rgba(0,0,0,.35);
+    }
+    .card h2{margin:0 0 10px;font-size:18px}
+    label{display:block;font-size:13px;color:var(--muted);margin:12px 0 6px}
+    input, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.28);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus, select:focus{border-color:rgba(56,217,138,.55)}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width: 520px){.row{grid-template-columns:1fr}}
+    .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    button{
+      cursor:pointer;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      padding:11px 14px;
+      font-weight:700;
+    }
+    button.primary{background:rgba(56,217,138,.18);border-color:rgba(56,217,138,.40)}
+    button:hover{border-color:rgba(56,217,138,.55)}
+    .kpiGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+    @media (max-width: 520px){.kpiGrid{grid-template-columns:1fr}}
+    .kpi{
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.20);
+      border-radius:16px;
+      padding:14px;
+    }
+    .kpi .t{font-size:12px;color:var(--muted)}
+    .kpi .v{font-size:28px;font-weight:800;margin-top:6px}
+    .kpi .h{font-size:12px;color:var(--muted);margin-top:6px}
+    .barWrap{margin-top:14px;border:1px solid var(--border);border-radius:16px;padding:12px;background:rgba(0,0,0,.18)}
+    .barLabel{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:8px}
+    .bar{
+      height:14px;border-radius:999px;
+      background:rgba(255,255,255,.06);
+      overflow:hidden;border:1px solid rgba(255,255,255,.08)
+    }
+    .bar > div{height:100%;width:0%;background:linear-gradient(90deg, rgba(56,217,138,.90), rgba(56,217,138,.40))}
+    .bar.bad > div{background:linear-gradient(90deg, rgba(255,107,107,.95), rgba(255,107,107,.35))}
+    .note{
+      margin-top:12px;
+      border-left:3px solid rgba(56,217,138,.55);
+      padding:10px 12px;
+      color:var(--muted);
+      background:rgba(255,255,255,.03);
+      border-radius:12px;
+      line-height:1.45;
+      font-size:13px;
+    }
+    table{width:100%;border-collapse:separate;border-spacing:0;margin-top:12px;overflow:hidden;border-radius:16px;border:1px solid var(--border)}
+    th,td{padding:10px 10px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08);font-size:13px}
+    th{color:var(--muted);font-weight:700;background:rgba(255,255,255,.04)}
+    tr:last-child td{border-bottom:none}
+    .tag{
+      display:inline-flex;gap:8px;align-items:center;
+      font-size:12px;color:var(--muted);
+      border:1px solid rgba(255,255,255,.10);
+      padding:8px 10px;border-radius:999px;background:rgba(0,0,0,.18);
+      margin-top:10px
+    }
+    .faq details{border:1px solid var(--border);border-radius:16px;background:rgba(0,0,0,.18);padding:12px 14px;margin:10px 0}
+    .faq summary{cursor:pointer;font-weight:800}
+    footer{margin-top:18px;border:1px solid var(--border);border-radius:20px;padding:14px;color:var(--muted);background:rgba(0,0,0,.18)}
+    .small{font-size:12px;color:var(--muted)}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Monthly Budget Planner Calculator",
+    "applicationCategory":"FinanceApplication",
+    "operatingSystem":"Web",
+    "url":"https://truewealthmetrics.com/budget-planner-calculator/",
+    "description":"Monthly budget planner to break down income, expenses, and savings goals."
+  }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand"><span class="dot"></span> TrueWealthMetrics</div>
+      <nav>
+        <a class="pill" href="/">Home</a>
+        <a class="pill" href="/loan-repayment-calculator/">Loan</a>
+        <a class="pill" href="/compound-interest-calculator/">Compound</a>
+        <a class="pill" href="/savings-goal-calculator/">Savings</a>
+        <a class="pill" href="/credit-card-payoff-calculator/">Credit</a>
+        <a class="pill" href="/debt-snowball-avalanche-calculator/">Debt</a>
+        <a class="pill" href="/retirement-planning-calculator/">Retirement</a>
+      </nav>
+    </header>
+
+    <h1>Monthly Budget Planner</h1>
+    <p class="sub">
+      Enter your monthly income and expenses to see your <b>leftover cash</b>, savings progress, and where your money goes.
+      This is an educational estimate (not financial advice).
+    </p>
+
+    <div class="grid">
+      <!-- Inputs -->
+      <section class="card">
+        <h2>Inputs</h2>
+
+        <label>Monthly net income (£)</label>
+        <input id="income" type="number" min="0" step="1" value="3000" />
+
+        <div class="row">
+          <div>
+            <label>Housing (rent/mortgage) (£)</label>
+            <input id="housing" type="number" min="0" step="1" value="1100" />
+          </div>
+          <div>
+            <label>Utilities (gas/electric/water) (£)</label>
+            <input id="utilities" type="number" min="0" step="1" value="180" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Transport (£)</label>
+            <input id="transport" type="number" min="0" step="1" value="200" />
+          </div>
+          <div>
+            <label>Groceries (£)</label>
+            <input id="groceries" type="number" min="0" step="1" value="350" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Insurance (£)</label>
+            <input id="insurance" type="number" min="0" step="1" value="120" />
+          </div>
+          <div>
+            <label>Subscriptions (£)</label>
+            <input id="subscriptions" type="number" min="0" step="1" value="45" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Debt payments (min) (£)</label>
+            <input id="debt" type="number" min="0" step="1" value="150" />
+          </div>
+          <div>
+            <label>Other fixed bills (£)</label>
+            <input id="otherFixed" type="number" min="0" step="1" value="80" />
+          </div>
+        </div>
+
+        <label>Variable spending (eating out, shopping, fun) (£)</label>
+        <input id="variable" type="number" min="0" step="1" value="300" />
+
+        <div class="row">
+          <div>
+            <label>Savings goal (% of income)</label>
+            <input id="savingsPct" type="number" min="0" max="80" step="0.5" value="20" />
+          </div>
+          <div>
+            <label>Emergency fund target (months)</label>
+            <input id="emergencyMonths" type="number" min="0" max="24" step="1" value="3" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="btnCalc">Calculate</button>
+          <button id="btnReset">Reset</button>
+        </div>
+
+        <div class="note">
+          Tip: A simple starting point is <b>50/30/20</b> — needs, wants, savings/debt. Your numbers below will show if you’re close.
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="card">
+        <h2>Results</h2>
+        <div class="small">Updated instantly when you click Calculate.</div>
+
+        <div class="kpiGrid">
+          <div class="kpi">
+            <div class="t">Total expenses</div>
+            <div class="v" id="totalExpenses">—</div>
+            <div class="h">Fixed + variable costs</div>
+          </div>
+          <div class="kpi">
+            <div class="t">Leftover cash</div>
+            <div class="v" id="leftover">—</div>
+            <div class="h">Income − expenses</div>
+          </div>
+          <div class="kpi">
+            <div class="t">Savings target</div>
+            <div class="v" id="savingsTarget">—</div>
+            <div class="h">Based on your % goal</div>
+          </div>
+          <div class="kpi">
+            <div class="t">Emergency fund target</div>
+            <div class="v" id="emergencyTarget">—</div>
+            <div class="h">Months × essential spending</div>
+          </div>
+        </div>
+
+        <div class="barWrap">
+          <div class="barLabel"><span>Budget health</span><span id="healthLabel" class="mono">—</span></div>
+          <div class="bar" id="healthBar"><div id="healthFill"></div></div>
+          <div class="note" id="healthNote">Enter values and click Calculate.</div>
+        </div>
+
+        <span class="tag" id="ruleTag">—</span>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>£ / month</th>
+              <th>% of income</th>
+            </tr>
+          </thead>
+          <tbody id="breakdownBody"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:16px">
+      <h2>How this calculator works</h2>
+      <div class="note">
+        We group your spending into <b>Needs</b> (housing, utilities, groceries, transport, insurance, other fixed),
+        <b>Debt minimums</b>, and <b>Wants</b> (variable + subscriptions).
+        Your savings target is calculated from income × savings %.
+      </div>
+
+      <div class="faq" style="margin-top:10px">
+        <details>
+          <summary>Why use net (take-home) income?</summary>
+          <div class="note">It makes the budget realistic. If you use gross income, taxes can make you think you have more money than you really do.</div>
+        </details>
+        <details>
+          <summary>What is a good savings %?</summary>
+          <div class="note">Many people aim for 10–20%. If you have high-interest debt, prioritize that while still saving something small for consistency.</div>
+        </details>
+        <details>
+          <summary>How is the emergency fund target calculated?</summary>
+          <div class="note">We estimate essential spending as (needs + debt minimums). Emergency target = essential spending × months.</div>
+        </details>
+      </div>
+    </section>
+
+    <footer>
+      <div class="small"><b>Disclaimer:</b> Educational estimates only. Real budgets vary by household and region.</div>
+      <div class="small">© 2026 TrueWealthMetrics</div>
+    </footer>
+  </div>
+
+<script>
+(function(){
+  const el = (id)=>document.getElementById(id);
+
+  const money = (n)=>{
+    if(!isFinite(n)) return "—";
+    return new Intl.NumberFormat(undefined,{style:"currency",currency:"GBP"}).format(n);
+  };
+  const pct = (n)=>{
+    if(!isFinite(n)) return "—";
+    return (Math.round(n*10)/10).toFixed(1) + "%";
+  };
+  const num = (id)=>{
+    const v = parseFloat(el(id).value);
+    return isFinite(v) ? Math.max(0,v) : 0;
+  };
+
+  const defaults = {
+    income:3000, housing:1100, utilities:180, transport:200, groceries:350,
+    insurance:120, subscriptions:45, debt:150, otherFixed:80, variable:300,
+    savingsPct:20, emergencyMonths:3
+  };
+
+  function calc(){
+    const income = num("income");
+
+    const housing = num("housing");
+    const utilities = num("utilities");
+    const transport = num("transport");
+    const groceries = num("groceries");
+    const insurance = num("insurance");
+    const subscriptions = num("subscriptions");
+    const debt = num("debt");
+    const otherFixed = num("otherFixed");
+    const variable = num("variable");
+
+    const savingsPct = Math.min(80, num("savingsPct"));
+    const emergencyMonths = Math.min(24, num("emergencyMonths"));
+
+    const needs = housing + utilities + transport + groceries + insurance + otherFixed;
+    const wants = variable + subscriptions;
+    const debtMin = debt;
+
+    const totalExpenses = needs + wants + debtMin;
+    const leftover = income - totalExpenses;
+
+    const savingsTarget = income * (savingsPct/100);
+    const essentials = needs + debtMin; // for emergency fund
+    const emergencyTarget = essentials * emergencyMonths;
+
+    el("totalExpenses").textContent = money(totalExpenses);
+    el("leftover").textContent = money(leftover);
+    el("savingsTarget").textContent = money(savingsTarget);
+    el("emergencyTarget").textContent = money(emergencyTarget);
+
+    // breakdown table
+    const rows = [
+      ["Needs (housing, food, bills)", needs],
+      ["Debt minimums", debtMin],
+      ["Wants (variable + subs)", wants],
+      ["Total expenses", totalExpenses],
+      ["Leftover cash", leftover]
+    ];
+
+    const tbody = el("breakdownBody");
+    tbody.innerHTML = "";
+    rows.forEach(([name, val])=>{
+      const tr = document.createElement("tr");
+      const p = income>0 ? (val/income)*100 : NaN;
+      tr.innerHTML = `<td>${name}</td><td>${money(val)}</td><td>${pct(p)}</td>`;
+      tbody.appendChild(tr);
+    });
+
+    // 50/30/20 comparison tag
+    const needsPct = income>0 ? (needs/income)*100 : 0;
+    const wantsPct = income>0 ? (wants/income)*100 : 0;
+    const saveDebtPct = income>0 ? ((debtMin + Math.max(0, leftover))/income)*100 : 0;
+
+    el("ruleTag").textContent =
+      `Your split: Needs ${pct(needsPct)} • Wants ${pct(wantsPct)} • Leftover+Debt ${pct(saveDebtPct)} (50/30/20 reference)`;
+
+    // Health scoring (simple + transparent)
+    // Score 0-100 based on: leftover positivity, savings target feasibility, needs ratio
+    let score = 100;
+
+    if(income <= 0){ score = 0; }
+    if(leftover < 0){ score -= Math.min(70, Math.abs(leftover)/Math.max(1,income)*200); }
+    // if leftover is less than savings target, reduce score
+    const short = savingsTarget - Math.max(0,leftover);
+    if(short > 0){ score -= Math.min(40, short/Math.max(1,income)*200); }
+    // needs too high
+    if(needsPct > 60){ score -= Math.min(25, (needsPct-60)*1.2); }
+    score = Math.max(0, Math.min(100, Math.round(score)));
+
+    const fill = el("healthFill");
+    const bar = el("healthBar");
+    fill.style.width = score + "%";
+    bar.classList.toggle("bad", score < 55);
+
+    el("healthLabel").textContent = score + "/100";
+
+    const note = el("healthNote");
+    if(income <= 0){
+      note.textContent = "Add your monthly net income to calculate a budget health score.";
+    } else if(leftover < 0){
+      note.innerHTML = `Your expenses exceed your income by <b>${money(Math.abs(leftover))}</b>. Reduce categories or increase income to avoid debt growth.`;
+    } else if(leftover >= savingsTarget){
+      note.innerHTML = `You can hit your savings goal. Leftover after expenses is <b>${money(leftover)}</b> and your target is <b>${money(savingsTarget)}</b>.`;
+    } else {
+      note.innerHTML = `You're close. Leftover is <b>${money(leftover)}</b> but your savings target is <b>${money(savingsTarget)}</b>. Reduce wants or increase income.`;
+    }
+  }
+
+  function reset(){
+    Object.keys(defaults).forEach(k=>{ el(k).value = defaults[k]; });
+    calc();
+  }
+
+  el("btnCalc").addEventListener("click", calc);
+  el("btnReset").addEventListener("click", reset);
+
+  // compute once on load
+  calc();
+})();
+</script>
+</body>
+</html>
