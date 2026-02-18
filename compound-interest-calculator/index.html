@@ -9,6 +9,7 @@
       name="description"
       content="Free compound interest calculator with monthly contributions. See final balance, total contributions, interest earned, and a year-by-year growth table."
     />
+    <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://truewealthmetrics.com/compound-interest-calculator/" />
 
     <meta property="og:title" content="Compound Interest Calculator | TrueWealthMetrics" />
@@ -325,6 +326,7 @@
         <nav class="nav">
           <a class="pill" href="/">Home</a>
           <a class="pill" href="/compound-interest-calculator/">Compound Interest</a>
+          <a class="pill" href="/savings-goal-calculator/">Savings Goal</a>
         </nav>
       </header>
 
@@ -517,7 +519,6 @@
       </footer>
     </div>
 
-    <!-- Sticky mobile conversion bar -->
     <div class="stickyBar" id="stickyBar" aria-label="Sticky results bar">
       <div class="stickyInner">
         <div class="stickyMini">
@@ -539,10 +540,6 @@
         return Number.isFinite(n) ? n : 0;
       }
 
-      // Real compounding support:
-      // Given nominal annual rate r and compounding n times/year,
-      // monthly growth factor = (1 + r/n)^(n/12)
-      // monthly rate = factor - 1
       function monthlyRateFromNominal(annualRatePercent, compoundsPerYear) {
         const r = Math.max(0, annualRatePercent) / 100;
         const n = Math.max(1, Number(compoundsPerYear) || 12);
@@ -550,7 +547,6 @@
         return factor - 1;
       }
 
-      // Month-by-month simulation (supports contributions + table)
       function compoundWithContrib({ principal, monthly, annualRate, years, compoundsPerYear }) {
         const totalMonths = Math.max(0, Math.round(years * 12));
         const mRate = monthlyRateFromNominal(annualRate, compoundsPerYear);
@@ -560,11 +556,8 @@
         const rows = [];
 
         for (let m = 1; m <= totalMonths; m++) {
-          // Contribution at start of month (feels better for users; common savings assumption)
           balance += Math.max(0, monthly);
           contrib += Math.max(0, monthly);
-
-          // Growth over month
           balance = balance * (1 + mRate);
 
           if (m % 12 === 0) {
@@ -645,7 +638,6 @@
         document.getElementById("interestEarned").textContent = fmtGBP.format(res.interestEarned);
         document.getElementById("realFinal").textContent = realFinal ? fmtGBP.format(realFinal) : "—";
 
-        // sticky bar value
         document.getElementById("stickyFinal").textContent = fmtGBP.format(res.finalBalance);
 
         const summary = `With £${principal.toLocaleString()} starting and £${monthly.toLocaleString()}/month for ${years} years at ${rate}%,
@@ -658,8 +650,6 @@ you could end with ${fmtGBP.format(res.finalBalance)} (interest earned: ${fmtGBP
       document.getElementById("btnCalc").addEventListener("click", (e) => {
         e.preventDefault();
         calculate();
-
-        // On mobile: pull attention to Results (conversion)
         if (window.matchMedia("(max-width: 980px)").matches) {
           document.getElementById("resultsCard").scrollIntoView({ behavior: "smooth", block: "start" });
         }
@@ -684,12 +674,10 @@ you could end with ${fmtGBP.format(res.finalBalance)} (interest earned: ${fmtGBP
         }
       });
 
-      // auto-calc on input changes (nice UX)
       ["principal","monthly","rate","years","compound","inflation"].forEach(id => {
         document.getElementById(id).addEventListener("input", () => {
           clearTimeout(window.__twcT);
           window.__twcT = setTimeout(() => {
-            // If user edits inputs, keep table in compact mode on mobile (better UX)
             __showFullTable = false;
             calculate();
           }, 150);
@@ -697,7 +685,6 @@ you could end with ${fmtGBP.format(res.finalBalance)} (interest earned: ${fmtGBP
       });
 
       window.addEventListener("resize", () => {
-        // Re-render table on breakpoint change
         renderTable(__allRows);
       });
 
