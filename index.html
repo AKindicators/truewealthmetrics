@@ -7,7 +7,7 @@
     <title>TrueWealthMetrics — Free Finance Calculators</title>
     <meta
       name="description"
-      content="TrueWealthMetrics offers free, fast financial calculators — compound interest, savings goal planning, and more tools coming soon."
+      content="Free, fast finance calculators: compound interest, savings goals, ROI, loans, mortgages, budget planner, debt payoff tools, and retirement planning."
     />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://truewealthmetrics.com/" />
@@ -56,7 +56,15 @@
       .nav a:hover{border-color:rgba(56,189,248,.45);color:var(--text)}
       header{margin-top:22px}
       h1{margin:0;font-size:40px;letter-spacing:.2px}
-      p.lead{margin:10px 0 0;color:var(--muted);max-width:760px;line-height:1.6}
+      p.lead{margin:10px 0 0;color:var(--muted);max-width:820px;line-height:1.6}
+      .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+      .pill{
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.04);
+        color:var(--muted);
+        padding:8px 10px;border-radius:999px;
+        font-size:12px;
+      }
       .grid{
         display:grid;
         grid-template-columns: 1fr 1fr;
@@ -101,13 +109,12 @@
         color:var(--muted);
         font-size:12px;
         line-height:1.6;
+        border-top:1px solid var(--line);
+        padding-top:14px;
       }
-      .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-      .pill{
-        border:1px solid var(--line);
-        background:rgba(255,255,255,.04);
+      .mini{
+        margin-top:8px;
         color:var(--muted);
-        padding:8px 10px;border-radius:999px;
         font-size:12px;
       }
     </style>
@@ -119,61 +126,124 @@
         <div class="brand">TrueWealthMetrics</div>
         <div class="nav">
           <a href="/">Home</a>
-          <a href="/compound-interest-calculator/">Compound Interest</a>
-          <a href="/savings-goal-calculator/">Savings Goal</a>
+          <a href="/loan-repayment-calculator/">Loan</a>
+          <a href="/mortgage-payment-calculator/">Mortgage</a>
+          <a href="/budget-planner-calculator/">Budget</a>
+          <a href="/compound-interest-calculator/">Compound</a>
+          <a href="/savings-goal-calculator/">Savings</a>
+          <a href="/credit-card-payoff-calculator/">Credit</a>
+          <a href="/debt-snowball-avalanche-calculator/">Debt</a>
+          <a href="/roi-calculator/">ROI</a>
+          <a href="/retirement-planning-calculator/">Retirement</a>
         </div>
       </div>
 
       <header>
         <h1>Free Finance Calculators</h1>
         <p class="lead">
-          Simple, fast tools to help you plan money decisions with clarity — compound growth, savings targets,
-          and more calculators coming soon.
+          Clean, fast tools to help you plan money decisions with clarity — budgeting, debt payoff, investment growth,
+          mortgages, and retirement projections. No signup. Instant results.
         </p>
         <div class="pillrow">
           <span class="pill">Mobile-friendly</span>
           <span class="pill">No signup</span>
           <span class="pill">Instant results</span>
+          <span class="pill">Educational estimates</span>
         </div>
       </header>
 
       <div class="grid">
         <section class="card">
-          <h2>Compound Interest Calculator</h2>
-          <p>Estimate how your money can grow over time with contributions and compounding.</p>
+          <h2>Budget Planner (Monthly)</h2>
+          <p>Enter income + expenses to see total spending, leftover cash, savings target, and budget health.</p>
           <div class="cta">
-            <a class="btn" href="/compound-interest-calculator/">Open Calculator</a>
-            <a class="btn secondary" href="/savings-goal-calculator/">Try Savings Goal</a>
+            <a class="btn" href="/budget-planner-calculator/">Open Budget Planner</a>
+            <a class="btn secondary" href="/savings-goal-calculator/">Savings Goal</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Compound Interest Calculator</h2>
+          <p>Estimate long-term growth with monthly contributions and compounding. Great for savings + investing.</p>
+          <div class="cta">
+            <a class="btn" href="/compound-interest-calculator/">Open Compound</a>
+            <a class="btn secondary" href="/roi-calculator/">ROI Calculator</a>
           </div>
         </section>
 
         <section class="card">
           <h2>Savings Goal Calculator</h2>
-          <p>Calculate how long it takes to reach a target — or the required monthly savings to hit a deadline.</p>
+          <p>Find the monthly savings needed to reach a target — or how long your goal will take.</p>
           <div class="cta">
-            <a class="btn" href="/savings-goal-calculator/">Open Calculator</a>
+            <a class="btn" href="/savings-goal-calculator/">Open Savings Goal</a>
+            <a class="btn secondary" href="/budget-planner-calculator/">Budget Planner</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>ROI Calculator</h2>
+          <p>Estimate ending value, profit, ROI %, and CAGR. Includes optional fees and inflation-adjusted view.</p>
+          <div class="cta">
+            <a class="btn" href="/roi-calculator/">Open ROI Calculator</a>
             <a class="btn secondary" href="/compound-interest-calculator/">Try Compound</a>
           </div>
         </section>
 
         <section class="card">
-          <h2>Coming Next</h2>
-          <p>We’ll add more high-demand tools in this exact same clean style.</p>
-          <ul class="list">
-            <li>Savings Goal Calculator ✅ (done)</li>
-            <li>Investment Fee Impact Calculator</li>
-            <li>Inflation Calculator</li>
-            <li>FIRE / Retirement Calculator</li>
-          </ul>
+          <h2>Loan Repayment Calculator</h2>
+          <p>Calculate monthly repayments, total interest, and payoff timeline for personal loans.</p>
+          <div class="cta">
+            <a class="btn" href="/loan-repayment-calculator/">Open Loan Calculator</a>
+            <a class="btn secondary" href="/credit-card-payoff-calculator/">Credit Card Payoff</a>
+          </div>
         </section>
 
         <section class="card">
-          <h2>Powered by A.K Pro Traders</h2>
-          <p>Built for speed, clarity, and real-world planning.</p>
+          <h2>Mortgage Payment Calculator</h2>
+          <p>Advanced mortgage calculator with amortization schedule and extra payments (overpayments) impact.</p>
           <div class="cta">
-            <a class="btn secondary" href="/compound-interest-calculator/">Start with Compound</a>
-            <a class="btn secondary" href="/savings-goal-calculator/">Start with Savings</a>
+            <a class="btn" href="/mortgage-payment-calculator/">Open Mortgage</a>
+            <a class="btn secondary" href="/budget-planner-calculator/">Budget Planner</a>
           </div>
+        </section>
+
+        <section class="card">
+          <h2>Credit Card Payoff Calculator</h2>
+          <p>See payoff time, interest cost, and the impact of higher monthly payments.</p>
+          <div class="cta">
+            <a class="btn" href="/credit-card-payoff-calculator/">Open Credit Payoff</a>
+            <a class="btn secondary" href="/debt-snowball-avalanche-calculator/">Debt Snowball/Avalanche</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Debt Snowball vs Avalanche</h2>
+          <p>Compare payoff strategies to become debt-free faster and reduce total interest.</p>
+          <div class="cta">
+            <a class="btn" href="/debt-snowball-avalanche-calculator/">Open Debt Strategy</a>
+            <a class="btn secondary" href="/credit-card-payoff-calculator/">Credit Payoff</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Retirement Planning Calculator</h2>
+          <p>Estimate future retirement savings with contributions, growth rate, and time horizon.</p>
+          <div class="cta">
+            <a class="btn" href="/retirement-planning-calculator/">Open Retirement Planner</a>
+            <a class="btn secondary" href="/roi-calculator/">ROI Calculator</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Coming Next</h2>
+          <p>Next high-demand tools (same clean style):</p>
+          <ul class="list">
+            <li>Investment Fee Impact Calculator</li>
+            <li>Inflation Calculator</li>
+            <li>FIRE / Retirement Early Calculator</li>
+            <li>Net Worth Tracker (simple)</li>
+          </ul>
+          <div class="mini">Tip: These will unlock more SEO traffic clusters.</div>
         </section>
       </div>
 
