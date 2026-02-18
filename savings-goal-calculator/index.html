@@ -33,21 +33,46 @@
                     var(--bg);
         color:var(--text);
       }
-      a{color:inherit}
-      .wrap{max-width:1100px;margin:0 auto;padding:28px 16px 56px}
+      a{color:inherit;text-decoration:none}
+      .wrap{max-width:1100px;margin:0 auto;padding:20px 16px 56px}
+
+      /* Top nav */
+      .topbar{
+        display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+        padding:12px 14px;
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.04);
+        border-radius:16px;
+      }
+      .brand{
+        font-weight:800;letter-spacing:.2px;font-size:16px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        -webkit-background-clip:text;background-clip:text;color:transparent;
+      }
+      .nav{display:flex;gap:10px;flex-wrap:wrap}
+      .nav a{
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.03);
+        color:var(--muted);
+        padding:9px 10px;border-radius:12px;
+        font-size:13px;
+      }
+      .nav a:hover{border-color:rgba(56,189,248,.45);color:var(--text)}
+
       header{
+        margin-top:18px;
         display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;
         margin-bottom:18px;
       }
-      .brand{
+      .brandBlock{
         display:flex;flex-direction:column;gap:6px;
       }
-      .brand h1{
+      .brandBlock h1{
         margin:0;
         font-size:28px;
         letter-spacing:.2px;
       }
-      .brand p{
+      .brandBlock p{
         margin:0;
         color:var(--muted);
         max-width:720px;
@@ -171,7 +196,6 @@
       th:first-child, td:first-child{text-align:left}
       tr:last-child td{border-bottom:none}
       footer{margin-top:18px;color:var(--muted);font-size:12px;line-height:1.5}
-      .sr{position:absolute;left:-9999px}
     </style>
 
     <script type="application/ld+json">
@@ -192,8 +216,17 @@
 
   <body>
     <div class="wrap">
+      <div class="topbar">
+        <div class="brand">TrueWealthMetrics</div>
+        <div class="nav">
+          <a href="/">Home</a>
+          <a href="/compound-interest-calculator/">Compound Interest</a>
+          <a href="/savings-goal-calculator/">Savings Goal</a>
+        </div>
+      </div>
+
       <header>
-        <div class="brand">
+        <div class="brandBlock">
           <h1>Savings Goal Calculator</h1>
           <p>
             Plan your savings target with or without interest. Use <b>Time to Goal</b> to estimate how long it takes,
@@ -208,7 +241,6 @@
       </header>
 
       <div class="grid">
-        <!-- Inputs -->
         <section class="card" aria-label="Inputs">
           <h2>Inputs</h2>
 
@@ -217,7 +249,6 @@
             <div class="tab" role="tab" aria-selected="false" id="tab-required" tabindex="0">Required Monthly</div>
           </div>
 
-          <!-- Shared -->
           <div class="row">
             <div>
               <label for="goal">Savings goal (target amount)</label>
@@ -248,7 +279,6 @@
             </div>
           </div>
 
-          <!-- Mode A: time to goal -->
           <div id="mode-time" style="margin-top:12px">
             <div class="row">
               <div>
@@ -262,7 +292,6 @@
             </div>
           </div>
 
-          <!-- Mode B: required monthly to hit deadline -->
           <div id="mode-required" style="margin-top:12px;display:none">
             <div class="row">
               <div>
@@ -291,7 +320,6 @@
           </div>
         </section>
 
-        <!-- Results -->
         <section class="card" aria-label="Results">
           <h2>Results</h2>
 
@@ -337,15 +365,14 @@
           </div>
 
           <footer>
-            Tip: If the result is “Never reaches goal”, increase monthly contribution, increase time horizon,
-            or adjust the interest rate. If interest is 0%, this becomes a straight savings plan.
+            Tip: If the result is “Never reaches goal”, increase monthly contribution, increase time
+            horizon, or adjust the interest rate. If interest is 0%, this becomes a straight savings plan.
           </footer>
         </section>
       </div>
     </div>
 
     <script>
-      // ---------- helpers ----------
       const $ = (id) => document.getElementById(id);
 
       function toNum(v){
@@ -366,7 +393,6 @@
             maximumFractionDigits: 2
           }).format(safe);
         }catch{
-          // fallback
           return safe.toFixed(2) + " " + currency;
         }
       }
@@ -380,7 +406,6 @@
         return `${years} year${years===1?"":"s"} ${months} month${months===1?"":"s"}`;
       }
 
-      // Monthly simulation, contributions at end of month
       function simulateToGoal({goal, current, monthly, annualRate, maxMonths}){
         const r = (annualRate/100) / 12;
         let bal = current;
@@ -397,18 +422,15 @@
         }
 
         for (let month = 1; month <= maxMonths; month++){
-          // interest on current balance
           const interest = bal * r;
           bal += interest;
           interestTotal += interest;
           yearInterest += interest;
 
-          // contribution at end of month
           bal += monthly;
           contribTotal += monthly;
           yearContrib += monthly;
 
-          // year snapshot
           if (month % 12 === 0){
             yearly.push({
               year: month/12,
@@ -421,7 +443,6 @@
           }
 
           if (bal >= goal){
-            // if goal reached mid-year, still push a partial year snapshot
             const y = Math.ceil(month/12);
             const alreadyPushed = yearly.some(x => x.year === y);
             if (!alreadyPushed){
@@ -436,7 +457,6 @@
           }
         }
 
-        // not reached
         if (maxMonths % 12 !== 0){
           const y = Math.ceil(maxMonths/12);
           yearly.push({
@@ -450,14 +470,9 @@
         return { reached:false, months:maxMonths, endBalance:bal, contribTotal, interestTotal, yearly };
       }
 
-      // Required monthly payment for future value with monthly compounding
-      // FV = PV*(1+r)^n + PMT * [((1+r)^n - 1)/r]
-      // PMT = (FV - PV*(1+r)^n) * r / ((1+r)^n - 1)
-      // If r=0 => PMT = (FV - PV)/n
       function requiredMonthly({goal, current, annualRate, months}){
         const n = Math.max(1, Math.floor(months));
         const r = (annualRate/100) / 12;
-
         if (r === 0){
           return (goal - current) / n;
         }
@@ -563,7 +578,6 @@
         }
 
         if (current > goal){
-          // still allow, but show a note
           setMsg("Your current savings already exceed your goal. Time to goal is 0 months.", "");
         }else{
           setMsg("");
@@ -576,13 +590,8 @@
           const maxYears = clamp(toNum($("maxYears").value), 1, 120);
           const maxMonths = Math.floor(maxYears * 12);
 
-          if (monthly === 0 && annualRate === 0 && current < goal){
-            setMsg("With 0% interest and £0 monthly contributions, you will never reach the goal.", "danger");
-          }
-
           const sim = simulateToGoal({ goal, current, monthly, annualRate, maxMonths });
 
-          // KPI outputs
           $("kpi1v").textContent = sim.reached ? fmtTime(sim.months) : "Not reached";
           $("kpi1s").textContent = sim.reached ? `Estimated time to hit ${fmtMoney(currency, goal)}.` : `Increase monthly contribution or max years.`;
 
@@ -619,7 +628,6 @@
             setMsg("");
           }
 
-          // simulate using pmt for breakdown
           const sim = simulateToGoal({
             goal,
             current,
@@ -640,7 +648,6 @@
           $("kpi4v").textContent = fmtMoney(currency, sim.interestTotal);
           $("kpi4s").textContent = "Estimated interest earned over the deadline.";
 
-          // If simulation still doesn't reach due to rounding/assumptions, warn
           if (!sim.reached){
             setMsg("With the calculated monthly contribution, you may still fall slightly short due to rounding/assumptions. Add a small buffer.", "danger");
           }
@@ -649,7 +656,6 @@
         }
       }
 
-      // ---------- events ----------
       $("tab-time").addEventListener("click", () => applyMode("time"));
       $("tab-required").addEventListener("click", () => applyMode("required"));
       $("tab-time").addEventListener("keydown", (e)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); applyMode("time"); }});
@@ -661,7 +667,6 @@
         applyMode("time");
       });
 
-      // initial
       resetDefaults();
       applyMode("time");
     </script>
