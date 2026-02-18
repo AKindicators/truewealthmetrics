@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>ROI Calculator (Investment Return & CAGR) | TrueWealthMetrics</title>
+  <meta name="description" content="Free ROI calculator for investments. Estimate future value, total contributions, profit, ROI %, and CAGR. Optional fees, inflation view, and year-by-year breakdown." />
+  <link rel="canonical" href="https://truewealthmetrics.com/roi-calculator/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b1220" />
+
+  <style>
+    :root{
+      --bg:#070b14;
+      --card: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.10);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --accent:#38d98a;
+      --danger:#ff5c6c;
+      --warn:#ffcc66;
+      --shadow: 0 18px 40px rgba(0,0,0,0.45);
+      --radius: 18px;
+      --radius2: 22px;
+      --max: 1120px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 15%, rgba(56,217,138,0.18), transparent 55%),
+        radial-gradient(900px 520px at 80% 30%, rgba(56,217,138,0.10), transparent 58%),
+        radial-gradient(900px 520px at 50% 80%, rgba(255,255,255,0.06), transparent 60%),
+        var(--bg);
+      line-height:1.35;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:12px 14px; border:1px solid var(--border);
+      background: rgba(10,14,26,0.50);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      position: sticky; top: 14px; z-index: 10;
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:0.2px}
+    .dot{width:9px; height:9px; border-radius:50%; background: var(--accent); box-shadow: 0 0 18px rgba(56,217,138,0.55)}
+    .nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      padding:8px 12px; border:1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      border-radius: 999px;
+      text-decoration:none;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .pill:hover{border-color: rgba(56,217,138,0.40); color: var(--text)}
+    header{padding:28px 4px 18px}
+    h1{font-size:46px; margin:6px 0 10px; letter-spacing:-0.6px}
+    .sub{color:var(--muted); max-width:900px; font-size:15px}
+    .grid{
+      display:grid; grid-template-columns: 1.05fr 0.95fr; gap:16px;
+      margin-top:18px;
+    }
+    @media (max-width: 980px){
+      h1{font-size:36px}
+      .grid{grid-template-columns:1fr}
+      .topbar{position:relative; top:auto}
+    }
+    .card{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .card h2{margin:0 0 6px; font-size:18px}
+    .card p{margin:0 0 14px; color:var(--muted); font-size:13px}
+    .row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    @media (max-width: 620px){ .row{grid-template-columns:1fr} }
+    label{display:block; font-size:12px; color: var(--muted); margin:10px 0 6px}
+    input, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.18);
+      color: var(--text);
+      outline: none;
+    }
+    input:focus, select:focus{border-color: rgba(56,217,138,0.45)}
+    .btns{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
+    button{
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding:11px 14px;
+      border-radius: 12px;
+      cursor:pointer;
+      font-weight:650;
+    }
+    .primary{background: rgba(56,217,138,0.16); border-color: rgba(56,217,138,0.35)}
+    button:hover{border-color: rgba(56,217,138,0.45)}
+    .hint{
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(56,217,138,0.35);
+      background: rgba(56,217,138,0.08);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .kpiGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top: 10px;
+    }
+    @media (max-width: 620px){ .kpiGrid{grid-template-columns:1fr} }
+    .kpi{
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.16);
+      border-radius: 16px;
+      padding:14px;
+    }
+    .kpi .t{font-size:12px; color:var(--muted); margin-bottom:6px}
+    .kpi .v{font-size:26px; font-weight:780; letter-spacing:-0.4px}
+    .kpi .s{font-size:12px; color:var(--muted); margin-top:6px}
+    .callout{
+      margin-top: 12px;
+      border:1px solid rgba(56,217,138,0.35);
+      background: rgba(56,217,138,0.06);
+      border-left: 3px solid var(--accent);
+      border-radius: 16px;
+      padding:12px 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .callout strong{color: var(--text)}
+    table{width:100%; border-collapse: collapse; margin-top:12px; overflow:hidden; border-radius: 16px}
+    th, td{padding:10px 10px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.08); font-size:13px}
+    th{color:var(--muted); font-weight:650; background: rgba(255,255,255,0.04)}
+    .tableWrap{
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.14);
+      border-radius: 18px;
+      overflow:hidden;
+      margin-top: 14px;
+    }
+    .tableTop{
+      display:flex; justify-content:space-between; align-items:center;
+      gap:10px; padding:12px 12px; border-bottom:1px solid rgba(255,255,255,0.08);
+      color: var(--muted); font-size: 12px;
+    }
+    .smallBtn{padding:8px 10px; border-radius: 999px; font-size:12px}
+    .accordion{margin-top:14px}
+    .accItem{
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.12);
+      border-radius: 16px;
+      overflow:hidden;
+      margin-top:10px;
+    }
+    .accQ{
+      width:100%; text-align:left;
+      padding:12px 12px; cursor:pointer;
+      background: transparent; border: none; color: var(--text);
+      font-weight: 650; font-size: 13px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .accA{display:none; padding:0 12px 12px; color: var(--muted); font-size: 13px}
+    .chev{font-family: var(--mono); color: var(--muted)}
+    footer{
+      margin-top:22px;
+      color: var(--muted);
+      font-size:12px;
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.12);
+      border-radius: 18px;
+      padding:14px 14px;
+    }
+    .mono{font-family: var(--mono)}
+    .muted{color:var(--muted)}
+    .danger{color:var(--danger)}
+    .good{color:var(--accent)}
+  </style>
+
+  <script type="application/ld+json" id="faqJson"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span> TrueWealthMetrics</div>
+      <nav class="nav">
+        <a class="pill" href="/">Home</a>
+        <a class="pill" href="/loan-repayment-calculator/">Loan</a>
+        <a class="pill" href="/compound-interest-calculator/">Compound</a>
+        <a class="pill" href="/savings-goal-calculator/">Savings</a>
+        <a class="pill" href="/credit-card-payoff-calculator/">Credit</a>
+        <a class="pill" href="/debt-snowball-avalanche-calculator/">Debt</a>
+        <a class="pill" href="/retirement-planning-calculator/">Retirement</a>
+      </nav>
+    </div>
+
+    <header>
+      <h1>ROI Calculator</h1>
+      <div class="sub">
+        Estimate investment growth, profit, <b>ROI %</b>, and <b>CAGR</b>. Add optional monthly contributions, annual fees, and an inflation-adjusted view.
+        Educational estimates only — not financial advice.
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Inputs</h2>
+        <p>Use realistic assumptions. The biggest drivers are time, contributions, and return rate.</p>
+
+        <div class="row">
+          <div>
+            <label for="initial">Initial investment (£)</label>
+            <input id="initial" type="number" min="0" step="100" value="10000" />
+          </div>
+          <div>
+            <label for="monthly">Monthly contribution (£)</label>
+            <input id="monthly" type="number" min="0" step="10" value="200" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="years">Investment period (years)</label>
+            <input id="years" type="number" min="1" step="1" value="10" />
+          </div>
+          <div>
+            <label for="rate">Expected annual return (%)</label>
+            <input id="rate" type="number" min="0" step="0.1" value="7" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="fee">Annual fee (optional, %)</label>
+            <input id="fee" type="number" min="0" step="0.01" value="0.5" />
+          </div>
+          <div>
+            <label for="infl">Inflation (optional, %)</label>
+            <input id="infl" type="number" min="0" step="0.1" value="2.5" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="freq">Compounding frequency</label>
+            <select id="freq">
+              <option value="12" selected>Monthly</option>
+              <option value="1">Annually</option>
+              <option value="4">Quarterly</option>
+            </select>
+          </div>
+          <div>
+            <label for="currency">Currency display</label>
+            <select id="currency">
+              <option value="GBP" selected>GBP (£)</option>
+              <option value="USD">USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="btns">
+          <button class="primary" id="calcBtn">Calculate</button>
+          <button id="resetBtn">Reset</button>
+          <span class="muted" id="status" style="align-self:center;font-size:12px"></span>
+        </div>
+
+        <div class="hint">
+          Tip: Fees matter. A 1% annual fee can reduce long-term results more than most people expect.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Results</h2>
+        <p>Updated when you click Calculate.</p>
+
+        <div class="kpiGrid">
+          <div class="kpi">
+            <div class="t">Ending value</div>
+            <div class="v" id="ending">—</div>
+            <div class="s">Projected portfolio value at the end.</div>
+          </div>
+          <div class="kpi">
+            <div class="t">Profit (growth)</div>
+            <div class="v" id="profit">—</div>
+            <div class="s">Ending value − total contributions.</div>
+          </div>
+          <div class="kpi">
+            <div class="t">ROI %</div>
+            <div class="v" id="roiPct">—</div>
+            <div class="s">Profit ÷ total contributions.</div>
+          </div>
+          <div class="kpi">
+            <div class="t">CAGR</div>
+            <div class="v" id="cagr">—</div>
+            <div class="s">Annualized return (effective).</div>
+          </div>
+        </div>
+
+        <div class="callout" id="callout">
+          Enter your numbers and click <strong>Calculate</strong>.
+        </div>
+
+        <div class="tableWrap" id="tableWrap" style="display:none">
+          <div class="tableTop">
+            <div id="tableLabel">Year-by-year breakdown</div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span class="mono" id="tableMeta"></span>
+              <button class="smallBtn" id="toggleRowsBtn">Show all</button>
+            </div>
+          </div>
+          <div style="overflow:auto">
+            <table>
+              <thead>
+                <tr>
+                  <th>Year</th>
+                  <th>End balance</th>
+                  <th>Contributions</th>
+                  <th>Growth</th>
+                  <th>Fees (est.)</th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2>How this calculator works</h2>
+      <p>
+        We simulate growth period-by-period (monthly/quarterly/annual), add contributions, then apply an annual fee approximation by reducing the gross return.
+        Inflation (if provided) is used only to show a “today’s money” view of the ending value.
+      </p>
+
+      <div class="accordion">
+        <div class="accItem">
+          <button class="accQ" type="button">What is ROI vs CAGR? <span class="chev">▾</span></button>
+          <div class="accA">ROI is total profit as a percentage of what you put in. CAGR is the annualized rate that would turn your total contributions into the ending value over the same time.</div>
+        </div>
+        <div class="accItem">
+          <button class="accQ" type="button">How are fees handled? <span class="chev">▾</span></button>
+          <div class="accA">We approximate fees by reducing your annual return by the fee %. This matches the typical “net return” approach for fund/ETF fee modeling.</div>
+        </div>
+        <div class="accItem">
+          <button class="accQ" type="button">Does this include taxes? <span class="chev">▾</span></button>
+          <div class="accA">No. Taxes depend on your country, account type (ISA, pension, brokerage), and holding period. Use this as a baseline scenario tool.</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div><b>Disclaimer:</b> Educational estimates only. Real-world investing involves risk, fees, taxes, and market volatility.</div>
+      <div style="margin-top:6px">© 2026 TrueWealthMetrics</div>
+    </footer>
+  </div>
+
+<script>
+(function(){
+  const $ = (id) => document.getElementById(id);
+
+  const fmtMoney = (value, currency) => {
+    try{
+      return new Intl.NumberFormat(undefined, { style:'currency', currency, maximumFractionDigits:0 }).format(value);
+    }catch(e){
+      return "£" + Math.round(value).toLocaleString();
+    }
+  };
+  const fmtMoney2 = (value, currency) => {
+    try{
+      return new Intl.NumberFormat(undefined, { style:'currency', currency, maximumFractionDigits:2 }).format(value);
+    }catch(e){
+      return "£" + value.toFixed(2);
+    }
+  };
+  const fmtPct = (v) => (isFinite(v) ? (v*100).toFixed(2) + "%" : "—");
+
+  const defaults = {
+    initial: 10000,
+    monthly: 200,
+    years: 10,
+    rate: 7,
+    fee: 0.5,
+    infl: 2.5,
+    freq: 12,
+    currency: "GBP"
+  };
+
+  function clampNum(n, min, max){
+    if(!isFinite(n)) return min;
+    return Math.min(max, Math.max(min, n));
+  }
+
+  function calc(){
+    const currency = $("currency").value;
+
+    const initial = clampNum(parseFloat($("initial").value), 0, 1e12);
+    const monthly = clampNum(parseFloat($("monthly").value), 0, 1e9);
+    const years = clampNum(parseFloat($("years").value), 1, 100);
+    const rate = clampNum(parseFloat($("rate").value)/100, 0, 1);
+    const fee = clampNum(parseFloat($("fee").value)/100, 0, 0.2);
+    const infl = clampNum(parseFloat($("infl").value)/100, 0, 0.25);
+    const freq = parseInt($("freq").value, 10);
+
+    // Net annual return approximation (after fee)
+    const netAnnual = Math.max(0, rate - fee);
+
+    // Per-period rate
+    const r = netAnnual / freq;
+    const periods = Math.round(years * freq);
+
+    // Contribution per period (monthly contributions distributed if freq != 12)
+    // If compounding isn't monthly, still assume contributions occur monthly.
+    // We'll simulate monthly internally for accuracy and summarize yearly.
+    const months = Math.round(years * 12);
+    const monthlyNet = Math.max(0, netAnnual / 12);
+
+    let balance = initial;
+    let totalContrib = initial;
+    let totalFeesEst = 0;
+
+    const yearly = []; // {year, end, contrib, growth, fees}
+
+    let yearContrib = 0;
+    let yearStart = balance;
+
+    for(let m=1; m<=months; m++){
+      // add monthly contribution at start of month
+      if(m > 1 || monthly > 0){
+        balance += monthly;
+        totalContrib += monthly;
+        yearContrib += monthly;
+      }
+
+      // apply monthly growth
+      const before = balance;
+      const growth = balance * monthlyNet;
+      balance = balance + growth;
+
+      // estimate fees for this month as (gross - net) on the same base
+      // gross monthly rate = rate/12, net monthly rate = (rate-fee)/12
+      const grossMonthly = rate / 12;
+      const netMonthly = monthlyNet;
+      const feeThisMonth = before * Math.max(0, grossMonthly - netMonthly);
+      totalFeesEst += feeThisMonth;
+
+      // end of year snapshot
+      if(m % 12 === 0){
+        const year = m/12;
+        const end = balance;
+        const growthYear = (end - yearStart - yearContrib);
+        const feesYearApprox = yearStart * Math.max(0, (rate - netAnnual)) + (yearContrib/2) * Math.max(0, (rate - netAnnual)); // coarse
+        yearly.push({
+          year,
+          end,
+          contrib: yearContrib,
+          growth: growthYear,
+          fees: feesYearApprox
+        });
+        yearStart = end;
+        yearContrib = 0;
+      }
+    }
+
+    const ending = balance;
+    const profit = ending - totalContrib;
+    const roi = profit / totalContrib;
+
+    // CAGR: treat totalContrib as "invested capital" baseline (rough, since contributions are spread)
+    // Better: compute money-weighted return would require IRR. We'll provide effective CAGR vs contributions midpoint.
+    // We approximate by comparing ending vs (initial + monthly*months/2).
+    const approxAvgInvested = initial + (monthly * months * 0.5);
+    const cagr = approxAvgInvested > 0 ? Math.pow(ending / approxAvgInvested, 1/years) - 1 : 0;
+
+    // Inflation adjusted ending
+    const endingToday = infl > 0 ? (ending / Math.pow(1+infl, years)) : ending;
+
+    $("ending").textContent = fmtMoney(ending, currency);
+    $("profit").textContent = fmtMoney( profit, currency);
+    $("roiPct").textContent = fmtPct(roi);
+    $("cagr").textContent = fmtPct(cagr);
+
+    const gapText = profit >= 0
+      ? `<span class="good"><b>Profit:</b> ${fmtMoney2(profit, currency)}</span>`
+      : `<span class="danger"><b>Loss:</b> ${fmtMoney2(profit, currency)}</span>`;
+
+    const extraBits = [
+      `<b>Total contributions:</b> ${fmtMoney2(totalContrib, currency)}`,
+      `<b>Ending value (today's money):</b> ${fmtMoney2(endingToday, currency)}`,
+      `<b>Fee impact (approx.):</b> ${fmtMoney2(totalFeesEst, currency)}`
+    ].join(" • ");
+
+    $("callout").innerHTML = `${gapText}<div style="margin-top:8px" class="muted">${extraBits}</div>`;
+
+    // Table
+    const rows = $("rows");
+    rows.innerHTML = "";
+    yearly.forEach((y) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${y.year}</td>
+        <td>${fmtMoney2(y.end, currency)}</td>
+        <td>${fmtMoney2(y.contrib, currency)}</td>
+        <td>${fmtMoney2(y.growth, currency)}</td>
+        <td>${fmtMoney2(y.fees, currency)}</td>
+      `;
+      rows.appendChild(tr);
+    });
+
+    $("tableWrap").style.display = "block";
+    $("tableMeta").textContent = `Showing ${Math.min(10, yearly.length)} of ${yearly.length} years`;
+    toggleTable(false);
+
+    $("status").textContent = "Calculated";
+    setTimeout(() => { $("status").textContent = ""; }, 1200);
+
+    buildFaqJson();
+  }
+
+  let showingAll = false;
+  function toggleTable(forceAll){
+    const tbody = $("rows");
+    const trs = Array.from(tbody.querySelectorAll("tr"));
+    if(forceAll === true) showingAll = true;
+    if(forceAll === false) showingAll = false;
+
+    const showN = 10;
+    trs.forEach((tr, idx) => {
+      tr.style.display = (showingAll || idx < showN) ? "" : "none";
+    });
+    $("toggleRowsBtn").textContent = showingAll ? "Show less" : "Show all";
+    const total = trs.length;
+    $("tableMeta").textContent = showingAll ? `Showing all ${total} years` : `Showing ${Math.min(showN, total)} of ${total} years`;
+  }
+
+  function reset(){
+    $("initial").value = defaults.initial;
+    $("monthly").value = defaults.monthly;
+    $("years").value = defaults.years;
+    $("rate").value = defaults.rate;
+    $("fee").value = defaults.fee;
+    $("infl").value = defaults.infl;
+    $("freq").value = String(defaults.freq);
+    $("currency").value = defaults.currency;
+
+    $("ending").textContent = "—";
+    $("profit").textContent = "—";
+    $("roiPct").textContent = "—";
+    $("cagr").textContent = "—";
+    $("callout").innerHTML = `Enter your numbers and click <strong>Calculate</strong>.`;
+    $("tableWrap").style.display = "none";
+    $("rows").innerHTML = "";
+    $("status").textContent = "";
+    buildFaqJson();
+  }
+
+  function wireAccordion(){
+    document.querySelectorAll(".accQ").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const a = btn.parentElement.querySelector(".accA");
+        const chev = btn.querySelector(".chev");
+        const open = a.style.display === "block";
+        a.style.display = open ? "none" : "block";
+        chev.textContent = open ? "▾" : "▴";
+      });
+    });
+  }
+
+  function buildFaqJson(){
+    const faqs = [
+      {
+        q: "What is ROI vs CAGR?",
+        a: "ROI is total profit as a percentage of what you put in. CAGR is the annualized rate that would turn your invested amount into the ending value over the same time."
+      },
+      {
+        q: "How are fees handled?",
+        a: "We approximate fees by reducing your annual return by the annual fee percentage (net return). This is a common way to model fund and platform fees."
+      },
+      {
+        q: "Does this include taxes?",
+        a: "No. Taxes depend on your country and account type. Use this calculator for baseline scenarios and compare options."
+      }
+    ];
+
+    const json = {
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type":"Question",
+        "name": f.q,
+        "acceptedAnswer": {"@type":"Answer", "text": f.a}
+      }))
+    };
+    $("faqJson").textContent = JSON.stringify(json);
+  }
+
+  $("calcBtn").addEventListener("click", calc);
+  $("resetBtn").addEventListener("click", reset);
+  $("toggleRowsBtn").addEventListener("click", () => {
+    showingAll = !showingAll;
+    toggleTable(showingAll);
+  });
+
+  wireAccordion();
+  buildFaqJson();
+  reset();
+})();
+</script>
+</body>
+</html>
