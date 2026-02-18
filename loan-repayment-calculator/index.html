@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Loan Repayment Calculator (Amortization + Extra Payments) | TrueWealthMetrics</title>
+    <meta
+      name="description"
+      content="Free loan repayment calculator with amortization schedule. Calculate monthly payment, total interest, payoff date, and see how extra payments reduce interest."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://truewealthmetrics.com/loan-repayment-calculator/" />
+
+    <meta property="og:title" content="Loan Repayment Calculator | TrueWealthMetrics" />
+    <meta
+      property="og:description"
+      content="Calculate monthly loan payments and view an amortization schedule. Add extra payments to see interest saved and earlier payoff."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://truewealthmetrics.com/loan-repayment-calculator/" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#0b1220" />
+
+    <style>
+      :root {
+        --bg: #070b14;
+        --card: rgba(255,255,255,0.06);
+        --border: rgba(255,255,255,0.10);
+        --text: rgba(255,255,255,0.92);
+        --muted: rgba(255,255,255,0.70);
+        --soft: rgba(255,255,255,0.12);
+        --accent: #38d98a;
+        --warn: #ffcc66;
+        --danger: #fb7185;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        background: radial-gradient(1000px 600px at 30% 10%, rgba(56,217,138,0.12), transparent 55%),
+                    radial-gradient(900px 500px at 70% 30%, rgba(99,102,241,0.10), transparent 60%),
+                    var(--bg);
+        color: var(--text);
+        line-height: 1.55;
+      }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 18px 140px; }
+      header {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 16px; padding: 10px 0 22px;
+      }
+      .brand {
+        font-weight: 800; letter-spacing: 0.2px;
+        display: flex; align-items: center; gap: 10px;
+      }
+      .dot { width: 10px; height: 10px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 22px rgba(56,217,138,0.45); }
+      .nav { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+      .pill {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 9px 12px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        border-radius: 999px;
+        color: var(--text);
+        font-size: 14px;
+      }
+
+      .hero { padding: 10px 0 14px; }
+      .hero h1 { font-size: 40px; line-height: 1.12; margin: 0 0 10px; }
+      .hero p { color: var(--muted); margin: 0; max-width: 80ch; }
+
+      .grid {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 16px;
+      }
+      @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } }
+
+      .card {
+        border: 1px solid var(--border);
+        background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      }
+      .card h2 { margin: 0 0 12px; font-size: 18px; }
+      .sub { color: var(--muted); font-size: 14px; margin-top: -4px; margin-bottom: 14px; }
+
+      .form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      @media (max-width: 620px) { .form { grid-template-columns: 1fr; } }
+      label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+      input, select {
+        width: 100%;
+        padding: 12px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,0.20);
+        color: var(--text);
+        outline: none;
+      }
+      input:focus, select:focus { border-color: rgba(56,217,138,0.55); box-shadow: 0 0 0 4px rgba(56,217,138,0.12); }
+      .row { display: grid; grid-template-columns: 1fr; gap: 6px; }
+
+      .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+      button {
+        cursor: pointer;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        padding: 12px 14px;
+        font-weight: 800;
+        background: rgba(56,217,138,0.16);
+        color: var(--text);
+      }
+      button.secondary { background: rgba(255,255,255,0.05); font-weight: 750; }
+      button.small { padding: 10px 12px; font-weight: 800; }
+
+      .kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+      @media (max-width: 620px) { .kpis { grid-template-columns: 1fr; } }
+      .kpi {
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,0.16);
+        border-radius: 14px;
+        padding: 14px;
+      }
+      .kpi .t { color: var(--muted); font-size: 13px; }
+      .kpi .v { font-size: 22px; font-weight: 900; margin-top: 4px; }
+      .kpi .s { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+      .note {
+        margin-top: 12px;
+        font-size: 13px;
+        color: var(--muted);
+        border-left: 3px solid rgba(56,217,138,0.55);
+        padding-left: 10px;
+        white-space: pre-line;
+      }
+      .alert {
+        margin-top: 12px;
+        font-size: 13px;
+        color: rgba(255,255,255,0.80);
+        border-left: 3px solid rgba(251,113,133,0.75);
+        background: rgba(251,113,133,0.10);
+        padding: 10px 12px;
+        border-radius: 12px;
+        display: none;
+      }
+
+      .section { margin-top: 18px; }
+      .section h2 { font-size: 22px; margin: 0 0 10px; }
+      .section p { margin: 0 0 10px; color: var(--muted); }
+      .section ul { margin: 0; color: var(--muted); }
+      .section li { margin: 6px 0; }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+        overflow: hidden;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+      }
+      th, td {
+        padding: 10px 10px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        text-align: right;
+        font-size: 14px;
+      }
+      th { text-align: right; color: rgba(255,255,255,0.82); background: rgba(255,255,255,0.05); }
+      td:first-child, th:first-child { text-align: left; }
+      tr:last-child td { border-bottom: none; }
+
+      .tableActions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .badge {
+        font-size: 12px;
+        color: rgba(255,255,255,0.78);
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(0,0,0,0.16);
+        border-radius: 999px;
+        padding: 6px 10px;
+      }
+
+      details {
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,0.16);
+        border-radius: 14px;
+        padding: 12px 14px;
+        margin: 10px 0;
+      }
+      summary { cursor: pointer; font-weight: 800; }
+      details p { margin: 8px 0 0; color: var(--muted); }
+
+      footer { margin-top: 28px; color: var(--muted); font-size: 13px; }
+
+      .stickyBar {
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 99;
+        display: none;
+        background: rgba(7,11,20,0.86);
+        backdrop-filter: blur(14px);
+        border-top: 1px solid rgba(255,255,255,0.10);
+        padding: 10px 12px;
+      }
+      .stickyInner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .stickyMini {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .stickyMini .l {
+        font-size: 11px;
+        color: rgba(255,255,255,0.60);
+      }
+      .stickyMini .v {
+        font-size: 16px;
+        font-weight: 900;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .stickyBtns {
+        display: flex;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+      .stickyBtns a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.06);
+        color: var(--text);
+        font-weight: 900;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .stickyBtns a.primary {
+        border-color: rgba(56,217,138,0.42);
+        background: rgba(56,217,138,0.14);
+      }
+
+      @media (max-width: 720px) {
+        .wrap { padding-bottom: 170px; }
+        .stickyBar { display: block; }
+        .hero h1 { font-size: 32px; }
+      }
+    </style>
+
+    <script type="application/ld+json" id="jsonld-webapp">
+      {
+        "@context":"https://schema.org",
+        "@type":"WebApplication",
+        "name":"Loan Repayment Calculator",
+        "applicationCategory":"FinanceApplication",
+        "operatingSystem":"All",
+        "url":"https://truewealthmetrics.com/loan-repayment-calculator/",
+        "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
+      }
+    </script>
+
+    <script type="application/ld+json" id="jsonld-faq">
+      {
+        "@context":"https://schema.org",
+        "@type":"FAQPage",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"How is a loan monthly payment calculated?",
+            "acceptedAnswer":{"@type":"Answer","text":"For fixed-rate loans, the monthly payment is based on the loan amount, the monthly interest rate, and the number of monthly payments. This calculator uses the standard amortization formula."}
+          },
+          {
+            "@type":"Question",
+            "name":"Do extra payments reduce interest?",
+            "acceptedAnswer":{"@type":"Answer","text":"Yes. Extra payments reduce the principal faster, which lowers future interest and can shorten the payoff time."}
+          },
+          {
+            "@type":"Question",
+            "name":"What is an amortization schedule?",
+            "acceptedAnswer":{"@type":"Answer","text":"An amortization schedule is a month-by-month breakdown showing how each payment is split between interest and principal, and how your remaining balance declines over time."}
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <span class="dot"></span>
+          <span>TrueWealthMetrics</span>
+        </div>
+        <nav class="nav">
+          <a class="pill" href="/">Home</a>
+          <a class="pill" href="/loan-repayment-calculator/">Loan Calculator</a>
+          <a class="pill" href="/compound-interest-calculator/">Compound Interest</a>
+          <a class="pill" href="/savings-goal-calculator/">Savings Goal</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <h1>Loan Repayment Calculator</h1>
+        <p>
+          Calculate your <strong>monthly loan payment</strong>, total interest, and payoff timeline.
+          Add <strong>extra payments</strong> to see how much interest you can save and how much sooner you can become debt-free.
+        </p>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Inputs</h2>
+          <p class="sub">Works for personal loans, car loans, and fixed-rate debt repayment.</p>
+
+          <div class="form" id="calcForm">
+            <div class="row">
+              <label for="amount">Loan amount</label>
+              <input id="amount" type="number" min="0" step="0.01" value="15000" inputmode="decimal" />
+            </div>
+
+            <div class="row">
+              <label for="apr">Interest rate (APR %)</label>
+              <input id="apr" type="number" min="0" step="0.01" value="7.5" inputmode="decimal" />
+            </div>
+
+            <div class="row">
+              <label for="years">Loan term (years)</label>
+              <input id="years" type="number" min="0" step="1" value="5" inputmode="numeric" />
+            </div>
+
+            <div class="row">
+              <label for="months">Extra months (0–11)</label>
+              <input id="months" type="number" min="0" max="11" step="1" value="0" inputmode="numeric" />
+            </div>
+
+            <div class="row">
+              <label for="extra">Extra payment (per month, optional)</label>
+              <input id="extra" type="number" min="0" step="0.01" value="0" inputmode="decimal" />
+            </div>
+
+            <div class="row">
+              <label for="currency">Currency</label>
+              <select id="currency">
+                <option value="USD">$ USD</option>
+                <option value="GBP" selected>£ GBP</option>
+                <option value="EUR">€ EUR</option>
+                <option value="CAD">$ CAD</option>
+                <option value="AUD">$ AUD</option>
+                <option value="PKR">₨ PKR</option>
+                <option value="INR">₹ INR</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="btnCalc">Calculate</button>
+            <button class="secondary" id="btnReset" type="button">Reset</button>
+          </div>
+
+          <div class="alert" id="alertBox"></div>
+
+          <div class="note">
+            Assumption: fixed rate, payments monthly. Extra payments are applied to principal.
+            Results are estimates for education only (not financial advice).
+          </div>
+        </div>
+
+        <div class="card" id="resultsCard">
+          <h2>Results</h2>
+          <p class="sub">Updated instantly from your inputs.</p>
+
+          <div class="kpis">
+            <div class="kpi">
+              <div class="t">Monthly payment</div>
+              <div class="v" id="monthlyPayment">—</div>
+              <div class="s">Base payment (no extra)</div>
+            </div>
+
+            <div class="kpi">
+              <div class="t">Total interest</div>
+              <div class="v" id="totalInterest">—</div>
+              <div class="s">Over full term</div>
+            </div>
+
+            <div class="kpi">
+              <div class="t">Total paid</div>
+              <div class="v" id="totalPaid">—</div>
+              <div class="s">Principal + interest</div>
+            </div>
+
+            <div class="kpi">
+              <div class="t">Payoff time (with extra)</div>
+              <div class="v" id="payoffTime">—</div>
+              <div class="s" id="payoffSub">If extra payment is set</div>
+            </div>
+          </div>
+
+          <div class="note" id="summaryLine">—</div>
+        </div>
+      </section>
+
+      <section class="card section" id="scheduleCard" style="margin-top:16px;">
+        <h2>Amortization schedule</h2>
+        <p>
+          Month-by-month breakdown of payment, interest, principal, and remaining balance.
+        </p>
+
+        <div class="tableActions">
+          <button class="secondary small" id="btnToggleTable" type="button">Show full schedule</button>
+          <button class="secondary small" id="btnDownloadCsv" type="button">Download CSV</button>
+          <span class="badge" id="tableBadge">Mobile-friendly: showing first 24 months</span>
+        </div>
+
+        <table aria-label="Loan amortization schedule">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Payment</th>
+              <th>Interest</th>
+              <th>Principal</th>
+              <th>Balance</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr><td colspan="5" style="text-align:left;color:rgba(255,255,255,0.70);">Run a calculation to see the schedule.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" style="margin-top:22px;">
+        <div class="card">
+          <h2>How loan payments work</h2>
+          <p>
+            With most fixed-rate loans, each monthly payment includes <strong>interest</strong> (the cost of borrowing)
+            and <strong>principal</strong> (paying down the amount you owe). Early payments usually include more interest;
+            later payments include more principal.
+          </p>
+
+          <h2 style="margin-top:14px;">Extra payments</h2>
+          <p>
+            Any extra payment you add is applied to your principal. That reduces future interest and often shortens the payoff time.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" style="margin-top:16px;">
+        <div class="card">
+          <h2>FAQ</h2>
+
+          <details>
+            <summary>Does a lower interest rate always reduce the monthly payment?</summary>
+            <p>
+              Yes — for the same loan amount and term, a lower APR reduces monthly interest and lowers the required payment.
+            </p>
+          </details>
+
+          <details>
+            <summary>What if APR is 0%?</summary>
+            <p>
+              If APR is 0%, your payment is simply the loan amount divided by the number of months.
+            </p>
+          </details>
+
+          <details>
+            <summary>Why might my real lender payment differ?</summary>
+            <p>
+              Lenders may use different compounding conventions, add fees, or require escrow/insurance (especially for mortgages).
+              This tool is a clean estimate for planning.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <footer>
+        <div class="card">
+          <strong>Disclaimer:</strong> This calculator provides estimates for educational purposes only.
+          <div style="margin-top:8px;">© <span id="yr"></span> TrueWealthMetrics — Powered by A.K Pro Traders</div>
+        </div>
+      </footer>
+    </div>
+
+    <div class="stickyBar" id="stickyBar" aria-label="Sticky results bar">
+      <div class="stickyInner">
+        <div class="stickyMini">
+          <div class="l">Monthly payment</div>
+          <div class="v" id="stickyPayment">—</div>
+        </div>
+        <div class="stickyBtns">
+          <a href="#resultsCard">Results</a>
+          <a class="primary" href="#scheduleCard">Schedule</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toNum(v) {
+        const n = Number(String(v).replace(/,/g, "").trim());
+        return Number.isFinite(n) ? n : 0;
+      }
+
+      function fmtMoney(currency, n, maxDigits = 2) {
+        const safe = Number.isFinite(n) ? n : 0;
+        try {
+          return new Intl.NumberFormat(undefined, {
+            style: "currency",
+            currency,
+            maximumFractionDigits: maxDigits
+          }).format(safe);
+        } catch {
+          return safe.toFixed(maxDigits) + " " + currency;
+        }
+      }
+
+      function fmtTime(months) {
+        const m = Math.max(0, Math.floor(months));
+        const y = Math.floor(m / 12);
+        const mm = m % 12;
+        if (y === 0) return `${mm} month${mm === 1 ? "" : "s"}`;
+        if (mm === 0) return `${y} year${y === 1 ? "" : "s"}`;
+        return `${y} year${y === 1 ? "" : "s"} ${mm} month${mm === 1 ? "" : "s"}`;
+      }
+
+      function monthlyPayment(amount, aprPercent, months) {
+        const P = Math.max(0, amount);
+        const n = Math.max(1, Math.floor(months));
+        const r = Math.max(0, aprPercent) / 100 / 12;
+
+        if (r === 0) return P / n;
+
+        const pow = Math.pow(1 + r, n);
+        return P * (r * pow) / (pow - 1);
+      }
+
+      function amortize({ amount, aprPercent, months, extraMonthly }) {
+        const P = Math.max(0, amount);
+        const n = Math.max(1, Math.floor(months));
+        const r = Math.max(0, aprPercent) / 100 / 12;
+
+        const base = monthlyPayment(P, aprPercent, n);
+        const extra = Math.max(0, extraMonthly || 0);
+
+        let bal = P;
+        let totalInterest = 0;
+        let totalPaid = 0;
+
+        const rows = [];
+        let m = 0;
+
+        // safety limit (avoid infinite loops)
+        const maxIter = Math.max(n + 1200, 2000);
+
+        while (bal > 0.0000001 && m < maxIter) {
+          m++;
+
+          const interest = r === 0 ? 0 : bal * r;
+          let payment = base + extra;
+
+          // Minimum payment must cover interest when r>0, otherwise balance grows.
+          if (r > 0 && payment <= interest + 0.0000001) {
+            return { ok: false, reason: "Payment is not enough to cover monthly interest. Increase extra payment or reduce term.", basePayment: base, rows: [] };
+          }
+
+          let principal = payment - interest;
+          if (principal > bal) {
+            principal = bal;
+            payment = principal + interest;
+          }
+
+          bal = bal - principal;
+          totalInterest += interest;
+          totalPaid += payment;
+
+          rows.push({
+            month: m,
+            payment,
+            interest,
+            principal,
+            balance: bal < 0 ? 0 : bal
+          });
+
+          if (m > n + 600 && extra === 0) break; // additional guard
+        }
+
+        return {
+          ok: true,
+          basePayment: base,
+          payoffMonths: rows.length,
+          totalInterest,
+          totalPaid,
+          rows
+        };
+      }
+
+      let __rows = [];
+      let __showFull = false;
+
+      function showAlert(msg) {
+        const box = document.getElementById("alertBox");
+        if (!msg) {
+          box.style.display = "none";
+          box.textContent = "";
+          return;
+        }
+        box.style.display = "block";
+        box.textContent = msg;
+      }
+
+      function renderTable(currency, rows) {
+        const tb = document.getElementById("tableBody");
+        if (!rows.length) {
+          tb.innerHTML = `<tr><td colspan="5" style="text-align:left;color:rgba(255,255,255,0.70);">No data.</td></tr>`;
+          return;
+        }
+
+        const isMobile = window.matchMedia("(max-width: 720px)").matches;
+        const limit = (isMobile && !__showFull) ? 24 : rows.length;
+        const visible = rows.slice(0, limit);
+
+        tb.innerHTML = visible.map(r => `
+          <tr>
+            <td>${r.month}</td>
+            <td>${fmtMoney(currency, r.payment, 2)}</td>
+            <td>${fmtMoney(currency, r.interest, 2)}</td>
+            <td>${fmtMoney(currency, r.principal, 2)}</td>
+            <td>${fmtMoney(currency, r.balance, 2)}</td>
+          </tr>
+        `).join("");
+
+        const badge = document.getElementById("tableBadge");
+        const btn = document.getElementById("btnToggleTable");
+
+        if (!isMobile) {
+          badge.textContent = `Showing all ${rows.length} months`;
+          btn.style.display = "none";
+          return;
+        }
+
+        btn.style.display = "inline-flex";
+        if (__showFull) {
+          badge.textContent = `Showing all ${rows.length} months`;
+          btn.textContent = "Show less";
+        } else {
+          badge.textContent = `Mobile-friendly: showing first 24 months`;
+          btn.textContent = "Show full schedule";
+        }
+      }
+
+      function toCsv(currency, rows) {
+        const header = ["Month","Payment","Interest","Principal","Balance"];
+        const lines = [header.join(",")];
+
+        const fmt = (n) => (Number.isFinite(n) ? n.toFixed(2) : "0.00");
+
+        for (const r of rows) {
+          lines.push([
+            r.month,
+            fmt(r.payment),
+            fmt(r.interest),
+            fmt(r.principal),
+            fmt(r.balance)
+          ].join(","));
+        }
+        return lines.join("\n");
+      }
+
+      function downloadCsv() {
+        if (!__rows.length) return;
+        const currency = document.getElementById("currency").value;
+        const csv = toCsv(currency, __rows);
+        const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "loan-amortization-schedule.csv";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      }
+
+      function calculate() {
+        const amount = toNum(document.getElementById("amount").value);
+        const apr = toNum(document.getElementById("apr").value);
+        const years = Math.max(0, Math.floor(toNum(document.getElementById("years").value)));
+        const extraMonths = Math.min(11, Math.max(0, Math.floor(toNum(document.getElementById("months").value))));
+        const extra = toNum(document.getElementById("extra").value);
+        const currency = document.getElementById("currency").value;
+
+        const termMonths = Math.max(1, years * 12 + extraMonths);
+
+        if (amount <= 0) {
+          showAlert("Please enter a loan amount greater than 0.");
+          return;
+        }
+
+        // base scenario (no extra)
+        const basePay = monthlyPayment(amount, apr, termMonths);
+        const baseAm = amortize({ amount, aprPercent: apr, months: termMonths, extraMonthly: 0 });
+
+        if (!baseAm.ok) {
+          showAlert(baseAm.reason || "Invalid inputs. Please adjust your values.");
+          return;
+        }
+
+        // extra scenario
+        const extraAm = amortize({ amount, aprPercent: apr, months: termMonths, extraMonthly: extra });
+
+        showAlert(extraAm.ok ? "" : extraAm.reason);
+
+        const payoffMonths = extra > 0 && extraAm.ok ? extraAm.payoffMonths : termMonths;
+        const payoffText = fmtTime(payoffMonths);
+
+        const interestSaved = (extra > 0 && extraAm.ok) ? (baseAm.totalInterest - extraAm.totalInterest) : 0;
+        const timeSaved = (extra > 0 && extraAm.ok) ? (termMonths - extraAm.payoffMonths) : 0;
+
+        document.getElementById("monthlyPayment").textContent = fmtMoney(currency, basePay, 2);
+        document.getElementById("totalInterest").textContent = fmtMoney(currency, baseAm.totalInterest, 2);
+        document.getElementById("totalPaid").textContent = fmtMoney(currency, baseAm.totalPaid, 2);
+
+        document.getElementById("payoffTime").textContent = payoffText;
+        document.getElementById("payoffSub").textContent =
+          (extra > 0 && extraAm.ok)
+            ? `You save ${fmtMoney(currency, interestSaved, 2)} interest and ${fmtTime(timeSaved)} time.`
+            : "Set an extra payment to see payoff faster.";
+
+        document.getElementById("stickyPayment").textContent = fmtMoney(currency, basePay, 2);
+
+        const summary = `Loan: ${fmtMoney(currency, amount, 2)} • APR: ${apr.toFixed(2)}% • Term: ${years}y ${extraMonths}m
+Base payment: ${fmtMoney(currency, basePay, 2)} • Total interest: ${fmtMoney(currency, baseAm.totalInterest, 2)}.
+${(extra > 0 && extraAm.ok) ? `With ${fmtMoney(currency, extra, 2)}/mo extra: payoff in ${payoffText} (save ${fmtMoney(currency, interestSaved, 2)}).` : ""}`;
+
+        document.getElementById("summaryLine").textContent = summary;
+
+        __rows = (extra > 0 && extraAm.ok) ? extraAm.rows : baseAm.rows;
+        __showFull = false;
+        renderTable(currency, __rows);
+      }
+
+      document.getElementById("btnCalc").addEventListener("click", (e) => {
+        e.preventDefault();
+        calculate();
+        if (window.matchMedia("(max-width: 980px)").matches) {
+          document.getElementById("resultsCard").scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+
+      document.getElementById("btnReset").addEventListener("click", () => {
+        document.getElementById("amount").value = "15000";
+        document.getElementById("apr").value = "7.5";
+        document.getElementById("years").value = "5";
+        document.getElementById("months").value = "0";
+        document.getElementById("extra").value = "0";
+        document.getElementById("currency").value = "GBP";
+        __showFull = false;
+        showAlert("");
+        calculate();
+      });
+
+      document.getElementById("btnToggleTable").addEventListener("click", () => {
+        __showFull = !__showFull;
+        renderTable(document.getElementById("currency").value, __rows);
+        if (__showFull) document.getElementById("scheduleCard").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      document.getElementById("btnDownloadCsv").addEventListener("click", () => downloadCsv());
+
+      ["amount","apr","years","months","extra","currency"].forEach(id => {
+        document.getElementById(id).addEventListener("input", () => {
+          clearTimeout(window.__twmLoanT);
+          window.__twmLoanT = setTimeout(() => {
+            __showFull = false;
+            calculate();
+          }, 180);
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        renderTable(document.getElementById("currency").value, __rows);
+      });
+
+      document.getElementById("yr").textContent = new Date().getFullYear();
+      calculate();
+    </script>
+  </body>
+</html>
