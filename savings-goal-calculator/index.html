@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Savings Goal Calculator | TrueWealthMetrics</title>
+    <meta
+      name="description"
+      content="Free savings goal calculator. Estimate how long it takes to reach your savings target, or calculate the required monthly contribution with interest."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://truewealthmetrics.com/savings-goal-calculator/" />
+
+    <style>
+      :root{
+        --bg:#0b1220;
+        --card:#101a2f;
+        --muted:#9fb0d0;
+        --text:#eaf0ff;
+        --line:rgba(255,255,255,.10);
+        --accent:#38bdf8;
+        --accent2:#34d399;
+        --warn:#fbbf24;
+        --danger:#fb7185;
+      }
+      *{box-sizing:border-box}
+      body{
+        margin:0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        background: radial-gradient(1200px 600px at 20% -10%, rgba(56,189,248,.25), transparent 55%),
+                    radial-gradient(1200px 600px at 80% 0%, rgba(52,211,153,.18), transparent 55%),
+                    var(--bg);
+        color:var(--text);
+      }
+      a{color:inherit}
+      .wrap{max-width:1100px;margin:0 auto;padding:28px 16px 56px}
+      header{
+        display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;
+        margin-bottom:18px;
+      }
+      .brand{
+        display:flex;flex-direction:column;gap:6px;
+      }
+      .brand h1{
+        margin:0;
+        font-size:28px;
+        letter-spacing:.2px;
+      }
+      .brand p{
+        margin:0;
+        color:var(--muted);
+        max-width:720px;
+        line-height:1.45;
+      }
+      .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+      .pill{
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.04);
+        color:var(--muted);
+        padding:8px 10px;border-radius:999px;
+        font-size:12px;
+      }
+      .grid{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:16px;
+        margin-top:16px;
+      }
+      @media (max-width: 900px){
+        .grid{grid-template-columns:1fr}
+      }
+      .card{
+        background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+        border:1px solid var(--line);
+        border-radius:18px;
+        padding:16px;
+        box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      }
+      .card h2{margin:0 0 10px;font-size:16px}
+      .tabs{
+        display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px;
+      }
+      .tab{
+        cursor:pointer;
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.04);
+        color:var(--muted);
+        padding:10px 12px;border-radius:12px;
+        font-size:13px;
+        user-select:none;
+      }
+      .tab.active{
+        color:var(--text);
+        border-color: rgba(56,189,248,.55);
+        background: rgba(56,189,248,.12);
+      }
+      .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+      @media (max-width:520px){.row{grid-template-columns:1fr}}
+      label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+      input, select{
+        width:100%;
+        padding:12px 12px;
+        border-radius:12px;
+        border:1px solid var(--line);
+        outline:none;
+        background:rgba(10,16,30,.65);
+        color:var(--text);
+        font-size:14px;
+      }
+      input:focus, select:focus{border-color: rgba(56,189,248,.6)}
+      .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+      button{
+        cursor:pointer;
+        border:1px solid rgba(56,189,248,.55);
+        background: linear-gradient(90deg, rgba(56,189,248,.22), rgba(52,211,153,.18));
+        color:var(--text);
+        padding:12px 14px;border-radius:12px;
+        font-weight:600;font-size:14px;
+      }
+      button.secondary{
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.04);
+        color:var(--muted);
+      }
+      .small{
+        font-size:12px;color:var(--muted);line-height:1.45;margin-top:10px
+      }
+      .kpis{
+        display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px
+      }
+      @media (max-width:520px){.kpis{grid-template-columns:1fr}}
+      .kpi{
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.03);
+        border-radius:16px;
+        padding:12px;
+      }
+      .kpi .t{color:var(--muted);font-size:12px;margin-bottom:6px}
+      .kpi .v{font-size:18px;font-weight:700}
+      .kpi .s{margin-top:6px;color:var(--muted);font-size:12px}
+      .notice{
+        border-left:3px solid rgba(251,191,36,.8);
+        padding:10px 12px;
+        background: rgba(251,191,36,.08);
+        border-radius:12px;
+        color:var(--muted);
+        margin-top:12px;
+        font-size:12px;
+        line-height:1.45;
+      }
+      .danger{
+        border-left-color: rgba(251,113,133,.85);
+        background: rgba(251,113,133,.08);
+      }
+      table{
+        width:100%;
+        border-collapse:collapse;
+        margin-top:12px;
+        overflow:hidden;
+        border-radius:14px;
+        border:1px solid var(--line);
+      }
+      th, td{
+        padding:10px 10px;
+        border-bottom:1px solid var(--line);
+        text-align:right;
+        font-size:13px;
+      }
+      th{text-align:right;color:var(--muted);font-weight:600;background:rgba(255,255,255,.03)}
+      th:first-child, td:first-child{text-align:left}
+      tr:last-child td{border-bottom:none}
+      footer{margin-top:18px;color:var(--muted);font-size:12px;line-height:1.5}
+      .sr{position:absolute;left:-9999px}
+    </style>
+
+    <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@type":"WebApplication",
+        "name":"Savings Goal Calculator",
+        "applicationCategory":"FinanceApplication",
+        "operatingSystem":"All",
+        "url":"https://truewealthmetrics.com/savings-goal-calculator/",
+        "publisher":{
+          "@type":"Organization",
+          "name":"TrueWealthMetrics"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <h1>Savings Goal Calculator</h1>
+          <p>
+            Plan your savings target with or without interest. Use <b>Time to Goal</b> to estimate how long it takes,
+            or <b>Required Monthly</b> to calculate the monthly contribution needed to hit a target by a deadline.
+          </p>
+          <div class="pillrow">
+            <span class="pill">Monthly compounding</span>
+            <span class="pill">Interest optional</span>
+            <span class="pill">Year-by-year breakdown</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="grid">
+        <!-- Inputs -->
+        <section class="card" aria-label="Inputs">
+          <h2>Inputs</h2>
+
+          <div class="tabs" role="tablist" aria-label="Calculator modes">
+            <div class="tab active" role="tab" aria-selected="true" id="tab-time" tabindex="0">Time to Goal</div>
+            <div class="tab" role="tab" aria-selected="false" id="tab-required" tabindex="0">Required Monthly</div>
+          </div>
+
+          <!-- Shared -->
+          <div class="row">
+            <div>
+              <label for="goal">Savings goal (target amount)</label>
+              <input id="goal" type="number" min="0" step="0.01" value="20000" />
+            </div>
+            <div>
+              <label for="current">Current savings</label>
+              <input id="current" type="number" min="0" step="0.01" value="2000" />
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:12px">
+            <div>
+              <label for="rate">Annual interest rate (APY %)</label>
+              <input id="rate" type="number" min="0" step="0.01" value="4" />
+            </div>
+            <div>
+              <label for="currency">Currency</label>
+              <select id="currency">
+                <option value="USD">$ USD</option>
+                <option value="GBP" selected>£ GBP</option>
+                <option value="EUR">€ EUR</option>
+                <option value="CAD">$ CAD</option>
+                <option value="AUD">$ AUD</option>
+                <option value="PKR">₨ PKR</option>
+                <option value="INR">₹ INR</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Mode A: time to goal -->
+          <div id="mode-time" style="margin-top:12px">
+            <div class="row">
+              <div>
+                <label for="monthly">Monthly contribution</label>
+                <input id="monthly" type="number" min="0" step="0.01" value="500" />
+              </div>
+              <div>
+                <label for="maxYears">Max years to simulate (safety)</label>
+                <input id="maxYears" type="number" min="1" step="1" value="60" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Mode B: required monthly to hit deadline -->
+          <div id="mode-required" style="margin-top:12px;display:none">
+            <div class="row">
+              <div>
+                <label for="years">Deadline years</label>
+                <input id="years" type="number" min="0" step="1" value="5" />
+              </div>
+              <div>
+                <label for="months">Extra months</label>
+                <input id="months" type="number" min="0" max="11" step="1" value="0" />
+              </div>
+            </div>
+
+            <div class="notice" style="margin-top:12px">
+              We assume monthly compounding and monthly contributions made at the end of each month.
+              This is an estimate — real products may compound differently.
+            </div>
+          </div>
+
+          <div class="btnrow">
+            <button id="btnCalc">Calculate</button>
+            <button id="btnReset" class="secondary" type="button">Reset</button>
+          </div>
+
+          <div class="small">
+            <b>Disclaimer:</b> Educational estimates only. Not financial advice.
+          </div>
+        </section>
+
+        <!-- Results -->
+        <section class="card" aria-label="Results">
+          <h2>Results</h2>
+
+          <div class="kpis">
+            <div class="kpi">
+              <div class="t" id="kpi1t">Time to reach goal</div>
+              <div class="v" id="kpi1v">—</div>
+              <div class="s" id="kpi1s"></div>
+            </div>
+            <div class="kpi">
+              <div class="t" id="kpi2t">Required monthly contribution</div>
+              <div class="v" id="kpi2v">—</div>
+              <div class="s" id="kpi2s"></div>
+            </div>
+            <div class="kpi">
+              <div class="t">Total contributions</div>
+              <div class="v" id="kpi3v">—</div>
+              <div class="s" id="kpi3s"></div>
+            </div>
+            <div class="kpi">
+              <div class="t">Interest earned</div>
+              <div class="v" id="kpi4v">—</div>
+              <div class="s" id="kpi4s"></div>
+            </div>
+          </div>
+
+          <div id="msg" class="notice" style="display:none"></div>
+
+          <div style="margin-top:12px">
+            <table aria-label="Year-by-year breakdown">
+              <thead>
+                <tr>
+                  <th>Year</th>
+                  <th>End balance</th>
+                  <th>Contributions</th>
+                  <th>Interest</th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+                <tr><td colspan="4" style="text-align:left;color:var(--muted)">Run a calculation to see the breakdown.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <footer>
+            Tip: If the result is “Never reaches goal”, increase monthly contribution, increase time horizon,
+            or adjust the interest rate. If interest is 0%, this becomes a straight savings plan.
+          </footer>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      // ---------- helpers ----------
+      const $ = (id) => document.getElementById(id);
+
+      function toNum(v){
+        const n = Number(v);
+        return Number.isFinite(n) ? n : 0;
+      }
+
+      function clamp(n, min, max){
+        return Math.min(Math.max(n, min), max);
+      }
+
+      function fmtMoney(currency, n){
+        const safe = Number.isFinite(n) ? n : 0;
+        try{
+          return new Intl.NumberFormat(undefined, {
+            style:"currency",
+            currency,
+            maximumFractionDigits: 2
+          }).format(safe);
+        }catch{
+          // fallback
+          return safe.toFixed(2) + " " + currency;
+        }
+      }
+
+      function fmtTime(totalMonths){
+        const m = Math.max(0, Math.floor(totalMonths));
+        const years = Math.floor(m / 12);
+        const months = m % 12;
+        if (years === 0) return `${months} month${months===1?"":"s"}`;
+        if (months === 0) return `${years} year${years===1?"":"s"}`;
+        return `${years} year${years===1?"":"s"} ${months} month${months===1?"":"s"}`;
+      }
+
+      // Monthly simulation, contributions at end of month
+      function simulateToGoal({goal, current, monthly, annualRate, maxMonths}){
+        const r = (annualRate/100) / 12;
+        let bal = current;
+        let contribTotal = 0;
+        let interestTotal = 0;
+
+        const yearly = [];
+        let yearContrib = 0;
+        let yearInterest = 0;
+
+        if (bal >= goal){
+          yearly.push({year:1, end:bal, contrib:0, interest:0});
+          return { reached:true, months:0, endBalance:bal, contribTotal:0, interestTotal:0, yearly };
+        }
+
+        for (let month = 1; month <= maxMonths; month++){
+          // interest on current balance
+          const interest = bal * r;
+          bal += interest;
+          interestTotal += interest;
+          yearInterest += interest;
+
+          // contribution at end of month
+          bal += monthly;
+          contribTotal += monthly;
+          yearContrib += monthly;
+
+          // year snapshot
+          if (month % 12 === 0){
+            yearly.push({
+              year: month/12,
+              end: bal,
+              contrib: yearContrib,
+              interest: yearInterest
+            });
+            yearContrib = 0;
+            yearInterest = 0;
+          }
+
+          if (bal >= goal){
+            // if goal reached mid-year, still push a partial year snapshot
+            const y = Math.ceil(month/12);
+            const alreadyPushed = yearly.some(x => x.year === y);
+            if (!alreadyPushed){
+              yearly.push({
+                year: y,
+                end: bal,
+                contrib: yearContrib,
+                interest: yearInterest
+              });
+            }
+            return { reached:true, months:month, endBalance:bal, contribTotal, interestTotal, yearly };
+          }
+        }
+
+        // not reached
+        if (maxMonths % 12 !== 0){
+          const y = Math.ceil(maxMonths/12);
+          yearly.push({
+            year: y,
+            end: bal,
+            contrib: yearContrib,
+            interest: yearInterest
+          });
+        }
+
+        return { reached:false, months:maxMonths, endBalance:bal, contribTotal, interestTotal, yearly };
+      }
+
+      // Required monthly payment for future value with monthly compounding
+      // FV = PV*(1+r)^n + PMT * [((1+r)^n - 1)/r]
+      // PMT = (FV - PV*(1+r)^n) * r / ((1+r)^n - 1)
+      // If r=0 => PMT = (FV - PV)/n
+      function requiredMonthly({goal, current, annualRate, months}){
+        const n = Math.max(1, Math.floor(months));
+        const r = (annualRate/100) / 12;
+
+        if (r === 0){
+          return (goal - current) / n;
+        }
+        const pow = Math.pow(1 + r, n);
+        const numerator = (goal - current * pow) * r;
+        const denom = (pow - 1);
+        return numerator / denom;
+      }
+
+      function renderYearly(currency, rows){
+        const tbody = $("tbody");
+        tbody.innerHTML = "";
+        if (!rows || rows.length === 0){
+          tbody.innerHTML = `<tr><td colspan="4" style="text-align:left;color:var(--muted)">No breakdown available.</td></tr>`;
+          return;
+        }
+        for (const r of rows){
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${r.year}</td>
+            <td>${fmtMoney(currency, r.end)}</td>
+            <td>${fmtMoney(currency, r.contrib)}</td>
+            <td>${fmtMoney(currency, r.interest)}</td>
+          `;
+          tbody.appendChild(tr);
+        }
+      }
+
+      function setMsg(text, type){
+        const el = $("msg");
+        if (!text){
+          el.style.display = "none";
+          el.classList.remove("danger");
+          el.textContent = "";
+          return;
+        }
+        el.style.display = "block";
+        el.textContent = text;
+        if (type === "danger") el.classList.add("danger");
+        else el.classList.remove("danger");
+      }
+
+      function activeMode(){
+        return $("tab-time").classList.contains("active") ? "time" : "required";
+      }
+
+      function applyMode(mode){
+        const timeTab = $("tab-time");
+        const reqTab = $("tab-required");
+        const modeTime = $("mode-time");
+        const modeReq = $("mode-required");
+
+        if (mode === "time"){
+          timeTab.classList.add("active");
+          reqTab.classList.remove("active");
+          timeTab.setAttribute("aria-selected","true");
+          reqTab.setAttribute("aria-selected","false");
+          modeTime.style.display = "";
+          modeReq.style.display = "none";
+          $("kpi1t").textContent = "Time to reach goal";
+          $("kpi2t").textContent = "Monthly contribution";
+        }else{
+          reqTab.classList.add("active");
+          timeTab.classList.remove("active");
+          reqTab.setAttribute("aria-selected","true");
+          timeTab.setAttribute("aria-selected","false");
+          modeReq.style.display = "";
+          modeTime.style.display = "none";
+          $("kpi1t").textContent = "Deadline";
+          $("kpi2t").textContent = "Required monthly contribution";
+        }
+        setMsg("");
+      }
+
+      function resetDefaults(){
+        $("goal").value = 20000;
+        $("current").value = 2000;
+        $("rate").value = 4;
+        $("currency").value = "GBP";
+        $("monthly").value = 500;
+        $("maxYears").value = 60;
+        $("years").value = 5;
+        $("months").value = 0;
+
+        $("kpi1v").textContent = "—"; $("kpi1s").textContent = "";
+        $("kpi2v").textContent = "—"; $("kpi2s").textContent = "";
+        $("kpi3v").textContent = "—"; $("kpi3s").textContent = "";
+        $("kpi4v").textContent = "—"; $("kpi4s").textContent = "";
+        $("tbody").innerHTML = `<tr><td colspan="4" style="text-align:left;color:var(--muted)">Run a calculation to see the breakdown.</td></tr>`;
+        setMsg("");
+      }
+
+      function calculate(){
+        const currency = $("currency").value;
+
+        const goal = Math.max(0, toNum($("goal").value));
+        const current = Math.max(0, toNum($("current").value));
+        const annualRate = Math.max(0, toNum($("rate").value));
+
+        if (goal <= 0){
+          setMsg("Please enter a savings goal greater than 0.", "danger");
+          return;
+        }
+
+        if (current > goal){
+          // still allow, but show a note
+          setMsg("Your current savings already exceed your goal. Time to goal is 0 months.", "");
+        }else{
+          setMsg("");
+        }
+
+        const mode = activeMode();
+
+        if (mode === "time"){
+          const monthly = Math.max(0, toNum($("monthly").value));
+          const maxYears = clamp(toNum($("maxYears").value), 1, 120);
+          const maxMonths = Math.floor(maxYears * 12);
+
+          if (monthly === 0 && annualRate === 0 && current < goal){
+            setMsg("With 0% interest and £0 monthly contributions, you will never reach the goal.", "danger");
+          }
+
+          const sim = simulateToGoal({ goal, current, monthly, annualRate, maxMonths });
+
+          // KPI outputs
+          $("kpi1v").textContent = sim.reached ? fmtTime(sim.months) : "Not reached";
+          $("kpi1s").textContent = sim.reached ? `Estimated time to hit ${fmtMoney(currency, goal)}.` : `Increase monthly contribution or max years.`;
+
+          $("kpi2v").textContent = fmtMoney(currency, monthly);
+          $("kpi2s").textContent = "Monthly contribution used in this estimate.";
+
+          $("kpi3v").textContent = fmtMoney(currency, sim.contribTotal);
+          $("kpi3s").textContent = sim.reached ? "Total contributed until goal reached." : "Total contributed in simulated period.";
+
+          $("kpi4v").textContent = fmtMoney(currency, sim.interestTotal);
+          $("kpi4s").textContent = "Estimated interest earned.";
+
+          if (!sim.reached){
+            setMsg(`Goal not reached within ${maxYears} years. Try a higher monthly contribution, higher interest, or longer horizon.`, "danger");
+          }
+
+          renderYearly(currency, sim.yearly);
+
+        }else{
+          const years = Math.max(0, Math.floor(toNum($("years").value)));
+          const extraMonths = clamp(Math.floor(toNum($("months").value)), 0, 11);
+          const n = Math.max(1, years * 12 + extraMonths);
+
+          const pmt = requiredMonthly({ goal, current, annualRate, months:n });
+
+          if (!Number.isFinite(pmt)){
+            setMsg("These inputs produce an invalid result. Please check your numbers.", "danger");
+            return;
+          }
+
+          if (pmt < 0){
+            setMsg("With this interest rate and deadline, you may already be on track (required monthly is ≤ 0).", "");
+          }else{
+            setMsg("");
+          }
+
+          // simulate using pmt for breakdown
+          const sim = simulateToGoal({
+            goal,
+            current,
+            monthly: Math.max(0, pmt),
+            annualRate,
+            maxMonths: n
+          });
+
+          $("kpi1v").textContent = fmtTime(n);
+          $("kpi1s").textContent = `Deadline: ${years}y ${extraMonths}m`;
+
+          $("kpi2v").textContent = fmtMoney(currency, Math.max(0, pmt));
+          $("kpi2s").textContent = "Required monthly contribution estimate.";
+
+          $("kpi3v").textContent = fmtMoney(currency, sim.contribTotal);
+          $("kpi3s").textContent = "Total contributed over the deadline.";
+
+          $("kpi4v").textContent = fmtMoney(currency, sim.interestTotal);
+          $("kpi4s").textContent = "Estimated interest earned over the deadline.";
+
+          // If simulation still doesn't reach due to rounding/assumptions, warn
+          if (!sim.reached){
+            setMsg("With the calculated monthly contribution, you may still fall slightly short due to rounding/assumptions. Add a small buffer.", "danger");
+          }
+
+          renderYearly(currency, sim.yearly);
+        }
+      }
+
+      // ---------- events ----------
+      $("tab-time").addEventListener("click", () => applyMode("time"));
+      $("tab-required").addEventListener("click", () => applyMode("required"));
+      $("tab-time").addEventListener("keydown", (e)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); applyMode("time"); }});
+      $("tab-required").addEventListener("keydown", (e)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); applyMode("required"); }});
+
+      $("btnCalc").addEventListener("click", calculate);
+      $("btnReset").addEventListener("click", () => {
+        resetDefaults();
+        applyMode("time");
+      });
+
+      // initial
+      resetDefaults();
+      applyMode("time");
+    </script>
+  </body>
+</html>
