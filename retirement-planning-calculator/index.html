@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Retirement Planning Calculator | TrueWealthMetrics</title>
+    <meta
+      name="description"
+      content="Free retirement planning calculator. Project your retirement savings, estimate the nest egg needed for your target income, and see the monthly contribution required."
+    />
+    <link rel="canonical" href="https://truewealthmetrics.com/retirement-planning-calculator/" />
+
+    <meta property="og:title" content="Retirement Planning Calculator | TrueWealthMetrics" />
+    <meta
+      property="og:description"
+      content="Plan your retirement: projected pot, required nest egg, gap/surplus, and a year-by-year table."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://truewealthmetrics.com/retirement-planning-calculator/" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#0b1220" />
+    <meta name="robots" content="index,follow" />
+
+    <style>
+      :root {
+        --bg: #070b14;
+        --card: rgba(255,255,255,0.06);
+        --border: rgba(255,255,255,0.10);
+        --text: rgba(255,255,255,0.92);
+        --muted: rgba(255,255,255,0.70);
+        --soft: rgba(255,255,255,0.12);
+        --accent: #38d98a;
+        --warn: #ffcc66;
+        --danger: #ff6b6b;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        background: radial-gradient(1000px 600px at 30% 10%, rgba(56,217,138,0.12), transparent 55%),
+                    radial-gradient(900px 500px at 70% 30%, rgba(99,102,241,0.10), transparent 60%),
+                    var(--bg);
+        color: var(--text);
+        line-height: 1.55;
+      }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 18px 120px; }
+      header {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 16px; padding: 10px 0 26px;
+      }
+      .brand {
+        font-weight: 800; letter-spacing: 0.2px;
+        display: flex; align-items: center; gap: 10px;
+      }
+      .dot { width: 10px; height: 10px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 22px rgba(56,217,138,0.45); }
+      .nav { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+      .pill {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 9px 12px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        border-radius: 999px;
+        color: var(--text);
+        font-size: 14px;
+      }
+
+      .hero { padding: 18px 0 22px; }
+      .hero h1 { font-size: 40px; line-height: 1.12; margin: 0 0 10px; }
+      .hero p { color: var(--muted); margin: 0; max-width: 80ch; }
+
+      .grid {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 16px;
+      }
+      @media (max-width: 980px) {
+        .grid { grid-template-columns: 1fr; }
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      }
+      .card h2 { margin: 0 0 12px; font-size: 18px; }
+      .sub { color: var(--muted); font-size: 14px; margin-top: -4px; margin-bottom: 14px; }
+
+      .form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      @media (max-width: 620px) { .form { grid-template-columns: 1fr; } }
+
+      label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+      input, select {
+        width: 100%;
+        padding: 12px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,0.20);
+        color: var(--text);
+        outline: none;
+      }
+      input:focus, select:focus { border-color: rgba(56,217,138,0.55); box-shadow: 0 0 0 4px rgba(56,217,138,0.12); }
+
+      .row { display: grid; grid-template-columns: 1fr; gap: 6px; }
+      .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+      button {
+        cursor: pointer;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        padding: 12px 14px;
+        font-weight: 800;
+        background: rgba(56,217,138,0.16);
+        color: var(--text);
+      }
+      button.secondary { background: rgba(255,255,255,0.05); }
+
+      .kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+      @media (max-width: 620px) { .kpis { grid-template-columns: 1fr; } }
+      .kpi {
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,0.16);
+        border-radius: 14px;
+        padding: 14px;
+      }
+      .kpi .t { color: var(--muted); font-size: 13px; }
+      .kpi .v { font-size: 22px; font-weight: 900; margin-top: 4px; }
+      .kpi .s { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+      .note {
+        margin-top: 12px;
+        font-size: 13px;
+        color: var(--muted);
+        border-left: 3px solid rgba(56,217,138,0.55);
+        padding-left: 10px;
+        white-space: pre-line;
+      }
+
+      .statusLine {
+        margin-top: 12px;
+        border: 1px solid rgba(255,255,255,0.10);
+        background: rgba(0,0,0,0.16);
+        border-radius: 14px;
+        padding: 12px 14px;
+      }
+      .statusLine strong { font-weight: 900; }
+      .statusOk { color: rgba(56,217,138,0.95); }
+      .statusBad { color: rgba(255,107,107,0.95); }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+        overflow: hidden;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+      }
+      th, td {
+        padding: 10px 10px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        text-align: right;
+        font-size: 14px;
+      }
+      th { text-align: right; color: rgba(255,255,255,0.82); background: rgba(255,255,255,0.05); }
+      td:first-child, th:first-child { text-align: left; }
+      tr:last-child td { border-bottom: none; }
+
+      details {
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,0.16);
+        border-radius: 14px;
+        padding: 12px 14px;
+        margin: 10px 0;
+      }
+      summary { cursor: pointer; font-weight: 800; }
+      details p { margin: 8px 0 0; color: var(--muted); }
+
+      footer { margin-top: 34px; color: var(--muted); font-size: 13px; }
+
+      /* Mobile conversion upgrades */
+      .tableActions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .tableActions button { padding: 10px 12px; }
+      .badge {
+        font-size: 12px;
+        color: rgba(255,255,255,0.78);
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(0,0,0,0.16);
+        border-radius: 999px;
+        padding: 6px 10px;
+      }
+
+      .stickyBar {
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 99;
+        display: none;
+        background: rgba(7,11,20,0.86);
+        backdrop-filter: blur(14px);
+        border-top: 1px solid rgba(255,255,255,0.10);
+        padding: 10px 12px;
+      }
+      .stickyInner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .stickyMini {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .stickyMini .l { font-size: 11px; color: rgba(255,255,255,0.60); }
+      .stickyMini .v {
+        font-size: 16px; font-weight: 900;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+      .stickyBtns {
+        display: flex;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+      .stickyBtns a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.06);
+        color: var(--text);
+        font-weight: 900;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .stickyBtns a.primary {
+        border-color: rgba(56,217,138,0.42);
+        background: rgba(56,217,138,0.14);
+      }
+
+      @media (max-width: 720px) {
+        .wrap { padding-bottom: 150px; }
+        .stickyBar { display: block; }
+        .hero h1 { font-size: 32px; }
+      }
+    </style>
+
+    <script type="application/ld+json" id="jsonld-webpage">
+      {
+        "@context":"https://schema.org",
+        "@type":"WebPage",
+        "name":"Retirement Planning Calculator",
+        "url":"https://truewealthmetrics.com/retirement-planning-calculator/",
+        "description":"Free retirement planning calculator to project your retirement pot, estimate the required nest egg, and see the monthly contribution required.",
+        "isPartOf":{
+          "@type":"WebSite",
+          "name":"TrueWealthMetrics",
+          "url":"https://truewealthmetrics.com/"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json" id="jsonld-faq">
+      {
+        "@context":"https://schema.org",
+        "@type":"FAQPage",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"How much money do I need to retire?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"A common estimate uses a withdrawal rate. Required nest egg ≈ target annual income ÷ withdrawal rate. Example: £30,000 ÷ 4% ≈ £750,000."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"What is the 4% rule?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"The 4% rule is a guideline suggesting you may withdraw about 4% of your portfolio in the first retirement year (then adjust for inflation) over a long retirement. It’s not guaranteed and depends on market returns."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Should I include inflation in retirement planning?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Inflation affects future purchasing power. If you enter an inflation rate, this calculator shows an inflation-adjusted view so you can compare outcomes in today’s money."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <span class="dot"></span>
+          <span>TrueWealthMetrics</span>
+        </div>
+        <nav class="nav">
+          <a class="pill" href="/">Home</a>
+          <a class="pill" href="/loan-repayment-calculator/">Loan</a>
+          <a class="pill" href="/compound-interest-calculator/">Compound</a>
+          <a class="pill" href="/savings-goal-calculator/">Savings</a>
+          <a class="pill" href="/credit-card-payoff-calculator/">Credit</a>
+          <a class="pill" href="/debt-snowball-avalanche-calculator/">Debt</a>
+          <a class="pill" href="/retirement-planning-calculator/">Retirement</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <h1>Retirement Planning Calculator</h1>
+        <p>
+          Project your retirement savings, estimate the <strong>nest egg required</strong> for your target income, and see whether you’re on track.
+          Results are educational estimates — not financial advice.
+        </p>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Inputs</h2>
+          <p class="sub">Keep assumptions realistic. The biggest drivers are time, contributions, and return rate.</p>
+
+          <div class="form" id="calcForm">
+            <div class="row">
+              <label for="currentAge">Current age</label>
+              <input id="currentAge" inputmode="numeric" value="30" />
+            </div>
+
+            <div class="row">
+              <label for="retireAge">Retirement age</label>
+              <input id="retireAge" inputmode="numeric" value="65" />
+            </div>
+
+            <div class="row">
+              <label for="currentSavings">Current savings (£)</label>
+              <input id="currentSavings" inputmode="decimal" value="20000" />
+            </div>
+
+            <div class="row">
+              <label for="monthlyContrib">Monthly contribution (£)</label>
+              <input id="monthlyContrib" inputmode="decimal" value="300" />
+            </div>
+
+            <div class="row">
+              <label for="annualReturn">Expected annual return (%)</label>
+              <input id="annualReturn" inputmode="decimal" value="7" />
+            </div>
+
+            <div class="row">
+              <label for="inflation">Inflation (optional %)</label>
+              <input id="inflation" inputmode="decimal" value="2.5" />
+            </div>
+
+            <div class="row">
+              <label for="targetIncome">Target annual income in retirement (£/year)</label>
+              <input id="targetIncome" inputmode="decimal" value="30000" />
+            </div>
+
+            <div class="row">
+              <label for="withdrawalRate">Withdrawal rate (e.g., 4%)</label>
+              <input id="withdrawalRate" inputmode="decimal" value="4" />
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="btnCalc">Calculate</button>
+            <button class="secondary" id="btnReset" type="button">Reset</button>
+          </div>
+
+          <div class="note">
+Tip: If you enter inflation, we show a “today’s money” view.
+Withdrawal rates are guidelines — not guarantees.
+          </div>
+        </div>
+
+        <div class="card" id="resultsCard">
+          <h2>Results</h2>
+          <p class="sub">Updated instantly from your inputs.</p>
+
+          <div class="kpis">
+            <div class="kpi">
+              <div class="t">Projected retirement pot</div>
+              <div class="v" id="potNominal">—</div>
+              <div class="s" id="potNominalSub">Value at retirement age</div>
+            </div>
+
+            <div class="kpi">
+              <div class="t">Pot in today’s money</div>
+              <div class="v" id="potReal">—</div>
+              <div class="s">Inflation-adjusted estimate</div>
+            </div>
+
+            <div class="kpi">
+              <div class="t">Required nest egg</div>
+              <div class="v" id="requiredNestEgg">—</div>
+              <div class="s">Based on target income & withdrawal rate</div>
+            </div>
+
+            <div class="kpi">
+              <div class="t">Monthly needed (target)</div>
+              <div class="v" id="neededMonthly">—</div>
+              <div class="s">Estimate to reach required nest egg</div>
+            </div>
+          </div>
+
+          <div class="statusLine" id="statusLine">—</div>
+          <div class="note" id="summaryLine">—</div>
+        </div>
+      </section>
+
+      <section class="card" id="growthTableCard" style="margin-top:16px;">
+        <h2>Year-by-year projection</h2>
+        <p class="sub">Balances shown at the end of each year until retirement age.</p>
+
+        <div class="tableActions">
+          <button class="secondary" id="btnToggleTable" type="button">Show full table</button>
+          <span class="badge" id="tableBadge">Mobile-friendly: showing first 10 years</span>
+        </div>
+
+        <table aria-label="Retirement projection table">
+          <thead>
+            <tr>
+              <th>Age</th>
+              <th>Year</th>
+              <th>End balance</th>
+              <th>Contributions</th>
+              <th>Interest earned</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr><td colspan="5" style="text-align:left;color:rgba(255,255,255,0.70);">Run a calculation to see results.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card" style="margin-top:16px;">
+        <h2>How this calculator works</h2>
+        <p class="sub">
+          We simulate month-by-month growth, adding your contribution each month and compounding at an estimated rate.
+          The “required nest egg” uses your target income and a withdrawal rate (e.g., 4%).
+        </p>
+        <ul style="margin:0;color:var(--muted);">
+          <li><strong>Projected pot:</strong> estimated value at retirement age.</li>
+          <li><strong>Required nest egg:</strong> target income ÷ withdrawal rate.</li>
+          <li><strong>Monthly needed:</strong> estimated contribution to reach the required nest egg.</li>
+        </ul>
+      </section>
+
+      <section class="card" style="margin-top:16px;">
+        <h2>FAQ</h2>
+
+        <details>
+          <summary>Does a higher return always mean I’ll retire earlier?</summary>
+          <p>
+            Not always. Returns are unpredictable. Contributions, costs, and consistency matter. Use conservative assumptions and revisit your plan yearly.
+          </p>
+        </details>
+
+        <details>
+          <summary>What if my target income is “in today’s money”?</summary>
+          <p>
+            That’s how this tool treats it by default. If you enter inflation, we inflate the target income to retirement and show an inflation-adjusted pot for comparison.
+          </p>
+        </details>
+
+        <details>
+          <summary>Is the withdrawal rate guaranteed?</summary>
+          <p>
+            No. It’s a planning guide. Longer retirements, poor market sequences, and fees can reduce sustainable withdrawals.
+          </p>
+        </details>
+      </section>
+
+      <footer>
+        <div class="card">
+          <strong>Disclaimer:</strong> Estimates for educational purposes only. Real-world investing includes risk, fees, taxes, and market volatility.
+          <div style="margin-top:8px;">© <span id="yr"></span> TrueWealthMetrics — Powered by A.K Pro Traders</div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Sticky mobile bar -->
+    <div class="stickyBar" id="stickyBar" aria-label="Sticky results bar">
+      <div class="stickyInner">
+        <div class="stickyMini">
+          <div class="l">Projected pot</div>
+          <div class="v" id="stickyPot">—</div>
+        </div>
+        <div class="stickyBtns">
+          <a href="#resultsCard">Results</a>
+          <a class="primary" href="#growthTableCard">Table</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const fmtGBP0 = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 });
+      const fmtGBP2 = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+      function toNum(v) {
+        const n = Number(String(v).replace(/,/g, "").trim());
+        return Number.isFinite(n) ? n : 0;
+      }
+
+      function clamp(n, lo, hi) { return Math.min(hi, Math.max(lo, n)); }
+
+      // Monthly rate from nominal annual rate with monthly compounding
+      function monthlyRateFromNominal(annualRatePercent) {
+        const r = Math.max(0, annualRatePercent) / 100;
+        // monthly factor for nominal annual, compounded monthly
+        return Math.pow(1 + r, 1/12) - 1;
+      }
+
+      function simulateToRetirement({ currentSavings, monthlyContrib, annualReturn, yearsToRetire }) {
+        const months = Math.max(0, Math.round(yearsToRetire * 12));
+        const mRate = monthlyRateFromNominal(annualReturn);
+
+        let balance = Math.max(0, currentSavings);
+        let contrib = Math.max(0, currentSavings);
+        const rows = [];
+
+        for (let m = 1; m <= months; m++) {
+          // contribution at start of month
+          balance += Math.max(0, monthlyContrib);
+          contrib += Math.max(0, monthlyContrib);
+
+          // growth over month
+          balance *= (1 + mRate);
+
+          if (m % 12 === 0) {
+            const year = m / 12;
+            const interestEarned = balance - contrib;
+            rows.push({ year, balance, contrib, interestEarned });
+          }
+        }
+
+        return { finalBalance: balance, totalContrib: contrib, interestEarned: balance - contrib, rows };
+      }
+
+      function adjustForInflation(value, inflationRate, years) {
+        const i = Math.max(0, inflationRate) / 100;
+        if (!i || !years) return null;
+        return value / Math.pow(1 + i, years);
+      }
+
+      function inflateToFuture(valueToday, inflationRate, years) {
+        const i = Math.max(0, inflationRate) / 100;
+        if (!i || !years) return valueToday;
+        return valueToday * Math.pow(1 + i, years);
+      }
+
+      function requiredNestEgg({ targetIncomeToday, withdrawalRatePercent, inflationRate, yearsToRetire }) {
+        const wr = clamp(withdrawalRatePercent, 0.1, 15) / 100;
+        const incomeAtRetirement = inflateToFuture(Math.max(0, targetIncomeToday), inflationRate, yearsToRetire);
+        return incomeAtRetirement / wr;
+      }
+
+      // Find monthly contribution needed to reach target by retirement (binary search)
+      function requiredMonthlyContribution({ target, currentSavings, annualReturn, yearsToRetire }) {
+        const months = Math.max(0, Math.round(yearsToRetire * 12));
+        if (months === 0) return target <= currentSavings ? 0 : null;
+
+        // If already above target
+        if (currentSavings >= target) return 0;
+
+        // Upper bound guard
+        let lo = 0, hi = 200000; // £200k/month cap (absurdly high, but safe)
+        let best = null;
+
+        for (let i = 0; i < 40; i++) {
+          const mid = (lo + hi) / 2;
+          const sim = simulateToRetirement({ currentSavings, monthlyContrib: mid, annualReturn, yearsToRetire });
+          if (sim.finalBalance >= target) {
+            best = mid;
+            hi = mid;
+          } else {
+            lo = mid;
+          }
+        }
+        return best;
+      }
+
+      let __allRows = [];
+      let __showFullTable = false;
+
+      function renderTable(rows, currentAge) {
+        const tb = document.getElementById("tableBody");
+        if (!rows.length) {
+          tb.innerHTML = `<tr><td colspan="5" style="text-align:left;color:rgba(255,255,255,0.70);">No data.</td></tr>`;
+          return;
+        }
+
+        const isMobile = window.matchMedia("(max-width: 720px)").matches;
+        const limit = (isMobile && !__showFullTable) ? 10 : rows.length;
+        const visible = rows.slice(0, limit);
+
+        tb.innerHTML = visible.map(r => {
+          const age = currentAge + r.year;
+          return `
+            <tr>
+              <td>${age}</td>
+              <td>${r.year}</td>
+              <td>${fmtGBP0.format(r.balance)}</td>
+              <td>${fmtGBP0.format(r.contrib)}</td>
+              <td>${fmtGBP0.format(r.interestEarned)}</td>
+            </tr>
+          `;
+        }).join("");
+
+        const badge = document.getElementById("tableBadge");
+        const btn = document.getElementById("btnToggleTable");
+
+        if (!isMobile) {
+          badge.textContent = `Showing all ${rows.length} years`;
+          btn.style.display = "none";
+          return;
+        }
+
+        btn.style.display = "inline-flex";
+        if (__showFullTable) {
+          badge.textContent = `Showing all ${rows.length} years`;
+          btn.textContent = "Show less";
+        } else {
+          badge.textContent = `Mobile-friendly: showing first 10 years`;
+          btn.textContent = "Show full table";
+        }
+      }
+
+      function calculate() {
+        const currentAge = Math.round(toNum(document.getElementById("currentAge").value));
+        const retireAge = Math.round(toNum(document.getElementById("retireAge").value));
+        const currentSavings = toNum(document.getElementById("currentSavings").value);
+        const monthlyContrib = toNum(document.getElementById("monthlyContrib").value);
+        const annualReturn = toNum(document.getElementById("annualReturn").value);
+        const inflation = toNum(document.getElementById("inflation").value);
+        const targetIncome = toNum(document.getElementById("targetIncome").value);
+        const withdrawalRate = toNum(document.getElementById("withdrawalRate").value);
+
+        const yearsToRetire = Math.max(0, retireAge - currentAge);
+
+        const res = simulateToRetirement({ currentSavings, monthlyContrib, annualReturn, yearsToRetire });
+        __allRows = res.rows;
+
+        const potNominal = res.finalBalance;
+        const potReal = adjustForInflation(potNominal, inflation, yearsToRetire);
+
+        const nestEgg = requiredNestEgg({
+          targetIncomeToday: targetIncome,
+          withdrawalRatePercent: withdrawalRate || 4,
+          inflationRate: inflation,
+          yearsToRetire
+        });
+
+        const neededMonthly = requiredMonthlyContribution({
+          target: nestEgg,
+          currentSavings,
+          annualReturn,
+          yearsToRetire
+        });
+
+        document.getElementById("potNominal").textContent = fmtGBP0.format(potNominal);
+        document.getElementById("potNominalSub").textContent = `At age ${retireAge} (${yearsToRetire} years)`;
+        document.getElementById("potReal").textContent = potReal ? fmtGBP0.format(potReal) : "—";
+        document.getElementById("requiredNestEgg").textContent = fmtGBP0.format(nestEgg);
+        document.getElementById("neededMonthly").textContent = (neededMonthly === null) ? "—" : fmtGBP0.format(neededMonthly);
+
+        document.getElementById("stickyPot").textContent = fmtGBP0.format(potNominal);
+
+        const gap = nestEgg - potNominal;
+        const statusEl = document.getElementById("statusLine");
+        if (gap <= 0) {
+          statusEl.innerHTML = `<strong class="statusOk">On track:</strong> Your projected pot meets the estimated required nest egg (surplus: <strong class="statusOk">${fmtGBP0.format(Math.abs(gap))}</strong>).`;
+        } else {
+          statusEl.innerHTML = `<strong class="statusBad">Gap:</strong> Your projected pot is short by <strong class="statusBad">${fmtGBP0.format(gap)}</strong> versus the estimated required nest egg.`;
+        }
+
+        const incomeAtRetirement = inflateToFuture(targetIncome, inflation, yearsToRetire);
+        const wr = clamp(withdrawalRate || 4, 0.1, 15);
+
+        const summary = `At age ${retireAge}, your projected pot is ${fmtGBP0.format(potNominal)}.
+Target income: ${fmtGBP0.format(targetIncome)} per year (today’s money) → ${fmtGBP0.format(incomeAtRetirement)} at retirement (with inflation).
+Required nest egg using ${wr}% withdrawal rate: ${fmtGBP0.format(nestEgg)}.
+Total contributions before retirement: ${fmtGBP0.format(res.totalContrib)} (interest earned: ${fmtGBP0.format(res.interestEarned)}).`;
+        document.getElementById("summaryLine").textContent = summary;
+
+        renderTable(res.rows, currentAge);
+      }
+
+      document.getElementById("btnCalc").addEventListener("click", (e) => {
+        e.preventDefault();
+        calculate();
+        if (window.matchMedia("(max-width: 980px)").matches) {
+          document.getElementById("resultsCard").scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+
+      document.getElementById("btnReset").addEventListener("click", () => {
+        document.getElementById("currentAge").value = "30";
+        document.getElementById("retireAge").value = "65";
+        document.getElementById("currentSavings").value = "20000";
+        document.getElementById("monthlyContrib").value = "300";
+        document.getElementById("annualReturn").value = "7";
+        document.getElementById("inflation").value = "2.5";
+        document.getElementById("targetIncome").value = "30000";
+        document.getElementById("withdrawalRate").value = "4";
+        __showFullTable = false;
+        calculate();
+      });
+
+      document.getElementById("btnToggleTable").addEventListener("click", () => {
+        __showFullTable = !__showFullTable;
+        const currentAge = Math.round(toNum(document.getElementById("currentAge").value));
+        renderTable(__allRows, currentAge);
+        if (__showFullTable) {
+          document.getElementById("growthTableCard").scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+
+      ["currentAge","retireAge","currentSavings","monthlyContrib","annualReturn","inflation","targetIncome","withdrawalRate"].forEach(id => {
+        document.getElementById(id).addEventListener("input", () => {
+          clearTimeout(window.__twmRetT);
+          window.__twmRetT = setTimeout(() => {
+            __showFullTable = false;
+            calculate();
+          }, 160);
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        const currentAge = Math.round(toNum(document.getElementById("currentAge").value));
+        renderTable(__allRows, currentAge);
+      });
+
+      document.getElementById("yr").textContent = new Date().getFullYear();
+      calculate();
+    </script>
+  </body>
+</html>
