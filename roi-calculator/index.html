@@ -194,20 +194,53 @@
   </style>
 
   <script type="application/ld+json" id="faqJson"></script>
+
+
+  <script type="application/ld+json" id="jsonld-softwareapp">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"ROI Calculator (Investment Return & CAGR)",
+    "applicationCategory":"FinanceApplication",
+    "operatingSystem":"Web",
+    "url":"https://truewealthmetrics.com/roi-calculator/",
+    "description":"Free ROI calculator to estimate investment ending value, profit, ROI %, and CAGR with optional contributions, fees, and inflation-adjusted view.",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},
+    "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
+  }
+  </script>
+
+  <script type="application/ld+json" id="jsonld-breadcrumbs">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
+      {"@type":"ListItem","position":2,"name":"ROI Calculator","item":"https://truewealthmetrics.com/roi-calculator/"}
+    ]
+  }
+  </script>
+
 </head>
 <body>
   <div class="wrap">
     <div class="topbar">
       <div class="brand"><span class="dot"></span> TrueWealthMetrics</div>
+      
       <nav class="nav">
         <a class="pill" href="/">Home</a>
         <a class="pill" href="/loan-repayment-calculator/">Loan</a>
+        <a class="pill" href="/mortgage-payment-calculator/">Mortgage</a>
+        <a class="pill" href="/budget-planner-calculator/">Budget</a>
         <a class="pill" href="/compound-interest-calculator/">Compound</a>
         <a class="pill" href="/savings-goal-calculator/">Savings</a>
         <a class="pill" href="/credit-card-payoff-calculator/">Credit</a>
         <a class="pill" href="/debt-snowball-avalanche-calculator/">Debt</a>
+        <a class="pill" href="/roi-calculator/">ROI</a>
+        <a class="pill" href="/investment-fee-impact-calculator/">Fees</a>
         <a class="pill" href="/retirement-planning-calculator/">Retirement</a>
       </nav>
+
     </div>
 
     <header>
@@ -367,10 +400,33 @@
       </div>
     </section>
 
+    <section class="card" style="margin-top:16px">
+      <h2>Related calculators</h2>
+      <p class="muted" style="margin-top:-6px">
+        Use these tools together to compare scenarios (fees, contributions, debt payoff, and retirement projections).
+      </p>
+      <ul style="margin:0;color:var(--muted);line-height:1.8;padding-left:18px">
+        <li><a href="/investment-fee-impact-calculator/"><strong>Investment Fee Impact Calculator</strong></a> — see how small fees reduce long‑term outcomes.</li>
+        <li><a href="/compound-interest-calculator/"><strong>Compound Interest Calculator</strong></a> — model long‑term growth with contributions.</li>
+        <li><a href="/savings-goal-calculator/"><strong>Savings Goal Calculator</strong></a> — find monthly savings needed to reach a target.</li>
+        <li><a href="/retirement-planning-calculator/"><strong>Retirement Planning Calculator</strong></a> — project retirement savings over time.</li>
+        <li><a href="/budget-planner-calculator/"><strong>Budget Planner</strong></a> — confirm your monthly contribution is realistic.</li>
+      </ul>
+    </section>
+
+
+    
     <footer>
       <div><b>Disclaimer:</b> Educational estimates only. Real-world investing involves risk, fees, taxes, and market volatility.</div>
-      <div style="margin-top:6px">© 2026 TrueWealthMetrics</div>
+      <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="pill" href="/about/">About</a>
+        <a class="pill" href="/contact/">Contact</a>
+        <a class="pill" href="/privacy-policy/">Privacy Policy</a>
+        <a class="pill" href="/terms-of-use/">Terms of Use</a>
+      </div>
+      <div style="margin-top:10px">© 2026 TrueWealthMetrics</div>
     </footer>
+
   </div>
 
 <script>
