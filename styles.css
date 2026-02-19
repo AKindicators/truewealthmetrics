@@ -1,0 +1,121 @@
+/* =========================
+   GLOBAL SITE STYLES
+========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #0b1f2a, #102f3d);
+  color: #e6f0f4;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.header-container {
+  width: 95%;
+  max-width: 1200px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  padding: 18px 25px;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-wrap img {
+  height: 36px;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* NAV */
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+  background: #1fb6c1;
+  color: #002a32;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  color: #b8d7e0;
+  margin-bottom: 25px;
+}
+
+/* Cards */
+
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.button-primary {
+  background: #1fb6c1;
+  color: #002a32;
+  padding: 10px 18px;
+  border-radius: 10px;
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 10px;
+}
