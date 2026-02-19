@@ -1,175 +1,19 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Investment Fees Calculator (Expense Ratio &amp; Fee Cost) | TrueWealthMetrics</title>
-<meta content="Free investment fee impact calculator. See how annual fees reduce your ending value over time. Compare no-fee vs fee portfolio growth, fee cost, and year-by-year breakdown." name="description"/>
-<link href="https://truewealthmetrics.com/investment-fee-impact-calculator/" rel="canonical"/>
-<meta content="index,follow" name="robots"/>
-<meta content="#0b1220" name="theme-color"/>
-<style>
-      :root{
-        --bg:#070b14;
-        --card:rgba(255,255,255,.06);
-        --card2:rgba(255,255,255,.04);
-        --border:rgba(255,255,255,.10);
-        --text:rgba(255,255,255,.92);
-        --muted:rgba(255,255,255,.70);
-        --accent:#38d98a;
-        --danger:#ff5c6c;
-        --warn:#ffcc66;
-        --shadow: 0 14px 40px rgba(0,0,0,.45);
-      }
-      *{box-sizing:border-box}
-      body{
-        margin:0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-        color:var(--text);
-        background:
-          radial-gradient(1200px 600px at 20% -10%, rgba(56,217,138,.20), transparent 55%),
-          radial-gradient(1200px 600px at 80% 0%, rgba(56,189,248,.16), transparent 55%),
-          var(--bg);
-      }
-      a{color:inherit;text-decoration:none}
-      .wrap{max-width:1180px;margin:0 auto;padding:18px 16px 56px}
-      
-      
-      
-      
-      
-      
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-      
-      
+    <title>Investment Fees Calculator (Expense Ratio & Fee Cost) | TrueWealthMetrics</title>
+    <meta
+      name="description"
+      content="Free investment fee impact calculator. See how annual fees reduce your ending value over time. Compare no-fee vs fee portfolio growth, fee cost, and year-by-year breakdown."
+    />
+    <link rel="canonical" href="https://truewealthmetrics.com/investment-fee-impact-calculator/" />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0b1220" />
 
-      
-      h1{margin:0;font-size:44px;letter-spacing:.2px}
-      .sub{margin:10px 0 0;color:var(--muted);max-width:860px;line-height:1.6}
-
-      .grid{
-        margin-top:18px;
-        display:grid;
-        grid-template-columns: 1fr 1.1fr;
-        gap:16px;
-        align-items:start;
-      }
-      @media (max-width:980px){.grid{grid-template-columns:1fr}}
-
-      .card{
-        border:1px solid var(--border);
-        background:linear-gradient(180deg, var(--card), var(--card2));
-        border-radius:18px;padding:16px;box-shadow:var(--shadow);
-      }
-      .card h2{margin:0 0 6px;font-size:16px}
-      .muted{color:var(--muted);font-size:13px;line-height:1.55}
-      .rows{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-      @media (max-width:700px){.rows{grid-template-columns:1fr}}
-      label{display:block;font-size:12px;color:var(--muted);margin:0 0 6px}
-      input, select{
-        width:100%;
-        border:1px solid var(--border);
-        background:rgba(0,0,0,.25);
-        color:var(--text);
-        padding:11px 12px;
-        border-radius:12px;
-        outline:none;
-      }
-      input:focus, select:focus{border-color:rgba(56,217,138,.55)}
-      .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-      button{
-        border:1px solid rgba(56,217,138,.55);
-        background:linear-gradient(90deg, rgba(56,217,138,.20), rgba(56,189,248,.14));
-        color:var(--text);
-        padding:10px 12px;
-        border-radius:12px;
-        font-weight:800;
-        cursor:pointer;
-        font-size:13px;
-      }
-      button.secondary{
-        border:1px solid var(--border);
-        background:rgba(255,255,255,.04);
-        color:var(--muted);
-        font-weight:700;
-      }
-
-      .kpis{
-        margin-top:12px;
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:12px;
-      }
-      @media (max-width:700px){.kpis{grid-template-columns:1fr}}
-      .kpi{
-        border:1px solid var(--border);
-        background:rgba(0,0,0,.20);
-        border-radius:16px;padding:14px;
-      }
-      .kpi .t{font-size:12px;color:var(--muted);margin:0 0 8px}
-      .kpi .v{font-size:28px;font-weight:900;letter-spacing:.2px}
-      .kpi .s{margin-top:6px;font-size:12px;color:var(--muted)}
-      .kpi .neg{color:var(--danger);font-weight:800}
-      .kpi .pos{color:var(--accent);font-weight:800}
-
-      .note{
-        margin-top:12px;
-        border:1px solid rgba(56,217,138,.35);
-        background:rgba(56,217,138,.08);
-        border-radius:14px;padding:12px;
-        color:var(--muted);
-        font-size:12px;
-        line-height:1.6;
-      }
-
-      .tablewrap{margin-top:12px;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:rgba(0,0,0,.18)}
-      table{width:100%;border-collapse:collapse}
-      th, td{padding:10px 10px;border-bottom:1px solid rgba(255,255,255,.06);font-size:12px}
-      th{color:var(--muted);text-align:left;background:rgba(255,255,255,.03);position:sticky;top:0}
-      td.r{text-align:right}
-      tr:last-child td{border-bottom:none}
-      .toolbar{
-        display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
-        margin-top:12px;
-      }
-      .badge{
-        border:1px solid var(--border);
-        background:rgba(255,255,255,.04);
-        color:var(--muted);
-        padding:7px 10px;border-radius:999px;font-size:12px;
-      }
-      .smallbtn{
-        border:1px solid var(--border);
-        background:rgba(255,255,255,.04);
-        color:var(--text);
-        padding:8px 10px;border-radius:999px;font-size:12px;font-weight:800;
-        cursor:pointer;
-      }
-
-      details{
-        border:1px solid var(--border);
-        background:rgba(255,255,255,.03);
-        border-radius:14px;
-        padding:12px 12px;
-        margin-top:10px;
-      }
-      summary{cursor:pointer;font-weight:800}
-      details p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.6}
-
-      footer{
-        margin-top:18px;
-        border:1px solid var(--border);
-        background:rgba(255,255,255,.03);
-        border-radius:16px;
-        padding:12px 14px;
-        color:var(--muted);
-        font-size:12px;
-        line-height:1.6;
-      }
-      .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
-    </style>
-<script id="jsonld-softwareapp" type="application/ld+json">
+    <script type="application/ld+json" id="jsonld-softwareapp">
     {
       "@context":"https://schema.org",
       "@type":"SoftwareApplication",
@@ -182,7 +26,8 @@
       "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
     }
     </script>
-<script id="jsonld-breadcrumbs" type="application/ld+json">
+
+    <script type="application/ld+json" id="jsonld-breadcrumbs">
     {
       "@context":"https://schema.org",
       "@type":"BreadcrumbList",
@@ -192,7 +37,8 @@
       ]
     }
     </script>
-<script id="jsonld-faq" type="application/ld+json">
+
+    <script type="application/ld+json" id="jsonld-faq">
     {
       "@context":"https://schema.org",
       "@type":"FAQPage",
@@ -215,177 +61,214 @@
       ]
     }
     </script>
-<link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer="True" src="/header.js"></script></head>
-<body><div id="site-header"></div>
-<div class="wrap">
-<header>
-<h1>Investment Fee Impact Calculator</h1>
-<p class="sub">
-          See how annual investment fees (platform + fund charges) reduce your ending value over time.
-          Compare <b>no-fee vs fee</b> growth, fee cost, and a year-by-year breakdown. Educational estimates only.
-        </p>
-</header>
-<div class="grid">
-<!-- Inputs -->
-<section class="card">
-<h2>Inputs</h2>
-<div class="muted">Fees look small, but compound against you for decades.</div>
-<div class="rows">
-<div>
-<label for="initial">Starting balance</label>
-<input id="initial" min="0" step="100" type="number" value="10000"/>
-</div>
-<div>
-<label for="monthly">Monthly contribution</label>
-<input id="monthly" min="0" step="10" type="number" value="200"/>
-</div>
-<div>
-<label for="years">Time horizon (years)</label>
-<input id="years" min="1" step="1" type="number" value="20"/>
-</div>
-<div>
-<label for="returnRate">Expected annual return (before fees, %)</label>
-<input id="returnRate" min="-50" step="0.1" type="number" value="7"/>
-</div>
-<div>
-<label for="feeRate">Annual fee (%, e.g. 0.75)</label>
-<input id="feeRate" min="0" step="0.01" type="number" value="0.75"/>
-</div>
-<div>
-<label for="inflation">Inflation (optional, %)</label>
-<input id="inflation" min="0" step="0.1" type="number" value="2.5"/>
-</div>
-<div>
-<label for="currency">Currency</label>
-<select id="currency">
-<option selected="" value="GBP">GBP (£)</option>
-<option value="USD">USD ($)</option>
-<option value="EUR">EUR (€)</option>
-</select>
-</div>
-<div>
-<label for="freq">Compounding</label>
-<select id="freq">
-<option selected="" value="12">Monthly</option>
-<option value="4">Quarterly</option>
-<option value="1">Annually</option>
-</select>
-</div>
-</div>
-<div class="btnrow">
-<button id="calcBtn">Calculate</button>
-<button class="secondary" id="resetBtn">Reset</button>
-<span class="badge" id="status">Ready</span>
-</div>
-<div class="note">
+
+      <link rel="stylesheet" href="/styles.css" />
+        <script src="/header.js" defer></script>
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+    <div class="wrap">
+      <div class="nav">
+          <a href="/">Home</a>
+          <a href="/loan-repayment-calculator/">Loan</a>
+          <a href="/mortgage-payment-calculator/">Mortgage</a>
+          <a href="/budget-planner-calculator/">Budget</a>
+          <a href="/compound-interest-calculator/">Compound</a>
+          <a href="/savings-goal-calculator/">Savings</a>
+          <a href="/credit-card-payoff-calculator/">Credit</a>
+          <a href="/debt-snowball-avalanche-calculator/">Debt</a>
+          <a href="/roi-calculator/">ROI</a>
+          <a href="/investment-fee-impact-calculator/">Fees</a>
+          <a href="/retirement-planning-calculator/">Retirement</a>
+        </div>
+      </div>
+
+      <div class="grid">
+        <!-- Inputs -->
+        <section class="card">
+          <h2>Inputs</h2>
+          <div class="muted">Fees look small, but compound against you for decades.</div>
+
+          <div class="rows">
+            <div>
+              <label for="initial">Starting balance</label>
+              <input id="initial" type="number" min="0" step="100" value="10000" />
+            </div>
+            <div>
+              <label for="monthly">Monthly contribution</label>
+              <input id="monthly" type="number" min="0" step="10" value="200" />
+            </div>
+
+            <div>
+              <label for="years">Time horizon (years)</label>
+              <input id="years" type="number" min="1" step="1" value="20" />
+            </div>
+            <div>
+              <label for="returnRate">Expected annual return (before fees, %)</label>
+              <input id="returnRate" type="number" min="-50" step="0.1" value="7" />
+            </div>
+
+            <div>
+              <label for="feeRate">Annual fee (%, e.g. 0.75)</label>
+              <input id="feeRate" type="number" min="0" step="0.01" value="0.75" />
+            </div>
+            <div>
+              <label for="inflation">Inflation (optional, %)</label>
+              <input id="inflation" type="number" min="0" step="0.1" value="2.5" />
+            </div>
+
+            <div>
+              <label for="currency">Currency</label>
+              <select id="currency">
+                <option value="GBP" selected>GBP (£)</option>
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+              </select>
+            </div>
+            <div>
+              <label for="freq">Compounding</label>
+              <select id="freq">
+                <option value="12" selected>Monthly</option>
+                <option value="4">Quarterly</option>
+                <option value="1">Annually</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="btnrow">
+            <button id="calcBtn">Calculate</button>
+            <button id="resetBtn" class="secondary">Reset</button>
+            <span class="badge" id="status">Ready</span>
+          </div>
+
+          <div class="note">
             Tip: Many “all-in” fees are <span class="mono">0.20%–1.50%</span>. Even a <b>1% fee</b> can cost tens of thousands over long horizons.
           </div>
-</section>
-<!-- Results -->
-<section class="card">
-<h2>Results</h2>
-<div class="muted">Updated when you click Calculate.</div>
-<div class="kpis">
-<div class="kpi">
-<div class="t">Ending value (no fees)</div>
-<div class="v" id="endNoFee">£0</div>
-<div class="s">Gross growth before fees</div>
-</div>
-<div class="kpi">
-<div class="t">Ending value (with fees)</div>
-<div class="v" id="endWithFee">£0</div>
-<div class="s">Net of annual fees</div>
-</div>
-<div class="kpi">
-<div class="t">Fee cost (lost value)</div>
-<div class="v" id="feeCost">£0</div>
-<div class="s"><span class="neg">No-fee ending − fee ending</span></div>
-</div>
-<div class="kpi">
-<div class="t">Effective annual return (after fees)</div>
-<div class="v" id="effectiveReturn">0.00%</div>
-<div class="s">Approx. <span class="pos">return − fee</span></div>
-</div>
-</div>
-<div class="note" id="summary">
+        </section>
+
+        <!-- Results -->
+        <section class="card">
+          <h2>Results</h2>
+          <div class="muted">Updated when you click Calculate.</div>
+
+          <div class="kpis">
+            <div class="kpi">
+              <div class="t">Ending value (no fees)</div>
+              <div class="v" id="endNoFee">£0</div>
+              <div class="s">Gross growth before fees</div>
+            </div>
+
+            <div class="kpi">
+              <div class="t">Ending value (with fees)</div>
+              <div class="v" id="endWithFee">£0</div>
+              <div class="s">Net of annual fees</div>
+            </div>
+
+            <div class="kpi">
+              <div class="t">Fee cost (lost value)</div>
+              <div class="v" id="feeCost">£0</div>
+              <div class="s"><span class="neg">No-fee ending − fee ending</span></div>
+            </div>
+
+            <div class="kpi">
+              <div class="t">Effective annual return (after fees)</div>
+              <div class="v" id="effectiveReturn">0.00%</div>
+              <div class="s">Approx. <span class="pos">return − fee</span></div>
+            </div>
+          </div>
+
+          <div class="note" id="summary">
             Enter inputs and click Calculate.
           </div>
-<div class="toolbar">
-<span class="badge" id="tableInfo">Year-by-year breakdown</span>
-<button class="smallbtn" id="toggleAll">Show all</button>
-</div>
-<div class="tablewrap">
-<table>
-<thead>
-<tr>
-<th>Year</th>
-<th class="r">No-fee balance</th>
-<th class="r">With-fee balance</th>
-<th class="r">Fees (est.)</th>
-<th class="r">Gap</th>
-</tr>
-</thead>
-<tbody id="tbody"></tbody>
-</table>
-</div>
-<details>
-<summary>How are fees modeled?</summary>
-<p>
+
+          <div class="toolbar">
+            <span class="badge" id="tableInfo">Year-by-year breakdown</span>
+            <button class="smallbtn" id="toggleAll">Show all</button>
+          </div>
+
+          <div class="tablewrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Year</th>
+                  <th class="r">No-fee balance</th>
+                  <th class="r">With-fee balance</th>
+                  <th class="r">Fees (est.)</th>
+                  <th class="r">Gap</th>
+                </tr>
+              </thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+
+          <details>
+            <summary>How are fees modeled?</summary>
+            <p>
               We simulate growth period-by-period. The “no-fee” path uses the full return. The “with-fee” path reduces the
               gross return by the fee rate (approximation). Fees are shown as an estimate of value reduction over time, not a bill.
             </p>
-</details>
-<details>
-<summary>What counts as an “annual fee”?</summary>
-<p>
+          </details>
+
+          <details>
+            <summary>What counts as an “annual fee”?</summary>
+            <p>
               This can represent platform fees, fund expense ratios, advisory fees, or blended all-in costs. Always check your provider’s “total expense” or “all-in fee.”
             </p>
-</details>
-<details>
-<summary>Does inflation matter here?</summary>
-<p>
+          </details>
+
+          <details>
+            <summary>Does inflation matter here?</summary>
+            <p>
               Inflation is optional. If you add it, we also show the “today’s money” ending value (inflation-adjusted), so you can compare future purchasing power.
             </p>
-</details>
-</section>
-</div>
-<section class="card" style="margin-top:16px">
-<h2 style="margin:0 0 8px;font-size:16px">How this calculator works</h2>
-<p class="muted" style="margin:0">
+          </details>
+        </section>
+      </div>
+
+      <section class="card" style="margin-top:16px">
+        <h2 style="margin:0 0 8px;font-size:16px">How this calculator works</h2>
+        <p class="muted" style="margin:0">
           We simulate your portfolio period‑by‑period. The “no‑fee” path compounds at the full expected return.
           The “with‑fee” path applies an after‑fee return estimate, so you can see how fees compound against you over time.
           Results are educational estimates and may differ from provider fee calculations.
         </p>
-<div class="note" style="margin-top:12px">
-<b>Quick tip:</b> Fees reduce both your growth and your future growth on that growth. Over long horizons, a small fee difference can produce a large gap.
+
+        <div class="note" style="margin-top:12px">
+          <b>Quick tip:</b> Fees reduce both your growth and your future growth on that growth. Over long horizons, a small fee difference can produce a large gap.
         </div>
-</section>
-<section class="card" style="margin-top:16px">
-<h2 style="margin:0 0 8px;font-size:16px">Related calculators</h2>
-<p class="muted" style="margin:0">Use these tools together for better investing and planning decisions:</p>
-<ul class="muted" style="margin:12px 0 0;padding-left:18px;line-height:1.8">
-<li><a href="/compound-interest-calculator/"><b>Compound Interest Calculator</b></a> — model long‑term growth with monthly contributions.</li>
-<li><a href="/roi-calculator/"><b>ROI Calculator</b></a> — estimate profit, ROI %, and CAGR for a single investment.</li>
-<li><a href="/retirement-planning-calculator/"><b>Retirement Planning Calculator</b></a> — project retirement savings over time.</li>
-<li><a href="/savings-goal-calculator/"><b>Savings Goal Calculator</b></a> — find the monthly savings needed to reach a target.</li>
-<li><a href="/budget-planner-calculator/"><b>Budget Planner</b></a> — set a realistic contribution amount based on cash flow.</li>
-</ul>
-</section>
-<footer>
-<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
-<div>
+      </section>
+
+      <section class="card" style="margin-top:16px">
+        <h2 style="margin:0 0 8px;font-size:16px">Related calculators</h2>
+        <p class="muted" style="margin:0">Use these tools together for better investing and planning decisions:</p>
+        <ul class="muted" style="margin:12px 0 0;padding-left:18px;line-height:1.8">
+          <li><a href="/compound-interest-calculator/"><b>Compound Interest Calculator</b></a> — model long‑term growth with monthly contributions.</li>
+          <li><a href="/roi-calculator/"><b>ROI Calculator</b></a> — estimate profit, ROI %, and CAGR for a single investment.</li>
+          <li><a href="/retirement-planning-calculator/"><b>Retirement Planning Calculator</b></a> — project retirement savings over time.</li>
+          <li><a href="/savings-goal-calculator/"><b>Savings Goal Calculator</b></a> — find the monthly savings needed to reach a target.</li>
+          <li><a href="/budget-planner-calculator/"><b>Budget Planner</b></a> — set a realistic contribution amount based on cash flow.</li>
+        </ul>
+      </section>
+
+      
+      <footer>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+          <div>
             Disclaimer: Educational estimates only. Real investing involves risk, fees, taxes, and market volatility. This tool does not provide financial advice.
           </div>
-<div style="display:flex;gap:10px;flex-wrap:wrap;">
-<a class="navlink" href="/about/">About</a>
-<a class="navlink" href="/contact/">Contact</a>
-<a class="navlink" href="/privacy-policy/">Privacy Policy</a>
-<a class="navlink" href="/terms-of-use/">Terms of Use</a>
-</div>
-</div>
-</footer>
-</div>
-<script>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="navlink" href="/about/">About</a>
+            <a class="navlink" href="/contact/">Contact</a>
+            <a class="navlink" href="/privacy-policy/">Privacy Policy</a>
+            <a class="navlink" href="/terms-of-use/">Terms of Use</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script>
       const $ = (id) => document.getElementById(id);
 
       function fmtCurrency(value, ccy){
@@ -563,5 +446,5 @@
       // first render
       reset();
     </script>
-</body>
+  </body>
 </html>

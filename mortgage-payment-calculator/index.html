@@ -1,150 +1,16 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Advanced Mortgage Calculator UK – Amortization Schedule &amp; Overpayments | TrueWealthMetrics</title>
-<meta content="Advanced mortgage payment calculator with full amortization schedule and extra payment impact. Estimate monthly payment, payoff date, total interest, and interest saved." name="description"/>
-<link href="https://truewealthmetrics.com/mortgage-payment-calculator/" rel="canonical"/>
-<meta content="index,follow" name="robots"/>
-<meta content="#0b1220" name="theme-color"/>
-<style>
-    :root{
-      --bg:#070b14;
-      --card:rgba(255,255,255,.06);
-      --border:rgba(255,255,255,.10);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.70);
-      --accent:#38d98a;
-      --danger:#ff5c6c;
-      --warn:#ffcc66;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 520px at 28% 12%, rgba(56,217,138,.10), transparent 60%),
-        radial-gradient(900px 520px at 75% 20%, rgba(99,102,241,.10), transparent 55%),
-        var(--bg);
-    }
-    a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 140px}
-    
-    
-    
-    
-    
-    
-    h1{margin:18px 0 6px;font-size:46px;line-height:1.05}
-    .sub{margin:0;color:var(--muted);font-size:16px;max-width:74ch}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
-    @media (max-width: 920px){ .grid{grid-template-columns:1fr} h1{font-size:38px}}
-    .card{
-      border:1px solid var(--border);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border-radius:18px;
-      padding:18px;
-      box-shadow:0 24px 60px rgba(0,0,0,.35);
-    }
-    .card h2{margin:0 0 8px;font-size:18px}
-    .hint{margin:0;color:var(--muted);font-size:13px}
-    label{display:block;font-size:13px;color:var(--muted);margin:10px 0 6px}
-    input, select{
-      width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(10,14,26,.65);
-      color:var(--text);
-      outline:none;
-    }
-    input:focus, select:focus{border-color:rgba(56,217,138,.55)}
-    .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media (max-width: 520px){ .row2{grid-template-columns:1fr}}
-    .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-    button{
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.05);
-      color:var(--text);
-      padding:10px 14px;
-      border-radius:12px;
-      cursor:pointer;
-      font-weight:700;
-    }
-    button.primary{
-      background:linear-gradient(180deg, rgba(56,217,138,.22), rgba(56,217,138,.10));
-      border-color:rgba(56,217,138,.35);
-    }
-    button:hover{border-color:rgba(56,217,138,.45)}
-    .kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
-    .kpi{
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.18);
-      border-radius:14px;
-      padding:14px;
-      min-height:86px;
-    }
-    .kpi .t{font-size:12px;color:var(--muted)}
-    .kpi .v{font-size:24px;font-weight:900;margin-top:4px}
-    .kpi .s{font-size:12px;color:var(--muted);margin-top:4px}
-    .banner{
-      margin-top:12px;
-      border:1px solid rgba(255,255,255,.10);
-      border-left:4px solid var(--accent);
-      background:rgba(0,0,0,.18);
-      border-radius:14px;
-      padding:12px 14px;
-      color:var(--text);
-      font-size:14px;
-    }
-    .banner.bad{
-      border-left-color:var(--danger);
-    }
-    .tableCard{margin-top:16px}
-    table{width:100%;border-collapse:collapse;font-size:14px}
-    thead th{
-      text-align:left;
-      color:var(--muted);
-      font-weight:700;
-      padding:12px 10px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-    }
-    tbody td{
-      padding:10px;
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .right{text-align:right}
-    .tag{
-      display:inline-flex;align-items:center;gap:8px;
-      font-size:12px;color:var(--muted);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.18);
-      padding:6px 10px;border-radius:999px;
-    }
-    details{
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.14);
-      border-radius:14px;
-      padding:10px 12px;
-      margin-top:10px;
-    }
-    summary{cursor:pointer;font-weight:800}
-    details p{color:var(--muted);margin:8px 0 0;font-size:13px;line-height:1.5}
-    footer{
-      margin-top:20px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.14);
-      border-radius:16px;
-      padding:14px;
-      color:var(--muted);
-      font-size:12px;
-    }
-    .small{font-size:12px;color:var(--muted)}
-  </style>
-<script id="jsonld-softwareapp" type="application/ld+json">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Advanced Mortgage Calculator UK – Amortization Schedule & Overpayments | TrueWealthMetrics</title>
+  <meta name="description" content="Advanced mortgage payment calculator with full amortization schedule and extra payment impact. Estimate monthly payment, payoff date, total interest, and interest saved." />
+  <link rel="canonical" href="https://truewealthmetrics.com/mortgage-payment-calculator/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b1220" />
+
+  <script type="application/ld+json" id="jsonld-softwareapp">
   {
     "@context":"https://schema.org",
     "@type":"SoftwareApplication",
@@ -157,7 +23,8 @@
     "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
   }
   </script>
-<script id="jsonld-breadcrumbs" type="application/ld+json">
+
+  <script type="application/ld+json" id="jsonld-breadcrumbs">
   {
     "@context":"https://schema.org",
     "@type":"BreadcrumbList",
@@ -167,7 +34,8 @@
     ]
   }
   </script>
-<script id="jsonld-faq" type="application/ld+json">
+
+  <script type="application/ld+json" id="jsonld-faq">
   {
     "@context":"https://schema.org",
     "@type":"FAQPage",
@@ -190,164 +58,190 @@
     ]
   }
   </script>
-<link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer="True" src="/header.js"></script></head>
-<body><div id="site-header"></div>
-<div class="wrap">
-<h1>Mortgage Payment Calculator</h1>
-<p class="sub">Advanced mortgage calculator with a full amortization schedule and extra payment impact. Estimate your monthly payment, payoff date, total interest, and interest saved.</p>
-<div class="grid">
-<section class="card">
-<h2>Inputs</h2>
-<p class="hint">Add real-life costs (tax, insurance, HOA) and optionally an extra monthly payment to see how fast you can pay off the mortgage.</p>
-<div class="row2">
-<div>
-<label for="price">Home price (£)</label>
-<input id="price" min="0" step="1000" type="number" value="300000"/>
-</div>
-<div>
-<label for="down">Down payment (£)</label>
-<input id="down" min="0" step="500" type="number" value="60000"/>
-</div>
-</div>
-<div class="row2">
-<div>
-<label for="rate">Interest rate (APR %)</label>
-<input id="rate" min="0" step="0.01" type="number" value="4.75"/>
-</div>
-<div>
-<label for="term">Loan term (years)</label>
-<input id="term" min="1" step="1" type="number" value="30"/>
-</div>
-</div>
-<div class="row2">
-<div>
-<label for="tax">Property tax (per year, £)</label>
-<input id="tax" min="0" step="50" type="number" value="2400"/>
-</div>
-<div>
-<label for="ins">Home insurance (per year, £)</label>
-<input id="ins" min="0" step="50" type="number" value="600"/>
-</div>
-</div>
-<div class="row2">
-<div>
-<label for="hoa">HOA / service charges (per month, £)</label>
-<input id="hoa" min="0" step="10" type="number" value="0"/>
-</div>
-<div>
-<label for="extra">Extra monthly payment (optional, £)</label>
-<input id="extra" min="0" step="10" type="number" value="0"/>
-</div>
-</div>
-<div class="actions">
-<button class="primary" id="calcBtn">Calculate</button>
-<button id="resetBtn">Reset</button>
-<span class="tag" id="summaryTag">Ready</span>
-</div>
-<div class="banner small" id="tipBox">
+
+    <link rel="stylesheet" href="/styles.css" />
+        <script src="/header.js" defer></script>
+  </head>
+
+<body>
+    <div id="site-header"></div>
+  <div class="wrap">
+    <h1>Mortgage Payment Calculator</h1>
+    <p class="sub">Advanced mortgage calculator with a full amortization schedule and extra payment impact. Estimate your monthly payment, payoff date, total interest, and interest saved.</p>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Inputs</h2>
+        <p class="hint">Add real-life costs (tax, insurance, HOA) and optionally an extra monthly payment to see how fast you can pay off the mortgage.</p>
+
+        <div class="row2">
+          <div>
+            <label for="price">Home price (£)</label>
+            <input id="price" type="number" min="0" step="1000" value="300000" />
+          </div>
+          <div>
+            <label for="down">Down payment (£)</label>
+            <input id="down" type="number" min="0" step="500" value="60000" />
+          </div>
+        </div>
+
+        <div class="row2">
+          <div>
+            <label for="rate">Interest rate (APR %)</label>
+            <input id="rate" type="number" min="0" step="0.01" value="4.75" />
+          </div>
+          <div>
+            <label for="term">Loan term (years)</label>
+            <input id="term" type="number" min="1" step="1" value="30" />
+          </div>
+        </div>
+
+        <div class="row2">
+          <div>
+            <label for="tax">Property tax (per year, £)</label>
+            <input id="tax" type="number" min="0" step="50" value="2400" />
+          </div>
+          <div>
+            <label for="ins">Home insurance (per year, £)</label>
+            <input id="ins" type="number" min="0" step="50" value="600" />
+          </div>
+        </div>
+
+        <div class="row2">
+          <div>
+            <label for="hoa">HOA / service charges (per month, £)</label>
+            <input id="hoa" type="number" min="0" step="10" value="0" />
+          </div>
+          <div>
+            <label for="extra">Extra monthly payment (optional, £)</label>
+            <input id="extra" type="number" min="0" step="10" value="0" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="calcBtn">Calculate</button>
+          <button id="resetBtn">Reset</button>
+          <span class="tag" id="summaryTag">Ready</span>
+        </div>
+
+        <div class="banner small" id="tipBox">
           Tip: Extra payments reduce principal faster. Even £50–£200/month can shave years off the mortgage.
         </div>
-</section>
-<section class="card">
-<h2>Results</h2>
-<p class="hint">Updated when you click Calculate.</p>
-<div class="kpis">
-<div class="kpi">
-<div class="t">Monthly payment (principal + interest)</div>
-<div class="v" id="piPay">—</div>
-<div class="s">Based on loan amount, rate, and term.</div>
-</div>
-<div class="kpi">
-<div class="t">Total monthly payment (incl. tax/ins/HOA)</div>
-<div class="v" id="allInPay">—</div>
-<div class="s">Your estimated “all-in” housing cost.</div>
-</div>
-<div class="kpi">
-<div class="t">Payoff time</div>
-<div class="v" id="payoffTime">—</div>
-<div class="s" id="payoffDate">—</div>
-</div>
-<div class="kpi">
-<div class="t">Total interest (with extra)</div>
-<div class="v" id="interestWith">—</div>
-<div class="s" id="interestSaved">—</div>
-</div>
-</div>
-<div class="banner" id="statusBox" style="display:none;"></div>
-<div class="banner small" id="detailsBox" style="margin-top:12px; display:none;"></div>
-</section>
-</div>
-<section class="card tableCard">
-<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
-<div>
-<h2 style="margin:0">Amortization schedule</h2>
-<p class="hint" style="margin-top:6px">Shows the first 24 months for readability. Your totals still use the full schedule.</p>
-</div>
-<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-<span class="tag" id="rowsTag">Showing 0 rows</span>
-<button id="toggleBtn" style="display:none;">Show all</button>
-</div>
-</div>
-<div style="overflow:auto;margin-top:10px;border-radius:14px">
-<table>
-<thead>
-<tr>
-<th>Month</th>
-<th class="right">Payment</th>
-<th class="right">Principal</th>
-<th class="right">Interest</th>
-<th class="right">Extra</th>
-<th class="right">Balance</th>
-</tr>
-</thead>
-<tbody id="schedBody">
-<tr><td class="small" colspan="6" style="padding:14px;color:var(--muted)">Click Calculate to generate your amortization schedule.</td></tr>
-</tbody>
-</table>
-</div>
-</section>
-<section class="card" style="margin-top:16px">
-<h2>How this calculator works</h2>
-<p class="hint">We calculate your principal+interest payment using standard amortization math, then simulate month-by-month to apply extra payments and compute the payoff date and interest saved.</p>
-<details>
-<summary>Does an extra monthly payment always reduce payoff time?</summary>
-<p>Yes, as long as your payment covers the monthly interest. Extra payments reduce principal directly, which reduces future interest and shortens the schedule.</p>
-</details>
-<details>
-<summary>Why can my mortgage “never finish”?</summary>
-<p>If your principal+interest payment is less than or equal to monthly interest, the balance won’t decrease. Increase your payment, extend term, or lower the rate.</p>
-</details>
-<details>
-<summary>Is tax/insurance included in the amortization schedule?</summary>
-<p>The schedule is for the loan balance (principal &amp; interest). Tax/insurance/HOA are shown in your “all-in” monthly cost but don’t reduce loan principal.</p>
-</details>
-</section>
-<section class="card" style="margin-top:16px">
-<h2 style="margin:0 0 8px;font-size:18px">Related calculators</h2>
-<p class="hint" style="margin:0">Use these tools together for better planning and realistic cash‑flow decisions.</p>
-<ul class="small" style="margin:12px 0 0;padding-left:18px;line-height:1.8">
-<li><a href="/loan-repayment-calculator/"><b>Loan Repayment Calculator</b></a> — compare personal loan payments vs mortgage scenarios.</li>
-<li><a href="/budget-planner-calculator/"><b>Budget Planner</b></a> — estimate what monthly payment fits your cash flow.</li>
-<li><a href="/credit-card-payoff-calculator/"><b>Credit Card Payoff</b></a> — reduce high‑interest debt before overpaying a mortgage.</li>
-<li><a href="/debt-snowball-avalanche-calculator/"><b>Debt Snowball/Avalanche</b></a> — plan multiple debts alongside housing costs.</li>
-<li><a href="/savings-goal-calculator/"><b>Savings Goal</b></a> — plan an emergency fund alongside mortgage payments.</li>
-</ul>
-</section>
-<footer>
-<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
-<div>
-<strong>Disclaimer:</strong> Educational estimates only. Real mortgages include lender fees, variable rates, insurance rules, taxes, and other costs.
+      </section>
+
+      <section class="card">
+        <h2>Results</h2>
+        <p class="hint">Updated when you click Calculate.</p>
+
+        <div class="kpis">
+          <div class="kpi">
+            <div class="t">Monthly payment (principal + interest)</div>
+            <div class="v" id="piPay">—</div>
+            <div class="s">Based on loan amount, rate, and term.</div>
+          </div>
+          <div class="kpi">
+            <div class="t">Total monthly payment (incl. tax/ins/HOA)</div>
+            <div class="v" id="allInPay">—</div>
+            <div class="s">Your estimated “all-in” housing cost.</div>
+          </div>
+          <div class="kpi">
+            <div class="t">Payoff time</div>
+            <div class="v" id="payoffTime">—</div>
+            <div class="s" id="payoffDate">—</div>
+          </div>
+          <div class="kpi">
+            <div class="t">Total interest (with extra)</div>
+            <div class="v" id="interestWith">—</div>
+            <div class="s" id="interestSaved">—</div>
+          </div>
         </div>
-<div style="display:flex;gap:10px;flex-wrap:wrap;">
-<a class="pill" href="/about/">About</a>
-<a class="pill" href="/contact/">Contact</a>
-<a class="pill" href="/privacy-policy/">Privacy Policy</a>
-<a class="pill" href="/terms-of-use/">Terms of Use</a>
-</div>
-</div>
-<div style="margin-top:8px">© 2026 TrueWealthMetrics</div>
-</footer>
-</div>
+
+        <div class="banner" id="statusBox" style="display:none;"></div>
+
+        <div class="banner small" id="detailsBox" style="margin-top:12px; display:none;"></div>
+      </section>
+    </div>
+
+    <section class="card tableCard">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+        <div>
+          <h2 style="margin:0">Amortization schedule</h2>
+          <p class="hint" style="margin-top:6px">Shows the first 24 months for readability. Your totals still use the full schedule.</p>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="tag" id="rowsTag">Showing 0 rows</span>
+          <button id="toggleBtn" style="display:none;">Show all</button>
+        </div>
+      </div>
+
+      <div style="overflow:auto;margin-top:10px;border-radius:14px">
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th class="right">Payment</th>
+              <th class="right">Principal</th>
+              <th class="right">Interest</th>
+              <th class="right">Extra</th>
+              <th class="right">Balance</th>
+            </tr>
+          </thead>
+          <tbody id="schedBody">
+            <tr><td colspan="6" class="small" style="padding:14px;color:var(--muted)">Click Calculate to generate your amortization schedule.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2>How this calculator works</h2>
+      <p class="hint">We calculate your principal+interest payment using standard amortization math, then simulate month-by-month to apply extra payments and compute the payoff date and interest saved.</p>
+
+      <details>
+        <summary>Does an extra monthly payment always reduce payoff time?</summary>
+        <p>Yes, as long as your payment covers the monthly interest. Extra payments reduce principal directly, which reduces future interest and shortens the schedule.</p>
+      </details>
+      <details>
+        <summary>Why can my mortgage “never finish”?</summary>
+        <p>If your principal+interest payment is less than or equal to monthly interest, the balance won’t decrease. Increase your payment, extend term, or lower the rate.</p>
+      </details>
+      <details>
+        <summary>Is tax/insurance included in the amortization schedule?</summary>
+        <p>The schedule is for the loan balance (principal & interest). Tax/insurance/HOA are shown in your “all-in” monthly cost but don’t reduce loan principal.</p>
+      </details>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2 style="margin:0 0 8px;font-size:18px">Related calculators</h2>
+      <p class="hint" style="margin:0">Use these tools together for better planning and realistic cash‑flow decisions.</p>
+      <ul class="small" style="margin:12px 0 0;padding-left:18px;line-height:1.8">
+        <li><a href="/loan-repayment-calculator/"><b>Loan Repayment Calculator</b></a> — compare personal loan payments vs mortgage scenarios.</li>
+        <li><a href="/budget-planner-calculator/"><b>Budget Planner</b></a> — estimate what monthly payment fits your cash flow.</li>
+        <li><a href="/credit-card-payoff-calculator/"><b>Credit Card Payoff</b></a> — reduce high‑interest debt before overpaying a mortgage.</li>
+        <li><a href="/debt-snowball-avalanche-calculator/"><b>Debt Snowball/Avalanche</b></a> — plan multiple debts alongside housing costs.</li>
+        <li><a href="/savings-goal-calculator/"><b>Savings Goal</b></a> — plan an emergency fund alongside mortgage payments.</li>
+      </ul>
+    </section>
+
+
+    
+    <footer>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+        <div>
+          <strong>Disclaimer:</strong> Educational estimates only. Real mortgages include lender fees, variable rates, insurance rules, taxes, and other costs.
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="pill" href="/about/">About</a>
+          <a class="pill" href="/contact/">Contact</a>
+          <a class="pill" href="/privacy-policy/">Privacy Policy</a>
+          <a class="pill" href="/terms-of-use/">Terms of Use</a>
+        </div>
+      </div>
+      <div style="margin-top:8px">© 2026 TrueWealthMetrics</div>
+    </footer>
+
+  </div>
+
 <script>
 (function(){
   const $ = (id) => document.getElementById(id);
@@ -622,5 +516,6 @@
   reset();
 })();
 </script>
+
 </body>
 </html>

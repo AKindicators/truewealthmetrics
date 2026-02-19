@@ -1,110 +1,16 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Credit Card Payoff Calculator | TrueWealthMetrics</title>
-<meta content="Calculate how long it takes to pay off credit card debt. See total interest, payoff time, and how extra payments save money." name="description"/>
-<link href="https://truewealthmetrics.com/credit-card-payoff-calculator/" rel="canonical"/>
-<meta content="index,follow" name="robots"/>
-<meta content="#0b1220" name="theme-color"/>
-<style>
-    :root {
-      --bg:#070b14;
-      --border: rgba(255,255,255,.10);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --accent:#38d98a;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: radial-gradient(1000px 600px at 30% 10%, rgba(56,217,138,0.12), transparent 55%),
-                  radial-gradient(900px 500px at 70% 30%, rgba(99,102,241,0.10), transparent 60%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.55;
-    }
-    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 120px}
-    
-    
-    
-    
-    
-    
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    h1{font-size:40px;line-height:1.12;margin:10px 0 6px}
-    .sub{color:var(--muted);margin:0 0 18px;max-width:80ch}
+  <title>Credit Card Payoff Calculator | TrueWealthMetrics</title>
+  <meta name="description" content="Calculate how long it takes to pay off credit card debt. See total interest, payoff time, and how extra payments save money." />
+  <link rel="canonical" href="https://truewealthmetrics.com/credit-card-payoff-calculator/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b1220" />
 
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media(max-width:980px){.grid{grid-template-columns:1fr} h1{font-size:32px}}
-
-    .card{
-      border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
-      border-radius:18px;
-      padding:18px;
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
-    }
-
-    label{display:block;font-size:13px;color:var(--muted);margin:10px 0 6px}
-    input,select{
-      width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background:rgba(0,0,0,.20);
-      color:var(--text);
-      outline:none;
-    }
-    input:focus,select:focus{border-color:rgba(56,217,138,.55);box-shadow:0 0 0 4px rgba(56,217,138,.12)}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    button{
-      cursor:pointer;
-      border-radius:12px;
-      border:1px solid var(--border);
-      padding:12px 14px;
-      font-weight:800;
-      background:rgba(56,217,138,.16);
-      color:var(--text);
-    }
-    button.secondary{background:rgba(255,255,255,.05)}
-
-    .kpis{display:grid;grid-template-columns:1fr;gap:12px}
-    .kpi{border:1px solid var(--border);background:rgba(0,0,0,.16);border-radius:14px;padding:14px}
-    .kpi .t{color:var(--muted);font-size:13px}
-    .kpi .v{font-size:22px;font-weight:900;margin-top:4px}
-    .kpi .s{color:var(--muted);font-size:13px;margin-top:4px}
-
-    .warn{
-      margin-top:12px;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,204,102,.35);
-      background:rgba(255,204,102,.08);
-      color:rgba(255,255,255,.86);
-      display:none;
-      white-space:pre-line;
-    }
-
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:12px;
-      overflow:hidden;
-      border-radius:14px;
-      border:1px solid var(--border);
-    }
-    th,td{padding:10px;border-bottom:1px solid rgba(255,255,255,.08);text-align:right;font-size:14px}
-    th{background:rgba(255,255,255,.05);color:rgba(255,255,255,.82)}
-    th:first-child,td:first-child{text-align:left}
-    tr:last-child td{border-bottom:none}
-
-    footer{margin-top:26px;color:var(--muted);font-size:13px}
-  </style>
-<script type="application/ld+json">
+  <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"WebApplication",
@@ -114,7 +20,9 @@
     "operatingSystem":"All"
   }
   </script>
-<script id="jsonld-softwareapp" type="application/ld+json">
+
+
+  <script type="application/ld+json" id="jsonld-softwareapp">
   {
     "@context":"https://schema.org",
     "@type":"SoftwareApplication",
@@ -127,7 +35,8 @@
     "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
   }
   </script>
-<script id="jsonld-breadcrumbs" type="application/ld+json">
+
+  <script type="application/ld+json" id="jsonld-breadcrumbs">
   {
     "@context":"https://schema.org",
     "@type":"BreadcrumbList",
@@ -137,7 +46,8 @@
     ]
   }
   </script>
-<script id="jsonld-faq" type="application/ld+json">
+
+  <script type="application/ld+json" id="jsonld-faq">
   {
     "@context":"https://schema.org",
     "@type":"FAQPage",
@@ -160,120 +70,143 @@
     ]
   }
   </script>
-<link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer="True" src="/header.js"></script></head>
-<body><div id="site-header"></div>
-<div class="wrap">
-<h1>Credit Card Payoff Calculator</h1>
-<p class="sub">See how long it takes to clear your balance and how extra payments reduce interest.</p>
-<section class="grid">
-<div class="card">
-<h2 style="margin:0 0 8px;font-size:18px">Inputs</h2>
-<label for="balance">Balance</label>
-<input id="balance" inputmode="decimal" value="5000"/>
-<label for="apr">APR %</label>
-<input id="apr" inputmode="decimal" value="19.9"/>
-<label for="minpay">Minimum monthly payment</label>
-<input id="minpay" inputmode="decimal" value="150"/>
-<label for="extra">Extra monthly payment</label>
-<input id="extra" inputmode="decimal" value="0"/>
-<div class="actions">
-<button id="btnCalc" type="button">Calculate</button>
-<button class="secondary" id="btnReset" type="button">Reset</button>
-</div>
-<div class="warn" id="warnBox"></div>
-</div>
-<div class="card">
-<h2 style="margin:0 0 8px;font-size:18px">Results</h2>
-<div class="kpis">
-<div class="kpi">
-<div class="t">Months to payoff</div>
-<div class="v" id="months">—</div>
-<div class="s">Estimated duration to clear the balance.</div>
-</div>
-<div class="kpi">
-<div class="t">Total interest</div>
-<div class="v" id="interest">—</div>
-<div class="s">Interest paid over the payoff period.</div>
-</div>
-<div class="kpi">
-<div class="t">Interest saved</div>
-<div class="v" id="saved">—</div>
-<div class="s">Savings from extra monthly payments.</div>
-</div>
-</div>
-</div>
-</section>
-<section class="card" style="margin-top:16px">
-<h2 style="margin:0 0 8px;font-size:18px">Payment schedule</h2>
-<p style="margin:0;color:var(--muted)">Shows the first 24 months for readability. If payoff takes longer, the calculation still uses the full schedule.</p>
-<table aria-label="Credit card payoff schedule">
-<thead>
-<tr>
-<th>Month</th>
-<th>Payment</th>
-<th>Interest</th>
-<th>Balance</th>
-</tr>
-</thead>
-<tbody id="tableBody"></tbody>
-</table>
-</section>
-<section class="card" style="margin-top:16px">
-<h2 style="margin:0 0 8px;font-size:18px">How this calculator works</h2>
-<p style="margin:0;color:var(--muted)">
+
+    <link rel="stylesheet" href="/styles.css" />
+        <script src="/header.js" defer></script>
+  </head>
+
+<body>
+    <div id="site-header"></div>
+  <div class="wrap">
+    <h1>Credit Card Payoff Calculator</h1>
+    <p class="sub">See how long it takes to clear your balance and how extra payments reduce interest.</p>
+
+    <section class="grid">
+      <div class="card">
+        <h2 style="margin:0 0 8px;font-size:18px">Inputs</h2>
+
+        <label for="balance">Balance</label>
+        <input id="balance" value="5000" inputmode="decimal" />
+
+        <label for="apr">APR %</label>
+        <input id="apr" value="19.9" inputmode="decimal" />
+
+        <label for="minpay">Minimum monthly payment</label>
+        <input id="minpay" value="150" inputmode="decimal" />
+
+        <label for="extra">Extra monthly payment</label>
+        <input id="extra" value="0" inputmode="decimal" />
+
+        <div class="actions">
+          <button id="btnCalc" type="button">Calculate</button>
+          <button id="btnReset" class="secondary" type="button">Reset</button>
+        </div>
+
+        <div class="warn" id="warnBox"></div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0 0 8px;font-size:18px">Results</h2>
+
+        <div class="kpis">
+          <div class="kpi">
+            <div class="t">Months to payoff</div>
+            <div class="v" id="months">—</div>
+            <div class="s">Estimated duration to clear the balance.</div>
+          </div>
+          <div class="kpi">
+            <div class="t">Total interest</div>
+            <div class="v" id="interest">—</div>
+            <div class="s">Interest paid over the payoff period.</div>
+          </div>
+          <div class="kpi">
+            <div class="t">Interest saved</div>
+            <div class="v" id="saved">—</div>
+            <div class="s">Savings from extra monthly payments.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2 style="margin:0 0 8px;font-size:18px">Payment schedule</h2>
+      <p style="margin:0;color:var(--muted)">Shows the first 24 months for readability. If payoff takes longer, the calculation still uses the full schedule.</p>
+      <table aria-label="Credit card payoff schedule">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Payment</th>
+            <th>Interest</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2 style="margin:0 0 8px;font-size:18px">How this calculator works</h2>
+      <p style="margin:0;color:var(--muted)">
         We apply your APR as a monthly rate, add interest each month, then subtract your payment (minimum + extra).
         The schedule is simulated until the balance reaches £0. Results are estimates and may differ from your lender’s calculations.
       </p>
-<div style="margin-top:12px;border:1px solid var(--border);background:rgba(0,0,0,.16);border-radius:14px;padding:14px">
-<div style="font-weight:900;margin-bottom:6px">Quick tips</div>
-<ul style="margin:0;padding-left:18px;color:var(--muted)">
-<li>Even a small extra payment can save significant interest over time.</li>
-<li>If you’re not making progress, increase your payment or look for a lower APR option.</li>
-<li>Use the debt strategy tool to plan multiple debts together.</li>
-</ul>
-</div>
-<div style="margin-top:12px">
-<details style="border:1px solid var(--border);border-radius:14px;background:rgba(0,0,0,.16);padding:12px 14px;margin:10px 0">
-<summary style="cursor:pointer;font-weight:900">Why can a low payment mean you never pay off the balance?</summary>
-<div style="margin-top:8px;color:var(--muted)">If your payment is less than (or very close to) the monthly interest, the balance will not reduce. Increase payment or lower APR.</div>
-</details>
-<details style="border:1px solid var(--border);border-radius:14px;background:rgba(0,0,0,.16);padding:12px 14px;margin:10px 0">
-<summary style="cursor:pointer;font-weight:900">How does extra payment reduce interest?</summary>
-<div style="margin-top:8px;color:var(--muted)">Extra payment reduces principal faster, which lowers future interest charges and shortens payoff time.</div>
-</details>
-<details style="border:1px solid var(--border);border-radius:14px;background:rgba(0,0,0,.16);padding:12px 14px;margin:10px 0">
-<summary style="cursor:pointer;font-weight:900">Does this include fees or promotional APR periods?</summary>
-<div style="margin-top:8px;color:var(--muted)">No. This tool assumes a constant APR and fixed monthly payments. Fees, promos, and changing rates can change results.</div>
-</details>
-</div>
-</section>
-<section class="card" style="margin-top:16px">
-<h2 style="margin:0 0 8px;font-size:18px">Related calculators</h2>
-<p style="margin:0;color:var(--muted)">Use these tools together to plan payoff strategies and improve cash flow.</p>
-<ul style="margin:12px 0 0;padding-left:18px;color:var(--muted)">
-<li><a href="/debt-snowball-avalanche-calculator/">Debt Snowball vs Avalanche</a> — compare strategies for multiple debts.</li>
-<li><a href="/loan-repayment-calculator/">Loan Repayment Calculator</a> — model fixed-rate personal loans.</li>
-<li><a href="/budget-planner-calculator/">Budget Planner</a> — see what you can realistically pay each month.</li>
-<li><a href="/savings-goal-calculator/">Savings Goal Calculator</a> — build savings after high-interest debt is under control.</li>
-</ul>
-</section>
-<footer>
-<div class="card">
-<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
-<div>
-<strong>Disclaimer:</strong> Educational estimates only. Credit card terms vary by lender.
+
+      <div style="margin-top:12px;border:1px solid var(--border);background:rgba(0,0,0,.16);border-radius:14px;padding:14px">
+        <div style="font-weight:900;margin-bottom:6px">Quick tips</div>
+        <ul style="margin:0;padding-left:18px;color:var(--muted)">
+          <li>Even a small extra payment can save significant interest over time.</li>
+          <li>If you’re not making progress, increase your payment or look for a lower APR option.</li>
+          <li>Use the debt strategy tool to plan multiple debts together.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:12px">
+        <details style="border:1px solid var(--border);border-radius:14px;background:rgba(0,0,0,.16);padding:12px 14px;margin:10px 0">
+          <summary style="cursor:pointer;font-weight:900">Why can a low payment mean you never pay off the balance?</summary>
+          <div style="margin-top:8px;color:var(--muted)">If your payment is less than (or very close to) the monthly interest, the balance will not reduce. Increase payment or lower APR.</div>
+        </details>
+        <details style="border:1px solid var(--border);border-radius:14px;background:rgba(0,0,0,.16);padding:12px 14px;margin:10px 0">
+          <summary style="cursor:pointer;font-weight:900">How does extra payment reduce interest?</summary>
+          <div style="margin-top:8px;color:var(--muted)">Extra payment reduces principal faster, which lowers future interest charges and shortens payoff time.</div>
+        </details>
+        <details style="border:1px solid var(--border);border-radius:14px;background:rgba(0,0,0,.16);padding:12px 14px;margin:10px 0">
+          <summary style="cursor:pointer;font-weight:900">Does this include fees or promotional APR periods?</summary>
+          <div style="margin-top:8px;color:var(--muted)">No. This tool assumes a constant APR and fixed monthly payments. Fees, promos, and changing rates can change results.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2 style="margin:0 0 8px;font-size:18px">Related calculators</h2>
+      <p style="margin:0;color:var(--muted)">Use these tools together to plan payoff strategies and improve cash flow.</p>
+      <ul style="margin:12px 0 0;padding-left:18px;color:var(--muted)">
+        <li><a href="/debt-snowball-avalanche-calculator/">Debt Snowball vs Avalanche</a> — compare strategies for multiple debts.</li>
+        <li><a href="/loan-repayment-calculator/">Loan Repayment Calculator</a> — model fixed-rate personal loans.</li>
+        <li><a href="/budget-planner-calculator/">Budget Planner</a> — see what you can realistically pay each month.</li>
+        <li><a href="/savings-goal-calculator/">Savings Goal Calculator</a> — build savings after high-interest debt is under control.</li>
+      </ul>
+    </section>
+
+    
+    <footer>
+      <div class="card">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+          <div>
+            <strong>Disclaimer:</strong> Educational estimates only. Credit card terms vary by lender.
           </div>
-<div style="display:flex;gap:10px;flex-wrap:wrap;">
-<a class="pill" href="/about/">About</a>
-<a class="pill" href="/contact/">Contact</a>
-<a class="pill" href="/privacy-policy/">Privacy Policy</a>
-<a class="pill" href="/terms-of-use/">Terms of Use</a>
-</div>
-</div>
-<div style="margin-top:8px">© <span id="yr"></span> TrueWealthMetrics</div>
-</div>
-</footer>
-</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="pill" href="/about/">About</a>
+            <a class="pill" href="/contact/">Contact</a>
+            <a class="pill" href="/privacy-policy/">Privacy Policy</a>
+            <a class="pill" href="/terms-of-use/">Terms of Use</a>
+          </div>
+        </div>
+        <div style="margin-top:8px">© <span id="yr"></span> TrueWealthMetrics</div>
+      </div>
+    </footer>
+
+  </div>
+
 <script>
 (function(){
   const $ = (id) => document.getElementById(id);
