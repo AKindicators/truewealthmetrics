@@ -3,262 +3,308 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+
     <title>TrueWealthMetrics — Free Finance Calculators</title>
-    <meta name="description" content="Clean, fast finance calculators for budgeting, debt payoff, investment growth, fee impact, mortgages, and retirement planning. No signup. Instant results." />
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAIF0lEQVR4nO2ae3BU1R3Hv79z7r27m2STJQ9JeISHNEyFWlpw5A+dkOlUWiv05aaOLaXSqZY6GeWhVUe9u0BVRkEQdGoHxUcd6AaHAg4tlTalQhpKFIsC0jYgEJ5ZkpDXZnfvOb/+AUvTNDBJSVaF+5k5M7vnnHvu73fO+f3u7zwAFxcXFxeXTxo6n64qKBiMyO6ZwWBEgvkK74xuCl4/z75m4v2LisZUVHhSeaW2baRDlPT3NDOBiCfe/aLJGcfvEtIcC1ZJZp0QQvpYq1Z2nDfeXfGLunSIk94OSCl//yNFDOspsN5uCXqz5tlwY6rKjXPDXyXLHFI8drSTbEluW3/fjPrUcwMhUlqm2QVCIZo8Z443CWsRM6/YvXxBLTPTlOlTDPx5rzd7WG7mpp/c+fYPf7OxSni8Uw4dqP0cANihEIXOmY0AwAA0XaRDmFkQke6tSKJfFOsFwUhEIhzWDmfPEAJ/2b0sXDt5zhIfEfG2sjJn2Nhh67J8nrXfeyUyWys9pOnYsZ/Hks7sETNtbzgUYiLSROQQkSIiZmbJzMTMZNu2iJz7L/uiPJBOE2AmhEI0qVU8k6CMx/YseaAdAO58dd08JhEXhJGaGdIyylUsecuau27/aPLcUIUh5P7tzzy29eCJEzcWBQLjE0rxqczMN0qI4j29pqWj46bmaPTd4uLiWG/ESpcJEIh4QsXD+TC8HXuWPtB+2/KX7rW8nn3SMmcAFGs93fgDf2FeTUtD9IENq1fWBSMReWTn3g8cojEAYJrmMc18N0lZndvcPC3a1KTZkfsMQ8UBsBDmOACamEsLCwsZwI7emEPaTAAApCSDiBWYSTvOeCcel8y8x4nHN2UX5r8Va2l95dBHddNvnvr9/Mrycq1haKXOyT88P79eaX2AE7zfY3luBUAen7idTHOsYXkXkEF3CIPKoPX7Ceb23sqUrg5gAJSVYzYA5Pvmsl+OGFRUMDRncMEiJ5FYJy0zKIj/sKd6199Ny7rtbPxYCwCG4hLSfAIAmJm0o5sVOTLWGa/+OBDYqDVyAXxdaWczQRx2Es6JaDT6++OHrf0A0Bt/kE4nKLaFww4r/ZHIzPmjIFrLSVXjH1y4gQkN722rOZOR4y/TWifORrNUMBiUEDwJSr8DgIgIgUD2r3Kzs995/rllL08iSu72Zz4Ya219JOD3r639W02osTH68qhRo5pLSnr2Dz2RzjiAYNt0U9ybownPV7++4ceor4nNWLtp6j/f2zMy1tl5DzSvISG+9v5zC74yaU5oMVhtr122cFMwGJSVlZWqa2PMTKlPYTdbJ5ybcb0UKp3YtkA4rL80+9HPe7I8D7Li9TuXPr4xVVxaahutX8YkAZqpwDt2Pxv+dU/K9yfpD4XPd8INDz2Rh3jiRyRlkVJOm3K0NkwjAyQ6SPGbu5Y9vte2bREOh/v0Xf9sYNsXfE9paalxw8/swon3P1I0pmK5p6c6VyoXXw5fBcp356rcEHFxcXFxcXFxcXFxcbmiuTpXeXa3Nb1t24Kv+GPvFF0U/fbTr10zffFi/ycpzqXo9xFJ7eN9Y/HKWwXTF8mQLXAcyUrX5w4prM7NxNlny8tjXXd1+yDrxQ5E+9rWBfp16yml/G1PvvBdwRi96XeRpzfO/+nzQ4ePfD0wpLCELLmv4XCnAIAuW9rEzP9jHswsupkRdy9PPX/+sJTO1+/ToPbnDCAA/K0nVuQpIe7e9NC9T85a99YIUmqK1jxNWlZ9y/FTdY3Rxrq3Q3O37j14sHD8tdce6dpAVVWVUVZW5nTNi0QicsKECQYAlJSUxJlZVlZWory8/MJWOTObRJT8f4XuF1KjP+2pFyZrrXNzBgXOWtmZM0mSqRxV1HI6uua3c+959ZaFSyu2PDpn1dGTJ2cxcDoZ18dNE5mOQoFpCi8g8gSj1YFqcOKq3WOZw4RBg6ARY4E2AkYLiHalnTqCGJx0EicA6SPBh5k5R2jv7uLi/GO9NYt+M4FwKMQAILVqND3maN8g/0yATSGlv/n0mYYzpxqvn7VqlV+yEEQUa22J1bIWx02vzJdkjNHsJAg4BKWPMNQpKHiFwHASokU5/A9HJfcbzE1wsCXpqAMa8DtKH5ZSdgDUBJaDWCPLMJANAKFQqFeD269O0LZZhMOkv7N81esZ2f5dmXmBwU0no0NP1B1pJwOn/L6MekeJ/Vvsihr04fhqIOlXJxgOgcFMzSdPzT9z9Bgd2vX+1ujR+pey/L4/ZXm8HoBbt9gVf7Vtm1K3O3pIIuUUe0p2t3LgnCNMydDXWGMgAhMCwMElS3yxuHEzCRlgVjEJ64MND8/+eCAvPH16uMgodI8OPw0MaGhq27bYN24cAUBlMKiv/JF3cbkUlzC3//IZPR2U9vTsVbKy/KyzfPNmTyTCct5rWzIjEZbAuVujkQ8/tMBML9bWmvetXh9gZgIzrayqylpSXe2zbRb26iovAMyJVPuA/3xFbJuFvXFjhh2JWJcr34BOI2am+Ws2l8HBdaZpIs/v3XXmbMd1IO40DOFJJjiR4bHqNOsvaK2PKicpyLJGCmZWmg+T5tyEZp9lCJZCZEOIk/F4kgBASFFgENcuvGPqjstZDg/oTVEi4nmvbdlpeMW/lNXe1NbRHPeYBXvbOhPsMSySFqDb4CAv8EGgM8EtyTgjCTS0NxgFxaM1OluFSrabRYXDkzrRVnDmbKzBm/QYbTKRNCwyBEyVes9A6uFymaRi9p48O3X53b2sa52ubZwv67FNFxcXF5e+8G8OkhTMPZIAuAAAAABJRU5ErkJggg=="/>
+    <link rel="apple-touch-icon" href="data:image/png;base64,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"/>
+
+    <meta
+      name="description"
+      content="Free, fast finance calculators: compound interest, savings goals, investment fee impact, ROI, loans, mortgages, budget planner, debt payoff tools, and retirement planning. No signup."
+    />
+    <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://truewealthmetrics.com/" />
-    <link rel="icon" href="/favicon.png" />
-    <link rel="stylesheet" href="/styles.css" />
-    <script defer src="/header.js"></script>
+
+    <!-- SEO: ItemList of calculators (no design impact) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "TrueWealthMetrics Finance Calculators",
+      "description": "A collection of free finance calculators for budgeting, debt payoff, investing, loans, mortgages, and retirement planning.",
+      "url": "https://truewealthmetrics.com/",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 10,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Budget Planner Calculator", "url": "https://truewealthmetrics.com/budget-planner-calculator/" },
+        { "@type": "ListItem", "position": 2, "name": "Compound Interest Calculator", "url": "https://truewealthmetrics.com/compound-interest-calculator/" },
+        { "@type": "ListItem", "position": 3, "name": "Investment Fee Impact Calculator", "url": "https://truewealthmetrics.com/investment-fee-impact-calculator/" },
+        { "@type": "ListItem", "position": 4, "name": "Savings Goal Calculator", "url": "https://truewealthmetrics.com/savings-goal-calculator/" },
+        { "@type": "ListItem", "position": 5, "name": "ROI Calculator", "url": "https://truewealthmetrics.com/roi-calculator/" },
+        { "@type": "ListItem", "position": 6, "name": "Loan Repayment Calculator", "url": "https://truewealthmetrics.com/loan-repayment-calculator/" },
+        { "@type": "ListItem", "position": 7, "name": "Mortgage Payment Calculator", "url": "https://truewealthmetrics.com/mortgage-payment-calculator/" },
+        { "@type": "ListItem", "position": 8, "name": "Credit Card Payoff Calculator", "url": "https://truewealthmetrics.com/credit-card-payoff-calculator/" },
+        { "@type": "ListItem", "position": 9, "name": "Debt Snowball Avalanche Calculator", "url": "https://truewealthmetrics.com/debt-snowball-avalanche-calculator/" },
+        { "@type": "ListItem", "position": 10, "name": "Retirement Planning Calculator", "url": "https://truewealthmetrics.com/retirement-planning-calculator/" }
+      ]
+    }
+    </script>
 
     <style>
-      /* Page-only styles (do not style header/nav classes) */
       :root{
-        --tw-bg: rgba(255,255,255,0.02);
-        --tw-border: rgba(255,255,255,0.08);
-        --tw-border-2: rgba(255,255,255,0.10);
-        --tw-text: rgba(255,255,255,0.92);
-        --tw-muted: rgba(255,255,255,0.72);
-        --tw-faint: rgba(255,255,255,0.55);
-        --tw-accent: #23e6b3;
-        --tw-accent-2: #23c9ff;
-        --tw-radius: 18px;
-        --tw-shadow: 0 18px 60px rgba(0,0,0,0.35);
+        --bg:#0b1220;
+        --card:#101a2f;
+        --muted:#9fb0d0;
+        --text:#eaf0ff;
+        --line:rgba(255,255,255,.10);
+        --accent:#38bdf8;
+        --accent2:#34d399;
       }
-      body{ color: var(--tw-text); }
-      .tw-page{ max-width: 1120px; margin: 0 auto; padding: 34px 16px 56px; }
-      .tw-hero{
-        padding: 36px 22px 26px;
-        border: 1px solid var(--tw-border);
-        border-radius: 24px;
-        background: linear-gradient(180deg, rgba(35,230,179,0.10), rgba(255,255,255,0.02));
-        box-shadow: var(--tw-shadow);
+      *{box-sizing:border-box}
+      body{
+        margin:0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        background: radial-gradient(1200px 600px at 20% -10%, rgba(56,189,248,.25), transparent 55%),
+                    radial-gradient(1200px 600px at 80% 0%, rgba(52,211,153,.18), transparent 55%),
+                    var(--bg);
+        color:var(--text);
       }
-      .tw-hero h1{ margin: 0 0 10px; font-size: clamp(34px, 5vw, 56px); letter-spacing: -0.02em; }
-      .tw-hero p{ margin: 0; color: var(--tw-muted); font-size: 16px; line-height: 1.65; max-width: 78ch; }
-      .tw-hero .tw-sub{ margin-top: 10px; color: var(--tw-faint); max-width: 82ch; }
-      .tw-row{ display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
-      .tw-btn{
-        display: inline-flex; align-items: center; gap: 10px;
-        padding: 11px 14px; border-radius: 999px;
-        border: 1px solid var(--tw-border-2);
-        color: var(--tw-text); text-decoration: none;
-        background: rgba(0,0,0,0.18);
-        transition: transform .12s ease, border-color .12s ease, background .12s ease;
-        font-weight: 600;
+      a{color:inherit;text-decoration:none}
+      .wrap{max-width:1100px;margin:0 auto;padding:20px 16px 56px}
+      .topbar{
+        display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+        padding:12px 14px;
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.04);
+        border-radius:16px;
       }
-      .tw-btn:hover{ transform: translateY(-1px); border-color: rgba(35,230,179,0.40); background: rgba(35,230,179,0.08); }
-      .tw-dot{ width: 9px; height: 9px; border-radius: 999px; background: var(--tw-accent); box-shadow: 0 0 0 4px rgba(35,230,179,0.12); }
-      .tw-badges{ margin-top: 14px; }
-      .tw-badge{
-        display:inline-flex; align-items:center; gap:10px;
-        padding: 10px 12px; border-radius: 999px;
-        border: 1px solid rgba(35,230,179,0.28);
-        background: rgba(35,230,179,0.07);
-        color: var(--tw-text);
-        font-weight: 600; font-size: 13px;
-      }
+      .brand{font-weight:800;letter-spacing:.2px;font-size:16px;}
+      .brand-text{font-weight:800;letter-spacing:.2px;font-size:16px;background: linear-gradient(90deg, var(--accent), var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
 
-      .tw-section{ margin-top: 28px; }
-      .tw-section h2{ margin: 0 0 12px; font-size: 18px; color: rgba(255,255,255,0.86); letter-spacing: -0.01em;}
-      .tw-grid{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-      @media (max-width: 920px){ .tw-grid{ grid-template-columns: 1fr; } }
-
-      .tw-card{
-        border: 1px solid var(--tw-border);
-        border-radius: var(--tw-radius);
-        background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-        padding: 18px;
-        box-shadow: 0 12px 45px rgba(0,0,0,0.22);
+      .nav{display:flex;gap:10px;flex-wrap:wrap}
+      .nav a{
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.03);
+        color:var(--muted);
+        padding:9px 10px;border-radius:12px;
+        font-size:13px;
       }
-      .tw-card h3{ margin: 0 0 8px; font-size: 18px; }
-      .tw-card p{ margin: 0 0 12px; color: var(--tw-muted); line-height: 1.6; }
-      .tw-card ul{ margin: 0 0 14px 18px; color: var(--tw-muted); }
-      .tw-actions{ display:flex; gap:10px; flex-wrap:wrap; }
-      .tw-link{
-        display:inline-flex; align-items:center; gap:10px;
-        padding: 10px 12px;
-        border-radius: 999px;
-        border: 1px solid rgba(255,255,255,0.10);
-        background: rgba(0,0,0,0.14);
-        color: var(--tw-text);
-        text-decoration:none;
+      .nav a:hover{border-color:rgba(56,189,248,.45);color:var(--text)}
+      header{margin-top:22px}
+      h1{margin:0;font-size:40px;letter-spacing:.2px}
+      p.lead{margin:10px 0 0;color:var(--muted);max-width:820px;line-height:1.6}
+      .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+      .pill{
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.04);
+        color:var(--muted);
+        padding:8px 10px;border-radius:999px;
+        font-size:12px;
+      }
+      .grid{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:16px;
+        margin-top:18px;
+      }
+      @media (max-width:900px){.grid{grid-template-columns:1fr}}
+      .card{
+        border:1px solid var(--line);
+        background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+        border-radius:18px;
+        padding:16px;
+        box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      }
+      .card h2{margin:0 0 8px;font-size:18px}
+      .card p{margin:0;color:var(--muted);line-height:1.55}
+      .cta{
+        display:flex;gap:10px;flex-wrap:wrap;margin-top:12px
+      }
+      .btn{
+        display:inline-block;
+        border:1px solid rgba(56,189,248,.55);
+        background: linear-gradient(90deg, rgba(56,189,248,.22), rgba(52,211,153,.18));
+        padding:11px 12px;border-radius:12px;
+        font-weight:700;font-size:13px;
+      }
+      .btn.secondary{
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.04);
+        color:var(--muted);
         font-weight:600;
       }
-      .tw-link:hover{ border-color: rgba(35,230,179,0.35); background: rgba(35,230,179,0.06); }
-      .tw-footer{
-        margin-top: 26px;
-        padding-top: 18px;
-        border-top: 1px solid rgba(255,255,255,0.08);
-        color: rgba(255,255,255,0.62);
-        font-size: 13px;
+      .list{
+        margin:10px 0 0;
+        padding-left:18px;
+        color:var(--muted);
+        line-height:1.65;
+        font-size:13px;
       }
-      .tw-footer a{ color: rgba(255,255,255,0.78); }
-      .tw-mini{
-        margin-top: 16px;
-        display:grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
+      footer{
+        margin-top:20px;
+        color:var(--muted);
+        font-size:12px;
+        line-height:1.6;
+        border-top:1px solid var(--line);
+        padding-top:14px;
       }
-      @media (max-width: 920px){ .tw-mini{ grid-template-columns: 1fr; } }
-      .tw-mini .tw-card{ padding: 14px; }
-      .tw-mini h3{ font-size: 14px; margin-bottom: 6px; }
-      .tw-mini p{ font-size: 13px; margin-bottom: 0; color: rgba(255,255,255,0.70); }
+      .mini{
+        margin-top:8px;
+        color:var(--muted);
+        font-size:12px;
+      }
     </style>
   </head>
 
   <body>
-    <!-- Shared site header (injected by /header.js from /header.html) -->
-    <div id="site-header"></div>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand"><img src="data:image/png;base64,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" alt="TrueWealthMetrics logo" style="height:28px;vertical-align:middle;margin-right:8px;">TrueWealthMetrics</div>
+        <div class="nav">
+          <a href="/">Home</a>
+          <a href="/loan-repayment-calculator/">Loan</a>
+          <a href="/mortgage-payment-calculator/">Mortgage</a>
+          <a href="/budget-planner-calculator/">Budget</a>
+          <a href="/compound-interest-calculator/">Compound</a>
+          <a href="/savings-goal-calculator/">Savings</a>
+          <a href="/credit-card-payoff-calculator/">Credit</a>
+          <a href="/debt-snowball-avalanche-calculator/">Debt</a>
+          <a href="/roi-calculator/">ROI</a>
+          <a href="/investment-fee-impact-calculator/">Fees</a>
+          <a href="/retirement-planning-calculator/">Retirement</a>
+        </div>
+      </div>
 
-    <main class="tw-page">
-      <section class="tw-hero">
+      <header>
         <h1>Free Finance Calculators</h1>
-        <p>
-          Clean, fast tools to plan money decisions with clarity — budgeting, debt payoff, investment growth, fee impact,
-          mortgages, and retirement projections. No signup. Instant results.
+        <p class="lead">
+          Clean, fast tools to help you plan money decisions with clarity — budgeting, debt payoff, investment growth,
+          fee impact, mortgages, and retirement projections. No signup. Instant results.
         </p>
-        <p class="tw-sub">Built for speed, readability, and quick “what‑if” planning.</p>
-
-        <div class="tw-row" aria-label="Primary actions">
-          <a class="tw-btn" href="#all-calculators"><span class="tw-dot"></span>Browse calculators</a>
-          <a class="tw-btn" href="/compound-interest-calculator/"><span class="tw-dot"></span>Try compound interest</a>
-          <a class="tw-btn" href="/budget-planner-calculator/"><span class="tw-dot"></span>Open budget planner</a>
+        <div class="pillrow">
+          <span class="pill">Mobile-friendly</span>
+          <span class="pill">No signup</span>
+          <span class="pill">Instant results</span>
+          <span class="pill">Educational estimates</span>
         </div>
+      </header>
 
-        <div class="tw-row tw-badges" aria-label="Highlights">
-          <span class="tw-badge"><span class="tw-dot"></span>Mobile‑friendly</span>
-          <span class="tw-badge"><span class="tw-dot"></span>No signup</span>
-          <span class="tw-badge"><span class="tw-dot"></span>Instant results</span>
-          <span class="tw-badge"><span class="tw-dot"></span>Educational estimates</span>
-        </div>
-      </section>
-
-      <section class="tw-section" aria-label="Popular calculators">
-        <h2>Popular right now</h2>
-        <div class="tw-grid">
-          <article class="tw-card">
-            <h3>Budget Planner (Monthly)</h3>
-            <p>Enter income + expenses to see total spending, leftover cash, savings target, and budget health.</p>
-            <ul>
-              <li>Total expenses + leftover cash</li>
-              <li>Savings target + emergency fund target</li>
-              <li>Simple budget health score</li>
-            </ul>
-            <div class="tw-actions">
-              <a class="tw-link" href="/budget-planner-calculator/"><span class="tw-dot"></span>Open Budget Planner</a>
-              <a class="tw-link" href="/savings-goal-calculator/"><span class="tw-dot"></span>Savings Goal</a>
-            </div>
-          </article>
-
-          <article class="tw-card">
-            <h3>Compound Interest Calculator</h3>
-            <p>Estimate long‑term growth with monthly contributions and compounding. Great for savings + investing.</p>
-            <ul>
-              <li>Final balance + contributions</li>
-              <li>Interest earned + yearly table</li>
-              <li>Optional inflation adjustment</li>
-            </ul>
-            <div class="tw-actions">
-              <a class="tw-link" href="/compound-interest-calculator/"><span class="tw-dot"></span>Open Compound</a>
-              <a class="tw-link" href="/investment-fee-impact-calculator/"><span class="tw-dot"></span>Check Fee Impact</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="all-calculators" class="tw-section" aria-label="All calculators">
-        <h2>All calculators</h2>
-        <div class="tw-grid">
-          <article class="tw-card">
-            <h3>Loan Repayment Calculator</h3>
-            <p>Monthly payment, total interest, and an amortization‑style breakdown.</p>
-            <div class="tw-actions">
-              <a class="tw-link" href="/loan-repayment-calculator/"><span class="tw-dot"></span>Open Loan Calculator</a>
-            </div>
-          </article>
-
-          <article class="tw-card">
-            <h3>Mortgage Payment Calculator</h3>
-            <p>Estimate monthly mortgage payments, interest, and affordability assumptions.</p>
-            <div class="tw-actions">
-              <a class="tw-link" href="/mortgage-payment-calculator/"><span class="tw-dot"></span>Open Mortgage Calculator</a>
-            </div>
-          </article>
-
-          <article class="tw-card">
-            <h3>Savings Goal Calculator</h3>
-            <p>Find the monthly saving needed to reach a target — or how long your goal will take.</p>
-            <div class="tw-actions">
-              <a class="tw-link" href="/savings-goal-calculator/"><span class="tw-dot"></span>Open Savings Goal</a>
-              <a class="tw-link" href="/budget-planner-calculator/"><span class="tw-dot"></span>Budget Planner</a>
-            </div>
-          </article>
-
-          <article class="tw-card">
-            <h3>Investment Fee Impact Calculator</h3>
-            <p>See how annual fees can reduce long‑term returns. Compare low‑fee vs high‑fee outcomes over time.</p>
-            <div class="tw-actions">
-              <a class="tw-link" href="/investment-fee-impact-calculator/"><span class="tw-dot"></span>Open Fee Impact</a>
-              <a class="tw-link" href="/roi-calculator/"><span class="tw-dot"></span>ROI Calculator</a>
-            </div>
-          </article>
-
-          <article class="tw-card">
-            <h3>ROI Calculator</h3>
-            <p>Calculate return on investment and compare scenarios quickly.</p>
-            <div class="tw-actions">
-              <a class="tw-link" href="/roi-calculator/"><span class="tw-dot"></span>Open ROI Calculator</a>
-            </div>
-          </article>
-
-          <article class="tw-card">
-            <h3>Retirement Planning Calculator</h3>
-            <p>Project retirement savings growth with contributions, time horizon, and assumptions.</p>
-            <div class="tw-actions">
-              <a class="tw-link" href="/retirement-planning-calculator/"><span class="tw-dot"></span>Open Retirement Planner</a>
-            </div>
-          </article>
-
-          <article class="tw-card">
-            <h3>Credit Card Payoff Calculator</h3>
-            <p>Estimate payoff time and interest cost based on balance, APR, and monthly payments.</p>
-            <div class="tw-actions">
-              <a class="tw-link" href="/credit-card-payoff-calculator/"><span class="tw-dot"></span>Open Credit Card Payoff</a>
-            </div>
-          </article>
-
-          <article class="tw-card">
-            <h3>Debt Snowball / Avalanche</h3>
-            <p>Plan a debt payoff strategy using either Snowball (smallest first) or Avalanche (highest APR first).</p>
-            <div class="tw-actions">
-              <a class="tw-link" href="/debt-snowball-avalanche-calculator/"><span class="tw-dot"></span>Open Debt Snowball</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="tw-section" aria-label="Why TrueWealthMetrics">
-        <h2>Why this site feels different</h2>
-        <div class="tw-mini">
-          <div class="tw-card">
-            <h3>Clarity first</h3>
-            <p>Inputs are simple, results are readable, and you can sanity‑check assumptions quickly.</p>
+      <div class="grid">
+        <section class="card">
+          <h2>Budget Planner (Monthly)</h2>
+          <p>Enter income + expenses to see total spending, leftover cash, savings target, and budget health.</p>
+          <div class="cta">
+            <a class="btn" href="/budget-planner-calculator/">Open Budget Planner</a>
+            <a class="btn secondary" href="/savings-goal-calculator/">Savings Goal</a>
           </div>
-          <div class="tw-card">
-            <h3>Fast + lightweight</h3>
-            <p>No heavy frameworks on each tool page. Just what you need to get answers.</p>
-          </div>
-          <div class="tw-card">
-            <h3>Educational, not advice</h3>
-            <p>These are planning estimates. Always confirm decisions with a qualified professional.</p>
-          </div>
-        </div>
+        </section>
 
-        <div class="tw-footer">
-          © 2026 TrueWealthMetrics. These calculators provide educational estimates only and do not constitute financial advice.<br/>
-          <a href="/privacy-policy/">Privacy Policy</a> · <a href="/terms-of-use/">Terms of Use</a>
-        </div>
-      </section>
-    </main>
+        <section class="card">
+          <h2>Compound Interest Calculator</h2>
+          <p>Estimate long-term growth with monthly contributions and compounding. Great for savings + investing.</p>
+          <div class="cta">
+            <a class="btn" href="/compound-interest-calculator/">Open Compound</a>
+            <a class="btn secondary" href="/investment-fee-impact-calculator/">Check Fee Impact</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Investment Fee Impact Calculator</h2>
+          <p>See how annual fees can reduce long-term returns. Compare low-fee vs high-fee outcomes over time.</p>
+          <div class="cta">
+            <a class="btn" href="/investment-fee-impact-calculator/">Open Fee Impact</a>
+            <a class="btn secondary" href="/retirement-planning-calculator/">Retirement Planner</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Savings Goal Calculator</h2>
+          <p>Find the monthly savings needed to reach a target — or how long your goal will take.</p>
+          <div class="cta">
+            <a class="btn" href="/savings-goal-calculator/">Open Savings Goal</a>
+            <a class="btn secondary" href="/budget-planner-calculator/">Budget Planner</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>ROI Calculator</h2>
+          <p>Estimate ending value, profit, ROI %, and CAGR. Includes optional fees and inflation-adjusted view.</p>
+          <div class="cta">
+            <a class="btn" href="/roi-calculator/">Open ROI Calculator</a>
+            <a class="btn secondary" href="/investment-fee-impact-calculator/">Fee Impact</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Loan Repayment Calculator</h2>
+          <p>Calculate monthly repayments, total interest, and payoff timeline for personal loans.</p>
+          <div class="cta">
+            <a class="btn" href="/loan-repayment-calculator/">Open Loan Calculator</a>
+            <a class="btn secondary" href="/credit-card-payoff-calculator/">Credit Card Payoff</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Mortgage Payment Calculator</h2>
+          <p>Advanced mortgage calculator with amortization schedule and extra payments (overpayments) impact.</p>
+          <div class="cta">
+            <a class="btn" href="/mortgage-payment-calculator/">Open Mortgage</a>
+            <a class="btn secondary" href="/budget-planner-calculator/">Budget Planner</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Credit Card Payoff Calculator</h2>
+          <p>See payoff time, interest cost, and the impact of higher monthly payments.</p>
+          <div class="cta">
+            <a class="btn" href="/credit-card-payoff-calculator/">Open Credit Payoff</a>
+            <a class="btn secondary" href="/debt-snowball-avalanche-calculator/">Debt Snowball/Avalanche</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Debt Snowball vs Avalanche</h2>
+          <p>Compare payoff strategies to become debt-free faster and reduce total interest.</p>
+          <div class="cta">
+            <a class="btn" href="/debt-snowball-avalanche-calculator/">Open Debt Strategy</a>
+            <a class="btn secondary" href="/credit-card-payoff-calculator/">Credit Payoff</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Retirement Planning Calculator</h2>
+          <p>Estimate future retirement savings with contributions, growth rate, and time horizon.</p>
+          <div class="cta">
+            <a class="btn" href="/retirement-planning-calculator/">Open Retirement Planner</a>
+            <a class="btn secondary" href="/investment-fee-impact-calculator/">Fee Impact</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>How to Use These Calculators</h2>
+          <p>
+            Each calculator is designed to help you understand a specific financial decision before you commit real money.
+            These tools provide educational estimates to support budgeting, debt reduction, investing, and long-term planning.
+          </p>
+
+          <ul class="list">
+            <li>Use the Budget Planner to understand monthly cash flow.</li>
+            <li>Use the Debt and Credit tools to reduce interest payments faster.</li>
+            <li>Use Compound Interest and ROI calculators to evaluate investments.</li>
+            <li>Use the Investment Fee Impact calculator to compare low-fee vs high-fee portfolios.</li>
+            <li>Use the Retirement Planner to estimate long-term savings needs.</li>
+          </ul>
+
+          <div class="mini">
+            Tip: These tools provide estimates for education and planning purposes only.
+          </div>
+        </section>
+</div>
+
+      
+<footer>
+  <div class="mini">
+    <a href="/about/">About</a> •
+    <a href="/contact/">Contact</a> •
+    <a href="/privacy-policy/">Privacy Policy</a> •
+    <a href="/terms-of-use/">Terms of Use</a>
+  </div>
+
+  <div class="mini" style="margin-top:10px;">
+    Disclaimer: Educational estimates only. Calculators provide planning estimates and do not constitute financial, investment, tax, or legal advice.
+  </div>
+</footer>
+
+    </div>
   </body>
 </html>
