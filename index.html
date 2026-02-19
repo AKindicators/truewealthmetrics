@@ -3,392 +3,262 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-
     <title>TrueWealthMetrics — Free Finance Calculators</title>
-    <meta
-      name="description"
-      content="Free, fast finance calculators: compound interest, savings goals, investment fee impact, ROI, loans, mortgages, budgeting, debt payoff, and retirement planning. No signup. Instant results."
-    />
+    <meta name="description" content="Clean, fast finance calculators for budgeting, debt payoff, investment growth, fee impact, mortgages, and retirement planning. No signup. Instant results." />
     <link rel="canonical" href="https://truewealthmetrics.com/" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-
-    <!-- Shared site design -->
+    <link rel="icon" href="/favicon.png" />
     <link rel="stylesheet" href="/styles.css" />
     <script defer src="/header.js"></script>
 
-    <!-- Homepage-only styling (NO header/nav selectors) -->
     <style>
+      /* Page-only styles (do not style header/nav classes) */
       :root{
-        --twm-surface: rgba(255,255,255,0.06);
-        --twm-surface2: rgba(255,255,255,0.085);
-        --twm-border: rgba(255,255,255,0.12);
-        --twm-muted: rgba(255,255,255,0.78);
-        --twm-muted2: rgba(255,255,255,0.68);
-        --twm-accent: #36f3a4;
-        --twm-accent2: #2dd4ff;
-        --twm-shadow: 0 20px 60px rgba(0,0,0,0.35);
+        --tw-bg: rgba(255,255,255,0.02);
+        --tw-border: rgba(255,255,255,0.08);
+        --tw-border-2: rgba(255,255,255,0.10);
+        --tw-text: rgba(255,255,255,0.92);
+        --tw-muted: rgba(255,255,255,0.72);
+        --tw-faint: rgba(255,255,255,0.55);
+        --tw-accent: #23e6b3;
+        --tw-accent-2: #23c9ff;
+        --tw-radius: 18px;
+        --tw-shadow: 0 18px 60px rgba(0,0,0,0.35);
       }
-
-      .twm-wrap{
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 26px 16px 70px;
+      body{ color: var(--tw-text); }
+      .tw-page{ max-width: 1120px; margin: 0 auto; padding: 34px 16px 56px; }
+      .tw-hero{
+        padding: 36px 22px 26px;
+        border: 1px solid var(--tw-border);
+        border-radius: 24px;
+        background: linear-gradient(180deg, rgba(35,230,179,0.10), rgba(255,255,255,0.02));
+        box-shadow: var(--tw-shadow);
       }
-
-      .twm-hero{
-        padding: 34px 0 18px;
-      }
-
-      .twm-hero h1{
-        margin: 0;
-        font-size: clamp(36px, 4.5vw, 58px);
-        letter-spacing: -0.03em;
-        line-height: 1.06;
-      }
-
-      .twm-hero p{
-        margin: 14px 0 0;
-        max-width: 74ch;
-        font-size: 16px;
-        line-height: 1.7;
-        color: var(--twm-muted);
-      }
-
-      .twm-hero .twm-sub{
-        margin-top: 10px;
-        color: var(--twm-muted2);
-      }
-
-      .twm-cta{
-        margin-top: 18px;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-
-      .twm-btn{
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 14px;
-        border-radius: 14px;
-        border: 1px solid var(--twm-border);
-        background: var(--twm-surface);
-        text-decoration: none;
-        color: white;
+      .tw-hero h1{ margin: 0 0 10px; font-size: clamp(34px, 5vw, 56px); letter-spacing: -0.02em; }
+      .tw-hero p{ margin: 0; color: var(--tw-muted); font-size: 16px; line-height: 1.65; max-width: 78ch; }
+      .tw-hero .tw-sub{ margin-top: 10px; color: var(--tw-faint); max-width: 82ch; }
+      .tw-row{ display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+      .tw-btn{
+        display: inline-flex; align-items: center; gap: 10px;
+        padding: 11px 14px; border-radius: 999px;
+        border: 1px solid var(--tw-border-2);
+        color: var(--tw-text); text-decoration: none;
+        background: rgba(0,0,0,0.18);
+        transition: transform .12s ease, border-color .12s ease, background .12s ease;
         font-weight: 600;
-        font-size: 14px;
-        line-height: 1;
-        transition: transform .12s ease, background .12s ease, border-color .12s ease;
-        backdrop-filter: blur(8px);
+      }
+      .tw-btn:hover{ transform: translateY(-1px); border-color: rgba(35,230,179,0.40); background: rgba(35,230,179,0.08); }
+      .tw-dot{ width: 9px; height: 9px; border-radius: 999px; background: var(--tw-accent); box-shadow: 0 0 0 4px rgba(35,230,179,0.12); }
+      .tw-badges{ margin-top: 14px; }
+      .tw-badge{
+        display:inline-flex; align-items:center; gap:10px;
+        padding: 10px 12px; border-radius: 999px;
+        border: 1px solid rgba(35,230,179,0.28);
+        background: rgba(35,230,179,0.07);
+        color: var(--tw-text);
+        font-weight: 600; font-size: 13px;
       }
 
-      .twm-btn:hover{
-        transform: translateY(-1px);
-        background: var(--twm-surface2);
-        border-color: rgba(255,255,255,0.18);
-      }
+      .tw-section{ margin-top: 28px; }
+      .tw-section h2{ margin: 0 0 12px; font-size: 18px; color: rgba(255,255,255,0.86); letter-spacing: -0.01em;}
+      .tw-grid{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      @media (max-width: 920px){ .tw-grid{ grid-template-columns: 1fr; } }
 
-      .twm-btn.primary{
-        border-color: rgba(54,243,164,0.35);
-        background: linear-gradient(180deg, rgba(54,243,164,0.18), rgba(54,243,164,0.08));
-      }
-
-      .twm-btn.primary:hover{
-        border-color: rgba(54,243,164,0.55);
-        background: linear-gradient(180deg, rgba(54,243,164,0.24), rgba(54,243,164,0.10));
-      }
-
-      .twm-btn .dot{
-        width: 8px;
-        height: 8px;
-        border-radius: 999px;
-        background: radial-gradient(circle at 30% 30%, var(--twm-accent2), var(--twm-accent));
-        box-shadow: 0 0 0 3px rgba(54,243,164,0.12);
-      }
-
-      .twm-pills{
-        margin-top: 16px;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      .twm-pill{
-        display: inline-flex;
-        padding: 8px 12px;
-        border-radius: 999px;
-        border: 1px solid rgba(255,255,255,0.10);
-        background: rgba(255,255,255,0.04);
-        color: rgba(255,255,255,0.82);
-        font-size: 13px;
-        backdrop-filter: blur(8px);
-      }
-
-      .twm-sep{
-        margin: 26px 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent);
-        opacity: 0.85;
-      }
-
-      .twm-section{
-        margin-top: 22px;
-      }
-
-      .twm-section h2{
-        margin: 0 0 12px;
-        font-size: 18px;
-        letter-spacing: -0.01em;
-        color: rgba(255,255,255,0.92);
-      }
-
-      .twm-grid{
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 14px;
-      }
-
-      .twm-card{
-        grid-column: span 6;
+      .tw-card{
+        border: 1px solid var(--tw-border);
+        border-radius: var(--tw-radius);
+        background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
         padding: 18px;
-        border-radius: 18px;
+        box-shadow: 0 12px 45px rgba(0,0,0,0.22);
+      }
+      .tw-card h3{ margin: 0 0 8px; font-size: 18px; }
+      .tw-card p{ margin: 0 0 12px; color: var(--tw-muted); line-height: 1.6; }
+      .tw-card ul{ margin: 0 0 14px 18px; color: var(--tw-muted); }
+      .tw-actions{ display:flex; gap:10px; flex-wrap:wrap; }
+      .tw-link{
+        display:inline-flex; align-items:center; gap:10px;
+        padding: 10px 12px;
+        border-radius: 999px;
         border: 1px solid rgba(255,255,255,0.10);
-        background: radial-gradient(1200px 600px at 20% 0%, rgba(54,243,164,0.10), transparent 60%),
-                    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-        box-shadow: var(--twm-shadow);
-        backdrop-filter: blur(10px);
+        background: rgba(0,0,0,0.14);
+        color: var(--tw-text);
+        text-decoration:none;
+        font-weight:600;
       }
-
-      .twm-card h3{
-        margin: 0;
-        font-size: 18px;
-        letter-spacing: -0.01em;
-      }
-
-      .twm-card p{
-        margin: 8px 0 0;
-        line-height: 1.65;
-        color: var(--twm-muted);
-      }
-
-      .twm-bullets{
-        margin: 12px 0 0;
-        padding-left: 18px;
-        color: rgba(255,255,255,0.78);
-        line-height: 1.65;
-      }
-
-      .twm-actions{
-        margin-top: 14px;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      .twm-mini{
-        grid-column: span 4;
-        padding: 16px;
-        border-radius: 18px;
-        border: 1px solid rgba(255,255,255,0.10);
-        background: rgba(255,255,255,0.04);
-        backdrop-filter: blur(10px);
-      }
-
-      .twm-mini strong{
-        display: block;
-        font-size: 14px;
-        color: rgba(255,255,255,0.92);
-      }
-
-      .twm-mini span{
-        display: block;
-        margin-top: 6px;
+      .tw-link:hover{ border-color: rgba(35,230,179,0.35); background: rgba(35,230,179,0.06); }
+      .tw-footer{
+        margin-top: 26px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.62);
         font-size: 13px;
-        line-height: 1.6;
-        color: rgba(255,255,255,0.76);
       }
-
-      .twm-footer{
-        margin-top: 34px;
-        font-size: 13px;
-        line-height: 1.65;
-        color: rgba(255,255,255,0.72);
+      .tw-footer a{ color: rgba(255,255,255,0.78); }
+      .tw-mini{
+        margin-top: 16px;
+        display:grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
       }
-      .twm-footer a{ color: rgba(255,255,255,0.82); text-decoration: underline; }
-
-      @media (max-width: 980px){
-        .twm-card{ grid-column: span 12; }
-        .twm-mini{ grid-column: span 12; }
-      }
+      @media (max-width: 920px){ .tw-mini{ grid-template-columns: 1fr; } }
+      .tw-mini .tw-card{ padding: 14px; }
+      .tw-mini h3{ font-size: 14px; margin-bottom: 6px; }
+      .tw-mini p{ font-size: 13px; margin-bottom: 0; color: rgba(255,255,255,0.70); }
     </style>
   </head>
 
   <body>
-    <!-- Shared Header -->
+    <!-- Shared site header (injected by /header.js from /header.html) -->
     <div id="site-header"></div>
 
-    <main class="twm-wrap">
-      <section class="twm-hero">
+    <main class="tw-page">
+      <section class="tw-hero">
         <h1>Free Finance Calculators</h1>
         <p>
           Clean, fast tools to plan money decisions with clarity — budgeting, debt payoff, investment growth, fee impact,
           mortgages, and retirement projections. No signup. Instant results.
         </p>
-        <p class="twm-sub">Built for speed, readability, and quick “what‑if” planning.</p>
+        <p class="tw-sub">Built for speed, readability, and quick “what‑if” planning.</p>
 
-        <div class="twm-cta">
-          <a class="twm-btn primary" href="#calculators"><span class="dot"></span>Browse calculators</a>
-          <a class="twm-btn" href="/compound-interest-calculator/"><span class="dot"></span>Try compound interest</a>
-          <a class="twm-btn" href="/budget-planner-calculator/"><span class="dot"></span>Open budget planner</a>
+        <div class="tw-row" aria-label="Primary actions">
+          <a class="tw-btn" href="#all-calculators"><span class="tw-dot"></span>Browse calculators</a>
+          <a class="tw-btn" href="/compound-interest-calculator/"><span class="tw-dot"></span>Try compound interest</a>
+          <a class="tw-btn" href="/budget-planner-calculator/"><span class="tw-dot"></span>Open budget planner</a>
         </div>
 
-        <div class="twm-pills">
-          <span class="twm-pill">Mobile-friendly</span>
-          <span class="twm-pill">No signup</span>
-          <span class="twm-pill">Instant results</span>
-          <span class="twm-pill">Educational estimates</span>
+        <div class="tw-row tw-badges" aria-label="Highlights">
+          <span class="tw-badge"><span class="tw-dot"></span>Mobile‑friendly</span>
+          <span class="tw-badge"><span class="tw-dot"></span>No signup</span>
+          <span class="tw-badge"><span class="tw-dot"></span>Instant results</span>
+          <span class="tw-badge"><span class="tw-dot"></span>Educational estimates</span>
         </div>
       </section>
 
-      <div class="twm-sep"></div>
-
-      <section class="twm-section">
+      <section class="tw-section" aria-label="Popular calculators">
         <h2>Popular right now</h2>
-        <div class="twm-grid">
-          <article class="twm-card">
+        <div class="tw-grid">
+          <article class="tw-card">
             <h3>Budget Planner (Monthly)</h3>
             <p>Enter income + expenses to see total spending, leftover cash, savings target, and budget health.</p>
-            <ul class="twm-bullets">
+            <ul>
               <li>Total expenses + leftover cash</li>
               <li>Savings target + emergency fund target</li>
               <li>Simple budget health score</li>
             </ul>
-            <div class="twm-actions">
-              <a class="twm-btn primary" href="/budget-planner-calculator/"><span class="dot"></span>Open Budget Planner</a>
-              <a class="twm-btn" href="/savings-goal-calculator/"><span class="dot"></span>Savings Goal</a>
+            <div class="tw-actions">
+              <a class="tw-link" href="/budget-planner-calculator/"><span class="tw-dot"></span>Open Budget Planner</a>
+              <a class="tw-link" href="/savings-goal-calculator/"><span class="tw-dot"></span>Savings Goal</a>
             </div>
           </article>
 
-          <article class="twm-card">
+          <article class="tw-card">
             <h3>Compound Interest Calculator</h3>
-            <p>Estimate long-term growth with monthly contributions and compounding. Great for savings + investing.</p>
-            <ul class="twm-bullets">
+            <p>Estimate long‑term growth with monthly contributions and compounding. Great for savings + investing.</p>
+            <ul>
               <li>Final balance + contributions</li>
               <li>Interest earned + yearly table</li>
               <li>Optional inflation adjustment</li>
             </ul>
-            <div class="twm-actions">
-              <a class="twm-btn primary" href="/compound-interest-calculator/"><span class="dot"></span>Open Compound</a>
-              <a class="twm-btn" href="/investment-fee-impact-calculator/"><span class="dot"></span>Check Fee Impact</a>
+            <div class="tw-actions">
+              <a class="tw-link" href="/compound-interest-calculator/"><span class="tw-dot"></span>Open Compound</a>
+              <a class="tw-link" href="/investment-fee-impact-calculator/"><span class="tw-dot"></span>Check Fee Impact</a>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="calculators" class="twm-section">
+      <section id="all-calculators" class="tw-section" aria-label="All calculators">
         <h2>All calculators</h2>
-        <div class="twm-grid">
-          <article class="twm-card">
+        <div class="tw-grid">
+          <article class="tw-card">
             <h3>Loan Repayment Calculator</h3>
-            <p>Monthly payment, total interest, and an amortization-style breakdown.</p>
-            <div class="twm-actions">
-              <a class="twm-btn primary" href="/loan-repayment-calculator/"><span class="dot"></span>Open Loan Calculator</a>
+            <p>Monthly payment, total interest, and an amortization‑style breakdown.</p>
+            <div class="tw-actions">
+              <a class="tw-link" href="/loan-repayment-calculator/"><span class="tw-dot"></span>Open Loan Calculator</a>
             </div>
           </article>
 
-          <article class="twm-card">
+          <article class="tw-card">
             <h3>Mortgage Payment Calculator</h3>
             <p>Estimate monthly mortgage payments, interest, and affordability assumptions.</p>
-            <div class="twm-actions">
-              <a class="twm-btn primary" href="/mortgage-payment-calculator/"><span class="dot"></span>Open Mortgage Calculator</a>
+            <div class="tw-actions">
+              <a class="tw-link" href="/mortgage-payment-calculator/"><span class="tw-dot"></span>Open Mortgage Calculator</a>
             </div>
           </article>
 
-          <article class="twm-card">
+          <article class="tw-card">
             <h3>Savings Goal Calculator</h3>
             <p>Find the monthly saving needed to reach a target — or how long your goal will take.</p>
-            <div class="twm-actions">
-              <a class="twm-btn primary" href="/savings-goal-calculator/"><span class="dot"></span>Open Savings Goal</a>
-              <a class="twm-btn" href="/budget-planner-calculator/"><span class="dot"></span>Budget Planner</a>
+            <div class="tw-actions">
+              <a class="tw-link" href="/savings-goal-calculator/"><span class="tw-dot"></span>Open Savings Goal</a>
+              <a class="tw-link" href="/budget-planner-calculator/"><span class="tw-dot"></span>Budget Planner</a>
             </div>
           </article>
 
-          <article class="twm-card">
+          <article class="tw-card">
             <h3>Investment Fee Impact Calculator</h3>
-            <p>See how annual fees can reduce long-term returns. Compare low-fee vs high-fee outcomes over time.</p>
-            <div class="twm-actions">
-              <a class="twm-btn primary" href="/investment-fee-impact-calculator/"><span class="dot"></span>Open Fee Impact</a>
-              <a class="twm-btn" href="/roi-calculator/"><span class="dot"></span>ROI Calculator</a>
+            <p>See how annual fees can reduce long‑term returns. Compare low‑fee vs high‑fee outcomes over time.</p>
+            <div class="tw-actions">
+              <a class="tw-link" href="/investment-fee-impact-calculator/"><span class="tw-dot"></span>Open Fee Impact</a>
+              <a class="tw-link" href="/roi-calculator/"><span class="tw-dot"></span>ROI Calculator</a>
             </div>
           </article>
 
-          <article class="twm-card">
+          <article class="tw-card">
             <h3>ROI Calculator</h3>
             <p>Calculate return on investment and compare scenarios quickly.</p>
-            <div class="twm-actions">
-              <a class="twm-btn primary" href="/roi-calculator/"><span class="dot"></span>Open ROI Calculator</a>
+            <div class="tw-actions">
+              <a class="tw-link" href="/roi-calculator/"><span class="tw-dot"></span>Open ROI Calculator</a>
             </div>
           </article>
 
-          <article class="twm-card">
+          <article class="tw-card">
             <h3>Retirement Planning Calculator</h3>
             <p>Project retirement savings growth with contributions, time horizon, and assumptions.</p>
-            <div class="twm-actions">
-              <a class="twm-btn primary" href="/retirement-planning-calculator/"><span class="dot"></span>Open Retirement Planner</a>
+            <div class="tw-actions">
+              <a class="tw-link" href="/retirement-planning-calculator/"><span class="tw-dot"></span>Open Retirement Planner</a>
             </div>
           </article>
 
-          <article class="twm-card">
+          <article class="tw-card">
             <h3>Credit Card Payoff Calculator</h3>
             <p>Estimate payoff time and interest cost based on balance, APR, and monthly payments.</p>
-            <div class="twm-actions">
-              <a class="twm-btn primary" href="/credit-card-payoff-calculator/"><span class="dot"></span>Open Credit Card Payoff</a>
+            <div class="tw-actions">
+              <a class="tw-link" href="/credit-card-payoff-calculator/"><span class="tw-dot"></span>Open Credit Card Payoff</a>
             </div>
           </article>
 
-          <article class="twm-card">
+          <article class="tw-card">
             <h3>Debt Snowball / Avalanche</h3>
             <p>Plan a debt payoff strategy using either Snowball (smallest first) or Avalanche (highest APR first).</p>
-            <div class="twm-actions">
-              <a class="twm-btn primary" href="/debt-snowball-calculator/"><span class="dot"></span>Open Debt Snowball</a>
+            <div class="tw-actions">
+              <a class="tw-link" href="/debt-snowball-avalanche-calculator/"><span class="tw-dot"></span>Open Debt Snowball</a>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="twm-section">
+      <section class="tw-section" aria-label="Why TrueWealthMetrics">
         <h2>Why this site feels different</h2>
-        <div class="twm-grid">
-          <div class="twm-mini">
-            <strong>Clarity first</strong>
-            <span>Inputs are simple, results are readable, and you can sanity-check assumptions quickly.</span>
+        <div class="tw-mini">
+          <div class="tw-card">
+            <h3>Clarity first</h3>
+            <p>Inputs are simple, results are readable, and you can sanity‑check assumptions quickly.</p>
           </div>
-          <div class="twm-mini">
-            <strong>Fast + lightweight</strong>
-            <span>No heavy frameworks. Each tool loads fast and stays focused on the calculation.</span>
+          <div class="tw-card">
+            <h3>Fast + lightweight</h3>
+            <p>No heavy frameworks on each tool page. Just what you need to get answers.</p>
           </div>
-          <div class="twm-mini">
-            <strong>Educational, not advice</strong>
-            <span>These are planning estimates. Always confirm decisions with a qualified professional.</span>
+          <div class="tw-card">
+            <h3>Educational, not advice</h3>
+            <p>These are planning estimates. Always confirm decisions with a qualified professional.</p>
           </div>
         </div>
-      </section>
 
-      <div class="twm-footer">
-        <p>
-          © <span id="year"></span> TrueWealthMetrics. These calculators provide educational estimates only and do not
-          constitute financial advice.
-        </p>
-        <p>
+        <div class="tw-footer">
+          © 2026 TrueWealthMetrics. These calculators provide educational estimates only and do not constitute financial advice.<br/>
           <a href="/privacy-policy/">Privacy Policy</a> · <a href="/terms-of-use/">Terms of Use</a>
-        </p>
-      </div>
+        </div>
+      </section>
     </main>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
   </body>
 </html>
