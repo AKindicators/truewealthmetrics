@@ -1,47 +1,23 @@
-// Injects the shared header into every page that loads this script.
-// Put in repo root as: header.js
+<!-- TrueWealthMetrics shared header -->
+<div class="twm-header-wrap">
+  <div class="twm-header">
+    <a class="twm-brand" href="/">
+      <img src="/logo.png" alt="TrueWealthMetrics logo" />
+      <span>TrueWealthMetrics</span>
+    </a>
 
-(function () {
-  function setActiveNav() {
-    const path = (location.pathname || "/").toLowerCase();
-    document.querySelectorAll(".twm-pill").forEach((a) => {
-      const href = (a.getAttribute("href") || "").toLowerCase();
-
-      // match exact section by start-with (handles trailing slash)
-      const isHome = href === "/" && (path === "/" || path === "/index.html");
-      const isMatch = !isHome && href !== "/" && path.startsWith(href);
-
-      if (isHome || isMatch) a.classList.add("is-active");
-    });
-  }
-
-  async function injectHeader() {
-    // If header already exists, do nothing.
-    if (document.querySelector(".twm-header-wrap")) return;
-
-    try {
-      const res = await fetch("/header.html", { cache: "no-store" });
-      if (!res.ok) throw new Error("header.html not found");
-      const html = await res.text();
-
-      // Insert at very top of body
-      document.body.insertAdjacentHTML("afterbegin", html);
-
-      // Optional: wrap page content a bit for spacing consistency
-      // Add class to main container if found
-      const main = document.querySelector("main");
-      if (main) main.classList.add("twm-page");
-
-      setActiveNav();
-    } catch (e) {
-      // Fails silently (page still works)
-      console.warn("Header inject failed:", e);
-    }
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", injectHeader);
-  } else {
-    injectHeader();
-  }
-})();
+    <nav class="twm-nav" aria-label="Primary navigation">
+      <a class="twm-pill" href="/">Home</a>
+      <a class="twm-pill" href="/loan-repayment-calculator/">Loan</a>
+      <a class="twm-pill" href="/mortgage-payment-calculator/">Mortgage</a>
+      <a class="twm-pill" href="/budget-planner-calculator/">Budget</a>
+      <a class="twm-pill" href="/compound-interest-calculator/">Compound</a>
+      <a class="twm-pill" href="/savings-goal-calculator/">Savings</a>
+      <a class="twm-pill" href="/credit-card-payoff-calculator/">Credit</a>
+      <a class="twm-pill" href="/debt-snowball-avalanche-calculator/">Debt</a>
+      <a class="twm-pill" href="/roi-calculator/">ROI</a>
+      <a class="twm-pill" href="/investment-fee-impact-calculator/">Fees</a>
+      <a class="twm-pill" href="/retirement-planning-calculator/">Retirement</a>
+    </nav>
+  </div>
+</div>
