@@ -1,29 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <title>Loan Repayment Calculator (Amortization + Extra Payments) | TrueWealthMetrics</title>
-    <meta
-      name="description"
-      content="Free loan repayment calculator with amortization schedule. Calculate monthly payment, total interest, payoff date, and see how extra payments reduce interest."
-    />
-    <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://truewealthmetrics.com/loan-repayment-calculator/" />
-
-    <meta property="og:title" content="Loan Repayment Calculator | TrueWealthMetrics" />
-    <meta
-      property="og:description"
-      content="Calculate monthly loan payments and view an amortization schedule. Add extra payments to see interest saved and earlier payoff."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://truewealthmetrics.com/loan-repayment-calculator/" />
-
-    <meta name="twitter:card" content="summary" />
-    <meta name="theme-color" content="#0b1220" />
-
-    <script type="application/ld+json" id="jsonld-webapp">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Loan Repayment Calculator (Amortization + Extra Payments) | TrueWealthMetrics</title>
+<meta content="Free loan repayment calculator with amortization schedule. Calculate monthly payment, total interest, payoff date, and see how extra payments reduce interest." name="description"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://truewealthmetrics.com/loan-repayment-calculator/" rel="canonical"/>
+<meta content="Loan Repayment Calculator | TrueWealthMetrics" property="og:title"/>
+<meta content="Calculate monthly loan payments and view an amortization schedule. Add extra payments to see interest saved and earlier payoff." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://truewealthmetrics.com/loan-repayment-calculator/" property="og:url"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="#0b1220" name="theme-color"/><script id="jsonld-webapp" type="application/ld+json">
       {
         "@context":"https://schema.org",
         "@type":"WebApplication",
@@ -34,8 +24,7 @@
         "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
       }
     </script>
-
-    <script type="application/ld+json" id="jsonld-faq">
+<script id="jsonld-faq" type="application/ld+json">
       {
         "@context":"https://schema.org",
         "@type":"FAQPage",
@@ -58,8 +47,7 @@
         ]
       }
     </script>
-  
-    <script type="application/ld+json" id="jsonld-softwareapp">
+<script id="jsonld-softwareapp" type="application/ld+json">
       {
         "@context":"https://schema.org",
         "@type":"SoftwareApplication",
@@ -72,8 +60,7 @@
         "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
       }
     </script>
-
-    <script type="application/ld+json" id="jsonld-breadcrumbs">
+<script id="jsonld-breadcrumbs" type="application/ld+json">
       {
         "@context":"https://schema.org",
         "@type":"BreadcrumbList",
@@ -83,237 +70,187 @@
         ]
       }
     </script>
+<link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer="True" src="/header.js"></script></head>
+<body><div id="site-header"></div>
+<div class="wrap">
 
-      <link rel="stylesheet" href="/styles.css" />
-        <script src="/header.js" defer></script>
-  </head>
-
-  <body>
-    <div id="site-header"></div>
-    <div class="wrap">
-      <section class="hero">
-        <h1>Loan Repayment Calculator</h1>
-        <p>
+<section class="hero">
+<h1>Loan Repayment Calculator</h1>
+<p>
           Calculate your <strong>monthly loan payment</strong>, total interest, and payoff timeline.
           Add <strong>extra payments</strong> to see how much interest you can save and how much sooner you can become debt-free.
         </p>
-      </section>
-
-      <section class="grid">
-        <div class="card">
-          <h2>Inputs</h2>
-          <p class="sub">Works for personal loans, car loans, and fixed-rate debt repayment.</p>
-
-          <div class="form" id="calcForm">
-            <div class="row">
-              <label for="amount">Loan amount</label>
-              <input id="amount" type="number" min="0" step="0.01" value="15000" inputmode="decimal" />
-            </div>
-
-            <div class="row">
-              <label for="apr">Interest rate (APR %)</label>
-              <input id="apr" type="number" min="0" step="0.01" value="7.5" inputmode="decimal" />
-            </div>
-
-            <div class="row">
-              <label for="years">Loan term (years)</label>
-              <input id="years" type="number" min="0" step="1" value="5" inputmode="numeric" />
-            </div>
-
-            <div class="row">
-              <label for="months">Extra months (0–11)</label>
-              <input id="months" type="number" min="0" max="11" step="1" value="0" inputmode="numeric" />
-            </div>
-
-            <div class="row">
-              <label for="extra">Extra payment (per month, optional)</label>
-              <input id="extra" type="number" min="0" step="0.01" value="0" inputmode="decimal" />
-            </div>
-
-            <div class="row">
-              <label for="currency">Currency</label>
-              <select id="currency">
-                <option value="USD">$ USD</option>
-                <option value="GBP" selected>£ GBP</option>
-                <option value="EUR">€ EUR</option>
-                <option value="CAD">$ CAD</option>
-                <option value="AUD">$ AUD</option>
-                <option value="PKR">₨ PKR</option>
-                <option value="INR">₹ INR</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="actions">
-            <button id="btnCalc">Calculate</button>
-            <button class="secondary" id="btnReset" type="button">Reset</button>
-          </div>
-
-          <div class="alert" id="alertBox"></div>
-
-          <div class="note">
+</section>
+<section class="grid">
+<div class="card">
+<h2>Inputs</h2>
+<p class="sub">Works for personal loans, car loans, and fixed-rate debt repayment.</p>
+<div class="form" id="calcForm">
+<div class="row">
+<label for="amount">Loan amount</label>
+<input id="amount" inputmode="decimal" min="0" step="0.01" type="number" value="15000"/>
+</div>
+<div class="row">
+<label for="apr">Interest rate (APR %)</label>
+<input id="apr" inputmode="decimal" min="0" step="0.01" type="number" value="7.5"/>
+</div>
+<div class="row">
+<label for="years">Loan term (years)</label>
+<input id="years" inputmode="numeric" min="0" step="1" type="number" value="5"/>
+</div>
+<div class="row">
+<label for="months">Extra months (0–11)</label>
+<input id="months" inputmode="numeric" max="11" min="0" step="1" type="number" value="0"/>
+</div>
+<div class="row">
+<label for="extra">Extra payment (per month, optional)</label>
+<input id="extra" inputmode="decimal" min="0" step="0.01" type="number" value="0"/>
+</div>
+<div class="row">
+<label for="currency">Currency</label>
+<select id="currency">
+<option value="USD">$ USD</option>
+<option selected="" value="GBP">£ GBP</option>
+<option value="EUR">€ EUR</option>
+<option value="CAD">$ CAD</option>
+<option value="AUD">$ AUD</option>
+<option value="PKR">₨ PKR</option>
+<option value="INR">₹ INR</option>
+</select>
+</div>
+</div>
+<div class="actions">
+<button id="btnCalc">Calculate</button>
+<button class="secondary" id="btnReset" type="button">Reset</button>
+</div>
+<div class="alert" id="alertBox"></div>
+<div class="note">
             Assumption: fixed rate, payments monthly. Extra payments are applied to principal.
             Results are estimates for education only (not financial advice).
           </div>
-        </div>
-
-        <div class="card" id="resultsCard">
-          <h2>Results</h2>
-          <p class="sub">Updated instantly from your inputs.</p>
-
-          <div class="kpis">
-            <div class="kpi">
-              <div class="t">Monthly payment</div>
-              <div class="v" id="monthlyPayment">—</div>
-              <div class="s">Base payment (no extra)</div>
-            </div>
-
-            <div class="kpi">
-              <div class="t">Total interest</div>
-              <div class="v" id="totalInterest">—</div>
-              <div class="s">Over full term</div>
-            </div>
-
-            <div class="kpi">
-              <div class="t">Total paid</div>
-              <div class="v" id="totalPaid">—</div>
-              <div class="s">Principal + interest</div>
-            </div>
-
-            <div class="kpi">
-              <div class="t">Payoff time (with extra)</div>
-              <div class="v" id="payoffTime">—</div>
-              <div class="s" id="payoffSub">If extra payment is set</div>
-            </div>
-          </div>
-
-          <div class="note" id="summaryLine">—</div>
-        </div>
-      </section>
-
-      <section class="card section" id="scheduleCard" style="margin-top:16px;">
-        <h2>Amortization schedule</h2>
-        <p>
+</div>
+<div class="card" id="resultsCard">
+<h2>Results</h2>
+<p class="sub">Updated instantly from your inputs.</p>
+<div class="kpis">
+<div class="kpi">
+<div class="t">Monthly payment</div>
+<div class="v" id="monthlyPayment">—</div>
+<div class="s">Base payment (no extra)</div>
+</div>
+<div class="kpi">
+<div class="t">Total interest</div>
+<div class="v" id="totalInterest">—</div>
+<div class="s">Over full term</div>
+</div>
+<div class="kpi">
+<div class="t">Total paid</div>
+<div class="v" id="totalPaid">—</div>
+<div class="s">Principal + interest</div>
+</div>
+<div class="kpi">
+<div class="t">Payoff time (with extra)</div>
+<div class="v" id="payoffTime">—</div>
+<div class="s" id="payoffSub">If extra payment is set</div>
+</div>
+</div>
+<div class="note" id="summaryLine">—</div>
+</div>
+</section>
+<section class="card section" id="scheduleCard" style="margin-top:16px;">
+<h2>Amortization schedule</h2>
+<p>
           Month-by-month breakdown of payment, interest, principal, and remaining balance.
         </p>
-
-        <div class="tableActions">
-          <button class="secondary small" id="btnToggleTable" type="button">Show full schedule</button>
-          <button class="secondary small" id="btnDownloadCsv" type="button">Download CSV</button>
-          <span class="badge" id="tableBadge">Mobile-friendly: showing first 24 months</span>
-        </div>
-
-        <table aria-label="Loan amortization schedule">
-          <thead>
-            <tr>
-              <th>Month</th>
-              <th>Payment</th>
-              <th>Interest</th>
-              <th>Principal</th>
-              <th>Balance</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody">
-            <tr><td colspan="5" style="text-align:left;color:rgba(255,255,255,0.70);">Run a calculation to see the schedule.</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="section" style="margin-top:22px;">
-        <div class="card">
-          <h2>How loan payments work</h2>
-          <p>
+<div class="tableActions">
+<button class="secondary small" id="btnToggleTable" type="button">Show full schedule</button>
+<button class="secondary small" id="btnDownloadCsv" type="button">Download CSV</button>
+<span class="badge" id="tableBadge">Mobile-friendly: showing first 24 months</span>
+</div>
+<table aria-label="Loan amortization schedule">
+<thead>
+<tr>
+<th>Month</th>
+<th>Payment</th>
+<th>Interest</th>
+<th>Principal</th>
+<th>Balance</th>
+</tr>
+</thead>
+<tbody id="tableBody">
+<tr><td colspan="5" style="text-align:left;color:rgba(255,255,255,0.70);">Run a calculation to see the schedule.</td></tr>
+</tbody>
+</table>
+</section>
+<section class="section" style="margin-top:22px;">
+<div class="card">
+<h2>How loan payments work</h2>
+<p>
             With most fixed-rate loans, each monthly payment includes <strong>interest</strong> (the cost of borrowing)
             and <strong>principal</strong> (paying down the amount you owe). Early payments usually include more interest;
             later payments include more principal.
           </p>
-
-          <h2 style="margin-top:14px;">Extra payments</h2>
-          <p>
+<h2 style="margin-top:14px;">Extra payments</h2>
+<p>
             Any extra payment you add is applied to your principal. That reduces future interest and often shortens the payoff time.
           </p>
-        </div>
-      </section>
-
-      <section class="section" style="margin-top:16px;">
-        <div class="card">
-          <h2>FAQ</h2>
-
-          <details>
-            <summary>Does a lower interest rate always reduce the monthly payment?</summary>
-            <p>
+</div>
+</section>
+<section class="section" style="margin-top:16px;">
+<div class="card">
+<h2>FAQ</h2>
+<details>
+<summary>Does a lower interest rate always reduce the monthly payment?</summary>
+<p>
               Yes — for the same loan amount and term, a lower APR reduces monthly interest and lowers the required payment.
             </p>
-          </details>
-
-          <details>
-            <summary>What if APR is 0%?</summary>
-            <p>
+</details>
+<details>
+<summary>What if APR is 0%?</summary>
+<p>
               If APR is 0%, your payment is simply the loan amount divided by the number of months.
             </p>
-          </details>
-
-          <details>
-            <summary>Why might my real lender payment differ?</summary>
-            <p>
+</details>
+<details>
+<summary>Why might my real lender payment differ?</summary>
+<p>
               Lenders may use different compounding conventions, add fees, or require escrow/insurance (especially for mortgages).
               This tool is a clean estimate for planning.
             </p>
-          </details>
-        </div>
-      </section>
-
-      <section class="section" style="margin-top:16px;">
-        <div class="card">
-          <h2>Related calculators</h2>
-          <p>
+</details>
+</div>
+</section>
+<section class="section" style="margin-top:16px;">
+<div class="card">
+<h2>Related calculators</h2>
+<p>
             Use these tools together to plan repayments, improve cash flow, and compare long‑term scenarios.
           </p>
-          <ul>
-            <li><a href="/mortgage-payment-calculator/">Mortgage Payment Calculator</a> — home loan estimates and amortization.</li>
-            <li><a href="/credit-card-payoff-calculator/">Credit Card Payoff Calculator</a> — model revolving debt and extra payments.</li>
-            <li><a href="/debt-snowball-avalanche-calculator/">Debt Snowball vs Avalanche</a> — compare strategies across multiple debts.</li>
-            <li><a href="/budget-planner-calculator/">Budget Planner</a> — set a realistic monthly repayment amount.</li>
-            <li><a href="/savings-goal-calculator/">Savings Goal Calculator</a> — plan savings after debt payoff.</li>
-            <li><a href="/compound-interest-calculator/">Compound Interest Calculator</a> — estimate growth after redirecting freed payments.</li>
-          </ul>
-        </div>
-      </section>
+<ul>
+<li><a href="/mortgage-payment-calculator/">Mortgage Payment Calculator</a> — home loan estimates and amortization.</li>
+<li><a href="/credit-card-payoff-calculator/">Credit Card Payoff Calculator</a> — model revolving debt and extra payments.</li>
+<li><a href="/debt-snowball-avalanche-calculator/">Debt Snowball vs Avalanche</a> — compare strategies across multiple debts.</li>
+<li><a href="/budget-planner-calculator/">Budget Planner</a> — set a realistic monthly repayment amount.</li>
+<li><a href="/savings-goal-calculator/">Savings Goal Calculator</a> — plan savings after debt payoff.</li>
+<li><a href="/compound-interest-calculator/">Compound Interest Calculator</a> — estimate growth after redirecting freed payments.</li>
+</ul>
+</div>
+</section>
 
-      
-      <footer>
-        <div class="card">
-          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
-            <div>
-              <strong>Disclaimer:</strong> Educational estimates only. Real loan terms and fees vary by lender.
-            </div>
-            <div style="display:flex;gap:10px;flex-wrap:wrap;">
-              <a class="pill" href="/about/">About</a>
-              <a class="pill" href="/contact/">Contact</a>
-              <a class="pill" href="/privacy-policy/">Privacy Policy</a>
-              <a class="pill" href="/terms-of-use/">Terms of Use</a>
-            </div>
-          </div>
-          <div style="margin-top:8px;">© <span id="yr"></span> TrueWealthMetrics</div>
-        </div>
-      </footer>
-
-    </div>
-
-    <div class="stickyBar" id="stickyBar" aria-label="Sticky results bar">
-      <div class="stickyInner">
-        <div class="stickyMini">
-          <div class="l">Monthly payment</div>
-          <div class="v" id="stickyPayment">—</div>
-        </div>
-        <div class="stickyBtns">
-          <a href="#resultsCard">Results</a>
-          <a class="primary" href="#scheduleCard">Schedule</a>
-        </div>
-      </div>
-    </div>
-
-    <script>
+</div>
+<div aria-label="Sticky results bar" class="stickyBar" id="stickyBar">
+<div class="stickyInner">
+<div class="stickyMini">
+<div class="l">Monthly payment</div>
+<div class="v" id="stickyPayment">—</div>
+</div>
+<div class="stickyBtns">
+<a href="#resultsCard">Results</a>
+<a class="primary" href="#scheduleCard">Schedule</a>
+</div>
+</div>
+</div>
+<script>
       function toNum(v) {
         const n = Number(String(v).replace(/,/g, "").trim());
         return Number.isFinite(n) ? n : 0;
@@ -602,5 +539,23 @@ ${(extra > 0 && extraAm.ok) ? `With ${fmtMoney(currency, extra, 2)}/mo extra: pa
       document.getElementById("yr").textContent = new Date().getFullYear();
       calculate();
     </script>
-  </body>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-row">
+<div class="footer-left">
+<div class="footer-brand">© <span id="footerYear"></span> TrueWealthMetrics.</div>
+<div class="footer-note">These calculators provide educational estimates only and do not constitute financial advice.</div>
+</div>
+<div class="footer-links">
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy-policy/">Privacy Policy</a>
+<a href="/terms-of-use/">Terms of Use</a>
+</div>
+</div>
+</div>
+<script>
+    (function(){try{document.getElementById('footerYear').textContent=new Date().getFullYear();}catch(e){}})();
+  </script>
+</footer></body>
 </html>

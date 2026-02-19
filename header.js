@@ -1,35 +1,17 @@
 // Injects the shared header into every page that loads this script.
-// Put in repo root as: /header.js
-//
-// Expected markup on each page (top of <body>):
-//   <div id="site-header"></div>
-//
-// This script will fetch /header.html and inject it into that div.
-// If the div is missing, it will inject at the start of <body> as a fallback.
+// Put in repo root as: header.js
 
 (function () {
-  function normalizePath(p) {
-    return (p || "/").toLowerCase().replace(/index\.html$/, "");
-  }
-
   function setActiveNav() {
-    const path = normalizePath(location.pathname || "/");
-
+    const path = (location.pathname || "/").toLowerCase();
     document.querySelectorAll(".twm-pill").forEach((a) => {
-      const hrefRaw = a.getAttribute("href") || "";
-      const href = normalizePath(hrefRaw);
+      const href = (a.getAttribute("href") || "").toLowerCase();
 
-      // Home: match / and /index.html
-      const isHome = href === "/" && (path === "/" || path === "");
+      // match exact section by start-with (handles trailing slash)
+      const isHome = href === "/" && (path === "/" || path === "/index.html");
       const isMatch = !isHome && href !== "/" && path.startsWith(href);
 
-      if (isHome || isMatch) {
-        a.classList.add("is-active");
-        a.setAttribute("aria-current", "page");
-      } else {
-        a.classList.remove("is-active");
-        a.removeAttribute("aria-current");
-      }
+      if (isHome || isMatch) a.classList.add("is-active");
     });
   }
 
@@ -42,15 +24,17 @@
       if (!res.ok) throw new Error("header.html not found");
       const html = await res.text();
 
+      // Prefer the placeholder div when present to avoid layout quirks
       const mount = document.getElementById("site-header");
       if (mount) {
         mount.innerHTML = html;
       } else {
-        // Fallback: insert at very top of body
+        // Fallback: Insert at very top of body
         document.body.insertAdjacentHTML("afterbegin", html);
       }
 
-      // Add consistent spacing class to main if present
+      // Optional: wrap page content a bit for spacing consistency
+      // Add class to main container if found
       const main = document.querySelector("main");
       if (main) main.classList.add("twm-page");
 
@@ -66,7 +50,4 @@
   } else {
     injectHeader();
   }
-
-  // Update active state on back/forward navigation
-  window.addEventListener("popstate", setActiveNav);
 })();

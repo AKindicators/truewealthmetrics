@@ -1,29 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <title>Retirement Planning Calculator | TrueWealthMetrics</title>
-    <meta
-      name="description"
-      content="Free retirement planning calculator. Project your retirement savings, estimate the nest egg needed for your target income, and see the monthly contribution required."
-    />
-    <link rel="canonical" href="https://truewealthmetrics.com/retirement-planning-calculator/" />
-
-    <meta property="og:title" content="Retirement Planning Calculator | TrueWealthMetrics" />
-    <meta
-      property="og:description"
-      content="Plan your retirement: projected pot, required nest egg, gap/surplus, and a year-by-year table."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://truewealthmetrics.com/retirement-planning-calculator/" />
-
-    <meta name="twitter:card" content="summary" />
-    <meta name="theme-color" content="#0b1220" />
-    <meta name="robots" content="index,follow" />
-
-    <script type="application/ld+json" id="jsonld-webpage">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Retirement Planning Calculator | TrueWealthMetrics</title>
+<meta content="Free retirement planning calculator. Project your retirement savings, estimate the nest egg needed for your target income, and see the monthly contribution required." name="description"/>
+<link href="https://truewealthmetrics.com/retirement-planning-calculator/" rel="canonical"/>
+<meta content="Retirement Planning Calculator | TrueWealthMetrics" property="og:title"/>
+<meta content="Plan your retirement: projected pot, required nest egg, gap/surplus, and a year-by-year table." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://truewealthmetrics.com/retirement-planning-calculator/" property="og:url"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="#0b1220" name="theme-color"/>
+<meta content="index,follow" name="robots"/><script id="jsonld-webpage" type="application/ld+json">
       {
         "@context":"https://schema.org",
         "@type":"WebPage",
@@ -37,8 +27,7 @@
         }
       }
     </script>
-
-    <script type="application/ld+json" id="jsonld-faq">
+<script id="jsonld-faq" type="application/ld+json">
       {
         "@context":"https://schema.org",
         "@type":"FAQPage",
@@ -70,8 +59,7 @@
         ]
       }
     </script>
-  
-    <script type="application/ld+json" id="jsonld-softwareapp">
+<script id="jsonld-softwareapp" type="application/ld+json">
       {
         "@context":"https://schema.org",
         "@type":"SoftwareApplication",
@@ -84,8 +72,7 @@
         "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
       }
     </script>
-
-    <script type="application/ld+json" id="jsonld-breadcrumbs">
+<script id="jsonld-breadcrumbs" type="application/ld+json">
       {
         "@context":"https://schema.org",
         "@type":"BreadcrumbList",
@@ -95,229 +82,178 @@
         ]
       }
     </script>
+<link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer="True" src="/header.js"></script></head>
+<body><div id="site-header"></div>
+<div class="wrap">
 
-      <link rel="stylesheet" href="/styles.css" />
-        <script src="/header.js" defer></script>
-  </head>
-
-  <body>
-    <div id="site-header"></div>
-    <div class="wrap">
-      <section class="hero">
-        <h1>Retirement Planning Calculator</h1>
-        <p>
+<section class="hero">
+<h1>Retirement Planning Calculator</h1>
+<p>
           Project your retirement savings, estimate the <strong>nest egg required</strong> for your target income, and see whether you’re on track.
           Results are educational estimates — not financial advice.
         </p>
-      </section>
-
-      <section class="grid">
-        <div class="card">
-          <h2>Inputs</h2>
-          <p class="sub">Keep assumptions realistic. The biggest drivers are time, contributions, and return rate.</p>
-
-          <div class="form" id="calcForm">
-            <div class="row">
-              <label for="currentAge">Current age</label>
-              <input id="currentAge" inputmode="numeric" value="30" />
-            </div>
-
-            <div class="row">
-              <label for="retireAge">Retirement age</label>
-              <input id="retireAge" inputmode="numeric" value="65" />
-            </div>
-
-            <div class="row">
-              <label for="currentSavings">Current savings (£)</label>
-              <input id="currentSavings" inputmode="decimal" value="20000" />
-            </div>
-
-            <div class="row">
-              <label for="monthlyContrib">Monthly contribution (£)</label>
-              <input id="monthlyContrib" inputmode="decimal" value="300" />
-            </div>
-
-            <div class="row">
-              <label for="annualReturn">Expected annual return (%)</label>
-              <input id="annualReturn" inputmode="decimal" value="7" />
-            </div>
-
-            <div class="row">
-              <label for="inflation">Inflation (optional %)</label>
-              <input id="inflation" inputmode="decimal" value="2.5" />
-            </div>
-
-            <div class="row">
-              <label for="targetIncome">Target annual income in retirement (£/year)</label>
-              <input id="targetIncome" inputmode="decimal" value="30000" />
-            </div>
-
-            <div class="row">
-              <label for="withdrawalRate">Withdrawal rate (e.g., 4%)</label>
-              <input id="withdrawalRate" inputmode="decimal" value="4" />
-            </div>
-          </div>
-
-          <div class="actions">
-            <button id="btnCalc">Calculate</button>
-            <button class="secondary" id="btnReset" type="button">Reset</button>
-          </div>
-
-          <div class="note">
+</section>
+<section class="grid">
+<div class="card">
+<h2>Inputs</h2>
+<p class="sub">Keep assumptions realistic. The biggest drivers are time, contributions, and return rate.</p>
+<div class="form" id="calcForm">
+<div class="row">
+<label for="currentAge">Current age</label>
+<input id="currentAge" inputmode="numeric" value="30"/>
+</div>
+<div class="row">
+<label for="retireAge">Retirement age</label>
+<input id="retireAge" inputmode="numeric" value="65"/>
+</div>
+<div class="row">
+<label for="currentSavings">Current savings (£)</label>
+<input id="currentSavings" inputmode="decimal" value="20000"/>
+</div>
+<div class="row">
+<label for="monthlyContrib">Monthly contribution (£)</label>
+<input id="monthlyContrib" inputmode="decimal" value="300"/>
+</div>
+<div class="row">
+<label for="annualReturn">Expected annual return (%)</label>
+<input id="annualReturn" inputmode="decimal" value="7"/>
+</div>
+<div class="row">
+<label for="inflation">Inflation (optional %)</label>
+<input id="inflation" inputmode="decimal" value="2.5"/>
+</div>
+<div class="row">
+<label for="targetIncome">Target annual income in retirement (£/year)</label>
+<input id="targetIncome" inputmode="decimal" value="30000"/>
+</div>
+<div class="row">
+<label for="withdrawalRate">Withdrawal rate (e.g., 4%)</label>
+<input id="withdrawalRate" inputmode="decimal" value="4"/>
+</div>
+</div>
+<div class="actions">
+<button id="btnCalc">Calculate</button>
+<button class="secondary" id="btnReset" type="button">Reset</button>
+</div>
+<div class="note">
 Tip: If you enter inflation, we show a “today’s money” view.
 Withdrawal rates are guidelines — not guarantees.
           </div>
-        </div>
-
-        <div class="card" id="resultsCard">
-          <h2>Results</h2>
-          <p class="sub">Updated instantly from your inputs.</p>
-
-          <div class="kpis">
-            <div class="kpi">
-              <div class="t">Projected retirement pot</div>
-              <div class="v" id="potNominal">—</div>
-              <div class="s" id="potNominalSub">Value at retirement age</div>
-            </div>
-
-            <div class="kpi">
-              <div class="t">Pot in today’s money</div>
-              <div class="v" id="potReal">—</div>
-              <div class="s">Inflation-adjusted estimate</div>
-            </div>
-
-            <div class="kpi">
-              <div class="t">Required nest egg</div>
-              <div class="v" id="requiredNestEgg">—</div>
-              <div class="s">Based on target income & withdrawal rate</div>
-            </div>
-
-            <div class="kpi">
-              <div class="t">Monthly needed (target)</div>
-              <div class="v" id="neededMonthly">—</div>
-              <div class="s">Estimate to reach required nest egg</div>
-            </div>
-          </div>
-
-          <div class="statusLine" id="statusLine">—</div>
-          <div class="note" id="summaryLine">—</div>
-        </div>
-      </section>
-
-      <section class="card" id="growthTableCard" style="margin-top:16px;">
-        <h2>Year-by-year projection</h2>
-        <p class="sub">Balances shown at the end of each year until retirement age.</p>
-
-        <div class="tableActions">
-          <button class="secondary" id="btnToggleTable" type="button">Show full table</button>
-          <span class="badge" id="tableBadge">Mobile-friendly: showing first 10 years</span>
-        </div>
-
-        <table aria-label="Retirement projection table">
-          <thead>
-            <tr>
-              <th>Age</th>
-              <th>Year</th>
-              <th>End balance</th>
-              <th>Contributions</th>
-              <th>Interest earned</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody">
-            <tr><td colspan="5" style="text-align:left;color:rgba(255,255,255,0.70);">Run a calculation to see results.</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="card" style="margin-top:16px;">
-        <h2>How this calculator works</h2>
-        <p class="sub">
+</div>
+<div class="card" id="resultsCard">
+<h2>Results</h2>
+<p class="sub">Updated instantly from your inputs.</p>
+<div class="kpis">
+<div class="kpi">
+<div class="t">Projected retirement pot</div>
+<div class="v" id="potNominal">—</div>
+<div class="s" id="potNominalSub">Value at retirement age</div>
+</div>
+<div class="kpi">
+<div class="t">Pot in today’s money</div>
+<div class="v" id="potReal">—</div>
+<div class="s">Inflation-adjusted estimate</div>
+</div>
+<div class="kpi">
+<div class="t">Required nest egg</div>
+<div class="v" id="requiredNestEgg">—</div>
+<div class="s">Based on target income &amp; withdrawal rate</div>
+</div>
+<div class="kpi">
+<div class="t">Monthly needed (target)</div>
+<div class="v" id="neededMonthly">—</div>
+<div class="s">Estimate to reach required nest egg</div>
+</div>
+</div>
+<div class="statusLine" id="statusLine">—</div>
+<div class="note" id="summaryLine">—</div>
+</div>
+</section>
+<section class="card" id="growthTableCard" style="margin-top:16px;">
+<h2>Year-by-year projection</h2>
+<p class="sub">Balances shown at the end of each year until retirement age.</p>
+<div class="tableActions">
+<button class="secondary" id="btnToggleTable" type="button">Show full table</button>
+<span class="badge" id="tableBadge">Mobile-friendly: showing first 10 years</span>
+</div>
+<table aria-label="Retirement projection table">
+<thead>
+<tr>
+<th>Age</th>
+<th>Year</th>
+<th>End balance</th>
+<th>Contributions</th>
+<th>Interest earned</th>
+</tr>
+</thead>
+<tbody id="tableBody">
+<tr><td colspan="5" style="text-align:left;color:rgba(255,255,255,0.70);">Run a calculation to see results.</td></tr>
+</tbody>
+</table>
+</section>
+<section class="card" style="margin-top:16px;">
+<h2>How this calculator works</h2>
+<p class="sub">
           We simulate month-by-month growth, adding your contribution each month and compounding at an estimated rate.
           The “required nest egg” uses your target income and a withdrawal rate (e.g., 4%).
         </p>
-        <ul style="margin:0;color:var(--muted);">
-          <li><strong>Projected pot:</strong> estimated value at retirement age.</li>
-          <li><strong>Required nest egg:</strong> target income ÷ withdrawal rate.</li>
-          <li><strong>Monthly needed:</strong> estimated contribution to reach the required nest egg.</li>
-        </ul>
-      </section>
-
-      <section class="card" style="margin-top:16px;">
-        <h2>FAQ</h2>
-
-        <details>
-          <summary>Does a higher return always mean I’ll retire earlier?</summary>
-          <p>
+<ul style="margin:0;color:var(--muted);">
+<li><strong>Projected pot:</strong> estimated value at retirement age.</li>
+<li><strong>Required nest egg:</strong> target income ÷ withdrawal rate.</li>
+<li><strong>Monthly needed:</strong> estimated contribution to reach the required nest egg.</li>
+</ul>
+</section>
+<section class="card" style="margin-top:16px;">
+<h2>FAQ</h2>
+<details>
+<summary>Does a higher return always mean I’ll retire earlier?</summary>
+<p>
             Not always. Returns are unpredictable. Contributions, costs, and consistency matter. Use conservative assumptions and revisit your plan yearly.
           </p>
-        </details>
-
-        <details>
-          <summary>What if my target income is “in today’s money”?</summary>
-          <p>
+</details>
+<details>
+<summary>What if my target income is “in today’s money”?</summary>
+<p>
             That’s how this tool treats it by default. If you enter inflation, we inflate the target income to retirement and show an inflation-adjusted pot for comparison.
           </p>
-        </details>
-
-        <details>
-          <summary>Is the withdrawal rate guaranteed?</summary>
-          <p>
+</details>
+<details>
+<summary>Is the withdrawal rate guaranteed?</summary>
+<p>
             No. It’s a planning guide. Longer retirements, poor market sequences, and fees can reduce sustainable withdrawals.
           </p>
-        </details>
-      </section>
-
-      <section class="card" style="margin-top:16px;">
-        <h2>Related calculators</h2>
-        <p class="sub" style="margin-top:-6px;">
+</details>
+</section>
+<section class="card" style="margin-top:16px;">
+<h2>Related calculators</h2>
+<p class="sub" style="margin-top:-6px;">
           Use these tools together to stress‑test your plan (fees, contributions, debt payoff, and cash flow).
         </p>
-        <ul style="margin:0;color:var(--muted);">
-          <li><a href="/investment-fee-impact-calculator/"><strong>Investment Fee Impact Calculator</strong></a> — see how small fees reduce long‑term retirement outcomes.</li>
-          <li><a href="/compound-interest-calculator/"><strong>Compound Interest Calculator</strong></a> — model growth with monthly contributions.</li>
-          <li><a href="/roi-calculator/"><strong>ROI Calculator</strong></a> — estimate ROI % and CAGR for a single investment.</li>
-          <li><a href="/savings-goal-calculator/"><strong>Savings Goal Calculator</strong></a> — find the monthly savings needed to hit a target.</li>
-          <li><a href="/budget-planner-calculator/"><strong>Budget Planner</strong></a> — confirm your monthly contribution is realistic.</li>
-          <li><a href="/debt-snowball-avalanche-calculator/"><strong>Debt Snowball vs Avalanche</strong></a> — reduce high‑interest debt before increasing investments.</li>
-        </ul>
-      </section>
+<ul style="margin:0;color:var(--muted);">
+<li><a href="/investment-fee-impact-calculator/"><strong>Investment Fee Impact Calculator</strong></a> — see how small fees reduce long‑term retirement outcomes.</li>
+<li><a href="/compound-interest-calculator/"><strong>Compound Interest Calculator</strong></a> — model growth with monthly contributions.</li>
+<li><a href="/roi-calculator/"><strong>ROI Calculator</strong></a> — estimate ROI % and CAGR for a single investment.</li>
+<li><a href="/savings-goal-calculator/"><strong>Savings Goal Calculator</strong></a> — find the monthly savings needed to hit a target.</li>
+<li><a href="/budget-planner-calculator/"><strong>Budget Planner</strong></a> — confirm your monthly contribution is realistic.</li>
+<li><a href="/debt-snowball-avalanche-calculator/"><strong>Debt Snowball vs Avalanche</strong></a> — reduce high‑interest debt before increasing investments.</li>
+</ul>
+</section>
 
-
-      
-      <footer>
-        <div class="card">
-          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
-            <div>
-              <strong>Disclaimer:</strong> Estimates for educational purposes only. Real-world investing includes risk, fees, taxes, and market volatility.
-            </div>
-            <div style="display:flex;gap:10px;flex-wrap:wrap;">
-              <a class="pill" href="/about/">About</a>
-              <a class="pill" href="/contact/">Contact</a>
-              <a class="pill" href="/privacy-policy/">Privacy Policy</a>
-              <a class="pill" href="/terms-of-use/">Terms of Use</a>
-            </div>
-          </div>
-          <div style="margin-top:8px;">© <span id="yr"></span> TrueWealthMetrics</div>
-        </div>
-      </footer>
-
-    </div>
-
-    <!-- Sticky mobile bar -->
-    <div class="stickyBar" id="stickyBar" aria-label="Sticky results bar">
-      <div class="stickyInner">
-        <div class="stickyMini">
-          <div class="l">Projected pot</div>
-          <div class="v" id="stickyPot">—</div>
-        </div>
-        <div class="stickyBtns">
-          <a href="#resultsCard">Results</a>
-          <a class="primary" href="#growthTableCard">Table</a>
-        </div>
-      </div>
-    </div>
-
-    <script>
+</div>
+<!-- Sticky mobile bar -->
+<div aria-label="Sticky results bar" class="stickyBar" id="stickyBar">
+<div class="stickyInner">
+<div class="stickyMini">
+<div class="l">Projected pot</div>
+<div class="v" id="stickyPot">—</div>
+</div>
+<div class="stickyBtns">
+<a href="#resultsCard">Results</a>
+<a class="primary" href="#growthTableCard">Table</a>
+</div>
+</div>
+</div>
+<script>
       const fmtGBP0 = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 });
       const fmtGBP2 = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
@@ -558,5 +494,23 @@ Total contributions before retirement: ${fmtGBP0.format(res.totalContrib)} (inte
       document.getElementById("yr").textContent = new Date().getFullYear();
       calculate();
     </script>
-  </body>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-row">
+<div class="footer-left">
+<div class="footer-brand">© <span id="footerYear"></span> TrueWealthMetrics.</div>
+<div class="footer-note">These calculators provide educational estimates only and do not constitute financial advice.</div>
+</div>
+<div class="footer-links">
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy-policy/">Privacy Policy</a>
+<a href="/terms-of-use/">Terms of Use</a>
+</div>
+</div>
+</div>
+<script>
+    (function(){try{document.getElementById('footerYear').textContent=new Date().getFullYear();}catch(e){}})();
+  </script>
+</footer></body>
 </html>

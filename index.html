@@ -1,22 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>TrueWealthMetrics — Free Finance Calculators</title>
 
-    <title>TrueWealthMetrics — Free Finance Calculators</title>
-    <link rel="icon" type="image/png" href="data:image/png;base64,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"/>
-    <link rel="apple-touch-icon" href="data:image/png;base64,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"/>
 
-    <meta
-      name="description"
-      content="Free, fast finance calculators: compound interest, savings goals, investment fee impact, ROI, loans, mortgages, budget planner, debt payoff tools, and retirement planning. No signup."
-    />
-    <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://truewealthmetrics.com/" />
-
-    <!-- SEO: ItemList of calculators (no design impact) -->
-    <script type="application/ld+json">
+<meta content="Free, fast finance calculators: compound interest, savings goals, investment fee impact, ROI, loans, mortgages, budget planner, debt payoff tools, and retirement planning. No signup." name="description"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://truewealthmetrics.com/" rel="canonical"/>
+<!-- SEO: ItemList of calculators (no design impact) -->
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
@@ -38,142 +33,141 @@
         { "@type": "ListItem", "position": 10, "name": "Retirement Planning Calculator", "url": "https://truewealthmetrics.com/retirement-planning-calculator/" }
       ]
     }
-    </script>
+    </script><link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer="True" src="/header.js"></script></head>
+<body><div id="site-header"></div>
+<div class="wrap">
 
-        <link rel="stylesheet" href="/styles.css" />
-        <script src="/header.js" defer></script>
-  </head>
-
-  <body>
-    <div id="site-header"></div>
-    <main class="twm-page">
+<header>
+<h1>Free Finance Calculators</h1>
+<p class="lead">
+          Clean, fast tools to help you plan money decisions with clarity — budgeting, debt payoff, investment growth,
+          fee impact, mortgages, and retirement projections. No signup. Instant results.
+        </p>
+<div class="pillrow">
+<span class="pill">Mobile-friendly</span>
+<span class="pill">No signup</span>
+<span class="pill">Instant results</span>
+<span class="pill">Educational estimates</span>
+</div>
+</header>
 <div class="grid">
-        <section class="card">
-          <h2>Budget Planner (Monthly)</h2>
-          <p>Enter income + expenses to see total spending, leftover cash, savings target, and budget health.</p>
-          <div class="cta">
-            <a class="btn" href="/budget-planner-calculator/">Open Budget Planner</a>
-            <a class="btn secondary" href="/savings-goal-calculator/">Savings Goal</a>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2>Compound Interest Calculator</h2>
-          <p>Estimate long-term growth with monthly contributions and compounding. Great for savings + investing.</p>
-          <div class="cta">
-            <a class="btn" href="/compound-interest-calculator/">Open Compound</a>
-            <a class="btn secondary" href="/investment-fee-impact-calculator/">Check Fee Impact</a>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2>Investment Fee Impact Calculator</h2>
-          <p>See how annual fees can reduce long-term returns. Compare low-fee vs high-fee outcomes over time.</p>
-          <div class="cta">
-            <a class="btn" href="/investment-fee-impact-calculator/">Open Fee Impact</a>
-            <a class="btn secondary" href="/retirement-planning-calculator/">Retirement Planner</a>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2>Savings Goal Calculator</h2>
-          <p>Find the monthly savings needed to reach a target — or how long your goal will take.</p>
-          <div class="cta">
-            <a class="btn" href="/savings-goal-calculator/">Open Savings Goal</a>
-            <a class="btn secondary" href="/budget-planner-calculator/">Budget Planner</a>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2>ROI Calculator</h2>
-          <p>Estimate ending value, profit, ROI %, and CAGR. Includes optional fees and inflation-adjusted view.</p>
-          <div class="cta">
-            <a class="btn" href="/roi-calculator/">Open ROI Calculator</a>
-            <a class="btn secondary" href="/investment-fee-impact-calculator/">Fee Impact</a>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2>Loan Repayment Calculator</h2>
-          <p>Calculate monthly repayments, total interest, and payoff timeline for personal loans.</p>
-          <div class="cta">
-            <a class="btn" href="/loan-repayment-calculator/">Open Loan Calculator</a>
-            <a class="btn secondary" href="/credit-card-payoff-calculator/">Credit Card Payoff</a>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2>Mortgage Payment Calculator</h2>
-          <p>Advanced mortgage calculator with amortization schedule and extra payments (overpayments) impact.</p>
-          <div class="cta">
-            <a class="btn" href="/mortgage-payment-calculator/">Open Mortgage</a>
-            <a class="btn secondary" href="/budget-planner-calculator/">Budget Planner</a>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2>Credit Card Payoff Calculator</h2>
-          <p>See payoff time, interest cost, and the impact of higher monthly payments.</p>
-          <div class="cta">
-            <a class="btn" href="/credit-card-payoff-calculator/">Open Credit Payoff</a>
-            <a class="btn secondary" href="/debt-snowball-avalanche-calculator/">Debt Snowball/Avalanche</a>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2>Debt Snowball vs Avalanche</h2>
-          <p>Compare payoff strategies to become debt-free faster and reduce total interest.</p>
-          <div class="cta">
-            <a class="btn" href="/debt-snowball-avalanche-calculator/">Open Debt Strategy</a>
-            <a class="btn secondary" href="/credit-card-payoff-calculator/">Credit Payoff</a>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2>Retirement Planning Calculator</h2>
-          <p>Estimate future retirement savings with contributions, growth rate, and time horizon.</p>
-          <div class="cta">
-            <a class="btn" href="/retirement-planning-calculator/">Open Retirement Planner</a>
-            <a class="btn secondary" href="/investment-fee-impact-calculator/">Fee Impact</a>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2>How to Use These Calculators</h2>
-          <p>
+<section class="card">
+<h2>Budget Planner (Monthly)</h2>
+<p>Enter income + expenses to see total spending, leftover cash, savings target, and budget health.</p>
+<div class="cta">
+<a class="btn" href="/budget-planner-calculator/">Open Budget Planner</a>
+<a class="btn secondary" href="/savings-goal-calculator/">Savings Goal</a>
+</div>
+</section>
+<section class="card">
+<h2>Compound Interest Calculator</h2>
+<p>Estimate long-term growth with monthly contributions and compounding. Great for savings + investing.</p>
+<div class="cta">
+<a class="btn" href="/compound-interest-calculator/">Open Compound</a>
+<a class="btn secondary" href="/investment-fee-impact-calculator/">Check Fee Impact</a>
+</div>
+</section>
+<section class="card">
+<h2>Investment Fee Impact Calculator</h2>
+<p>See how annual fees can reduce long-term returns. Compare low-fee vs high-fee outcomes over time.</p>
+<div class="cta">
+<a class="btn" href="/investment-fee-impact-calculator/">Open Fee Impact</a>
+<a class="btn secondary" href="/retirement-planning-calculator/">Retirement Planner</a>
+</div>
+</section>
+<section class="card">
+<h2>Savings Goal Calculator</h2>
+<p>Find the monthly savings needed to reach a target — or how long your goal will take.</p>
+<div class="cta">
+<a class="btn" href="/savings-goal-calculator/">Open Savings Goal</a>
+<a class="btn secondary" href="/budget-planner-calculator/">Budget Planner</a>
+</div>
+</section>
+<section class="card">
+<h2>ROI Calculator</h2>
+<p>Estimate ending value, profit, ROI %, and CAGR. Includes optional fees and inflation-adjusted view.</p>
+<div class="cta">
+<a class="btn" href="/roi-calculator/">Open ROI Calculator</a>
+<a class="btn secondary" href="/investment-fee-impact-calculator/">Fee Impact</a>
+</div>
+</section>
+<section class="card">
+<h2>Loan Repayment Calculator</h2>
+<p>Calculate monthly repayments, total interest, and payoff timeline for personal loans.</p>
+<div class="cta">
+<a class="btn" href="/loan-repayment-calculator/">Open Loan Calculator</a>
+<a class="btn secondary" href="/credit-card-payoff-calculator/">Credit Card Payoff</a>
+</div>
+</section>
+<section class="card">
+<h2>Mortgage Payment Calculator</h2>
+<p>Advanced mortgage calculator with amortization schedule and extra payments (overpayments) impact.</p>
+<div class="cta">
+<a class="btn" href="/mortgage-payment-calculator/">Open Mortgage</a>
+<a class="btn secondary" href="/budget-planner-calculator/">Budget Planner</a>
+</div>
+</section>
+<section class="card">
+<h2>Credit Card Payoff Calculator</h2>
+<p>See payoff time, interest cost, and the impact of higher monthly payments.</p>
+<div class="cta">
+<a class="btn" href="/credit-card-payoff-calculator/">Open Credit Payoff</a>
+<a class="btn secondary" href="/debt-snowball-avalanche-calculator/">Debt Snowball/Avalanche</a>
+</div>
+</section>
+<section class="card">
+<h2>Debt Snowball vs Avalanche</h2>
+<p>Compare payoff strategies to become debt-free faster and reduce total interest.</p>
+<div class="cta">
+<a class="btn" href="/debt-snowball-avalanche-calculator/">Open Debt Strategy</a>
+<a class="btn secondary" href="/credit-card-payoff-calculator/">Credit Payoff</a>
+</div>
+</section>
+<section class="card">
+<h2>Retirement Planning Calculator</h2>
+<p>Estimate future retirement savings with contributions, growth rate, and time horizon.</p>
+<div class="cta">
+<a class="btn" href="/retirement-planning-calculator/">Open Retirement Planner</a>
+<a class="btn secondary" href="/investment-fee-impact-calculator/">Fee Impact</a>
+</div>
+</section>
+<section class="card">
+<h2>How to Use These Calculators</h2>
+<p>
             Each calculator is designed to help you understand a specific financial decision before you commit real money.
             These tools provide educational estimates to support budgeting, debt reduction, investing, and long-term planning.
           </p>
-
-          <ul class="list">
-            <li>Use the Budget Planner to understand monthly cash flow.</li>
-            <li>Use the Debt and Credit tools to reduce interest payments faster.</li>
-            <li>Use Compound Interest and ROI calculators to evaluate investments.</li>
-            <li>Use the Investment Fee Impact calculator to compare low-fee vs high-fee portfolios.</li>
-            <li>Use the Retirement Planner to estimate long-term savings needs.</li>
-          </ul>
-
-          <div class="mini">
+<ul class="list">
+<li>Use the Budget Planner to understand monthly cash flow.</li>
+<li>Use the Debt and Credit tools to reduce interest payments faster.</li>
+<li>Use Compound Interest and ROI calculators to evaluate investments.</li>
+<li>Use the Investment Fee Impact calculator to compare low-fee vs high-fee portfolios.</li>
+<li>Use the Retirement Planner to estimate long-term savings needs.</li>
+</ul>
+<div class="mini">
             Tip: These tools provide estimates for education and planning purposes only.
           </div>
-        </section>
+</section>
 </div>
 
-      
-<footer>
-  <div class="mini">
-    <a href="/about/">About</a> •
-    <a href="/contact/">Contact</a> •
-    <a href="/privacy-policy/">Privacy Policy</a> •
-    <a href="/terms-of-use/">Terms of Use</a>
-  </div>
-
-  <div class="mini" style="margin-top:10px;">
-    Disclaimer: Educational estimates only. Calculators provide planning estimates and do not constitute financial, investment, tax, or legal advice.
-  </div>
-</footer>
-
-    </div>
-      </main>
-  </body>
+</div>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-row">
+<div class="footer-left">
+<div class="footer-brand">© <span id="footerYear"></span> TrueWealthMetrics.</div>
+<div class="footer-note">These calculators provide educational estimates only and do not constitute financial advice.</div>
+</div>
+<div class="footer-links">
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy-policy/">Privacy Policy</a>
+<a href="/terms-of-use/">Terms of Use</a>
+</div>
+</div>
+</div>
+<script>
+    (function(){try{document.getElementById('footerYear').textContent=new Date().getFullYear();}catch(e){}})();
+  </script>
+</footer></body>
 </html>

@@ -1,18 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <title>Savings Goal Calculator | TrueWealthMetrics</title>
-    <meta
-      name="description"
-      content="Free savings goal calculator. Estimate how long it takes to reach your savings target, or calculate the required monthly contribution with interest."
-    />
-    <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://truewealthmetrics.com/savings-goal-calculator/" />
-
-    <script type="application/ld+json">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Savings Goal Calculator | TrueWealthMetrics</title>
+<meta content="Free savings goal calculator. Estimate how long it takes to reach your savings target, or calculate the required monthly contribution with interest." name="description"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://truewealthmetrics.com/savings-goal-calculator/" rel="canonical"/><script type="application/ld+json">
       {
         "@context":"https://schema.org",
         "@type":"WebApplication",
@@ -26,9 +21,7 @@
         }
       }
     </script>
-  
-
-    <script type="application/ld+json" id="jsonld-softwareapp">
+<script id="jsonld-softwareapp" type="application/ld+json">
       {
         "@context":"https://schema.org",
         "@type":"SoftwareApplication",
@@ -41,8 +34,7 @@
         "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
       }
     </script>
-
-    <script type="application/ld+json" id="jsonld-breadcrumbs">
+<script id="jsonld-breadcrumbs" type="application/ld+json">
       {
         "@context":"https://schema.org",
         "@type":"BreadcrumbList",
@@ -52,8 +44,7 @@
         ]
       }
     </script>
-
-    <script type="application/ld+json" id="jsonld-faq">
+<script id="jsonld-faq" type="application/ld+json">
       {
         "@context":"https://schema.org",
         "@type":"FAQPage",
@@ -76,211 +67,175 @@
         ]
       }
     </script>
+<link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer="True" src="/header.js"></script></head>
+<body><div id="site-header"></div>
+<div class="wrap">
 
-      <link rel="stylesheet" href="/styles.css" />
-        <script src="/header.js" defer></script>
-  </head>
-
-  <body>
-    <div id="site-header"></div>
-    <div class="wrap">
-      <div class="nav">
-          <a href="/">Home</a>
-          <a href="/loan-repayment-calculator/">Loan</a>
-          <a href="/mortgage-payment-calculator/">Mortgage</a>
-          <a href="/budget-planner-calculator/">Budget</a>
-          <a href="/compound-interest-calculator/">Compound</a>
-          <a href="/savings-goal-calculator/">Savings</a>
-          <a href="/credit-card-payoff-calculator/">Credit</a>
-          <a href="/debt-snowball-avalanche-calculator/">Debt</a>
-          <a href="/roi-calculator/">ROI</a>
-          <a href="/investment-fee-impact-calculator/">Fees</a>
-          <a href="/retirement-planning-calculator/">Retirement</a>
-        </div>
-      </div>
-
-      <div class="grid">
-        <section class="card" aria-label="Inputs">
-          <h2>Inputs</h2>
-
-          <div class="tabs" role="tablist" aria-label="Calculator modes">
-            <div class="tab active" role="tab" aria-selected="true" id="tab-time" tabindex="0">Time to Goal</div>
-            <div class="tab" role="tab" aria-selected="false" id="tab-required" tabindex="0">Required Monthly</div>
-          </div>
-
-          <div class="row">
-            <div>
-              <label for="goal">Savings goal (target amount)</label>
-              <input id="goal" type="number" min="0" step="0.01" value="20000" />
-            </div>
-            <div>
-              <label for="current">Current savings</label>
-              <input id="current" type="number" min="0" step="0.01" value="2000" />
-            </div>
-          </div>
-
-          <div class="row" style="margin-top:12px">
-            <div>
-              <label for="rate">Annual interest rate (APY %)</label>
-              <input id="rate" type="number" min="0" step="0.01" value="4" />
-            </div>
-            <div>
-              <label for="currency">Currency</label>
-              <select id="currency">
-                <option value="USD">$ USD</option>
-                <option value="GBP" selected>£ GBP</option>
-                <option value="EUR">€ EUR</option>
-                <option value="CAD">$ CAD</option>
-                <option value="AUD">$ AUD</option>
-                <option value="PKR">₨ PKR</option>
-                <option value="INR">₹ INR</option>
-              </select>
-            </div>
-          </div>
-
-          <div id="mode-time" style="margin-top:12px">
-            <div class="row">
-              <div>
-                <label for="monthly">Monthly contribution</label>
-                <input id="monthly" type="number" min="0" step="0.01" value="500" />
-              </div>
-              <div>
-                <label for="maxYears">Max years to simulate (safety)</label>
-                <input id="maxYears" type="number" min="1" step="1" value="60" />
-              </div>
-            </div>
-          </div>
-
-          <div id="mode-required" style="margin-top:12px;display:none">
-            <div class="row">
-              <div>
-                <label for="years">Deadline years</label>
-                <input id="years" type="number" min="0" step="1" value="5" />
-              </div>
-              <div>
-                <label for="months">Extra months</label>
-                <input id="months" type="number" min="0" max="11" step="1" value="0" />
-              </div>
-            </div>
-
-            <div class="notice" style="margin-top:12px">
+<header>
+<div class="brandBlock">
+<h1>Savings Goal Calculator</h1>
+<p>
+            Plan your savings target with or without interest. Use <b>Time to Goal</b> to estimate how long it takes,
+            or <b>Required Monthly</b> to calculate the monthly contribution needed to hit a target by a deadline.
+          </p>
+<div class="pillrow">
+<span class="pill">Monthly compounding</span>
+<span class="pill">Interest optional</span>
+<span class="pill">Year-by-year breakdown</span>
+</div>
+</div>
+</header>
+<div class="grid">
+<section aria-label="Inputs" class="card">
+<h2>Inputs</h2>
+<div aria-label="Calculator modes" class="tabs" role="tablist">
+<div aria-selected="true" class="tab active" id="tab-time" role="tab" tabindex="0">Time to Goal</div>
+<div aria-selected="false" class="tab" id="tab-required" role="tab" tabindex="0">Required Monthly</div>
+</div>
+<div class="row">
+<div>
+<label for="goal">Savings goal (target amount)</label>
+<input id="goal" min="0" step="0.01" type="number" value="20000"/>
+</div>
+<div>
+<label for="current">Current savings</label>
+<input id="current" min="0" step="0.01" type="number" value="2000"/>
+</div>
+</div>
+<div class="row" style="margin-top:12px">
+<div>
+<label for="rate">Annual interest rate (APY %)</label>
+<input id="rate" min="0" step="0.01" type="number" value="4"/>
+</div>
+<div>
+<label for="currency">Currency</label>
+<select id="currency">
+<option value="USD">$ USD</option>
+<option selected="" value="GBP">£ GBP</option>
+<option value="EUR">€ EUR</option>
+<option value="CAD">$ CAD</option>
+<option value="AUD">$ AUD</option>
+<option value="PKR">₨ PKR</option>
+<option value="INR">₹ INR</option>
+</select>
+</div>
+</div>
+<div id="mode-time" style="margin-top:12px">
+<div class="row">
+<div>
+<label for="monthly">Monthly contribution</label>
+<input id="monthly" min="0" step="0.01" type="number" value="500"/>
+</div>
+<div>
+<label for="maxYears">Max years to simulate (safety)</label>
+<input id="maxYears" min="1" step="1" type="number" value="60"/>
+</div>
+</div>
+</div>
+<div id="mode-required" style="margin-top:12px;display:none">
+<div class="row">
+<div>
+<label for="years">Deadline years</label>
+<input id="years" min="0" step="1" type="number" value="5"/>
+</div>
+<div>
+<label for="months">Extra months</label>
+<input id="months" max="11" min="0" step="1" type="number" value="0"/>
+</div>
+</div>
+<div class="notice" style="margin-top:12px">
               We assume monthly compounding and monthly contributions made at the end of each month.
               This is an estimate — real products may compound differently.
             </div>
+</div>
+<div class="btnrow">
+<button id="btnCalc">Calculate</button>
+<button class="secondary" id="btnReset" type="button">Reset</button>
+</div>
+<div class="small">
+<b>Disclaimer:</b> Educational estimates only. Not financial advice.
           </div>
+</section>
+<section aria-label="Results" class="card">
+<h2>Results</h2>
+<div class="kpis">
+<div class="kpi">
+<div class="t" id="kpi1t">Time to reach goal</div>
+<div class="v" id="kpi1v">—</div>
+<div class="s" id="kpi1s"></div>
+</div>
+<div class="kpi">
+<div class="t" id="kpi2t">Required monthly contribution</div>
+<div class="v" id="kpi2v">—</div>
+<div class="s" id="kpi2s"></div>
+</div>
+<div class="kpi">
+<div class="t">Total contributions</div>
+<div class="v" id="kpi3v">—</div>
+<div class="s" id="kpi3s"></div>
+</div>
+<div class="kpi">
+<div class="t">Interest earned</div>
+<div class="v" id="kpi4v">—</div>
+<div class="s" id="kpi4s"></div>
+</div>
+</div>
+<div class="notice" id="msg" style="display:none"></div>
+<div style="margin-top:12px">
+<table aria-label="Year-by-year breakdown">
+<thead>
+<tr>
+<th>Year</th>
+<th>End balance</th>
+<th>Contributions</th>
+<th>Interest</th>
+</tr>
+</thead>
+<tbody id="tbody">
+<tr><td colspan="4" style="text-align:left;color:var(--muted)">Run a calculation to see the breakdown.</td></tr>
+</tbody>
+</table>
+</div>
 
-          <div class="btnrow">
-            <button id="btnCalc">Calculate</button>
-            <button id="btnReset" class="secondary" type="button">Reset</button>
-          </div>
-
-          <div class="small">
-            <b>Disclaimer:</b> Educational estimates only. Not financial advice.
-          </div>
-        </section>
-
-        <section class="card" aria-label="Results">
-          <h2>Results</h2>
-
-          <div class="kpis">
-            <div class="kpi">
-              <div class="t" id="kpi1t">Time to reach goal</div>
-              <div class="v" id="kpi1v">—</div>
-              <div class="s" id="kpi1s"></div>
-            </div>
-            <div class="kpi">
-              <div class="t" id="kpi2t">Required monthly contribution</div>
-              <div class="v" id="kpi2v">—</div>
-              <div class="s" id="kpi2s"></div>
-            </div>
-            <div class="kpi">
-              <div class="t">Total contributions</div>
-              <div class="v" id="kpi3v">—</div>
-              <div class="s" id="kpi3s"></div>
-            </div>
-            <div class="kpi">
-              <div class="t">Interest earned</div>
-              <div class="v" id="kpi4v">—</div>
-              <div class="s" id="kpi4s"></div>
-            </div>
-          </div>
-
-          <div id="msg" class="notice" style="display:none"></div>
-
-          <div style="margin-top:12px">
-            <table aria-label="Year-by-year breakdown">
-              <thead>
-                <tr>
-                  <th>Year</th>
-                  <th>End balance</th>
-                  <th>Contributions</th>
-                  <th>Interest</th>
-                </tr>
-              </thead>
-              <tbody id="tbody">
-                <tr><td colspan="4" style="text-align:left;color:var(--muted)">Run a calculation to see the breakdown.</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <footer>
-            Tip: If the result is “Never reaches goal”, increase monthly contribution, increase time
-            horizon, or adjust the interest rate. If interest is 0%, this becomes a straight savings plan.
-          </footer>
-        </section>
-      </div>
-
-      <section class="card" style="margin-top:16px">
-        <h2 style="margin:0 0 10px;font-size:16px">How this calculator works</h2>
-        <p style="margin:0;color:var(--muted);line-height:1.55">
+</section>
+</div>
+<section class="card" style="margin-top:16px">
+<h2 style="margin:0 0 10px;font-size:16px">How this calculator works</h2>
+<p style="margin:0;color:var(--muted);line-height:1.55">
           We simulate your balance month‑by‑month. Each month we add interest (if any) using your APY estimate, then add your monthly contribution.
           In “Required Monthly” mode, we solve for the monthly contribution needed to reach your goal by your deadline.
           Results are educational estimates and may differ from your bank’s compounding method.
         </p>
-      </section>
+</section>
+<section class="card" style="margin-top:16px">
+<h2 style="margin:0 0 10px;font-size:16px">Related calculators</h2>
+<p style="margin:0;color:var(--muted);line-height:1.55">Use these tools together to plan your cash flow and long‑term goals:</p>
+<ul style="margin:12px 0 0;padding-left:18px;color:var(--muted);line-height:1.8;font-size:13px">
+<li><a href="/budget-planner-calculator/"><b>Budget Planner</b></a> — set a realistic monthly savings amount.</li>
+<li><a href="/compound-interest-calculator/"><b>Compound Interest Calculator</b></a> — model growth over longer horizons with contributions.</li>
+<li><a href="/roi-calculator/"><b>ROI Calculator</b></a> — estimate returns for an investment plan.</li>
+<li><a href="/investment-fee-impact-calculator/"><b>Investment Fee Impact</b></a> — compare low‑fee vs high‑fee outcomes over time.</li>
+<li><a href="/retirement-planning-calculator/"><b>Retirement Planning</b></a> — connect today’s saving habits to long‑term goals.</li>
+</ul>
+</section>
+<section class="card" style="margin-top:16px">
+<h2 style="margin:0 0 10px;font-size:16px">FAQs</h2>
+<details style="border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);padding:12px 14px;margin:10px 0">
+<summary style="cursor:pointer;font-weight:700">Should I include interest in my savings goal?</summary>
+<div style="margin-top:8px;color:var(--muted);line-height:1.55">If your savings earn interest, include an estimated APY. If you’re unsure, use 0% for a conservative plan.</div>
+</details>
+<details style="border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);padding:12px 14px;margin:10px 0">
+<summary style="cursor:pointer;font-weight:700">Why does the calculator say the goal is not reached?</summary>
+<div style="margin-top:8px;color:var(--muted);line-height:1.55">Your contribution may be too low for the target and horizon. Increase monthly savings, extend the horizon, or adjust the rate.</div>
+</details>
+<details style="border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);padding:12px 14px;margin:10px 0">
+<summary style="cursor:pointer;font-weight:700">Are contributions assumed at the start or end of the month?</summary>
+<div style="margin-top:8px;color:var(--muted);line-height:1.55">We assume end-of-month contributions with monthly compounding. Real products may vary slightly.</div>
+</details>
+</section>
 
-      <section class="card" style="margin-top:16px">
-        <h2 style="margin:0 0 10px;font-size:16px">Related calculators</h2>
-        <p style="margin:0;color:var(--muted);line-height:1.55">Use these tools together to plan your cash flow and long‑term goals:</p>
-        <ul style="margin:12px 0 0;padding-left:18px;color:var(--muted);line-height:1.8;font-size:13px">
-          <li><a href="/budget-planner-calculator/"><b>Budget Planner</b></a> — set a realistic monthly savings amount.</li>
-          <li><a href="/compound-interest-calculator/"><b>Compound Interest Calculator</b></a> — model growth over longer horizons with contributions.</li>
-          <li><a href="/roi-calculator/"><b>ROI Calculator</b></a> — estimate returns for an investment plan.</li>
-          <li><a href="/investment-fee-impact-calculator/"><b>Investment Fee Impact</b></a> — compare low‑fee vs high‑fee outcomes over time.</li>
-          <li><a href="/retirement-planning-calculator/"><b>Retirement Planning</b></a> — connect today’s saving habits to long‑term goals.</li>
-        </ul>
-      </section>
-
-      <section class="card" style="margin-top:16px">
-        <h2 style="margin:0 0 10px;font-size:16px">FAQs</h2>
-        <details style="border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);padding:12px 14px;margin:10px 0">
-          <summary style="cursor:pointer;font-weight:700">Should I include interest in my savings goal?</summary>
-          <div style="margin-top:8px;color:var(--muted);line-height:1.55">If your savings earn interest, include an estimated APY. If you’re unsure, use 0% for a conservative plan.</div>
-        </details>
-        <details style="border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);padding:12px 14px;margin:10px 0">
-          <summary style="cursor:pointer;font-weight:700">Why does the calculator say the goal is not reached?</summary>
-          <div style="margin-top:8px;color:var(--muted);line-height:1.55">Your contribution may be too low for the target and horizon. Increase monthly savings, extend the horizon, or adjust the rate.</div>
-        </details>
-        <details style="border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);padding:12px 14px;margin:10px 0">
-          <summary style="cursor:pointer;font-weight:700">Are contributions assumed at the start or end of the month?</summary>
-          <div style="margin-top:8px;color:var(--muted);line-height:1.55">We assume end-of-month contributions with monthly compounding. Real products may vary slightly.</div>
-        </details>
-      </section>
-
-      <footer style="margin-top:18px;color:var(--muted);font-size:12px;line-height:1.5;border-top:1px solid var(--line);padding-top:14px">
-        <div><b>Disclaimer:</b> Educational estimates only. Not financial advice.</div>
-        <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-          <a class="pill" href="/about/">About</a>
-          <a class="pill" href="/contact/">Contact</a>
-          <a class="pill" href="/privacy-policy/">Privacy Policy</a>
-          <a class="pill" href="/terms-of-use/">Terms of Use</a>
-        </div>
-        <div style="margin-top:10px">© 2026 TrueWealthMetrics</div>
-      </footer>
-
-    </div>
-
-    <script>
+</div>
+<script>
       const $ = (id) => document.getElementById(id);
 
       function toNum(v){
@@ -578,5 +533,23 @@
       resetDefaults();
       applyMode("time");
     </script>
-  </body>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-row">
+<div class="footer-left">
+<div class="footer-brand">© <span id="footerYear"></span> TrueWealthMetrics.</div>
+<div class="footer-note">These calculators provide educational estimates only and do not constitute financial advice.</div>
+</div>
+<div class="footer-links">
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy-policy/">Privacy Policy</a>
+<a href="/terms-of-use/">Terms of Use</a>
+</div>
+</div>
+</div>
+<script>
+    (function(){try{document.getElementById('footerYear').textContent=new Date().getFullYear();}catch(e){}})();
+  </script>
+</footer></body>
 </html>
