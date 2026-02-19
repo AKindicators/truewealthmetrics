@@ -207,6 +207,7 @@ tr:last-child td{ border-bottom: none; }
   gap:10px;
   min-width: 210px;
 }
+.twm-logo{display:block;flex:0 0 auto;}
 .twm-brand img{
   width: 36px;
   height: 36px;
@@ -334,6 +335,10 @@ main{ display:block; }
 }
 @media (max-width: 520px){
   .kpis{ grid-template-columns: 1fr; }
+
+  .twm-brand{ min-width:auto; }
+  .twm-brand span{ font-size: 15px; }
+  .twm-brand img{ width:32px; height:32px; }
 }
 
 .kpi{
