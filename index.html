@@ -12,7 +12,9 @@
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://truewealthmetrics.com/" />
 
-    <!-- SEO: ItemList of calculators (no design impact) -->
+    
+    <link rel="icon" href="/logo.png" type="image/png" />
+<!-- SEO: ItemList of calculators (no design impact) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -67,9 +69,13 @@
       }
       .brand{
         font-weight:800;letter-spacing:.2px;font-size:16px;
+      }
+      .brand-text{
+        font-weight:800;letter-spacing:.2px;font-size:16px;
         background: linear-gradient(90deg, var(--accent), var(--accent2));
         -webkit-background-clip:text;background-clip:text;color:transparent;
       }
+
       .nav{display:flex;gap:10px;flex-wrap:wrap}
       .nav a{
         border:1px solid var(--line);
@@ -148,7 +154,12 @@
   <body>
     <div class="wrap">
       <div class="topbar">
-        <div class="brand">TrueWealthMetrics</div>
+        <div class="brand">
+          <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;">
+            <img src="/logo.png" alt="TrueWealthMetrics logo" style="height:34px;width:auto;display:block" />
+            <span class="brand-text">TrueWealthMetrics</span>
+          </a>
+        </div>
         <div class="nav">
           <a href="/">Home</a>
           <a href="/loan-repayment-calculator/">Loan</a>
