@@ -10,7 +10,10 @@
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b1220" />
 
-  <style>
+  
+  <!-- Shared site styles (same as homepage) -->
+  <link rel="stylesheet" href="/styles.css" />
+<style>
     :root{
       --bg:#070b14;
       --card:rgba(255,255,255,.06);
@@ -148,6 +151,10 @@
     }
     .linkCard a:hover{border-color:rgba(56,217,138,.45)}
   </style>
+  <!-- Shared header loader (injects header.html) -->
+  <script src="/header.js" defer></script>
+
+
 
   <!-- Primary schema: SoftwareApplication -->
   <script type="application/ld+json">
@@ -204,22 +211,9 @@
 
 <body>
   <div class="wrap">
-    <header>
-      <div class="brand"><span class="dot"></span> TrueWealthMetrics</div>
-      <nav>
-        <a class="pill" href="/">Home</a>
-        <a class="pill" href="/loan-repayment-calculator/">Loan</a>
-        <a class="pill" href="/mortgage-payment-calculator/">Mortgage</a>
-        <a class="pill" href="/budget-planner-calculator/">Budget</a>
-        <a class="pill" href="/compound-interest-calculator/">Compound</a>
-        <a class="pill" href="/savings-goal-calculator/">Savings</a>
-        <a class="pill" href="/credit-card-payoff-calculator/">Credit</a>
-        <a class="pill" href="/debt-snowball-avalanche-calculator/">Debt</a>
-        <a class="pill" href="/roi-calculator/">ROI</a>
-        <a class="pill" href="/investment-fee-impact-calculator/">Fees</a>
-        <a class="pill" href="/retirement-planning-calculator/">Retirement</a>
-      </nav>
-    </header>
+
+    <!-- Shared site header injected by /header.js -->
+    <div id="site-header"></div>
 
     <h1>Monthly Budget Planner</h1>
     <p class="sub">
