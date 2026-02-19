@@ -1,16 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-  <title>ROI Calculator (Investment Return & CAGR) | TrueWealthMetrics</title>
-  <meta name="description" content="Free ROI calculator for investments. Estimate future value, total contributions, profit, ROI %, and CAGR. Optional fees, inflation view, and year-by-year breakdown." />
-  <link rel="canonical" href="https://truewealthmetrics.com/roi-calculator/" />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#0b1220" />
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>ROI Calculator (Investment Return &amp; CAGR) | TrueWealthMetrics</title>
+<meta content="Free ROI calculator for investments. Estimate future value, total contributions, profit, ROI %, and CAGR. Optional fees, inflation view, and year-by-year breakdown." name="description"/>
+<link href="https://truewealthmetrics.com/roi-calculator/" rel="canonical"/>
+<meta content="index,follow" name="robots"/>
+<meta content="#0b1220" name="theme-color"/>
+<style>
     :root{
       --bg:#070b14;
       --card: rgba(255,255,255,0.06);
@@ -42,28 +41,13 @@
     }
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:12px 14px; border:1px solid var(--border);
-      background: rgba(10,14,26,0.50);
-      border-radius: 999px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
-      position: sticky; top: 14px; z-index: 10;
-    }
-    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:0.2px}
-    .dot{width:9px; height:9px; border-radius:50%; background: var(--accent); box-shadow: 0 0 18px rgba(56,217,138,0.55)}
-    .nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
-    .pill{
-      padding:8px 12px; border:1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      border-radius: 999px;
-      text-decoration:none;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .pill:hover{border-color: rgba(56,217,138,0.40); color: var(--text)}
-    header{padding:28px 4px 18px}
+    
+    
+    
+    
+    
+    
+    
     h1{font-size:46px; margin:6px 0 10px; letter-spacing:-0.6px}
     .sub{color:var(--muted); max-width:900px; font-size:15px}
     .grid{
@@ -73,7 +57,7 @@
     @media (max-width: 980px){
       h1{font-size:36px}
       .grid{grid-template-columns:1fr}
-      .topbar{position:relative; top:auto}
+      
     }
     .card{
       border:1px solid var(--border);
@@ -192,11 +176,8 @@
     .danger{color:var(--danger)}
     .good{color:var(--accent)}
   </style>
-
-  <script type="application/ld+json" id="faqJson"></script>
-
-
-  <script type="application/ld+json" id="jsonld-softwareapp">
+<script id="faqJson" type="application/ld+json"></script>
+<script id="jsonld-softwareapp" type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"SoftwareApplication",
@@ -209,8 +190,7 @@
     "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
   }
   </script>
-
-  <script type="application/ld+json" id="jsonld-breadcrumbs">
+<script id="jsonld-breadcrumbs" type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"BreadcrumbList",
@@ -220,215 +200,175 @@
     ]
   }
   </script>
-
-</head>
-<body>
-  <div class="wrap">
-    <div class="topbar">
-      <div class="brand"><span class="dot"></span> TrueWealthMetrics</div>
-      
-      <nav class="nav">
-        <a class="pill" href="/">Home</a>
-        <a class="pill" href="/loan-repayment-calculator/">Loan</a>
-        <a class="pill" href="/mortgage-payment-calculator/">Mortgage</a>
-        <a class="pill" href="/budget-planner-calculator/">Budget</a>
-        <a class="pill" href="/compound-interest-calculator/">Compound</a>
-        <a class="pill" href="/savings-goal-calculator/">Savings</a>
-        <a class="pill" href="/credit-card-payoff-calculator/">Credit</a>
-        <a class="pill" href="/debt-snowball-avalanche-calculator/">Debt</a>
-        <a class="pill" href="/roi-calculator/">ROI</a>
-        <a class="pill" href="/investment-fee-impact-calculator/">Fees</a>
-        <a class="pill" href="/retirement-planning-calculator/">Retirement</a>
-      </nav>
-
-    </div>
-
-    <header>
-      <h1>ROI Calculator</h1>
-      <div class="sub">
+<link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer="True" src="/header.js"></script></head>
+<body><div id="site-header"></div>
+<div class="wrap">
+<header>
+<h1>ROI Calculator</h1>
+<div class="sub">
         Estimate investment growth, profit, <b>ROI %</b>, and <b>CAGR</b>. Add optional monthly contributions, annual fees, and an inflation-adjusted view.
         Educational estimates only — not financial advice.
       </div>
-    </header>
-
-    <section class="grid">
-      <div class="card">
-        <h2>Inputs</h2>
-        <p>Use realistic assumptions. The biggest drivers are time, contributions, and return rate.</p>
-
-        <div class="row">
-          <div>
-            <label for="initial">Initial investment (£)</label>
-            <input id="initial" type="number" min="0" step="100" value="10000" />
-          </div>
-          <div>
-            <label for="monthly">Monthly contribution (£)</label>
-            <input id="monthly" type="number" min="0" step="10" value="200" />
-          </div>
-        </div>
-
-        <div class="row">
-          <div>
-            <label for="years">Investment period (years)</label>
-            <input id="years" type="number" min="1" step="1" value="10" />
-          </div>
-          <div>
-            <label for="rate">Expected annual return (%)</label>
-            <input id="rate" type="number" min="0" step="0.1" value="7" />
-          </div>
-        </div>
-
-        <div class="row">
-          <div>
-            <label for="fee">Annual fee (optional, %)</label>
-            <input id="fee" type="number" min="0" step="0.01" value="0.5" />
-          </div>
-          <div>
-            <label for="infl">Inflation (optional, %)</label>
-            <input id="infl" type="number" min="0" step="0.1" value="2.5" />
-          </div>
-        </div>
-
-        <div class="row">
-          <div>
-            <label for="freq">Compounding frequency</label>
-            <select id="freq">
-              <option value="12" selected>Monthly</option>
-              <option value="1">Annually</option>
-              <option value="4">Quarterly</option>
-            </select>
-          </div>
-          <div>
-            <label for="currency">Currency display</label>
-            <select id="currency">
-              <option value="GBP" selected>GBP (£)</option>
-              <option value="USD">USD ($)</option>
-              <option value="EUR">EUR (€)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="btns">
-          <button class="primary" id="calcBtn">Calculate</button>
-          <button id="resetBtn">Reset</button>
-          <span class="muted" id="status" style="align-self:center;font-size:12px"></span>
-        </div>
-
-        <div class="hint">
+</header>
+<section class="grid">
+<div class="card">
+<h2>Inputs</h2>
+<p>Use realistic assumptions. The biggest drivers are time, contributions, and return rate.</p>
+<div class="row">
+<div>
+<label for="initial">Initial investment (£)</label>
+<input id="initial" min="0" step="100" type="number" value="10000"/>
+</div>
+<div>
+<label for="monthly">Monthly contribution (£)</label>
+<input id="monthly" min="0" step="10" type="number" value="200"/>
+</div>
+</div>
+<div class="row">
+<div>
+<label for="years">Investment period (years)</label>
+<input id="years" min="1" step="1" type="number" value="10"/>
+</div>
+<div>
+<label for="rate">Expected annual return (%)</label>
+<input id="rate" min="0" step="0.1" type="number" value="7"/>
+</div>
+</div>
+<div class="row">
+<div>
+<label for="fee">Annual fee (optional, %)</label>
+<input id="fee" min="0" step="0.01" type="number" value="0.5"/>
+</div>
+<div>
+<label for="infl">Inflation (optional, %)</label>
+<input id="infl" min="0" step="0.1" type="number" value="2.5"/>
+</div>
+</div>
+<div class="row">
+<div>
+<label for="freq">Compounding frequency</label>
+<select id="freq">
+<option selected="" value="12">Monthly</option>
+<option value="1">Annually</option>
+<option value="4">Quarterly</option>
+</select>
+</div>
+<div>
+<label for="currency">Currency display</label>
+<select id="currency">
+<option selected="" value="GBP">GBP (£)</option>
+<option value="USD">USD ($)</option>
+<option value="EUR">EUR (€)</option>
+</select>
+</div>
+</div>
+<div class="btns">
+<button class="primary" id="calcBtn">Calculate</button>
+<button id="resetBtn">Reset</button>
+<span class="muted" id="status" style="align-self:center;font-size:12px"></span>
+</div>
+<div class="hint">
           Tip: Fees matter. A 1% annual fee can reduce long-term results more than most people expect.
         </div>
-      </div>
-
-      <div class="card">
-        <h2>Results</h2>
-        <p>Updated when you click Calculate.</p>
-
-        <div class="kpiGrid">
-          <div class="kpi">
-            <div class="t">Ending value</div>
-            <div class="v" id="ending">—</div>
-            <div class="s">Projected portfolio value at the end.</div>
-          </div>
-          <div class="kpi">
-            <div class="t">Profit (growth)</div>
-            <div class="v" id="profit">—</div>
-            <div class="s">Ending value − total contributions.</div>
-          </div>
-          <div class="kpi">
-            <div class="t">ROI %</div>
-            <div class="v" id="roiPct">—</div>
-            <div class="s">Profit ÷ total contributions.</div>
-          </div>
-          <div class="kpi">
-            <div class="t">CAGR</div>
-            <div class="v" id="cagr">—</div>
-            <div class="s">Annualized return (effective).</div>
-          </div>
-        </div>
-
-        <div class="callout" id="callout">
+</div>
+<div class="card">
+<h2>Results</h2>
+<p>Updated when you click Calculate.</p>
+<div class="kpiGrid">
+<div class="kpi">
+<div class="t">Ending value</div>
+<div class="v" id="ending">—</div>
+<div class="s">Projected portfolio value at the end.</div>
+</div>
+<div class="kpi">
+<div class="t">Profit (growth)</div>
+<div class="v" id="profit">—</div>
+<div class="s">Ending value − total contributions.</div>
+</div>
+<div class="kpi">
+<div class="t">ROI %</div>
+<div class="v" id="roiPct">—</div>
+<div class="s">Profit ÷ total contributions.</div>
+</div>
+<div class="kpi">
+<div class="t">CAGR</div>
+<div class="v" id="cagr">—</div>
+<div class="s">Annualized return (effective).</div>
+</div>
+</div>
+<div class="callout" id="callout">
           Enter your numbers and click <strong>Calculate</strong>.
         </div>
-
-        <div class="tableWrap" id="tableWrap" style="display:none">
-          <div class="tableTop">
-            <div id="tableLabel">Year-by-year breakdown</div>
-            <div style="display:flex;gap:8px;align-items:center">
-              <span class="mono" id="tableMeta"></span>
-              <button class="smallBtn" id="toggleRowsBtn">Show all</button>
-            </div>
-          </div>
-          <div style="overflow:auto">
-            <table>
-              <thead>
-                <tr>
-                  <th>Year</th>
-                  <th>End balance</th>
-                  <th>Contributions</th>
-                  <th>Growth</th>
-                  <th>Fees (est.)</th>
-                </tr>
-              </thead>
-              <tbody id="rows"></tbody>
-            </table>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="card" style="margin-top:16px">
-      <h2>How this calculator works</h2>
-      <p>
+<div class="tableWrap" id="tableWrap" style="display:none">
+<div class="tableTop">
+<div id="tableLabel">Year-by-year breakdown</div>
+<div style="display:flex;gap:8px;align-items:center">
+<span class="mono" id="tableMeta"></span>
+<button class="smallBtn" id="toggleRowsBtn">Show all</button>
+</div>
+</div>
+<div style="overflow:auto">
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>End balance</th>
+<th>Contributions</th>
+<th>Growth</th>
+<th>Fees (est.)</th>
+</tr>
+</thead>
+<tbody id="rows"></tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section class="card" style="margin-top:16px">
+<h2>How this calculator works</h2>
+<p>
         We simulate growth period-by-period (monthly/quarterly/annual), add contributions, then apply an annual fee approximation by reducing the gross return.
         Inflation (if provided) is used only to show a “today’s money” view of the ending value.
       </p>
-
-      <div class="accordion">
-        <div class="accItem">
-          <button class="accQ" type="button">What is ROI vs CAGR? <span class="chev">▾</span></button>
-          <div class="accA">ROI is total profit as a percentage of what you put in. CAGR is the annualized rate that would turn your total contributions into the ending value over the same time.</div>
-        </div>
-        <div class="accItem">
-          <button class="accQ" type="button">How are fees handled? <span class="chev">▾</span></button>
-          <div class="accA">We approximate fees by reducing your annual return by the fee %. This matches the typical “net return” approach for fund/ETF fee modeling.</div>
-        </div>
-        <div class="accItem">
-          <button class="accQ" type="button">Does this include taxes? <span class="chev">▾</span></button>
-          <div class="accA">No. Taxes depend on your country, account type (ISA, pension, brokerage), and holding period. Use this as a baseline scenario tool.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" style="margin-top:16px">
-      <h2>Related calculators</h2>
-      <p class="muted" style="margin-top:-6px">
+<div class="accordion">
+<div class="accItem">
+<button class="accQ" type="button">What is ROI vs CAGR? <span class="chev">▾</span></button>
+<div class="accA">ROI is total profit as a percentage of what you put in. CAGR is the annualized rate that would turn your total contributions into the ending value over the same time.</div>
+</div>
+<div class="accItem">
+<button class="accQ" type="button">How are fees handled? <span class="chev">▾</span></button>
+<div class="accA">We approximate fees by reducing your annual return by the fee %. This matches the typical “net return” approach for fund/ETF fee modeling.</div>
+</div>
+<div class="accItem">
+<button class="accQ" type="button">Does this include taxes? <span class="chev">▾</span></button>
+<div class="accA">No. Taxes depend on your country, account type (ISA, pension, brokerage), and holding period. Use this as a baseline scenario tool.</div>
+</div>
+</div>
+</section>
+<section class="card" style="margin-top:16px">
+<h2>Related calculators</h2>
+<p class="muted" style="margin-top:-6px">
         Use these tools together to compare scenarios (fees, contributions, debt payoff, and retirement projections).
       </p>
-      <ul style="margin:0;color:var(--muted);line-height:1.8;padding-left:18px">
-        <li><a href="/investment-fee-impact-calculator/"><strong>Investment Fee Impact Calculator</strong></a> — see how small fees reduce long‑term outcomes.</li>
-        <li><a href="/compound-interest-calculator/"><strong>Compound Interest Calculator</strong></a> — model long‑term growth with contributions.</li>
-        <li><a href="/savings-goal-calculator/"><strong>Savings Goal Calculator</strong></a> — find monthly savings needed to reach a target.</li>
-        <li><a href="/retirement-planning-calculator/"><strong>Retirement Planning Calculator</strong></a> — project retirement savings over time.</li>
-        <li><a href="/budget-planner-calculator/"><strong>Budget Planner</strong></a> — confirm your monthly contribution is realistic.</li>
-      </ul>
-    </section>
-
-
-    
-    <footer>
-      <div><b>Disclaimer:</b> Educational estimates only. Real-world investing involves risk, fees, taxes, and market volatility.</div>
-      <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-        <a class="pill" href="/about/">About</a>
-        <a class="pill" href="/contact/">Contact</a>
-        <a class="pill" href="/privacy-policy/">Privacy Policy</a>
-        <a class="pill" href="/terms-of-use/">Terms of Use</a>
-      </div>
-      <div style="margin-top:10px">© 2026 TrueWealthMetrics</div>
-    </footer>
-
-  </div>
-
+<ul style="margin:0;color:var(--muted);line-height:1.8;padding-left:18px">
+<li><a href="/investment-fee-impact-calculator/"><strong>Investment Fee Impact Calculator</strong></a> — see how small fees reduce long‑term outcomes.</li>
+<li><a href="/compound-interest-calculator/"><strong>Compound Interest Calculator</strong></a> — model long‑term growth with contributions.</li>
+<li><a href="/savings-goal-calculator/"><strong>Savings Goal Calculator</strong></a> — find monthly savings needed to reach a target.</li>
+<li><a href="/retirement-planning-calculator/"><strong>Retirement Planning Calculator</strong></a> — project retirement savings over time.</li>
+<li><a href="/budget-planner-calculator/"><strong>Budget Planner</strong></a> — confirm your monthly contribution is realistic.</li>
+</ul>
+</section>
+<footer>
+<div><b>Disclaimer:</b> Educational estimates only. Real-world investing involves risk, fees, taxes, and market volatility.</div>
+<div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+<a class="pill" href="/about/">About</a>
+<a class="pill" href="/contact/">Contact</a>
+<a class="pill" href="/privacy-policy/">Privacy Policy</a>
+<a class="pill" href="/terms-of-use/">Terms of Use</a>
+</div>
+<div style="margin-top:10px">© 2026 TrueWealthMetrics</div>
+</footer>
+</div>
 <script>
 (function(){
   const $ = (id) => document.getElementById(id);
