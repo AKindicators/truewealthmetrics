@@ -25,7 +25,8 @@
 
     
     <link rel="stylesheet" href="/styles.css" />
-<style>      :root {
+<style>
+:root {
         --bg: #070b14;
         --card: rgba(255,255,255,0.06);
         --border: rgba(255,255,255,0.10);
@@ -35,7 +36,20 @@
         --accent: #38d98a;
         --warn: #ffcc66;
       }
+
+:root {
+        --bg: #070b14;
+        --card: rgba(255,255,255,0.06);
+        --border: rgba(255,255,255,0.10);
+        --text: rgba(255,255,255,0.92);
+        --muted: rgba(255,255,255,0.70);
+        --soft: rgba(255,255,255,0.12);
+        --accent: #38d98a;
+        --warn: #ffcc66;
+      }
+
       * { box-sizing: border-box; }
+
       body {
         margin: 0;
         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -45,13 +59,17 @@
         color: var(--text);
         line-height: 1.55;
       }
+
       a { color: var(--accent); text-decoration: none; }
+
       a:hover { text-decoration: underline; }
 
       .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 18px 120px; }
 
       .hero { padding: 18px 0 22px; }
+
       .hero h1 { font-size: 40px; line-height: 1.12; margin: 0 0 10px; }
+
       .hero p { color: var(--muted); margin: 0; max-width: 78ch; }
 
       .grid {
@@ -60,8 +78,10 @@
         grid-template-columns: 1.05fr 0.95fr;
         gap: 16px;
       }
+
       @media (max-width: 980px) {
         .grid { grid-template-columns: 1fr; }
+
       }
 
       .card {
@@ -71,7 +91,9 @@
         padding: 18px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.25);
       }
+
       .card h2 { margin: 0 0 12px; font-size: 18px; }
+
       .sub { color: var(--muted); font-size: 14px; margin-top: -4px; margin-bottom: 14px; }
 
       .form {
@@ -79,10 +101,13 @@
         grid-template-columns: 1fr 1fr;
         gap: 12px;
       }
+
       @media (max-width: 620px) {
         .form { grid-template-columns: 1fr; }
+
       }
       label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+
       input, select {
         width: 100%;
         padding: 12px 12px;
@@ -92,10 +117,13 @@
         color: var(--text);
         outline: none;
       }
+
       input:focus, select:focus { border-color: rgba(56,217,138,0.55); box-shadow: 0 0 0 4px rgba(56,217,138,0.12); }
 
       .row { display: grid; grid-template-columns: 1fr; gap: 6px; }
+
       .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+
       button {
         cursor: pointer;
         border-radius: 12px;
@@ -105,18 +133,25 @@
         background: rgba(56,217,138,0.16);
         color: var(--text);
       }
+
       button.secondary { background: rgba(255,255,255,0.05); }
 
       .kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
-      @media (max-width: 620px) { .kpis { grid-template-columns: 1fr; } }
+
+      @media (max-width: 620px) { .kpis { grid-template-columns: 1fr; }
+
+ }
       .kpi {
         border: 1px solid var(--border);
         background: rgba(0,0,0,0.16);
         border-radius: 14px;
         padding: 14px;
       }
+
       .kpi .t { color: var(--muted); font-size: 13px; }
+
       .kpi .v { font-size: 22px; font-weight: 850; margin-top: 4px; }
+
       .kpi .s { color: var(--muted); font-size: 13px; margin-top: 4px; }
 
       .note {
@@ -129,9 +164,13 @@
       }
 
       .section { margin-top: 22px; }
+
       .section h2 { font-size: 22px; margin: 0 0 10px; }
+
       .section p { margin: 0 0 10px; color: var(--muted); }
+
       .section ul { margin: 0; color: var(--muted); }
+
       .section li { margin: 6px 0; }
 
       table {
@@ -142,14 +181,18 @@
         border-radius: 14px;
         border: 1px solid var(--border);
       }
+
       th, td {
         padding: 10px 10px;
         border-bottom: 1px solid rgba(255,255,255,0.08);
         text-align: right;
         font-size: 14px;
       }
+
       th { text-align: right; color: rgba(255,255,255,0.82); background: rgba(255,255,255,0.05); }
+
       td:first-child, th:first-child { text-align: left; }
+
       tr:last-child td { border-bottom: none; }
 
       details {
@@ -159,7 +202,9 @@
         padding: 12px 14px;
         margin: 10px 0;
       }
+
       summary { cursor: pointer; font-weight: 750; }
+
       details p { margin: 8px 0 0; color: var(--muted); }
 
       footer { margin-top: 34px; color: var(--muted); font-size: 13px; }
@@ -172,9 +217,11 @@
         align-items: center;
         margin-top: 10px;
       }
+
       .tableActions button {
         padding: 10px 12px;
       }
+
       .badge {
         font-size: 12px;
         color: rgba(255,255,255,0.78);
@@ -194,6 +241,7 @@
         border-top: 1px solid rgba(255,255,255,0.10);
         padding: 10px 12px;
       }
+
       .stickyInner {
         max-width: 1100px;
         margin: 0 auto;
@@ -202,16 +250,19 @@
         justify-content: space-between;
         gap: 12px;
       }
+
       .stickyMini {
         min-width: 0;
         display: flex;
         flex-direction: column;
         gap: 2px;
       }
+
       .stickyMini .l {
         font-size: 11px;
         color: rgba(255,255,255,0.60);
       }
+
       .stickyMini .v {
         font-size: 16px;
         font-weight: 900;
@@ -219,11 +270,13 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
+
       .stickyBtns {
         display: flex;
         gap: 8px;
         flex-shrink: 0;
       }
+
       .stickyBtns a {
         display: inline-flex;
         align-items: center;
@@ -237,6 +290,7 @@
         text-decoration: none;
         white-space: nowrap;
       }
+
       .stickyBtns a.primary {
         border-color: rgba(56,217,138,0.42);
         background: rgba(56,217,138,0.14);
@@ -244,10 +298,11 @@
 
       @media (max-width: 720px) {
         .wrap { padding-bottom: 150px; }
+
         .stickyBar { display: block; }
+
         .hero h1 { font-size: 32px; }
-      }
-    </style>
+</style>
     <script src="/header.js" defer></script>
 
 
