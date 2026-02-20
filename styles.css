@@ -252,38 +252,17 @@ tr:last-child td{ border-bottom: none; }
 
 /* Mobile nav: make it scroll instead of squashing */
 @media (max-width: 860px){
-  .twm-header{
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .twm-brand{
-    min-width: 0;
-    flex: 1 1 auto;
-  }
-  .twm-brand-text{
-    font-size: 18px;
-  }
+  .twm-header{ flex-wrap: wrap; }
+  .twm-brand{ min-width: auto; }
   .twm-nav{
-    width: 100%;
-    justify-content: flex-start;
-    overflow-x: auto;
-    overflow-y: hidden;
-    flex-wrap: nowrap;
+    justify-content:flex-start;
+    overflow-x:auto;
+    flex-wrap:nowrap;
     padding-bottom: 6px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    /* subtle fade edges to hint horizontal scroll */
-    mask-image: linear-gradient(to right, transparent 0, black 18px, black calc(100% - 18px), transparent 100%);
   }
   .twm-nav::-webkit-scrollbar{ display:none; }
-  .twm-pill{
-    flex: 0 0 auto;
-    padding: 8px 12px;
-    font-size: 12px;
-    border-radius: 999px;
-    white-space: nowrap;
-  }
 }
 
 /* Page spacing so content doesn't feel stuck to header */
@@ -376,17 +355,61 @@ tr:last-child td{border-bottom:none}
   .twm-brand span{font-size:16px}
   .twm-pill{padding:9px 12px;font-size:13px}
 }
-.nav-scroll {
-  position: relative;
-}
 
-.nav-scroll::after {
-  content: "";
+/* --- Mobile header upgrade (burger menu) --- */
+.twm-menu-btn{
+  display:none;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.16);
+  color: rgba(255,255,255,.92);
+  border-radius: 999px;
+  padding: 10px 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+.twm-menu-btn:active{ transform: translateY(1px); }
+.twm-menu-icon{ font-size: 18px; }
+
+.twm-mobile-menu{
   position: absolute;
-  right: 0;
-  top: 0;
-  width: 35px;
-  height: 100%;
-  pointer-events: none;
-  background: linear-gradient(to left, #0b1f25, rgba(11,31,37,0));
+  left: 12px;
+  right: 12px;
+  top: calc(100% + 10px);
+  z-index: 1001;
+}
+.twm-mobile-inner{
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.22);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  display:flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.twm-mobile-link{
+  display:block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-decoration:none;
+  color: rgba(255,255,255,.86);
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+}
+.twm-mobile-link.is-active{
+  border-color: rgba(34,197,94,.45);
+  background: rgba(34,197,94,.12);
+  color: #eafff2;
+}
+.twm-header-wrap{ position: sticky; top: 0; z-index: 1000; }
+
+/* Hide desktop pills on mobile and use burger menu */
+@media (max-width: 860px){
+  .twm-desktop-nav{ display:none; }
+  .twm-menu-btn{ display:inline-flex; align-items:center; justify-content:center; }
+  .twm-header{ flex-wrap: nowrap; }
+  .twm-brand{ min-width: 0; }
+  .twm-title{ max-width: 62vw; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .twm-header-wrap.is-menu-open .twm-mobile-menu{ display:block; }
 }
