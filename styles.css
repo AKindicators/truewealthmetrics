@@ -376,3 +376,17 @@ tr:last-child td{border-bottom:none}
   .twm-brand span{font-size:16px}
   .twm-pill{padding:9px 12px;font-size:13px}
 }
+.nav-scroll {
+  position: relative;
+}
+
+.nav-scroll::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 35px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to left, #0b1f25, rgba(11,31,37,0));
+}
