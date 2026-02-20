@@ -1,13 +1,13 @@
-<!-- Shared header injected by /header.js -->
+<!-- TrueWealthMetrics shared header -->
 <div class="twm-header-wrap">
   <div class="twm-header">
-    <div class="twm-brand">
-      <a class="twm-logo" href="/" aria-label="TrueWealthMetrics home">📈</a>
-      <a class="twm-title" href="/">TrueWealthMetrics</a>
-    </div>
+    <a class="twm-brand" href="/" aria-label="TrueWealthMetrics Home">
+      <img class="twm-logo" src="/logo-mark.png" alt="TrueWealthMetrics" width="36" height="36" decoding="async" />
+      <span class="twm-brand-text">TrueWealthMetrics</span>
+    </a>
 
-    <!-- Desktop nav pills -->
-    <nav class="twm-nav twm-desktop-nav" aria-label="Primary">
+    <!-- Desktop / tablet pills -->
+    <nav class="twm-nav" aria-label="Primary navigation">
       <a class="twm-pill" href="/">Home</a>
       <a class="twm-pill" href="/loan-repayment-calculator/">Loan</a>
       <a class="twm-pill" href="/mortgage-payment-calculator/">Mortgage</a>
@@ -22,28 +22,40 @@
     </nav>
 
     <!-- Mobile menu button -->
-    <button class="twm-menu-btn" type="button"
-      aria-label="Open menu"
-      aria-controls="twm-mobile-menu"
-      aria-expanded="false">
-      <span class="twm-menu-icon" aria-hidden="true">☰</span>
+    <button class="twm-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="twm-mobile-menu">
+      <span class="twm-menu-icon" aria-hidden="true"></span>
     </button>
   </div>
 
-  <!-- Mobile dropdown -->
-  <div id="twm-mobile-menu" class="twm-mobile-menu" hidden>
-    <div class="twm-mobile-inner" role="menu" aria-label="Mobile menu">
-      <a class="twm-mobile-link" role="menuitem" href="/">Home</a>
-      <a class="twm-mobile-link" role="menuitem" href="/loan-repayment-calculator/">Loan Repayment</a>
-      <a class="twm-mobile-link" role="menuitem" href="/mortgage-payment-calculator/">Mortgage Payment</a>
-      <a class="twm-mobile-link" role="menuitem" href="/budget-planner-calculator/">Budget Planner</a>
-      <a class="twm-mobile-link" role="menuitem" href="/compound-interest-calculator/">Compound Interest</a>
-      <a class="twm-mobile-link" role="menuitem" href="/savings-goal-calculator/">Savings Goal</a>
-      <a class="twm-mobile-link" role="menuitem" href="/credit-card-payoff-calculator/">Credit Card Payoff</a>
-      <a class="twm-mobile-link" role="menuitem" href="/debt-snowball-avalanche-calculator/">Debt Snowball/Avalanche</a>
-      <a class="twm-mobile-link" role="menuitem" href="/roi-calculator/">ROI Calculator</a>
-      <a class="twm-mobile-link" role="menuitem" href="/investment-fee-impact-calculator/">Investment Fee Impact</a>
-      <a class="twm-mobile-link" role="menuitem" href="/retirement-planning-calculator/">Retirement Planning</a>
+  <!-- Mobile drawer (hidden on desktop) -->
+  <div class="twm-menu-overlay" data-twm-close="1" hidden></div>
+
+  <aside id="twm-mobile-menu" class="twm-menu-drawer" aria-label="Mobile navigation" hidden>
+    <div class="twm-menu-top">
+      <div class="twm-menu-brand">
+        <img class="twm-logo" src="/logo-mark.png" alt="" width="32" height="32" decoding="async" />
+        <span>TrueWealthMetrics</span>
+      </div>
+      <button class="twm-menu-close" type="button" aria-label="Close menu" data-twm-close="1">×</button>
     </div>
-  </div>
+
+    <nav class="twm-menu-links">
+      <a class="twm-menu-link" href="/">Home</a>
+      <a class="twm-menu-link" href="/loan-repayment-calculator/">Loan repayment</a>
+      <a class="twm-menu-link" href="/mortgage-payment-calculator/">Mortgage payment</a>
+      <a class="twm-menu-link" href="/budget-planner-calculator/">Budget planner</a>
+      <a class="twm-menu-link" href="/compound-interest-calculator/">Compound interest</a>
+      <a class="twm-menu-link" href="/savings-goal-calculator/">Savings goal</a>
+      <a class="twm-menu-link" href="/credit-card-payoff-calculator/">Credit card payoff</a>
+      <a class="twm-menu-link" href="/debt-snowball-avalanche-calculator/">Debt snowball / avalanche</a>
+      <a class="twm-menu-link" href="/roi-calculator/">ROI calculator</a>
+      <a class="twm-menu-link" href="/investment-fee-impact-calculator/">Investment fee impact</a>
+      <a class="twm-menu-link" href="/retirement-planning-calculator/">Retirement planning</a>
+      <div class="twm-menu-divider"></div>
+      <a class="twm-menu-link twm-menu-link-secondary" href="/about/">About</a>
+      <a class="twm-menu-link twm-menu-link-secondary" href="/contact/">Contact</a>
+      <a class="twm-menu-link twm-menu-link-secondary" href="/privacy-policy/">Privacy Policy</a>
+      <a class="twm-menu-link twm-menu-link-secondary" href="/terms-of-use/">Terms of Use</a>
+    </nav>
+  </aside>
 </div>
