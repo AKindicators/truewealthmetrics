@@ -5,72 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>How 1% Investment Fees Quietly Destroy Your Retirement | TrueWealthMetrics</title>
-  <meta name="description" content="Even a 1% investment fee can cost hundreds of thousands over time. See how fees reduce compounding and retirement wealth, plus tools to model your numbers." />
+  <meta name="description" content="Even a 1% annual investment fee can cost you tens or hundreds of thousands over time. Learn the math, see examples, and model your own outcome with free calculators." />
   <link rel="canonical" href="https://truewealthmetrics.com/investment-fees-retirement/" />
 
   <!-- Social -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="TrueWealthMetrics" />
   <meta property="og:title" content="How 1% Investment Fees Quietly Destroy Your Retirement" />
-  <meta property="og:description" content="Even a 1% fee compounds against you for decades. Learn the math, see examples, and model your personal outcome with free calculators." />
+  <meta property="og:description" content="See how fees reduce compounding for decades, why small percentages become big money, and how to estimate your personal impact." />
   <meta property="og:url" content="https://truewealthmetrics.com/investment-fees-retirement/" />
   <meta name="twitter:card" content="summary" />
 
   <link rel="stylesheet" href="/styles.css" />
   <script src="/header.js" defer></script>
 
-  <!-- Article schema (helps Google + AI search engines understand the page) -->
+  <!-- Structured data: Article -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "How 1% Investment Fees Quietly Destroy Your Retirement",
-    "description": "Even a 1% investment fee can cost hundreds of thousands over time. Learn how fees reduce compounding and retirement wealth.",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://truewealthmetrics.com/investment-fees-retirement/"
-    },
-    "author": {
-      "@type": "Organization",
-      "name": "TrueWealthMetrics"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "TrueWealthMetrics"
-    },
-    "datePublished": "2026-02-20",
-    "dateModified": "2026-02-20"
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"How 1% Investment Fees Quietly Destroy Your Retirement",
+    "description":"Even a 1% annual investment fee can cost you tens or hundreds of thousands over time. Learn the math, see examples, and model your own outcome with free calculators.",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://truewealthmetrics.com/investment-fees-retirement/"},
+    "publisher":{"@type":"Organization","name":"TrueWealthMetrics"},
+    "author":{"@type":"Organization","name":"TrueWealthMetrics"},
+    "datePublished":"2026-02-20",
+    "dateModified":"2026-02-20"
   }
   </script>
 
-  <!-- FAQ schema -->
+  <!-- Structured data: Breadcrumbs -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
+      {"@type":"ListItem","position":2,"name":"Fees","item":"https://truewealthmetrics.com/investment-fee-impact-calculator/"},
+      {"@type":"ListItem","position":3,"name":"Investment Fees & Retirement","item":"https://truewealthmetrics.com/investment-fees-retirement/"}
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
       {
-        "@type": "Question",
-        "name": "Is a 1% investment fee really a big deal?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. A 1% annual fee reduces the amount that can compound each year. Over decades, the lost compounding can add up to a very large difference in your ending balance."
+        "@type":"Question",
+        "name":"Is a 1% investment fee always bad?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Not always. Higher fees can be justified by service or planning value. The key is quantifying the long-term impact so you can decide whether the value is worth the cost."
         }
       },
       {
-        "@type": "Question",
-        "name": "What fees should I look for in an investment?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Common costs include fund expense ratios, platform fees, adviser management fees, trading costs, and hidden product charges. Review all-in costs and compare alternatives."
+        "@type":"Question",
+        "name":"What fee level is considered low?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Many broad-market index funds are well below 0.20% per year. 'Low' depends on the product and market, but lower fees generally improve long-term outcomes because you keep more of your compounding."
         }
       },
       {
-        "@type": "Question",
-        "name": "How can I estimate my personal fee impact?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Use a fee impact calculator with your starting balance, contributions, time horizon, expected return, and fee percentage to compare ‘with-fee’ vs ‘no-fee’ outcomes."
+        "@type":"Question",
+        "name":"Do fees matter more over longer time horizons?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Fees compound against you every year. Over 20–40 years, small percentages often become large differences because they reduce the base that future returns are calculated on."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"How can I estimate my personal fee impact?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Use a fee impact calculator with your starting balance, monthly contributions, time horizon, and expected return. Compare no-fee vs fee outcomes to see the estimated 'lost value'."
         }
       }
     ]
@@ -79,103 +91,153 @@
 </head>
 
 <body>
+  <!-- Header injected by /header.js -->
   <div id="header-placeholder"></div>
 
-  <main class="container">
-    <h1>How 1% Investment Fees Quietly Destroy Your Retirement</h1>
+  <main class="wrap">
+    <!-- HERO (matches your other pages) -->
+    <header class="hero">
+      <h1>How 1% Investment Fees Quietly Destroy Your Retirement</h1>
+      <p class="subhead">
+        Most people obsess over returns. Very few obsess over fees.
+        But if you invest for retirement, fees can quietly become one of the biggest drags on your results —
+        because they compound <em>against</em> you every year.
+      </p>
+      <p class="subhead">
+        A 1% annual fee sounds small. Over 20–40 years, it can translate into <strong>tens or hundreds of thousands</strong>
+        in lost retirement wealth.
+      </p>
+    </header>
 
-    <p>
-      Most people obsess over returns. Very few obsess over fees. But if you invest for retirement, fees can quietly
-      become one of the biggest drags on your results — because they compound <em>against</em> you every year.
-    </p>
-
-    <p>
-      A 1% annual fee sounds small. Over 20–40 years, it can translate into <strong>tens or hundreds of thousands</strong>
-      of dollars in lost retirement wealth.
-    </p>
-
-    <section class="card" style="margin-top: 16px;">
-      <h2 style="margin-top: 0;">Quick Answer</h2>
-      <p style="margin-bottom: 0;">
-        Fees reduce your account balance every year, which reduces the base that compounds. The longer you invest,
-        the more the “lost compounding” grows. Small percentages become big money over time.
+    <!-- QUICK ANSWER CARD -->
+    <section class="card">
+      <h2>Quick Answer</h2>
+      <p>
+        Investment fees reduce your account balance every year, which reduces the base that compounds.
+        The longer you invest, the more the “lost compounding” grows. Small percentages become big money over time.
       </p>
     </section>
 
-    <h2>Why small fees become huge losses</h2>
-    <p>
-      Compounding is powerful because growth builds on top of previous growth. Fees interrupt that process in a way
-      that is easy to underestimate:
-    </p>
-    <ul>
-      <li><strong>Fees come out every year</strong>, not just once.</li>
-      <li><strong>They lower the balance</strong> that future returns are calculated from.</li>
-      <li><strong>Lost growth compounds</strong> for decades — especially in retirement accounts.</li>
-    </ul>
+    <!-- WHY FEES BLOW UP -->
+    <section class="card">
+      <h2>Why small fees become huge losses</h2>
+      <p>
+        Compounding is powerful because growth builds on top of previous growth. Fees interrupt that process in a way that’s easy to underestimate:
+      </p>
+      <ul>
+        <li><strong>Fees come out every year</strong>, not just once.</li>
+        <li><strong>They lower the balance</strong> that future returns are calculated from.</li>
+        <li><strong>Lost growth compounds for decades</strong> — especially in retirement accounts.</li>
+      </ul>
+    </section>
 
-    <h2>A simple example (why 1% matters)</h2>
-    <p>Imagine this investor:</p>
-    <ul>
-      <li>Starting amount: <strong>$10,000</strong></li>
-      <li>Monthly contribution: <strong>$500</strong></li>
-      <li>Time horizon: <strong>30 years</strong></li>
-      <li>Return before fees: <strong>7% per year</strong></li>
-    </ul>
-    <p>
-      If the all-in fee is 1% (so the net return becomes roughly 6%), the ending balance can be dramatically lower.
-      The later years are where the gap often becomes most visible.
-    </p>
+    <!-- SIMPLE EXAMPLE -->
+    <section class="card">
+      <h2>A simple example (why 1% matters)</h2>
+      <p>Imagine this investor:</p>
+      <ul>
+        <li><strong>Starting amount:</strong> £10,000</li>
+        <li><strong>Monthly contribution:</strong> £500</li>
+        <li><strong>Time horizon:</strong> 30 years</li>
+        <li><strong>Return before fees:</strong> 7% per year</li>
+      </ul>
+      <p>
+        If the all-in fee is 1% (so the net return becomes roughly 6%), the ending balance can be dramatically lower.
+        The later years are where the gap often becomes most visible.
+      </p>
+      <p>
+        Want exact numbers for your situation? Use the tool below and compare “no-fee” vs “with-fee” outcomes.
+      </p>
+      <p>
+        👉 <a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a>
+      </p>
+    </section>
 
-    <h2>Why retirement accounts are hit the hardest</h2>
-    <p>
-      Retirement is long-term by definition. A long horizon gives fees maximum time to compound against you.
-      This is why two portfolios with similar investments can end up with very different outcomes if their fees differ.
-    </p>
+    <!-- WHO GETS HIT HARDEST -->
+    <section class="card">
+      <h2>Why retirement accounts are hit the hardest</h2>
+      <p>
+        Retirement is long-term by definition. A long horizon gives fees maximum time to compound against you.
+        This is why two portfolios with similar investments can end up with very different outcomes if their fees differ.
+      </p>
+      <ul>
+        <li><strong>Long time horizon</strong> (20–40+ years)</li>
+        <li><strong>Ongoing contributions</strong> (fees apply to a growing balance)</li>
+        <li><strong>Behavior impact</strong> (high fees can discourage saving/investing)</li>
+      </ul>
+    </section>
 
-    <h2>How to reduce investment fees</h2>
-    <ul>
-      <li>Prefer low-cost index funds or ETFs where appropriate.</li>
-      <li>Compare <strong>total</strong> costs (fund + platform + adviser), not just one fee line.</li>
-      <li>Be cautious with products that bundle multiple charges (e.g., high-fee wrappers).</li>
-      <li>Review fees annually — especially before increasing contributions.</li>
-    </ul>
+    <!-- HOW TO REDUCE FEES -->
+    <section class="card">
+      <h2>How to reduce investment fees</h2>
+      <ul>
+        <li>Prefer low-cost index funds or ETFs where appropriate.</li>
+        <li>Compare total costs (fund + platform + adviser), not just one fee line.</li>
+        <li>Be cautious with products that bundle multiple charges (e.g., high-fee wrappers).</li>
+        <li>Review fees annually — especially before increasing contributions.</li>
+      </ul>
+    </section>
 
-    <h2>Model your own numbers (recommended)</h2>
-    <p>
-      The fastest way to understand fees is to run your own scenario:
-    </p>
-    <p>
-      <a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a><br />
-      <a href="/compound-interest-calculator/">Compound Interest Calculator</a><br />
-      <a href="/retirement-planning-calculator/">Retirement Planning Calculator</a>
-    </p>
+    <!-- INTERNAL LINKS / HUB CARD -->
+    <section class="card">
+      <h2>Model your own numbers (recommended)</h2>
+      <p>The fastest way to understand fees is to run your own scenario:</p>
+      <ul>
+        <li><a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a></li>
+        <li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li>
+        <li><a href="/retirement-planning-calculator/">Retirement Planning Calculator</a></li>
+        <li><a href="/roi-calculator/">ROI Calculator</a></li>
+        <li><a href="/budget-planner-calculator/">Monthly Budget Planner</a></li>
+        <li><a href="/savings-goal-calculator/">Savings Goal Calculator</a></li>
+      </ul>
+    </section>
 
-    <h2>Key takeaway</h2>
-    <p>
-      If you invest for decades, fees matter almost as much as returns. Lowering fees by even 0.5% can materially
-      improve retirement outcomes because you keep more of your compounding.
-    </p>
+    <!-- KEY TAKEAWAY -->
+    <section class="card">
+      <h2>Key takeaway</h2>
+      <p>
+        If you invest for decades, fees matter almost as much as returns.
+        Lowering fees by even 0.5% can materially improve retirement outcomes because you keep more of your compounding.
+      </p>
+    </section>
 
-    <section class="card" style="margin-top: 16px;">
-      <h2 style="margin-top: 0;">FAQ</h2>
+    <!-- FAQ -->
+    <section class="card">
+      <h2>FAQ</h2>
+
       <h3>Is a 1% fee always “bad”?</h3>
       <p>
-        Not always — sometimes higher fees can be justified by service or planning value. The key is knowing the cost
-        and quantifying the long-term impact so you can decide if the value is worth it.
+        Not always — sometimes higher fees can be justified by service or planning value.
+        The key is knowing the cost and quantifying the long-term impact so you can decide if the value is worth it.
       </p>
 
       <h3>What fee level is considered “low”?</h3>
       <p>
-        Many broad-market index funds are well below 0.20% per year. “Low” depends on the product and market, but
-        the direction is clear: lower fees generally give you a better chance of stronger long-term outcomes.
+        Many broad-market index funds are well below 0.20% per year.
+        “Low” depends on the product and market, but the direction is clear: lower fees generally give you a better chance of stronger long-term outcomes.
       </p>
 
-      <h3>Do fees matter more when returns are lower?</h3>
+      <h3>How can I estimate my personal fee impact?</h3>
       <p>
-        Yes. If markets deliver lower returns, a fixed percentage fee consumes a bigger share of your growth.
+        Use the <a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a> with your starting balance,
+        monthly contributions, time horizon, and expected return to compare no-fee vs with-fee outcomes.
       </p>
     </section>
 
+    <!-- YMYL disclaimer (matches site tone) -->
+    <section class="card">
+      <h2>Important note</h2>
+      <p>
+        These tools and articles provide educational estimates only and do not constitute financial advice.
+        For personal recommendations, consider speaking with a qualified professional.
+      </p>
+    </section>
   </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>© 2026 TrueWealthMetrics. These calculators provide educational estimates only and do not constitute financial advice.</p>
+    </div>
+  </footer>
 </body>
 </html>
