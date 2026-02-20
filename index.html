@@ -3,13 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TrueWealthMetrics — Free Finance Calculators</title>
-  <meta name="description" content="Free, mobile-friendly finance calculators to plan budgets, debt payoff, investment growth, fee impact, mortgages, and retirement. No signup. Instant results." />
+
+  <title>Free Personal Finance & Investment Calculators | TrueWealthMetrics</title>
+  <meta name="description" content="Free personal finance calculators for budgeting, debt payoff, loans, mortgages, compound interest, investment fees, ROI, and retirement planning. No signup. Instant results." />
   <link rel="canonical" href="https://truewealthmetrics.com/" />
   <meta name="robots" content="index,follow" />
 
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Free Personal Finance & Investment Calculators | TrueWealthMetrics" />
+  <meta property="og:description" content="Budgeting, debt payoff, loans, mortgages, investing, ROI, fees, and retirement planning — free calculators with instant results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://truewealthmetrics.com/" />
+  <meta property="og:site_name" content="TrueWealthMetrics" />
+  <meta name="twitter:card" content="summary" />
+
+  <meta name="theme-color" content="#0b1220" />
+
   <link rel="stylesheet" href="/styles.css" />
   <script defer src="/header.js"></script>
+
+  <!-- JSON-LD: Organization + Website + WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://truewealthmetrics.com/#organization",
+        "name": "TrueWealthMetrics",
+        "url": "https://truewealthmetrics.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://truewealthmetrics.com/logo.png"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://truewealthmetrics.com/#website",
+        "url": "https://truewealthmetrics.com/",
+        "name": "TrueWealthMetrics",
+        "publisher": { "@id": "https://truewealthmetrics.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://truewealthmetrics.com/#webpage",
+        "url": "https://truewealthmetrics.com/",
+        "name": "Free Personal Finance & Investment Calculators",
+        "isPartOf": { "@id": "https://truewealthmetrics.com/#website" },
+        "about": { "@id": "https://truewealthmetrics.com/#organization" },
+        "inLanguage": "en"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Shared header inject target -->
@@ -17,10 +64,11 @@
 
   <main class="twm-container">
     <section class="twm-hero">
-      <h1>Free Finance Calculators</h1>
+      <h1>Free Personal Finance & Investment Calculators</h1>
       <p class="muted">
-        Clean, fast tools to help you plan money decisions with clarity — budgeting, debt payoff, investment growth,
-        fee impact, mortgages, and retirement projections. No signup. Instant results.
+        Clean, fast tools to help you plan money decisions with clarity — <strong>budgeting</strong>, <strong>debt payoff</strong>,
+        <strong>loans</strong>, <strong>mortgages</strong>, <strong>investing</strong>, <strong>fees</strong>, <strong>ROI</strong>, and
+        <strong>retirement planning</strong>. No signup. Instant results.
       </p>
 
       <div class="twm-badges" aria-label="Highlights">
@@ -30,7 +78,26 @@
         <span class="twm-badge">Educational estimates</span>
       </div>
 
-      <div class="twm-grid">
+      <!-- AEO: Quick Answers (homepage) -->
+      <div class="twm-card p-18 mt-18">
+        <h2 class="h3">Quick Answers</h2>
+        <p class="muted">
+          Use these calculators to make clearer decisions before you commit real money:
+        </p>
+        <ul class="list">
+          <li><strong>Budget:</strong> See where your money goes each month and what you can realistically save.</li>
+          <li><strong>Debt:</strong> Compare Snowball vs Avalanche and estimate payoff time + total interest.</li>
+          <li><strong>Investing:</strong> Model compound growth, ROI/CAGR, and how fees reduce long‑term returns.</li>
+          <li><strong>Home & Loans:</strong> Estimate repayments, amortization, and the impact of extra payments.</li>
+          <li><strong>Retirement:</strong> Project future savings based on contributions, growth rate, and time horizon.</li>
+        </ul>
+        <p class="muted">
+          Tip: If you want a simple starting point, open the <a class="twm-link" href="/budget-planner-calculator/">Budget Planner</a>,
+          then set a target using the <a class="twm-link" href="/savings-goal-calculator/">Savings Goal</a> tool.
+        </p>
+      </div>
+
+      <div class="twm-grid mt-18">
         <article class="twm-card p-18">
           <h2 class="h3">Budget Planner (Monthly)</h2>
           <p class="muted">
@@ -143,7 +210,6 @@
       </div>
     </section>
 
-    <!-- ✅ NEW: Guides section (includes your new article link) -->
     <section class="mt-28">
       <div class="twm-card p-18">
         <h2 class="h3">Guides & Articles</h2>

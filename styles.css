@@ -4,12 +4,12 @@
    ========================= */
 
 :root{
-  --bg1:#07131a;
-  --bg2:#0b1f2a;
-  --bg3:#102f3d;
+  --bg1:#050a14;
+  --bg2:#071829;
+  --bg3:#0a2238;
 
-  --card:#0f1f28cc;
-  --card2:#0f1a22cc;
+  --card:#0b1824cc;
+  --card2:#08131ccc;
   --stroke:rgba(255,255,255,.08);
   --stroke2:rgba(255,255,255,.12);
   --border:rgba(255,255,255,.10);
@@ -18,7 +18,7 @@
   --muted:rgba(230,240,244,.72);
 
   --accent:#22c55e;   /* green */
-  --accent2:#06b6d4;  /* cyan */
+  --accent2:#38bdf8;  /* cyan */
   --danger:#ef4444;
 
   --shadow: 0 20px 60px rgba(0,0,0,.45);
