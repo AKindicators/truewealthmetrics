@@ -1,174 +1,215 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>TrueWealthMetrics — Free Finance Calculators</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrueWealthMetrics — Free Finance Calculators</title>
+  <meta name="description" content="Free, mobile-friendly finance calculators to plan budgets, debt payoff, investment growth, fee impact, mortgages, and retirement. No signup. Instant results." />
+  <link rel="canonical" href="https://truewealthmetrics.com/" />
+  <meta name="robots" content="index,follow" />
 
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/header.js"></script>
+</head>
+<body>
+  <!-- Shared header inject target -->
+  <div id="site-header"></div>
 
-<meta content="Free, fast finance calculators: compound interest, savings goals, investment fee impact, ROI, loans, mortgages, budget planner, debt payoff tools, and retirement planning. No signup." name="description"/>
-<meta content="index,follow" name="robots"/>
-<link href="https://truewealthmetrics.com/" rel="canonical"/>
-<!-- SEO: ItemList of calculators (no design impact) -->
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "TrueWealthMetrics Finance Calculators",
-      "description": "A collection of free finance calculators for budgeting, debt payoff, investing, loans, mortgages, and retirement planning.",
-      "url": "https://truewealthmetrics.com/",
-      "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 10,
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Budget Planner Calculator", "url": "https://truewealthmetrics.com/budget-planner-calculator/" },
-        { "@type": "ListItem", "position": 2, "name": "Compound Interest Calculator", "url": "https://truewealthmetrics.com/compound-interest-calculator/" },
-        { "@type": "ListItem", "position": 3, "name": "Investment Fee Impact Calculator", "url": "https://truewealthmetrics.com/investment-fee-impact-calculator/" },
-        { "@type": "ListItem", "position": 4, "name": "Savings Goal Calculator", "url": "https://truewealthmetrics.com/savings-goal-calculator/" },
-        { "@type": "ListItem", "position": 5, "name": "ROI Calculator", "url": "https://truewealthmetrics.com/roi-calculator/" },
-        { "@type": "ListItem", "position": 6, "name": "Loan Repayment Calculator", "url": "https://truewealthmetrics.com/loan-repayment-calculator/" },
-        { "@type": "ListItem", "position": 7, "name": "Mortgage Payment Calculator", "url": "https://truewealthmetrics.com/mortgage-payment-calculator/" },
-        { "@type": "ListItem", "position": 8, "name": "Credit Card Payoff Calculator", "url": "https://truewealthmetrics.com/credit-card-payoff-calculator/" },
-        { "@type": "ListItem", "position": 9, "name": "Debt Snowball Avalanche Calculator", "url": "https://truewealthmetrics.com/debt-snowball-avalanche-calculator/" },
-        { "@type": "ListItem", "position": 10, "name": "Retirement Planning Calculator", "url": "https://truewealthmetrics.com/retirement-planning-calculator/" },
-        { "@type": "ListItem", "position": 11, "name": "How Much Should You Save Each Month?", "url": "https://truewealthmetrics.com/how-much-should-you-save/" }
-      ]
-    }
-    </script><link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer="True" src="/header.js"></script></head>
-<body><div id="site-header"></div>
-<div class="wrap">
+  <main class="twm-container">
+    <section class="twm-hero">
+      <h1>Free Finance Calculators</h1>
+      <p class="muted">
+        Clean, fast tools to help you plan money decisions with clarity — budgeting, debt payoff, investment growth,
+        fee impact, mortgages, and retirement projections. No signup. Instant results.
+      </p>
 
-<header>
-<h1>Free Finance Calculators</h1>
-<p class="lead">
-          Clean, fast tools to help you plan money decisions with clarity — budgeting, debt payoff, investment growth,
-          fee impact, mortgages, and retirement projections. No signup. Instant results.
-        </p>
-<div class="pillrow">
-<span class="pill">Mobile-friendly</span>
-<span class="pill">No signup</span>
-<span class="pill">Instant results</span>
-<span class="pill">Educational estimates</span>
-</div>
-</header>
-<div class="grid">
-<section class="card">
-<h2>Budget Planner (Monthly)</h2>
-<p>Enter income + expenses to see total spending, leftover cash, savings target, and budget health.</p>
-<div class="cta">
-<a class="btn" href="/budget-planner-calculator/">Open Budget Planner</a>
-<a class="btn secondary" href="/savings-goal-calculator/">Savings Goal</a>
-</div>
-</section>
-<section class="card">
-<h2>Compound Interest Calculator</h2>
-<p>Estimate long-term growth with monthly contributions and compounding. Great for savings + investing.</p>
-<div class="cta">
-<a class="btn" href="/compound-interest-calculator/">Open Compound</a>
-<a class="btn secondary" href="/investment-fee-impact-calculator/">Check Fee Impact</a>
-</div>
-</section>
-<section class="card">
-<h2>Investment Fee Impact Calculator</h2>
-<p>See how annual fees can reduce long-term returns. Compare low-fee vs high-fee outcomes over time.</p>
-<div class="cta">
-<a class="btn" href="/investment-fee-impact-calculator/">Open Fee Impact</a>
-<a class="btn secondary" href="/retirement-planning-calculator/">Retirement Planner</a>
-</div>
-</section>
-<section class="card">
-<h2>Savings Goal Calculator</h2>
-<p>Find the monthly savings needed to reach a target — or how long your goal will take.</p>
-<div class="cta">
-<a class="btn" href="/savings-goal-calculator/">Open Savings Goal</a>
-<a class="btn secondary" href="/budget-planner-calculator/">Budget Planner</a>
-</div>
-</section>
-<section class="card">
-<h2>ROI Calculator</h2>
-<p>Estimate ending value, profit, ROI %, and CAGR. Includes optional fees and inflation-adjusted view.</p>
-<div class="cta">
-<a class="btn" href="/roi-calculator/">Open ROI Calculator</a>
-<a class="btn secondary" href="/investment-fee-impact-calculator/">Fee Impact</a>
-</div>
-</section>
-<section class="card">
-<h2>Loan Repayment Calculator</h2>
-<p>Calculate monthly repayments, total interest, and payoff timeline for personal loans.</p>
-<div class="cta">
-<a class="btn" href="/loan-repayment-calculator/">Open Loan Calculator</a>
-<a class="btn secondary" href="/credit-card-payoff-calculator/">Credit Card Payoff</a>
-</div>
-</section>
-<section class="card">
-<h2>Mortgage Payment Calculator</h2>
-<p>Advanced mortgage calculator with amortization schedule and extra payments (overpayments) impact.</p>
-<div class="cta">
-<a class="btn" href="/mortgage-payment-calculator/">Open Mortgage</a>
-<a class="btn secondary" href="/budget-planner-calculator/">Budget Planner</a>
-</div>
-</section>
-<section class="card">
-<h2>Credit Card Payoff Calculator</h2>
-<p>See payoff time, interest cost, and the impact of higher monthly payments.</p>
-<div class="cta">
-<a class="btn" href="/credit-card-payoff-calculator/">Open Credit Payoff</a>
-<a class="btn secondary" href="/debt-snowball-avalanche-calculator/">Debt Snowball/Avalanche</a>
-</div>
-</section>
-<section class="card">
-<h2>Debt Snowball vs Avalanche</h2>
-<p>Compare payoff strategies to become debt-free faster and reduce total interest.</p>
-<div class="cta">
-<a class="btn" href="/debt-snowball-avalanche-calculator/">Open Debt Strategy</a>
-<a class="btn secondary" href="/credit-card-payoff-calculator/">Credit Payoff</a>
-</div>
-</section>
-<section class="card">
-<h2>Retirement Planning Calculator</h2>
-<p>Estimate future retirement savings with contributions, growth rate, and time horizon.</p>
-<div class="cta">
-<a class="btn" href="/retirement-planning-calculator/">Open Retirement Planner</a>
-<a class="btn secondary" href="/investment-fee-impact-calculator/">Fee Impact</a>
-</div>
-</section>
-<section class="card">
-<h2>How to Use These Calculators</h2>
-<p>
-            Each calculator is designed to help you understand a specific financial decision before you commit real money.
-            These tools provide educational estimates to support budgeting, debt reduction, investing, and long-term planning.
+      <div class="twm-badges" aria-label="Highlights">
+        <span class="twm-badge">Mobile-friendly</span>
+        <span class="twm-badge">No signup</span>
+        <span class="twm-badge">Instant results</span>
+        <span class="twm-badge">Educational estimates</span>
+      </div>
+
+      <div class="twm-grid">
+        <article class="twm-card p-18">
+          <h2 class="h3">Budget Planner (Monthly)</h2>
+          <p class="muted">
+            Enter income + expenses to see total spending, leftover cash, savings target, and budget health.
           </p>
-<ul class="list">
-<li>Use the Budget Planner to understand monthly cash flow.</li>
-<li>Use the Debt and Credit tools to reduce interest payments faster.</li>
-<li>Use Compound Interest and ROI calculators to evaluate investments.</li>
-<li>Use the Investment Fee Impact calculator to compare low-fee vs high-fee portfolios.</li>
-<li>Use the Retirement Planner to estimate long-term savings needs.</li>
-</ul>
-<div class="mini">
-            Tip: These tools provide estimates for education and planning purposes only.
+          <div class="row gap-10">
+            <a class="twm-link" href="/budget-planner-calculator/">Open Budget Planner</a>
+            <a class="twm-link" href="/savings-goal-calculator/">Savings Goal</a>
           </div>
-</section>
-</div>
+        </article>
 
-</div>
-<footer class="site-footer">
-<div class="container">
-<div class="footer-row">
-<div class="footer-left">
-<div class="footer-brand">© <span id="footerYear"></span> TrueWealthMetrics.</div>
-<div class="footer-note">These calculators provide educational estimates only and do not constitute financial advice.</div>
-</div>
-<div class="footer-links">
-<a href="/about/">About</a>
-<a href="/contact/">Contact</a>
-<a href="/privacy-policy/">Privacy Policy</a>
-<a href="/terms-of-use/">Terms of Use</a>
-</div>
-</div>
-</div>
-<script>
-    (function(){try{document.getElementById('footerYear').textContent=new Date().getFullYear();}catch(e){}})();
-  </script>
-</footer></body>
+        <article class="twm-card p-18">
+          <h2 class="h3">Compound Interest Calculator</h2>
+          <p class="muted">
+            Estimate long-term growth with monthly contributions and compounding. Great for savings + investing.
+          </p>
+          <div class="row gap-10">
+            <a class="twm-link" href="/compound-interest-calculator/">Open Compound</a>
+            <a class="twm-link" href="/investment-fee-impact-calculator/">Check Fee Impact</a>
+          </div>
+        </article>
+
+        <article class="twm-card p-18">
+          <h2 class="h3">Investment Fee Impact Calculator</h2>
+          <p class="muted">
+            See how annual fees can reduce long-term returns. Compare low-fee vs high-fee outcomes over time.
+          </p>
+          <div class="row gap-10">
+            <a class="twm-link" href="/investment-fee-impact-calculator/">Open Fee Impact</a>
+            <a class="twm-link" href="/retirement-planning-calculator/">Retirement Planner</a>
+          </div>
+        </article>
+
+        <article class="twm-card p-18">
+          <h2 class="h3">Savings Goal Calculator</h2>
+          <p class="muted">
+            Find the monthly savings needed to reach a target — or how long your goal will take.
+          </p>
+          <div class="row gap-10">
+            <a class="twm-link" href="/savings-goal-calculator/">Open Savings Goal</a>
+            <a class="twm-link" href="/budget-planner-calculator/">Budget Planner</a>
+          </div>
+        </article>
+
+        <article class="twm-card p-18">
+          <h2 class="h3">ROI Calculator</h2>
+          <p class="muted">
+            Estimate ending value, profit, ROI %, and CAGR. Includes optional fees and inflation-adjusted view.
+          </p>
+          <div class="row gap-10">
+            <a class="twm-link" href="/roi-calculator/">Open ROI Calculator</a>
+            <a class="twm-link" href="/investment-fee-impact-calculator/">Fee Impact</a>
+          </div>
+        </article>
+
+        <article class="twm-card p-18">
+          <h2 class="h3">Loan Repayment Calculator</h2>
+          <p class="muted">
+            Calculate monthly repayments, total interest, and payoff timeline for personal loans.
+          </p>
+          <div class="row gap-10">
+            <a class="twm-link" href="/loan-repayment-calculator/">Open Loan Calculator</a>
+            <a class="twm-link" href="/credit-card-payoff-calculator/">Credit Card Payoff</a>
+          </div>
+        </article>
+
+        <article class="twm-card p-18">
+          <h2 class="h3">Mortgage Payment Calculator</h2>
+          <p class="muted">
+            Advanced mortgage calculator with amortization schedule and extra payment (overpayments) impact.
+          </p>
+          <div class="row gap-10">
+            <a class="twm-link" href="/mortgage-payment-calculator/">Open Mortgage</a>
+            <a class="twm-link" href="/budget-planner-calculator/">Budget Planner</a>
+          </div>
+        </article>
+
+        <article class="twm-card p-18">
+          <h2 class="h3">Credit Card Payoff Calculator</h2>
+          <p class="muted">
+            See payoff time, interest cost, and the impact of higher monthly payments.
+          </p>
+          <div class="row gap-10">
+            <a class="twm-link" href="/credit-card-payoff-calculator/">Open Credit Payoff</a>
+            <a class="twm-link" href="/debt-snowball-avalanche-calculator/">Debt Snowball/Avalanche</a>
+          </div>
+        </article>
+
+        <article class="twm-card p-18">
+          <h2 class="h3">Debt Snowball vs Avalanche</h2>
+          <p class="muted">
+            Compare payoff strategies to become debt-free faster and reduce total interest.
+          </p>
+          <div class="row gap-10">
+            <a class="twm-link" href="/debt-snowball-avalanche-calculator/">Open Debt Strategy</a>
+            <a class="twm-link" href="/credit-card-payoff-calculator/">Credit Payoff</a>
+          </div>
+        </article>
+
+        <article class="twm-card p-18">
+          <h2 class="h3">Retirement Planning Calculator</h2>
+          <p class="muted">
+            Estimate future retirement savings with contributions, growth rate, and time horizon.
+          </p>
+          <div class="row gap-10">
+            <a class="twm-link" href="/retirement-planning-calculator/">Open Retirement Planner</a>
+            <a class="twm-link" href="/investment-fee-impact-calculator/">Fee Impact</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ✅ NEW: Guides section (includes your new article link) -->
+    <section class="mt-28">
+      <div class="twm-card p-18">
+        <h2 class="h3">Guides & Articles</h2>
+        <p class="muted">
+          Short, practical reads to help you make better decisions — then use a calculator to run the numbers.
+        </p>
+
+        <div class="twm-grid">
+          <article class="twm-card p-18">
+            <h3 class="h4">How Much Should You Save Each Month?</h3>
+            <p class="muted">
+              A simple rule you can actually follow, plus examples and next steps.
+            </p>
+            <a class="twm-link" href="/how-much-should-you-save/">Read the guide</a>
+          </article>
+
+          <article class="twm-card p-18">
+            <h3 class="h4">How Compound Interest Actually Works</h3>
+            <p class="muted">
+              Why starting early matters, how monthly contributions accelerate growth, and common mistakes to avoid.
+            </p>
+            <a class="twm-link" href="/how-compound-interest-works/">Read the guide</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-28">
+      <div class="twm-card p-18">
+        <h2 class="h3">How to Use These Calculators</h2>
+        <p class="muted">
+          Each calculator is designed to help you understand a specific financial decision before you commit real money.
+          These tools provide educational estimates to support budgeting, debt reduction, investing, and long-term planning.
+        </p>
+        <ul class="list">
+          <li>Use the <strong>Budget Planner</strong> to understand monthly cash flow.</li>
+          <li>Use the <strong>Debt</strong> and <strong>Credit</strong> tools to reduce interest payments faster.</li>
+          <li>Use <strong>Compound Interest</strong> and <strong>ROI</strong> calculators to evaluate investments.</li>
+          <li>Use <strong>Fee Impact</strong> to compare low-fee vs high-fee portfolios.</li>
+          <li>Use the <strong>Retirement Planner</strong> to estimate long-term savings needs.</li>
+        </ul>
+        <p class="muted">Tip: These tools provide estimates for education and planning purposes only.</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="twm-container footer-row">
+        <div>
+          <div class="footer-brand">© <span id="footerYear"></span> TrueWealthMetrics.</div>
+          <div class="footer-small">These calculators provide educational estimates only and do not constitute financial advice.</div>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms-of-use/">Terms of Use</a>
+        </nav>
+      </div>
+
+      <script>
+        (function () {
+          try { document.getElementById("footerYear").textContent = new Date().getFullYear(); } catch (e) {}
+        })();
+      </script>
+    </footer>
+  </main>
+</body>
 </html>
