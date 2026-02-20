@@ -38,7 +38,7 @@
     <priority>0.3</priority>
   </url>
 
-  <!-- Calculators (your main SEO traffic pages) -->
+  <!-- Calculators -->
   <url>
     <loc>https://truewealthmetrics.com/loan-repayment-calculator/</loc>
     <lastmod>2026-02-19</lastmod>
@@ -109,10 +109,17 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- BLOG / EDUCATIONAL ARTICLES -->
+  <!-- EDUCATIONAL ARTICLES -->
   <url>
     <loc>https://truewealthmetrics.com/how-compound-interest-works/</loc>
     <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://truewealthmetrics.com/how-much-should-you-save/</loc>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
