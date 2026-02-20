@@ -1,54 +1,89 @@
 // Injects the shared header into every page that loads this script.
 // Put in repo root as: header.js
-
 (function () {
   function normalizePath(p) {
-    const s = (p || "/").toLowerCase();
-    // ensure trailing slash for consistent matching (except root)
-    if (s === "/" || s === "/index.html") return "/";
-    return s.endsWith("/") ? s : s + "/";
+    return (p || "/").toLowerCase().replace(/index\.html$/, "");
   }
 
   function setActiveNav() {
-    const path = normalizePath(location.pathname);
+    const path = normalizePath(location.pathname || "/");
 
-    const pills = Array.from(document.querySelectorAll(".twm-pill"));
+    const markActive = (selector) => {
+      document.querySelectorAll(selector).forEach((a) => {
+        a.classList.remove("is-active");
+        const href = normalizePath(a.getAttribute("href") || "");
+        const isHome = href === "/" && (path === "/" || path === "");
+        const isMatch = href !== "/" && href !== "" && path.startsWith(href);
+        if (isHome || isMatch) a.classList.add("is-active");
+      });
+    };
 
-    // Clear any existing active states (prevents double-active)
-    pills.forEach((a) => a.classList.remove("is-active"));
+    markActive(".twm-pill");
+    markActive(".twm-mobile-link");
+  }
 
-    // Find the best match (longest href that matches the current path)
-    let best = null;
-    let bestLen = -1;
+  function closeMenu() {
+    const wrap = document.querySelector(".twm-header-wrap");
+    const menu = document.getElementById("twm-mobile-menu");
+    const btn = document.querySelector(".twm-menu-btn");
+    if (!wrap || !menu || !btn) return;
 
-    for (const a of pills) {
-      const rawHref = (a.getAttribute("href") || "").toLowerCase();
-      const href = normalizePath(rawHref);
+    wrap.classList.remove("is-menu-open");
+    menu.hidden = true;
+    btn.setAttribute("aria-expanded", "false");
+  }
 
-      // Home match
-      if (href === "/" && path === "/") {
-        best = a;
-        bestLen = 1;
-        continue;
-      }
+  function openMenu() {
+    const wrap = document.querySelector(".twm-header-wrap");
+    const menu = document.getElementById("twm-mobile-menu");
+    const btn = document.querySelector(".twm-menu-btn");
+    if (!wrap || !menu || !btn) return;
 
-      // Non-home match: path starts with href
-      if (href !== "/" && path.startsWith(href)) {
-        if (href.length > bestLen) {
-          best = a;
-          bestLen = href.length;
-        }
-      }
-    }
+    wrap.classList.add("is-menu-open");
+    menu.hidden = false;
+    btn.setAttribute("aria-expanded", "true");
+  }
 
-    if (best) {
-      best.classList.add("is-active");
+  function toggleMenu() {
+    const menu = document.getElementById("twm-mobile-menu");
+    if (!menu) return;
+    if (menu.hidden) openMenu();
+    else closeMenu();
+  }
 
-      // Optional: scroll active pill into view on mobile
-      try {
-        best.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
-      } catch (e) {}
-    }
+  function bindMenuEvents() {
+    const btn = document.querySelector(".twm-menu-btn");
+    const menu = document.getElementById("twm-mobile-menu");
+    const wrap = document.querySelector(".twm-header-wrap");
+    if (!btn || !menu || !wrap) return;
+
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggleMenu();
+    });
+
+    // Close menu when clicking a link
+    menu.addEventListener("click", (e) => {
+      const a = e.target && e.target.closest ? e.target.closest("a") : null;
+      if (a) closeMenu();
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (menu.hidden) return;
+      if (wrap.contains(e.target)) return;
+      closeMenu();
+    });
+
+    // Close on ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    // If screen becomes desktop, close menu
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 860) closeMenu();
+    });
   }
 
   async function injectHeader() {
@@ -62,20 +97,16 @@
 
       // Prefer the placeholder div when present to avoid layout quirks
       const mount = document.getElementById("site-header");
-      if (mount) {
-        mount.innerHTML = html;
-      } else {
-        // Fallback: Insert at very top of body
-        document.body.insertAdjacentHTML("afterbegin", html);
-      }
+      if (mount) mount.innerHTML = html;
+      else document.body.insertAdjacentHTML("afterbegin", html);
 
-      // Optional: wrap page content a bit for spacing consistency
+      // Optional: add class to main container if found
       const main = document.querySelector("main");
       if (main) main.classList.add("twm-page");
 
       setActiveNav();
+      bindMenuEvents();
     } catch (e) {
-      // Fails silently (page still works)
       console.warn("Header inject failed:", e);
     }
   }
