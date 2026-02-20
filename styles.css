@@ -252,17 +252,38 @@ tr:last-child td{ border-bottom: none; }
 
 /* Mobile nav: make it scroll instead of squashing */
 @media (max-width: 860px){
-  .twm-header{ flex-wrap: wrap; }
-  .twm-brand{ min-width: auto; }
+  .twm-header{
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .twm-brand{
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .twm-brand-text{
+    font-size: 18px;
+  }
   .twm-nav{
-    justify-content:flex-start;
-    overflow-x:auto;
-    flex-wrap:nowrap;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
     padding-bottom: 6px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    /* subtle fade edges to hint horizontal scroll */
+    mask-image: linear-gradient(to right, transparent 0, black 18px, black calc(100% - 18px), transparent 100%);
   }
   .twm-nav::-webkit-scrollbar{ display:none; }
+  .twm-pill{
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
 }
 
 /* Page spacing so content doesn't feel stuck to header */
