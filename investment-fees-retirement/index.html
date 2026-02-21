@@ -227,12 +227,49 @@
         For personal recommendations, consider speaking with a qualified professional.
       </p>
     </section>
-  </main>
+  
+    <section class="card" style="margin-top:16px">
+      <h2>Related guides</h2>
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h3><a href="/how-compound-interest-works/">How Compound Interest Works</a></h3>
+          <p class="small">Why time and consistency beat chasing high returns — with clear examples.</p>
+          <p class="small"><a href="/compound-interest-calculator/">Run the numbers</a></p>
+        </div>
+        <div class="card">
+          <h3><a href="/how-much-should-you-save/">How Much Should You Save?</a></h3>
+          <p class="small">A saving-rate framework you can actually follow (and adjust).</p>
+          <p class="small"><a href="/savings-goal-calculator/">Plan a savings goal</a></p>
+        </div>
+      </div>
+      <p class="small" style="margin-top:12px">Browse all articles: <a href="/learn/">Learn hub</a>.</p>
+    </section>
 
+</main>
+
+  
   <footer class="footer">
-    <div class="wrap">
-      <p>© 2026 TrueWealthMetrics. These calculators provide educational estimates only and do not constitute financial advice.</p>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">© <span id="footerYear"></span> TrueWealthMetrics.</div>
+      </div>
+      <div class="footer-links">
+        <a href="/learn/">Learn</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms-of-use/">Terms of Use</a>
+      </div>
     </div>
+
+    <script>
+      (function(){
+        try{
+          document.getElementById('footerYear').textContent=new Date().getFullYear();
+        }catch(e){}
+      })();
+    </script>
   </footer>
+
 </body>
 </html>
