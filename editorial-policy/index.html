@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Editorial Policy & Methodology | TrueWealthMetrics</title>
+  <meta name="description" content="Read TrueWealthMetrics editorial policy, calculator methodology, assumptions, update process, and corrections standards. Educational estimates only — not financial advice." />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:title" content="Editorial Policy & Methodology | TrueWealthMetrics" />
+  <meta property="og:description" content="How TrueWealthMetrics builds, reviews, and updates finance calculators and educational content — methodology, assumptions, and corrections." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://truewealthmetrics.com/editorial-policy/" />
+
+  <link rel="canonical" href="https://truewealthmetrics.com/editorial-policy/" />
+  <link rel="icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/header.js"></script>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <div class="wrap">
+    <section class="card">
+      <h1>Editorial Policy & Methodology</h1>
+      <p>
+        TrueWealthMetrics publishes free personal finance calculators and educational explanations to help people understand
+        common financial scenarios (saving, investing, debt payoff, loans, mortgages, and retirement planning).
+        Our goal is clarity — we show the math, the assumptions, and the limitations so you can make better decisions.
+      </p>
+
+      <h2>Educational purpose (not financial advice)</h2>
+      <p>
+        All outputs are estimates for education and planning. We do not provide individualized financial, tax, or legal advice.
+        For major decisions, consider speaking with a qualified professional.
+      </p>
+
+      <h2>How we build calculators</h2>
+      <ul class="list">
+        <li><strong>Deterministic formulas:</strong> Given the same inputs, the calculator produces the same outputs.</li>
+        <li><strong>Transparent assumptions:</strong> Each calculator explains what the inputs mean and what is (and isn’t) included.</li>
+        <li><strong>Scenario testing:</strong> We test edge cases (zero values, extreme rates, long time horizons) to prevent misleading outputs.</li>
+        <li><strong>Consistency:</strong> We use consistent conventions across tools (annual rate in %, monthly contributions, timelines in years).</li>
+      </ul>
+
+      <h2>Common assumptions (examples)</h2>
+      <p>
+        Assumptions vary by calculator, but typical examples include:
+      </p>
+      <ul class="list">
+        <li><strong>Compounding:</strong> Interest may be compounded monthly (or as described on the page).</li>
+        <li><strong>Contributions:</strong> Monthly contributions are assumed to occur at regular intervals (end-of-month unless stated).</li>
+        <li><strong>Rates:</strong> Annual rates are converted to monthly rates for monthly calculations.</li>
+        <li><strong>Fees:</strong> Investment fee impact assumes a fee is applied as a percentage of assets under management each year.</li>
+        <li><strong>Inflation/taxes:</strong> Not included unless the calculator explicitly states they are included.</li>
+      </ul>
+
+      <h2>Sources and references</h2>
+      <p>
+        We use widely accepted personal finance math and standard amortization/compounding formulas.
+        Where relevant, we reference publicly available educational resources and generally accepted financial conventions.
+      </p>
+
+      <h2>Updates, maintenance, and change logs</h2>
+      <ul class="list">
+        <li><strong>Tool updates:</strong> We improve calculators as we add features, refine assumptions, or fix bugs.</li>
+        <li><strong>Content updates:</strong> Educational pages may be updated to improve clarity and accuracy.</li>
+        <li><strong>Versioning:</strong> We may update structured tool definitions (MCP) to reflect new tools or improved descriptions.</li>
+      </ul>
+
+      <h2>Corrections policy</h2>
+      <p>
+        If you believe a calculator output or explanation is incorrect, please contact us with:
+        the page URL, your inputs, the result you received, and what you believe is wrong.
+        We review all reports and publish fixes as needed.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:support@truewealthmetrics.com">support@truewealthmetrics.com</a>
+      </p>
+
+      <hr />
+
+      <p class="footer-small">
+        Last updated: <strong>February 21, 2026</strong>
+      </p>
+    </section>
+
+    <footer class="site-footer">
+      <div class="twm-container footer-row">
+        <div>
+          <div class="footer-brand">© <span id="footerYear"></span> TrueWealthMetrics.</div>
+          <div class="footer-small">These calculators provide educational estimates only and do not constitute financial advice.</div>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer">
+          <a href="/about/">About</a>
+          <a href="/editorial-policy/">Editorial Policy</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms-of-use/">Terms of Use</a>
+        </nav>
+      </div>
+
+      <script>
+        (function () {
+          try { document.getElementById("footerYear").textContent = new Date().getFullYear(); } catch (e) {}
+        })();
+      </script>
+    </footer>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Editorial Policy & Methodology",
+    "url": "https://truewealthmetrics.com/editorial-policy/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "TrueWealthMetrics",
+      "url": "https://truewealthmetrics.com/"
+    },
+    "about": {
+      "@type": "Organization",
+      "name": "TrueWealthMetrics",
+      "url": "https://truewealthmetrics.com/"
+    },
+    "description": "TrueWealthMetrics editorial policy describing calculator methodology, assumptions, updates, and corrections. Educational estimates only."
+  }
+  </script>
+</body>
+</html>
