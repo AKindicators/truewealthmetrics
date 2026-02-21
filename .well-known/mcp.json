@@ -1,0 +1,58 @@
+{
+  "name": "TrueWealthMetrics",
+  "description": "Free personal finance calculators and planning tools.",
+  "url": "https://truewealthmetrics.com",
+  "version": "1.0",
+  "tools": [
+    {
+      "id": "compound_interest_calculator",
+      "name": "Compound Interest Calculator",
+      "description": "Calculates investment growth with optional monthly contributions.",
+      "page_url": "https://truewealthmetrics.com/compound-interest-calculator/",
+      "input_schema": {
+        "principal": "number",
+        "monthly_contribution": "number",
+        "interest_rate_annual_percent": "number",
+        "years": "number"
+      },
+      "output_schema": {
+        "final_balance": "number",
+        "total_contributions": "number",
+        "interest_earned": "number"
+      }
+    },
+    {
+      "id": "savings_goal_calculator",
+      "name": "Savings Goal Calculator",
+      "description": "Calculates how much to save monthly to reach a target amount.",
+      "page_url": "https://truewealthmetrics.com/savings-goal-calculator/",
+      "input_schema": {
+        "target_amount": "number",
+        "current_savings": "number",
+        "interest_rate_annual_percent": "number",
+        "years": "number"
+      },
+      "output_schema": {
+        "required_monthly_saving": "number"
+      }
+    },
+    {
+      "id": "investment_fee_impact_calculator",
+      "name": "Investment Fee Impact Calculator",
+      "description": "Estimates how annual fees reduce long-term investment growth.",
+      "page_url": "https://truewealthmetrics.com/investment-fee-impact-calculator/",
+      "input_schema": {
+        "initial_investment": "number",
+        "monthly_contribution": "number",
+        "gross_return_annual_percent": "number",
+        "fee_annual_percent": "number",
+        "years": "number"
+      },
+      "output_schema": {
+        "final_balance_with_fees": "number",
+        "final_balance_without_fees": "number",
+        "fees_lost_amount": "number"
+      }
+    }
+  ]
+}
