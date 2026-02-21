@@ -2,12 +2,19 @@
   "name": "TrueWealthMetrics",
   "description": "Free personal finance calculators and planning tools.",
   "url": "https://truewealthmetrics.com",
-  "version": "1.0",
+  "version": "1.1",
+  "contact_email": "support@truewealthmetrics.com",
+  "publisher": {
+    "name": "TrueWealthMetrics",
+    "website": "https://truewealthmetrics.com",
+    "support_email": "support@truewealthmetrics.com"
+  },
   "tools": [
     {
       "id": "compound_interest_calculator",
       "name": "Compound Interest Calculator",
       "description": "Calculates investment growth with optional monthly contributions.",
+      "categories": ["finance", "calculator", "investing", "compound-interest"],
       "page_url": "https://truewealthmetrics.com/compound-interest-calculator/",
       "input_schema": {
         "principal": "number",
@@ -25,6 +32,7 @@
       "id": "savings_goal_calculator",
       "name": "Savings Goal Calculator",
       "description": "Calculates how much to save monthly to reach a target amount.",
+      "categories": ["finance", "calculator", "saving", "planning"],
       "page_url": "https://truewealthmetrics.com/savings-goal-calculator/",
       "input_schema": {
         "target_amount": "number",
@@ -40,6 +48,7 @@
       "id": "investment_fee_impact_calculator",
       "name": "Investment Fee Impact Calculator",
       "description": "Estimates how annual fees reduce long-term investment growth.",
+      "categories": ["finance", "calculator", "investing", "fees"],
       "page_url": "https://truewealthmetrics.com/investment-fee-impact-calculator/",
       "input_schema": {
         "initial_investment": "number",
