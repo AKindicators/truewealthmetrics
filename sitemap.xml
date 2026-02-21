@@ -1,134 +1,141 @@
-<?xml version='1.0' encoding='utf-8'?>
-<ns0:urlset xmlns:ns0="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/</ns0:loc>
-    <ns0:lastmod>2026-02-21</ns0:lastmod>
-    <ns0:changefreq>weekly</ns0:changefreq>
-    <ns0:priority>1.0</ns0:priority>
-  </ns0:url>
-
-  
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/about/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>yearly</ns0:changefreq>
-    <ns0:priority>0.5</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/contact/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>yearly</ns0:changefreq>
-    <ns0:priority>0.5</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/privacy-policy/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>yearly</ns0:changefreq>
-    <ns0:priority>0.3</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/terms-of-use/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>yearly</ns0:changefreq>
-    <ns0:priority>0.3</ns0:priority>
-  </ns0:url>
-
-  
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/loan-repayment-calculator/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.9</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/mortgage-payment-calculator/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.9</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/compound-interest-calculator/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.95</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/budget-planner-calculator/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.9</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/credit-card-payoff-calculator/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.9</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/debt-snowball-avalanche-calculator/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.9</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/roi-calculator/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.85</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/retirement-planning-calculator/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.95</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/savings-goal-calculator/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.9</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/investment-fee-impact-calculator/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.9</ns0:priority>
-  </ns0:url>
-
-  
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/how-compound-interest-works/</ns0:loc>
-    <ns0:lastmod>2026-02-19</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.8</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/how-much-should-you-save/</ns0:loc>
-    <ns0:lastmod>2026-02-20</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.8</ns0:priority>
-  </ns0:url>
-
-  <ns0:url>
-    <ns0:loc>https://truewealthmetrics.com/investment-fees-retirement/</ns0:loc>
-    <ns0:lastmod>2026-02-20</ns0:lastmod>
-    <ns0:changefreq>monthly</ns0:changefreq>
-    <ns0:priority>0.8</ns0:priority>
-  </ns0:url>
-
-<ns0:url><ns0:loc>https://truewealthmetrics.com/learn/</ns0:loc><ns0:lastmod>2026-02-21</ns0:lastmod><ns0:changefreq>weekly</ns0:changefreq><ns0:priority>0.75</ns0:priority></ns0:url><ns0:url><ns0:loc>https://truewealthmetrics.com/about-the-author/</ns0:loc><ns0:lastmod>2026-02-21</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.5</ns0:priority></ns0:url></ns0:urlset>
+<?xml version="1.0" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://truewealthmetrics.com/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/4-percent-rule-retirement/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/about/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/about-the-author/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/budget-planner-calculator/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/compound-interest-calculator/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/contact/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/credit-card-payoff-calculator/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/debt-snowball-avalanche-calculator/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/how-compound-interest-works/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/how-much-emergency-fund/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/how-much-should-you-save/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/inflation-vs-investing/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/investment-fee-impact-calculator/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/investment-fees-retirement/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/learn/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/loan-repayment-calculator/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/mortgage-payment-calculator/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/privacy-policy/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/retirement-planning-calculator/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/roi-calculator/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/savings-goal-calculator/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truewealthmetrics.com/terms-of-use/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
