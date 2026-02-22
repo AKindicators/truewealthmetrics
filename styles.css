@@ -355,3 +355,10 @@ tr:last-child td{border-bottom:none}
   .twm-brand span{font-size:16px}
   .twm-pill{padding:9px 12px;font-size:13px}
 }
+
+
+.twm-byline{margin:12px 0 16px;padding:12px 14px;background:var(--card2);border:1px solid var(--border);border-radius:14px;color:var(--muted);font-size:14px;line-height:1.45;}
+.twm-byline strong{color:var(--text);}
+.twm-byline a{color:var(--accent2);text-decoration:none;}
+.twm-byline a:hover{text-decoration:underline;}
+.twm-byline-links{margin-top:6px;}
