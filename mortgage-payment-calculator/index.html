@@ -48,6 +48,7 @@
 <script data-twm-schema="org" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com","logo":"https://truewealthmetrics.com/logo.png"}</script>
 
 <script data-twm-schema="website" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com"}</script>
+  <script data-twm-schema="author" type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://truewealthmetrics.com/about-the-author/#author","name":"TrueWealthMetrics Editorial Team","url":"https://truewealthmetrics.com/about-the-author/","worksFor":{"@id":"https://truewealthmetrics.com/#org"},"jobTitle":"Personal Finance Research & Tools"}</script>
 </head>
 <body><div id="site-header"></div>
 <div class="wrap">
@@ -483,7 +484,9 @@
   reset();
 })();
 </script>
-<section class="card" id="faq">
+<div class="wrap">
+
+<section class="card section" id="faq" data-twm-faq="1">
 <h2>Frequently Asked Questions</h2>
 <h3>How does a mortgage payment calculator work?</h3>
 <p>It estimates your monthly mortgage payment based on the loan amount, interest rate, and term using standard amortization formulas.</p>
@@ -496,6 +499,9 @@
 <h3>Fixed vs variable rate — what changes?</h3>
 <p>Fixed rates keep payments stable. Variable rates can change over time, which can raise or lower payments and total interest.</p>
 </section>
+
+</div>
+
 <footer class="site-footer">
 <div class="container">
 <div class="footer-row">

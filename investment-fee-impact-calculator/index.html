@@ -48,6 +48,7 @@
 <script data-twm-schema="org" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com","logo":"https://truewealthmetrics.com/logo.png"}</script>
 
 <script data-twm-schema="website" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com"}</script>
+  <script data-twm-schema="author" type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://truewealthmetrics.com/about-the-author/#author","name":"TrueWealthMetrics Editorial Team","url":"https://truewealthmetrics.com/about-the-author/","worksFor":{"@id":"https://truewealthmetrics.com/#org"},"jobTitle":"Personal Finance Research & Tools"}</script>
 </head>
 <body><div id="site-header"></div>
 <div class="wrap">
@@ -404,7 +405,9 @@
       // first render
       reset();
     </script>
-<section class="card" id="faq">
+<div class="wrap">
+
+<section class="card section" id="faq" data-twm-faq="1">
 <h2>Frequently Asked Questions</h2>
 <h3>What is an investment fee impact calculator?</h3>
 <p>It estimates how ongoing fees (like expense ratios or platform fees) can reduce your long‑term investment balance compared with a lower‑fee alternative.</p>
@@ -417,6 +420,9 @@
 <h3>How can I reduce fees?</h3>
 <p>Consider low‑cost index funds or ETFs, compare platforms, and review total costs (not just one fee) before investing.</p>
 </section>
+
+</div>
+
 <footer class="site-footer">
 <div class="container">
 <div class="footer-row">

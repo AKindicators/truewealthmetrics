@@ -61,6 +61,7 @@
 <script data-twm-schema="org" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com","logo":"https://truewealthmetrics.com/logo.png"}</script>
 
 <script data-twm-schema="website" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com"}</script>
+  <script data-twm-schema="author" type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://truewealthmetrics.com/about-the-author/#author","name":"TrueWealthMetrics Editorial Team","url":"https://truewealthmetrics.com/about-the-author/","worksFor":{"@id":"https://truewealthmetrics.com/#org"},"jobTitle":"Personal Finance Research & Tools"}</script>
 </head>
 <body><div id="site-header"></div>
 <div class="wrap">
@@ -540,7 +541,9 @@
       resetDefaults();
       applyMode("time");
     </script>
-<section class="card" id="faq">
+<div class="wrap">
+
+<section class="card section" id="faq" data-twm-faq="1">
 <h2>Frequently Asked Questions</h2>
 <h3>How does a savings goal calculator work?</h3>
 <p>It estimates how much you need to save each period to reach a target amount by a chosen date, based on your starting balance and assumptions.</p>
@@ -553,6 +556,9 @@
 <h3>How big should my emergency fund be?</h3>
 <p>Many people aim for 3–6 months of essential expenses, but your situation may differ based on income stability and obligations.</p>
 </section>
+
+</div>
+
 <footer class="site-footer">
 <div class="container">
 <div class="footer-row">

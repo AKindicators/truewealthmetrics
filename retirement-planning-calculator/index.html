@@ -57,6 +57,7 @@
 <script data-twm-schema="org" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com","logo":"https://truewealthmetrics.com/logo.png"}</script>
 
 <script data-twm-schema="website" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com"}</script>
+  <script data-twm-schema="author" type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://truewealthmetrics.com/about-the-author/#author","name":"TrueWealthMetrics Editorial Team","url":"https://truewealthmetrics.com/about-the-author/","worksFor":{"@id":"https://truewealthmetrics.com/#org"},"jobTitle":"Personal Finance Research & Tools"}</script>
 </head>
 <body><div id="site-header"></div>
 <div class="wrap">
@@ -484,7 +485,9 @@ Total contributions before retirement: ${fmtGBP0.format(res.totalContrib)} (inte
       document.getElementById("yr").textContent = new Date().getFullYear();
       calculate();
     </script>
-<section class="card" id="faq">
+<div class="wrap">
+
+<section class="card section" id="faq" data-twm-faq="1">
 <h2>Frequently Asked Questions</h2>
 <h3>How does a retirement planning calculator work?</h3>
 <p>It estimates how your savings may grow over time based on current savings, contributions, years to retirement, and an assumed return rate.</p>
@@ -497,6 +500,9 @@ Total contributions before retirement: ${fmtGBP0.format(res.totalContrib)} (inte
 <h3>Is this financial advice?</h3>
 <p>No. This is an educational estimate. Consider a qualified professional for personalised retirement planning.</p>
 </section>
+
+</div>
+
 <footer class="site-footer">
 <div class="container">
 <div class="footer-row">
