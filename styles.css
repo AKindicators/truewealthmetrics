@@ -362,3 +362,36 @@ tr:last-child td{border-bottom:none}
 .twm-byline a{color:var(--accent2);text-decoration:none;}
 .twm-byline a:hover{text-decoration:underline;}
 .twm-byline-links{margin-top:6px;}
+
+/* --- E‑E‑A‑T Author Byline (Articles/Guides) --- */
+.author-byline{
+  margin: 14px 0 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+}
+.author-byline__title{
+  font-size: 0.98rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.author-byline__role{
+  font-size: 0.92rem;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+.author-byline__note{
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+.author-byline__links{
+  font-size: 0.92rem;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+.author-byline__links a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
