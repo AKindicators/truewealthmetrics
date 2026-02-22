@@ -28,37 +28,8 @@
       }
     </script>
 <script id="jsonld-faq" type="application/ld+json">
-      {
-        "@context":"https://schema.org",
-        "@type":"FAQPage",
-        "mainEntity":[
-          {
-            "@type":"Question",
-            "name":"How much money do I need to retire?",
-            "acceptedAnswer":{
-              "@type":"Answer",
-              "text":"A common estimate uses a withdrawal rate. Required nest egg ≈ target annual income ÷ withdrawal rate. Example: £30,000 ÷ 4% ≈ £750,000."
-            }
-          },
-          {
-            "@type":"Question",
-            "name":"What is the 4% rule?",
-            "acceptedAnswer":{
-              "@type":"Answer",
-              "text":"The 4% rule is a guideline suggesting you may withdraw about 4% of your portfolio in the first retirement year (then adjust for inflation) over a long retirement. It’s not guaranteed and depends on market returns."
-            }
-          },
-          {
-            "@type":"Question",
-            "name":"Should I include inflation in retirement planning?",
-            "acceptedAnswer":{
-              "@type":"Answer",
-              "text":"Inflation affects future purchasing power. If you enter an inflation rate, this calculator shows an inflation-adjusted view so you can compare outcomes in today’s money."
-            }
-          }
-        ]
-      }
-    </script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a retirement planning calculator work?","acceptedAnswer":{"@type":"Answer","text":"It estimates how your savings may grow over time based on current savings, contributions, years to retirement, and an assumed return rate."}},{"@type":"Question","name":"What return rate should I use?","acceptedAnswer":{"@type":"Answer","text":"For planning, many people use a conservative range such as 4%–7% depending on risk. Higher assumptions can overestimate outcomes."}},{"@type":"Question","name":"Does it account for inflation?","acceptedAnswer":{"@type":"Answer","text":"Some projections show nominal growth. To plan in today’s money, compare your return assumption against expected inflation."}},{"@type":"Question","name":"How much should I save each month?","acceptedAnswer":{"@type":"Answer","text":"That depends on your target amount, timeline, and expected return. Use the calculator to test scenarios and adjust contributions."}},{"@type":"Question","name":"Is this financial advice?","acceptedAnswer":{"@type":"Answer","text":"No. This is an educational estimate. Consider a qualified professional for personalised retirement planning."}}]}
+</script>
 <script id="jsonld-softwareapp" type="application/ld+json">
       {
         "@context":"https://schema.org",
@@ -494,6 +465,19 @@ Total contributions before retirement: ${fmtGBP0.format(res.totalContrib)} (inte
       document.getElementById("yr").textContent = new Date().getFullYear();
       calculate();
     </script>
+<section class="card" id="faq">
+<h2>Frequently Asked Questions</h2>
+<h3>How does a retirement planning calculator work?</h3>
+<p>It estimates how your savings may grow over time based on current savings, contributions, years to retirement, and an assumed return rate.</p>
+<h3>What return rate should I use?</h3>
+<p>For planning, many people use a conservative range such as 4%–7% depending on risk. Higher assumptions can overestimate outcomes.</p>
+<h3>Does it account for inflation?</h3>
+<p>Some projections show nominal growth. To plan in today’s money, compare your return assumption against expected inflation.</p>
+<h3>How much should I save each month?</h3>
+<p>That depends on your target amount, timeline, and expected return. Use the calculator to test scenarios and adjust contributions.</p>
+<h3>Is this financial advice?</h3>
+<p>No. This is an educational estimate. Consider a qualified professional for personalised retirement planning.</p>
+</section>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-row">

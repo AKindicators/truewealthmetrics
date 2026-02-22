@@ -30,37 +30,8 @@
       }
     </script>
 <script id="jsonld-faq" type="application/ld+json">
-      {
-        "@context":"https://schema.org",
-        "@type":"FAQPage",
-        "mainEntity":[
-          {
-            "@type":"Question",
-            "name":"How is compound interest calculated with monthly contributions?",
-            "acceptedAnswer":{
-              "@type":"Answer",
-              "text":"A common approach compounds the balance and adds a contribution each month. This reflects how many savings and investment plans work in practice."
-            }
-          },
-          {
-            "@type":"Question",
-            "name":"What is the Rule of 72?",
-            "acceptedAnswer":{
-              "@type":"Answer",
-              "text":"The Rule of 72 estimates how long it takes to roughly double your money: 72 ÷ annual return rate (%) ≈ years to double."
-            }
-          },
-          {
-            "@type":"Question",
-            "name":"Does compounding monthly beat compounding yearly?",
-            "acceptedAnswer":{
-              "@type":"Answer",
-              "text":"With the same annual rate, more frequent compounding can produce a slightly higher final balance. The difference is usually small compared to time, contributions, and the return rate."
-            }
-          }
-        ]
-      }
-    </script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is compound interest calculated with monthly contributions?","acceptedAnswer":{"@type":"Answer","text":"A common method compounds your balance each period and adds your regular contribution. Over time you earn growth on both your original money and past growth."}},{"@type":"Question","name":"Does compounding monthly vs yearly make a big difference?","acceptedAnswer":{"@type":"Answer","text":"More frequent compounding can slightly increase results over long periods, but your contribution amount, return rate, and time horizon usually matter more."}},{"@type":"Question","name":"What annual return should I assume?","acceptedAnswer":{"@type":"Answer","text":"For long‑term planning, many people use a conservative range such as 5%–8% for diversified investments, or a lower rate for cash savings."}},{"@type":"Question","name":"Is this calculator accurate for real investments?","acceptedAnswer":{"@type":"Answer","text":"It provides educational estimates using simplified assumptions. Real returns vary, fees and taxes may apply, and contributions may not be invested at the same time each month."}},{"@type":"Question","name":"Why does starting earlier matter so much?","acceptedAnswer":{"@type":"Answer","text":"Time increases the number of compounding periods. Even small contributions can grow substantially over decades because each year builds on the last."}}]}
+</script>
 <script id="jsonld-breadcrumbs" type="application/ld+json">
       {
         "@context":"https://schema.org",
@@ -434,6 +405,19 @@ you could end with ${fmtGBP.format(res.finalBalance)} (interest earned: ${fmtGBP
       document.getElementById("yr").textContent = new Date().getFullYear();
       calculate();
     </script>
+<section class="card" id="faq">
+<h2>Frequently Asked Questions</h2>
+<h3>How is compound interest calculated with monthly contributions?</h3>
+<p>A common method compounds your balance each period and adds your regular contribution. Over time you earn growth on both your original money and past growth.</p>
+<h3>Does compounding monthly vs yearly make a big difference?</h3>
+<p>More frequent compounding can slightly increase results over long periods, but your contribution amount, return rate, and time horizon usually matter more.</p>
+<h3>What annual return should I assume?</h3>
+<p>For long‑term planning, many people use a conservative range such as 5%–8% for diversified investments, or a lower rate for cash savings.</p>
+<h3>Is this calculator accurate for real investments?</h3>
+<p>It provides educational estimates using simplified assumptions. Real returns vary, fees and taxes may apply, and contributions may not be invested at the same time each month.</p>
+<h3>Why does starting earlier matter so much?</h3>
+<p>Time increases the number of compounding periods. Even small contributions can grow substantially over decades because each year builds on the last.</p>
+</section>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-row">

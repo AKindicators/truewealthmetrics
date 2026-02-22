@@ -25,28 +25,8 @@
       }
     </script>
 <script id="jsonld-faq" type="application/ld+json">
-      {
-        "@context":"https://schema.org",
-        "@type":"FAQPage",
-        "mainEntity":[
-          {
-            "@type":"Question",
-            "name":"How is a loan monthly payment calculated?",
-            "acceptedAnswer":{"@type":"Answer","text":"For fixed-rate loans, the monthly payment is based on the loan amount, the monthly interest rate, and the number of monthly payments. This calculator uses the standard amortization formula."}
-          },
-          {
-            "@type":"Question",
-            "name":"Do extra payments reduce interest?",
-            "acceptedAnswer":{"@type":"Answer","text":"Yes. Extra payments reduce the principal faster, which lowers future interest and can shorten the payoff time."}
-          },
-          {
-            "@type":"Question",
-            "name":"What is an amortization schedule?",
-            "acceptedAnswer":{"@type":"Answer","text":"An amortization schedule is a month-by-month breakdown showing how each payment is split between interest and principal, and how your remaining balance declines over time."}
-          }
-        ]
-      }
-    </script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a loan repayment calculator work?","acceptedAnswer":{"@type":"Answer","text":"It estimates your monthly payment and total interest using the loan amount, interest rate, and term, based on standard amortization math."}},{"@type":"Question","name":"What is amortization?","acceptedAnswer":{"@type":"Answer","text":"Amortization means each payment covers interest plus some principal. Early payments are mostly interest; later payments pay down more principal."}},{"@type":"Question","name":"Can I see an amortization schedule?","acceptedAnswer":{"@type":"Answer","text":"Yes. A schedule shows how each payment is split between interest and principal over time so you can track progress."}},{"@type":"Question","name":"What happens if I make extra payments?","acceptedAnswer":{"@type":"Answer","text":"Extra payments usually reduce total interest and shorten the loan term because they reduce the remaining principal faster."}},{"@type":"Question","name":"Is the interest rate fixed?","acceptedAnswer":{"@type":"Answer","text":"This calculator assumes a fixed rate. Variable rates can change payments and total cost."}}]}
+</script>
 <script id="jsonld-softwareapp" type="application/ld+json">
       {
         "@context":"https://schema.org",
@@ -539,6 +519,19 @@ ${(extra > 0 && extraAm.ok) ? `With ${fmtMoney(currency, extra, 2)}/mo extra: pa
       document.getElementById("yr").textContent = new Date().getFullYear();
       calculate();
     </script>
+<section class="card" id="faq">
+<h2>Frequently Asked Questions</h2>
+<h3>How does a loan repayment calculator work?</h3>
+<p>It estimates your monthly payment and total interest using the loan amount, interest rate, and term, based on standard amortization math.</p>
+<h3>What is amortization?</h3>
+<p>Amortization means each payment covers interest plus some principal. Early payments are mostly interest; later payments pay down more principal.</p>
+<h3>Can I see an amortization schedule?</h3>
+<p>Yes. A schedule shows how each payment is split between interest and principal over time so you can track progress.</p>
+<h3>What happens if I make extra payments?</h3>
+<p>Extra payments usually reduce total interest and shorten the loan term because they reduce the remaining principal faster.</p>
+<h3>Is the interest rate fixed?</h3>
+<p>This calculator assumes a fixed rate. Variable rates can change payments and total cost.</p>
+</section>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-row">

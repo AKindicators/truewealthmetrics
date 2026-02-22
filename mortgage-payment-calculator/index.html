@@ -42,28 +42,8 @@
   }
   </script>
 <script id="jsonld-faq" type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Do extra payments always reduce payoff time?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes, as long as your payment covers monthly interest. Overpayments reduce principal, which lowers future interest and shortens the schedule."}
-      },
-      {
-        "@type":"Question",
-        "name":"Is tax and insurance included in the amortization schedule?",
-        "acceptedAnswer":{"@type":"Answer","text":"No. The amortization schedule tracks loan balance (principal and interest). Tax, insurance, and HOA are included in the all‑in monthly cost only."}
-      },
-      {
-        "@type":"Question",
-        "name":"Why can a mortgage never finish?",
-        "acceptedAnswer":{"@type":"Answer","text":"If the principal+interest payment does not exceed monthly interest, the balance won’t reduce. Increase payment, add an overpayment, lower rate, or extend term."}
-      }
-    ]
-  }
-  </script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a mortgage payment calculator work?","acceptedAnswer":{"@type":"Answer","text":"It estimates your monthly mortgage payment based on the loan amount, interest rate, and term using standard amortization formulas."}},{"@type":"Question","name":"Does this include taxes and insurance?","acceptedAnswer":{"@type":"Answer","text":"This tool focuses on principal and interest. Property taxes, insurance, HOA fees, and other costs can increase the real monthly payment."}},{"@type":"Question","name":"What is the difference between 25 and 30 years?","acceptedAnswer":{"@type":"Answer","text":"A longer term usually lowers the monthly payment but increases total interest paid. A shorter term costs more monthly but can save interest."}},{"@type":"Question","name":"What if I overpay my mortgage?","acceptedAnswer":{"@type":"Answer","text":"Overpayments usually reduce interest and can shorten the term by reducing the principal faster, depending on lender rules."}},{"@type":"Question","name":"Fixed vs variable rate — what changes?","acceptedAnswer":{"@type":"Answer","text":"Fixed rates keep payments stable. Variable rates can change over time, which can raise or lower payments and total interest."}}]}
+</script>
 <link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer src="/header.js"></script></head>
 <body><div id="site-header"></div>
 <div class="wrap">
@@ -484,6 +464,19 @@
   reset();
 })();
 </script>
+<section class="card" id="faq">
+<h2>Frequently Asked Questions</h2>
+<h3>How does a mortgage payment calculator work?</h3>
+<p>It estimates your monthly mortgage payment based on the loan amount, interest rate, and term using standard amortization formulas.</p>
+<h3>Does this include taxes and insurance?</h3>
+<p>This tool focuses on principal and interest. Property taxes, insurance, HOA fees, and other costs can increase the real monthly payment.</p>
+<h3>What is the difference between 25 and 30 years?</h3>
+<p>A longer term usually lowers the monthly payment but increases total interest paid. A shorter term costs more monthly but can save interest.</p>
+<h3>What if I overpay my mortgage?</h3>
+<p>Overpayments usually reduce interest and can shorten the term by reducing the principal faster, depending on lender rules.</p>
+<h3>Fixed vs variable rate — what changes?</h3>
+<p>Fixed rates keep payments stable. Variable rates can change over time, which can raise or lower payments and total interest.</p>
+</section>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-row">

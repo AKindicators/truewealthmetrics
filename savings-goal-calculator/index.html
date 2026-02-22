@@ -55,28 +55,8 @@
       }
     </script>
 <script id="jsonld-faq" type="application/ld+json">
-      {
-        "@context":"https://schema.org",
-        "@type":"FAQPage",
-        "mainEntity":[
-          {
-            "@type":"Question",
-            "name":"Should I include interest in my savings goal?",
-            "acceptedAnswer":{"@type":"Answer","text":"If your savings are in an interest-bearing account (cash ISA, high-yield savings), including an estimated rate can improve accuracy. If unsure, use 0% for a conservative plan."}
-          },
-          {
-            "@type":"Question",
-            "name":"Why does the calculator say the goal is not reached?",
-            "acceptedAnswer":{"@type":"Answer","text":"Your monthly contribution may be too low for the target, rate, and time horizon. Increase the monthly amount, extend the horizon, or adjust the interest rate."}
-          },
-          {
-            "@type":"Question",
-            "name":"Are contributions assumed at the start or end of the month?",
-            "acceptedAnswer":{"@type":"Answer","text":"This calculator assumes contributions are made at the end of each month with monthly compounding. Real products may vary slightly."}
-          }
-        ]
-      }
-    </script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a savings goal calculator work?","acceptedAnswer":{"@type":"Answer","text":"It estimates how much you need to save each period to reach a target amount by a chosen date, based on your starting balance and assumptions."}},{"@type":"Question","name":"Should I save weekly or monthly?","acceptedAnswer":{"@type":"Answer","text":"Monthly saving is common, but weekly can feel easier for some budgets. The best choice is the one you can stick with consistently."}},{"@type":"Question","name":"Does it include interest?","acceptedAnswer":{"@type":"Answer","text":"If you enter an interest rate, the calculator can estimate growth from interest. If not, it assumes savings only."}},{"@type":"Question","name":"What if I miss a month?","acceptedAnswer":{"@type":"Answer","text":"Missing contributions typically means you’ll need to save more later or extend your timeline. You can re-run the calculator with new inputs."}},{"@type":"Question","name":"How big should my emergency fund be?","acceptedAnswer":{"@type":"Answer","text":"Many people aim for 3–6 months of essential expenses, but your situation may differ based on income stability and obligations."}}]}
+</script>
 <link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer src="/header.js"></script></head>
 <body><div id="site-header"></div>
 <div class="wrap">
@@ -543,6 +523,19 @@
       resetDefaults();
       applyMode("time");
     </script>
+<section class="card" id="faq">
+<h2>Frequently Asked Questions</h2>
+<h3>How does a savings goal calculator work?</h3>
+<p>It estimates how much you need to save each period to reach a target amount by a chosen date, based on your starting balance and assumptions.</p>
+<h3>Should I save weekly or monthly?</h3>
+<p>Monthly saving is common, but weekly can feel easier for some budgets. The best choice is the one you can stick with consistently.</p>
+<h3>Does it include interest?</h3>
+<p>If you enter an interest rate, the calculator can estimate growth from interest. If not, it assumes savings only.</p>
+<h3>What if I miss a month?</h3>
+<p>Missing contributions typically means you’ll need to save more later or extend your timeline. You can re-run the calculator with new inputs.</p>
+<h3>How big should my emergency fund be?</h3>
+<p>Many people aim for 3–6 months of essential expenses, but your situation may differ based on income stability and obligations.</p>
+</section>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-row">

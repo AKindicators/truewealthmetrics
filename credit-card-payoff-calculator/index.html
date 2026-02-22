@@ -52,28 +52,8 @@
   }
   </script>
 <script id="jsonld-faq" type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Why can a low payment mean you never pay off the balance?",
-        "acceptedAnswer":{"@type":"Answer","text":"If your monthly payment is less than or close to the monthly interest, the balance will not reduce. Increasing the payment or lowering APR helps the payoff progress."}
-      },
-      {
-        "@type":"Question",
-        "name":"How does extra payment reduce interest?",
-        "acceptedAnswer":{"@type":"Answer","text":"Extra payment reduces the principal faster. With a smaller balance, future interest charges are lower, so you pay less interest overall and finish sooner."}
-      },
-      {
-        "@type":"Question",
-        "name":"Does this include fees or promotional APR periods?",
-        "acceptedAnswer":{"@type":"Answer","text":"No. This tool models a standard APR with fixed monthly payments. If your card has fees or changing rates, results can differ."}
-      }
-    ]
-  }
-  </script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a credit card payoff calculator work?","acceptedAnswer":{"@type":"Answer","text":"It estimates how long it may take to clear a balance based on your APR and monthly payment, and shows how much interest you could pay over time."}},{"@type":"Question","name":"What if I pay more than the minimum each month?","acceptedAnswer":{"@type":"Answer","text":"Paying more than the minimum usually reduces total interest and shortens payoff time significantly because less interest accrues on the remaining balance."}},{"@type":"Question","name":"Does the APR apply monthly or yearly?","acceptedAnswer":{"@type":"Answer","text":"APR is an annual rate, but credit card interest is typically calculated daily and charged monthly. This calculator uses a standard monthly approximation."}},{"@type":"Question","name":"Should I pay the highest APR card first?","acceptedAnswer":{"@type":"Answer","text":"Many people use the avalanche method (highest APR first) to minimize interest, or the snowball method (smallest balance first) for motivation."}},{"@type":"Question","name":"Are fees included in the results?","acceptedAnswer":{"@type":"Answer","text":"This tool focuses on interest based on APR. Late fees, balance transfer fees, and new purchases can change the outcome."}}]}
+</script>
 <link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer src="/header.js"></script></head>
 <body><div id="site-header"></div>
 <div class="wrap">
@@ -317,6 +297,19 @@
   calc();
 })();
 </script>
+<section class="card" id="faq">
+<h2>Frequently Asked Questions</h2>
+<h3>How does a credit card payoff calculator work?</h3>
+<p>It estimates how long it may take to clear a balance based on your APR and monthly payment, and shows how much interest you could pay over time.</p>
+<h3>What if I pay more than the minimum each month?</h3>
+<p>Paying more than the minimum usually reduces total interest and shortens payoff time significantly because less interest accrues on the remaining balance.</p>
+<h3>Does the APR apply monthly or yearly?</h3>
+<p>APR is an annual rate, but credit card interest is typically calculated daily and charged monthly. This calculator uses a standard monthly approximation.</p>
+<h3>Should I pay the highest APR card first?</h3>
+<p>Many people use the avalanche method (highest APR first) to minimize interest, or the snowball method (smallest balance first) for motivation.</p>
+<h3>Are fees included in the results?</h3>
+<p>This tool focuses on interest based on APR. Late fees, balance transfer fees, and new purchases can change the outcome.</p>
+</section>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-row">

@@ -42,28 +42,8 @@
     }
     </script>
 <script id="jsonld-faq" type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"FAQPage",
-      "mainEntity":[
-        {
-          "@type":"Question",
-          "name":"What fee should I enter?",
-          "acceptedAnswer":{"@type":"Answer","text":"Enter your all-in annual fee (expense ratio + platform/advice fees if applicable). Many diversified funds range around 0.20%–1.50%, but it varies by provider."}
-        },
-        {
-          "@type":"Question",
-          "name":"How are fees modeled in this calculator?",
-          "acceptedAnswer":{"@type":"Answer","text":"This tool estimates fee impact by reducing the gross return by the annual fee rate (approximation). Real-world fee timing and pricing can differ."}
-        },
-        {
-          "@type":"Question",
-          "name":"Does inflation affect the results?",
-          "acceptedAnswer":{"@type":"Answer","text":"Inflation is optional. If added, the calculator also shows an inflation-adjusted ending value to estimate purchasing power in today’s money."}
-        }
-      ]
-    }
-    </script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an investment fee impact calculator?","acceptedAnswer":{"@type":"Answer","text":"It estimates how ongoing fees (like expense ratios or platform fees) can reduce your long‑term investment balance compared with a lower‑fee alternative."}},{"@type":"Question","name":"Why can a 1% fee be so costly?","acceptedAnswer":{"@type":"Answer","text":"Fees reduce your balance every year and also reduce the future growth you would have earned on that money, so the gap can grow over decades."}},{"@type":"Question","name":"Does this include taxes?","acceptedAnswer":{"@type":"Answer","text":"No. This tool provides educational estimates using simplified assumptions. Taxes and account type can change real outcomes."}},{"@type":"Question","name":"What fees should I consider?","acceptedAnswer":{"@type":"Answer","text":"Common fees include fund expense ratios, platform or account fees, advisory fees, and transaction costs depending on your provider."}},{"@type":"Question","name":"How can I reduce fees?","acceptedAnswer":{"@type":"Answer","text":"Consider low‑cost index funds or ETFs, compare platforms, and review total costs (not just one fee) before investing."}}]}
+</script>
 <link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer src="/header.js"></script></head>
 <body><div id="site-header"></div>
 <div class="wrap">
@@ -407,6 +387,19 @@
       // first render
       reset();
     </script>
+<section class="card" id="faq">
+<h2>Frequently Asked Questions</h2>
+<h3>What is an investment fee impact calculator?</h3>
+<p>It estimates how ongoing fees (like expense ratios or platform fees) can reduce your long‑term investment balance compared with a lower‑fee alternative.</p>
+<h3>Why can a 1% fee be so costly?</h3>
+<p>Fees reduce your balance every year and also reduce the future growth you would have earned on that money, so the gap can grow over decades.</p>
+<h3>Does this include taxes?</h3>
+<p>No. This tool provides educational estimates using simplified assumptions. Taxes and account type can change real outcomes.</p>
+<h3>What fees should I consider?</h3>
+<p>Common fees include fund expense ratios, platform or account fees, advisory fees, and transaction costs depending on your provider.</p>
+<h3>How can I reduce fees?</h3>
+<p>Consider low‑cost index funds or ETFs, compare platforms, and review total costs (not just one fee) before investing.</p>
+</section>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-row">

@@ -53,28 +53,8 @@
   }
   </script>
 <script id="jsonld-faq" type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"What is the difference between snowball and avalanche?",
-        "acceptedAnswer":{"@type":"Answer","text":"Snowball pays the smallest balance first for quick wins. Avalanche pays the highest APR first to minimize total interest. Both require paying minimums on all debts."}
-      },
-      {
-        "@type":"Question",
-        "name":"What monthly budget should I enter?",
-        "acceptedAnswer":{"@type":"Answer","text":"Enter the total amount you can pay across all debts each month. It should be at least the sum of all minimum payments, otherwise payoff may not finish."}
-      },
-      {
-        "@type":"Question",
-        "name":"Why can payoff never finish?",
-        "acceptedAnswer":{"@type":"Answer","text":"If your total monthly budget is lower than minimum payments or monthly interest grows faster than payments, balances may not reduce. Increase budget, lower APR, or restructure debts."}
-      }
-    ]
-  }
-  </script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the debt snowball method?","acceptedAnswer":{"@type":"Answer","text":"You pay off the smallest balance first while making minimum payments on the rest, then roll that payment into the next debt for momentum."}},{"@type":"Question","name":"What is the debt avalanche method?","acceptedAnswer":{"@type":"Answer","text":"You pay off the highest interest rate debt first to reduce total interest, then roll payments to the next highest rate."}},{"@type":"Question","name":"Which method is better?","acceptedAnswer":{"@type":"Answer","text":"Avalanche usually saves more interest. Snowball can be easier to stick with. The best method is the one you can follow consistently."}},{"@type":"Question","name":"Do the results assume fixed interest rates?","acceptedAnswer":{"@type":"Answer","text":"Yes. The calculator uses simplified assumptions. Variable rates, fees, and extra spending can affect real payoff timelines."}},{"@type":"Question","name":"Can I include extra payments?","acceptedAnswer":{"@type":"Answer","text":"Yes. Increasing your monthly payment or adding occasional lump sums typically shortens payoff time and reduces interest."}}]}
+</script>
 <link href="/styles.css" rel="stylesheet"/><link href="/favicon.png" rel="icon"/><script defer src="/header.js"></script></head>
 <body><div id="site-header"></div>
 <div class="wrap">
@@ -576,6 +556,19 @@
   calc();
 })();
 </script>
+<section class="card" id="faq">
+<h2>Frequently Asked Questions</h2>
+<h3>What is the debt snowball method?</h3>
+<p>You pay off the smallest balance first while making minimum payments on the rest, then roll that payment into the next debt for momentum.</p>
+<h3>What is the debt avalanche method?</h3>
+<p>You pay off the highest interest rate debt first to reduce total interest, then roll payments to the next highest rate.</p>
+<h3>Which method is better?</h3>
+<p>Avalanche usually saves more interest. Snowball can be easier to stick with. The best method is the one you can follow consistently.</p>
+<h3>Do the results assume fixed interest rates?</h3>
+<p>Yes. The calculator uses simplified assumptions. Variable rates, fees, and extra spending can affect real payoff timelines.</p>
+<h3>Can I include extra payments?</h3>
+<p>Yes. Increasing your monthly payment or adding occasional lump sums typically shortens payoff time and reduces interest.</p>
+</section>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-row">
