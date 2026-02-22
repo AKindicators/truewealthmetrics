@@ -2,6 +2,22 @@
 // Put in repo root as: header.js
 
 (function () {
+
+  // Cache-bust stylesheet (forces browsers/CDN to fetch latest CSS)
+  (function injectLatestStyles(){
+    try{
+      const id = "twm-style-bust";
+      if (document.getElementById(id)) return;
+      const link = document.createElement("link");
+      link.id = id;
+      link.rel = "stylesheet";
+      // Update this version string when you change styles.css
+      link.href = "/styles.css?v=20260222";
+      document.head.appendChild(link);
+    }catch(e){}
+  })();
+
+
   function setActiveNav() {
     const path = (location.pathname || "/").toLowerCase();
     document.querySelectorAll(".twm-pill").forEach((a) => {
