@@ -450,3 +450,19 @@ p{margin:0 0 12px;color:var(--muted)}
 .breadcrumb a:hover{
   text-decoration: underline;
 }
+
+
+/* Authority introduction block (Learn hub) */
+.authority-intro{
+  margin-top: 18px;
+  margin-bottom: 28px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  line-height: 1.65;
+  color: var(--muted);
+}
+.authority-intro p{margin: 0 0 10px 0;}
+.authority-intro p:last-child{margin-bottom: 0;}
+.authority-intro strong{color: var(--text);}
