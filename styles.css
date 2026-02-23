@@ -388,3 +388,35 @@ p{margin:0 0 12px;color:var(--muted)}
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* Breadcrumb (used on /learn/ and other hubs) */
+.breadcrumb{
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.breadcrumb ol{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.breadcrumb li{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.breadcrumb li + li:before{
+  content: "›";
+  color: rgba(226,232,240,.45);
+}
+.breadcrumb a{
+  color: var(--accent2);
+  text-decoration: none;
+}
+.breadcrumb a:hover{
+  text-decoration: underline;
+}
