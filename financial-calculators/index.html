@@ -30,43 +30,51 @@
 
   <style>
     :root{
-      --hub-max:1180px;
-      --hub-card:rgba(255,255,255,.04);
-      --hub-card-border:rgba(255,255,255,.12);
-      --hub-soft:rgba(255,255,255,.74);
+      --hub-max:1160px;
+      --hub-card:rgba(255,255,255,.03);
+      --hub-card-border:rgba(255,255,255,.10);
+      --hub-soft:rgba(226,232,240,.84);
       --hub-text:#f5f7fb;
       --hub-accent:#7dd3fc;
       --hub-accent-2:#a78bfa;
       --hub-accent-3:#34d399;
-      --hub-shadow:0 18px 50px rgba(2,8,23,.28);
     }
     *{box-sizing:border-box}
     body{color:var(--hub-text)}
     .hub-shell{
       width:min(var(--hub-max), calc(100% - 32px));
       margin:0 auto;
-      padding:24px 0 72px;
+      padding:20px 0 64px;
+    }
+    .hub-hero,
+    .hub-panel,
+    .hub-card,
+    .hub-faq-item,
+    .hub-cta,
+    .hub-popular-card,
+    .hub-stat{
+      border:1px solid var(--hub-card-border);
+      background:linear-gradient(180deg, rgba(6,13,28,.88), rgba(3,8,20,.92));
+      border-radius:24px;
+      box-shadow:none;
+      backdrop-filter:none;
     }
     .hub-hero{
       position:relative;
       overflow:hidden;
-      border:1px solid var(--hub-card-border);
-      border-radius:28px;
-      padding:28px;
+      padding:24px;
       background:
-        radial-gradient(circle at top left, rgba(125,211,252,.18), transparent 30%),
-        radial-gradient(circle at top right, rgba(167,139,250,.18), transparent 28%),
-        radial-gradient(circle at bottom center, rgba(52,211,153,.12), transparent 30%),
-        linear-gradient(180deg, rgba(15,23,42,.92), rgba(2,6,23,.96));
-      box-shadow:var(--hub-shadow);
+        radial-gradient(circle at top left, rgba(125,211,252,.15), transparent 30%),
+        radial-gradient(circle at top right, rgba(167,139,250,.16), transparent 28%),
+        linear-gradient(135deg, rgba(30,58,95,.72), rgba(10,18,38,.94) 46%, rgba(44,23,62,.76));
     }
     .hub-kicker{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      border:1px solid rgba(125,211,252,.25);
-      background:rgba(125,211,252,.08);
-      color:#d9f3ff;
+      border:1px solid rgba(125,211,252,.24);
+      background:rgba(125,211,252,.07);
+      color:#e6f7ff;
       border-radius:999px;
       padding:8px 12px;
       font-size:.82rem;
@@ -75,103 +83,97 @@
       text-transform:uppercase;
     }
     .hub-hero h1{
-      margin:18px 0 12px;
-      font-size:clamp(2rem, 5vw, 3.8rem);
+      margin:16px 0 12px;
+      font-size:clamp(2.2rem, 5vw, 4rem);
       line-height:1.02;
-      letter-spacing:-.03em;
-      max-width:980px;
+      letter-spacing:-.035em;
+      max-width:930px;
     }
     .hub-lead{
       margin:0;
       max-width:860px;
       color:var(--hub-soft);
-      font-size:1.05rem;
-      line-height:1.72;
+      font-size:1.02rem;
+      line-height:1.6;
     }
     .hub-actions{
       display:flex;
       flex-wrap:wrap;
       gap:12px;
-      margin-top:18px;
+      margin-top:16px;
     }
     .hub-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:8px;
-      min-height:46px;
-      padding:0 16px;
+      min-height:44px;
+      padding:0 18px;
       border-radius:999px;
       font-weight:700;
       text-decoration:none;
-      transition:transform .18s ease, opacity .18s ease, border-color .18s ease;
+      transition:transform .18s ease, border-color .18s ease, background .18s ease;
     }
     .hub-btn:hover{transform:translateY(-1px)}
     .hub-btn-primary{
-      background:linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,139,250,.95));
-      color:#07111f;
-      box-shadow:0 10px 24px rgba(125,211,252,.18);
+      background:linear-gradient(135deg, rgba(125,211,252,.96), rgba(167,139,250,.96));
+      color:#08111d;
     }
     .hub-btn-secondary{
-      border:1px solid rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.12);
       background:rgba(255,255,255,.03);
       color:#f5f7fb;
     }
     .hub-hero-grid{
       display:grid;
-      grid-template-columns:1.35fr .9fr;
-      gap:22px;
-      margin-top:24px;
+      grid-template-columns:1.35fr .85fr;
+      gap:18px;
+      margin-top:20px;
     }
     .hub-stat-grid{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px;
+      gap:12px;
       align-content:start;
-    }
-    .hub-stat,
-    .hub-panel,
-    .hub-card,
-    .hub-faq-item,
-    .hub-cta,
-    .hub-popular-card{
-      border:1px solid var(--hub-card-border);
-      background:var(--hub-card);
-      backdrop-filter:blur(8px);
-      border-radius:22px;
-      box-shadow:var(--hub-shadow);
     }
     .hub-stat{padding:18px}
     .hub-stat strong{
       display:block;
-      font-size:1.35rem;
+      font-size:1rem;
       margin-bottom:6px;
+      letter-spacing:-.02em;
     }
     .hub-stat span{
       color:var(--hub-soft);
-      line-height:1.5;
+      line-height:1.55;
       font-size:.95rem;
     }
     .hub-panel,
     .hub-cta,
-    .hub-popular-card{padding:20px}
+    .hub-popular-card,
+    .hub-card,
+    .hub-faq-item{padding:20px}
     .hub-panel h2,
     .hub-section-head h2,
     .hub-cta h2{
       margin:0 0 10px;
-      font-size:1.55rem;
+      font-size:1.25rem;
       line-height:1.15;
       letter-spacing:-.02em;
+    }
+    .hub-section-head h2{
+      font-size:1.15rem;
+      text-transform:none;
     }
     .hub-panel p,
     .hub-section-head p,
     .hub-cta p{
       margin:0;
       color:var(--hub-soft);
-      line-height:1.7;
+      line-height:1.65;
     }
     .hub-bullets{
-      margin:16px 0 0;
+      margin:14px 0 0;
       padding:0;
       list-style:none;
       display:grid;
@@ -191,50 +193,49 @@
       font-weight:800;
       margin-top:1px;
     }
-    .hub-section{margin-top:28px}
-    .hub-section-head{margin-bottom:16px}
+    .hub-section{margin-top:20px}
+    .hub-section-head{margin-bottom:12px}
     .hub-category-grid,
     .hub-popular-grid,
     .hub-row{
       display:grid;
-      gap:18px;
+      gap:16px;
     }
     .hub-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     .hub-popular-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .hub-row{grid-template-columns:1.05fr .95fr}
-    .hub-card{padding:22px}
+    .hub-row{grid-template-columns:1fr 1fr}
     .hub-card h3,
     .hub-popular-card h3{
       margin:0 0 8px;
-      font-size:1.2rem;
+      font-size:1rem;
       letter-spacing:-.02em;
     }
     .hub-card p,
     .hub-popular-card p{
-      margin:0 0 14px;
+      margin:0 0 12px;
       color:var(--hub-soft);
-      line-height:1.65;
+      line-height:1.6;
     }
     .hub-links{display:grid;gap:10px}
     .hub-tool{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:16px;
+      gap:14px;
       border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.025);
+      background:rgba(255,255,255,.02);
       color:inherit;
       text-decoration:none;
-      border-radius:16px;
+      border-radius:18px;
       padding:14px 16px;
       transition:transform .18s ease, border-color .18s ease, background .18s ease;
     }
     .hub-tool:hover{
       transform:translateY(-1px);
-      border-color:rgba(125,211,252,.35);
-      background:rgba(125,211,252,.06);
+      border-color:rgba(125,211,252,.28);
+      background:rgba(255,255,255,.04);
     }
-    .hub-tool strong{display:block;margin-bottom:4px;font-size:1rem}
+    .hub-tool strong{display:block;margin-bottom:4px;font-size:1rem;letter-spacing:-.02em}
     .hub-tool span{color:var(--hub-soft);font-size:.94rem;line-height:1.5}
     .hub-tool b{color:#dff6ff;font-size:.92rem;white-space:nowrap}
     .hub-popular-card{display:flex;flex-direction:column;gap:10px}
@@ -247,16 +248,15 @@
       background:rgba(125,211,252,.08);
       border:1px solid rgba(125,211,252,.18);
       color:#d9f3ff;
-      font-size:.8rem;
+      font-size:.78rem;
       font-weight:700;
       text-transform:uppercase;
       letter-spacing:.04em;
     }
     .hub-inline-link{color:#dff6ff}
-    .hub-faq{display:grid;gap:14px}
-    .hub-faq-item{padding:20px}
-    .hub-faq-item h3{margin:0 0 8px;font-size:1.05rem}
-    .hub-faq-item p{margin:0;color:var(--hub-soft);line-height:1.7}
+    .hub-faq{display:grid;gap:12px}
+    .hub-faq-item h3{margin:0 0 8px;font-size:1rem;letter-spacing:-.02em}
+    .hub-faq-item p{margin:0;color:var(--hub-soft);line-height:1.65}
     .hub-mini-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
     .hub-mini-links a{
       display:inline-flex;
@@ -270,17 +270,19 @@
       text-decoration:none;
       font-size:.92rem;
     }
-    .hub-note{margin-top:18px;color:var(--hub-soft);font-size:.94rem;line-height:1.65}
+    .hub-note{margin-top:16px;color:var(--hub-soft);font-size:.94rem;line-height:1.65}
     @media (max-width: 980px){
       .hub-hero-grid,.hub-row,.hub-category-grid,.hub-popular-grid{grid-template-columns:1fr}
     }
     @media (max-width: 640px){
-      .hub-shell{width:min(var(--hub-max), calc(100% - 20px)); padding:18px 0 54px}
-      .hub-hero{padding:20px}
+      .hub-shell{width:min(var(--hub-max), calc(100% - 20px)); padding:16px 0 48px}
+      .hub-hero{padding:18px}
       .hub-stat-grid{grid-template-columns:1fr}
-      .hub-card,.hub-cta,.hub-panel,.hub-faq-item,.hub-popular-card{padding:18px}
+      .hub-card,.hub-cta,.hub-panel,.hub-faq-item,.hub-popular-card,.hub-stat{padding:18px}
       .hub-tool{align-items:flex-start}
       .hub-tool b{white-space:normal}
+      .hub-hero h1{font-size:clamp(2rem, 10vw, 2.7rem)}
+      .hub-lead{font-size:.98rem}
     }
   </style>
 
@@ -559,9 +561,9 @@
 
     <section class="hub-section">
       <div class="hub-section-head">
-        <h2>Most Popular Financial Calculators</h2>
+        <h2>Popular calculators to start with</h2>
         <p>
-          These are the tools most visitors should start with when they want quick clarity on monthly money, long-term growth, or debt payoff.
+          These are the best starting points when you want quick clarity on monthly money, long-term growth, or debt payoff.
         </p>
       </div>
       <div class="hub-popular-grid">
@@ -589,7 +591,7 @@
     <section class="hub-section">
       <div class="hub-row">
         <article class="hub-cta">
-          <h2>How to use this financial calculators hub</h2>
+          <h2>How to use this hub</h2>
           <p>
             A simple path works best. Start with the <a class="hub-inline-link" href="/budget-planner-calculator/">budget planner calculator</a>
             to understand your income, expenses, and leftover cash, then move to the
@@ -611,7 +613,7 @@
         </article>
 
         <article class="hub-cta">
-          <h2>Why these free finance tools matter</h2>
+          <h2>Why this page matters</h2>
           <p>
             People usually search for financial calculators when they are close to a real decision: choosing a loan,
             reducing debt, setting a savings target, comparing fee levels, or projecting retirement outcomes.
