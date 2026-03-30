@@ -12,7 +12,7 @@
       link.id = id;
       link.rel = "stylesheet";
       // Update this version string when you change styles.css
-      link.href = "/styles.css?v=20260222";
+      link.href = "/styles.css?v=20260330-elite2";
       document.head.appendChild(link);
     }catch(e){}
   })();
