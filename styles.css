@@ -2719,6 +2719,10 @@ html body .statusLine{
     display:block;
     padding:0;
   }
+  html body .twm-header-wrap.is-mobile-open{
+    max-height:100dvh;
+    overflow:hidden;
+  }
   html body .twm-header-top{
     display:flex;
     align-items:center;
@@ -2796,6 +2800,7 @@ html body .statusLine{
     display:block;
     margin-top:12px;
     padding:16px;
+    padding-bottom:calc(28px + env(safe-area-inset-bottom, 0px));
     border-radius:26px;
     border:1px solid rgba(255,255,255,.08);
     background:
@@ -2803,7 +2808,13 @@ html body .statusLine{
       radial-gradient(280px 180px at 76% 18%, rgba(124,92,255,.14), transparent 58%),
       linear-gradient(180deg, rgba(15,22,37,.97), rgba(7,12,24,.96));
     box-shadow:0 24px 80px rgba(0,0,0,.45);
+    max-height:calc(100dvh - 112px - env(safe-area-inset-bottom, 0px));
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
   }
+  html body .twm-mobile-panel::-webkit-scrollbar{ display:none; }
   html body .twm-mobile-panel[hidden]{ display:none !important; }
   html body .twm-mobile-nav{
     display:grid;
