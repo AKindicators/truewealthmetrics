@@ -71,7 +71,7 @@
 <h2>How this ROI calculator works</h2>
 <p>This ROI calculator estimates return on investment using profit, ROI %, and (when applicable) CAGR to compare opportunities across different time horizons. Enter your initial investment, final value (or profit), and the time period. ROI shows the total percentage gain; CAGR smooths returns into an annualized rate so you can compare investments with different durations. Use it for simple scenarios (projects, business spends, or investments). For investments with deposits/withdrawals over time, results may differ from true internal rate of return.</p>
 <p>Practical tips: use net profit after costs for accuracy; use CAGR when comparing investments over different time periods; treat very high projected returns as higher risk and test downside cases. Limitations: results assume fixed rates and steady payments/contributions. If your situation changes (rate changes, fees, irregular income), rerun the calculator with updated inputs to keep your plan accurate.</p>
-<p>If you’re comparing two projects, use the same timeframe and include all costs (setup, tools, transaction fees). That makes ROI comparisons fair and decision‑ready.</p>
+<p>If you’re comparing two projects, use the same timeframe and include all costs (setup, tools, transaction fees). That makes ROI comparisons fair and decision-ready.</p>
 </section>
 <div class="row">
 <div>
@@ -123,7 +123,7 @@
 </div>
 <div class="btns">
 <button class="primary" id="calcBtn">Calculate</button>
-<button id="resetBtn">Reset</button>
+<button class="primary" id="resetBtn">Reset</button>
 <span class="muted" id="status" style="align-self:center;font-size:12px"></span>
 </div>
 <div class="hint">
@@ -221,8 +221,8 @@
         Use these tools together to compare scenarios (fees, contributions, debt payoff, and retirement projections).
       </p>
 <ul style="margin:0;color:var(--muted);line-height:1.8;padding-left:18px">
-<li><a href="/investment-fee-impact-calculator/"><strong>Investment Fee Impact Calculator</strong></a> — see how small fees reduce long‑term outcomes.</li>
-<li><a href="/compound-interest-calculator/"><strong>Compound Interest Calculator</strong></a> — model long‑term growth with contributions.</li>
+<li><a href="/investment-fee-impact-calculator/"><strong>Investment Fee Impact Calculator</strong></a> — see how small fees reduce long-term outcomes.</li>
+<li><a href="/compound-interest-calculator/"><strong>Compound Interest Calculator</strong></a> — model long-term growth with contributions.</li>
 <li><a href="/savings-goal-calculator/"><strong>Savings Goal Calculator</strong></a> — find monthly savings needed to reach a target.</li>
 <li><a href="/retirement-planning-calculator/"><strong>Retirement Planning Calculator</strong></a> — project retirement savings over time.</li>
 <li><a href="/budget-planner-calculator/"><strong>Budget Planner</strong></a> — confirm your monthly contribution is realistic.</li>
@@ -276,16 +276,10 @@
     const infl = clampNum(parseFloat($("infl").value)/100, 0, 0.25);
     const freq = parseInt($("freq").value, 10);
 
-    // Net annual return approximation (after fee)
     const netAnnual = Math.max(0, rate - fee);
-
-    // Per-period rate
     const r = netAnnual / freq;
     const periods = Math.round(years * freq);
 
-    // Contribution per period (monthly contributions distributed if freq != 12)
-    // If compounding isn't monthly, still assume contributions occur monthly.
-    // We'll simulate monthly internally for accuracy and summarize yearly.
     const months = Math.round(years * 12);
     const monthlyNet = Math.max(0, netAnnual / 12);
 
@@ -293,37 +287,32 @@
     let totalContrib = initial;
     let totalFeesEst = 0;
 
-    const yearly = []; // {year, end, contrib, growth, fees}
+    const yearly = [];
 
     let yearContrib = 0;
     let yearStart = balance;
 
     for(let m=1; m<=months; m++){
-      // add monthly contribution at start of month
       if(m > 1 || monthly > 0){
         balance += monthly;
         totalContrib += monthly;
         yearContrib += monthly;
       }
 
-      // apply monthly growth
       const before = balance;
       const growth = balance * monthlyNet;
       balance = balance + growth;
 
-      // estimate fees for this month as (gross - net) on the same base
-      // gross monthly rate = rate/12, net monthly rate = (rate-fee)/12
       const grossMonthly = rate / 12;
       const netMonthly = monthlyNet;
       const feeThisMonth = before * Math.max(0, grossMonthly - netMonthly);
       totalFeesEst += feeThisMonth;
 
-      // end of year snapshot
       if(m % 12 === 0){
         const year = m/12;
         const end = balance;
         const growthYear = (end - yearStart - yearContrib);
-        const feesYearApprox = yearStart * Math.max(0, (rate - netAnnual)) + (yearContrib/2) * Math.max(0, (rate - netAnnual)); // coarse
+        const feesYearApprox = yearStart * Math.max(0, (rate - netAnnual)) + (yearContrib/2) * Math.max(0, (rate - netAnnual));
         yearly.push({
           year,
           end,
@@ -340,13 +329,9 @@
     const profit = ending - totalContrib;
     const roi = profit / totalContrib;
 
-    // CAGR: treat totalContrib as "invested capital" baseline (rough, since contributions are spread)
-    // Better: compute money-weighted return would require IRR. We'll provide effective CAGR vs contributions midpoint.
-    // We approximate by comparing ending vs (initial + monthly*months/2).
     const approxAvgInvested = initial + (monthly * months * 0.5);
     const cagr = approxAvgInvested > 0 ? Math.pow(ending / approxAvgInvested, 1/years) - 1 : 0;
 
-    // Inflation adjusted ending
     const endingToday = infl > 0 ? (ending / Math.pow(1+infl, years)) : ending;
 
     $("ending").textContent = fmtMoney(ending, currency);
@@ -366,7 +351,6 @@
 
     $("callout").innerHTML = `${gapText}<div style="margin-top:8px" class="muted">${extraBits}</div>`;
 
-    // Table
     const rows = $("rows");
     rows.innerHTML = "";
     yearly.forEach((y) => {
