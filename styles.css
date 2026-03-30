@@ -2671,155 +2671,177 @@ html body .statusLine{
 }
 
 
-/* =============================
-   2026 Phase 5 — True mobile header/menu
-   ============================= */
-.twm-header-top{
-  width:100%;
+/* =========================================================
+   Elite mobile header/menu override (v8/v9)
+   ========================================================= */
+.twm-home-cta-row{
   display:flex;
-  align-items:center;
-  justify-content:space-between;
+  flex-wrap:wrap;
   gap:12px;
+  margin-top:18px;
 }
-
-.twm-nav-desktop{
-  display:flex;
-}
-
-.twm-mobile-toggle,
-.twm-mobile-panel{
-  display:none;
-}
-
-.twm-mobile-toggle{
-  appearance:none;
-  border:1px solid rgba(255,255,255,.12);
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  color:#eef5ff;
-  border-radius:16px;
-  min-height:50px;
-  padding:0 14px;
+.twm-home-cta{
+  display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
-  cursor:pointer;
-  box-shadow:0 16px 32px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.05);
-}
-.twm-mobile-toggle-box{
-  width:18px;
-  height:14px;
-  display:inline-flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-.twm-mobile-toggle-line{
-  width:100%;
-  height:2px;
-  border-radius:999px;
-  background:currentColor;
-  display:block;
-  transition:transform .2s ease, opacity .2s ease;
-}
-.twm-mobile-toggle-text{
-  font-size:14px;
+  min-height:48px;
+  padding:12px 18px;
+  border-radius:16px;
   font-weight:800;
   letter-spacing:-.01em;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 16px 30px rgba(0,0,0,.28);
 }
-.twm-mobile-toggle.is-open .twm-mobile-toggle-line:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.twm-mobile-toggle.is-open .twm-mobile-toggle-line:nth-child(2){opacity:0}
-.twm-mobile-toggle.is-open .twm-mobile-toggle-line:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-
-.twm-mobile-panel{
-  width:100%;
-  margin-top:12px;
-  padding:16px;
-  border-radius:22px;
-  border:1px solid rgba(255,255,255,.10);
-  background:
-    linear-gradient(180deg, rgba(12,18,32,.96), rgba(8,14,27,.92)),
-    radial-gradient(520px 220px at 12% 10%, rgba(96,165,250,.12), transparent 70%),
-    radial-gradient(420px 220px at 88% 12%, rgba(244,114,182,.12), transparent 72%);
-  box-shadow:0 28px 70px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.06);
+.twm-home-cta-primary{
+  color:#071019;
+  background:linear-gradient(135deg,#8df7d1 0%,#58c694 100%);
 }
-.twm-mobile-nav{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
-}
-.twm-mobile-nav .twm-pill{
-  width:100%;
-  min-height:54px;
-  justify-content:flex-start;
-  padding:0 16px;
-  border-radius:16px;
-  font-size:16px;
-  font-weight:700;
-  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
-  border-color:rgba(255,255,255,.10);
-}
-.twm-mobile-nav .twm-pill.is-active,
-.twm-mobile-nav .twm-pill[aria-current="page"]{
+.twm-home-cta-secondary{
   color:#f8fbff;
-  border-color:rgba(190,242,223,.26);
-  background:
-    linear-gradient(135deg, rgba(52,211,153,.18), rgba(96,165,250,.10) 46%, rgba(244,114,182,.14));
-  box-shadow:0 12px 28px rgba(0,0,0,.22), 0 0 0 1px rgba(255,255,255,.03) inset;
+  background:linear-gradient(135deg,rgba(53,224,194,.18),rgba(255,92,168,.16));
 }
+
+.twm-mobile-topbar,
+.twm-mobile-toggle,
+.twm-mobile-panel{ display:none; }
 
 @media (max-width: 860px){
-  .twm-header-wrap{
+  html body .twm-header-wrap{
     top:0;
+    padding:12px 12px 10px;
+    background:linear-gradient(180deg,rgba(5,11,24,.96),rgba(5,11,24,.84));
+    border-bottom:1px solid rgba(255,255,255,.06);
   }
-  .twm-header{
+  html body .twm-header{
+    max-width:none;
     display:block;
-    padding:14px 14px;
+    padding:0;
   }
-  .twm-brand{
+  html body .twm-brand,
+  html body .twm-nav{
+    display:none !important;
+  }
+  html body .twm-mobile-topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:14px;
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,.09);
+    background:linear-gradient(180deg,rgba(10,17,33,.92),rgba(9,16,31,.86));
+    box-shadow:0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+  }
+  html body .twm-brand-mobile{
+    display:flex;
+    align-items:center;
+    gap:12px;
     min-width:0;
-    flex:1 1 auto;
-    max-width:calc(100% - 86px);
+    flex:1;
   }
-  .twm-brand span{
+  html body .twm-brand-mobile img,
+  html body .twm-brand-mobile .twm-logo{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.03);
+    box-shadow:0 10px 30px rgba(0,0,0,.24);
+  }
+  html body .twm-brand-mobile span{
     font-size:16px;
+    font-weight:800;
+    line-height:1.1;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
   }
-  .twm-nav-desktop{
-    display:none !important;
-  }
-  .twm-mobile-toggle{
-    display:inline-flex;
-    flex:0 0 auto;
-  }
-  .twm-mobile-panel{
-    display:block;
-  }
-  .twm-home-cta-row{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:10px;
-    margin-top:18px;
-  }
-  .twm-home-cta{
-    width:100%;
-    min-height:50px;
+  html body .twm-mobile-toggle{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    border-radius:16px;
+    gap:10px;
+    min-width:54px;
+    min-height:54px;
     padding:0 16px;
-    text-align:center;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.03);
+    color:#eef5ff;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
   }
-  html body .hero,
-  html body .twm-hero{
-    padding-top:20px;
+  html body .twm-mobile-toggle-label{
+    font-size:14px;
+    font-weight:800;
   }
-}
+  html body .twm-mobile-toggle-icon{
+    position:relative;
+    width:18px;
+    height:14px;
+    display:inline-block;
+  }
+  html body .twm-mobile-toggle-icon span{
+    position:absolute;
+    left:0;
+    width:100%;
+    height:2px;
+    border-radius:99px;
+    background:#eef5ff;
+    transition:transform .22s ease, opacity .18s ease, top .22s ease;
+  }
+  html body .twm-mobile-toggle-icon span:nth-child(1){ top:0; }
+  html body .twm-mobile-toggle-icon span:nth-child(2){ top:6px; }
+  html body .twm-mobile-toggle-icon span:nth-child(3){ top:12px; }
+  html body .twm-header-wrap.is-mobile-open .twm-mobile-toggle-icon span:nth-child(1){ top:6px; transform:rotate(45deg); }
+  html body .twm-header-wrap.is-mobile-open .twm-mobile-toggle-icon span:nth-child(2){ opacity:0; }
+  html body .twm-header-wrap.is-mobile-open .twm-mobile-toggle-icon span:nth-child(3){ top:6px; transform:rotate(-45deg); }
+  html body .twm-mobile-panel{
+    display:block;
+    margin-top:12px;
+    padding:14px;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.08);
+    background:
+      radial-gradient(320px 180px at 30% 18%, rgba(76,214,167,.16), transparent 60%),
+      radial-gradient(280px 180px at 78% 25%, rgba(124,92,255,.16), transparent 58%),
+      linear-gradient(180deg, rgba(16,23,38,.96), rgba(8,14,28,.94));
+    box-shadow:0 24px 80px rgba(0,0,0,.45);
+  }
+  html body .twm-mobile-panel[hidden]{ display:none !important; }
+  html body .twm-mobile-nav{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  html body .twm-mobile-nav .twm-pill{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    min-height:56px;
+    padding:0 18px;
+    border-radius:18px;
+    font-size:18px;
+    font-weight:700;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.03);
+    box-shadow:none;
+  }
+  html body .twm-mobile-nav .twm-pill:hover,
+  html body .twm-mobile-nav .twm-pill.is-active,
+  html body .twm-mobile-nav .twm-pill[aria-current="page"]{
+    transform:none;
+    color:#fff;
+    border-color:rgba(255,255,255,.12);
+    background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+  }
 
-@media (min-width: 861px){
-  .twm-header-top{
-    width:auto;
-    flex:0 0 auto;
+  html body .twm-container,
+  html body .wrap{
+    padding-left:14px !important;
+    padding-right:14px !important;
+  }
+  html body .twm-home-cta-row{ grid-template-columns:1fr; }
+  html body .twm-home-cta{
+    width:100%;
   }
 }

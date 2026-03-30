@@ -2,36 +2,30 @@
 // Put in repo root as: header.js
 
 (function () {
-<<<<<<< HEAD
-=======
-  // Cache-bust stylesheet (forces browsers/CDN to fetch latest CSS)
->>>>>>> c979f5fa930fe187db3d1230a0415402132c5158
   (function injectLatestStyles() {
     try {
       const id = "twm-style-bust";
-      if (document.getElementById(id)) return;
+      const existing = document.getElementById(id);
+      if (existing) return;
       const link = document.createElement("link");
       link.id = id;
       link.rel = "stylesheet";
-<<<<<<< HEAD
-      link.href = "/styles.css?v=20260330-elite9";
-=======
-      // Update this version string when you change styles.css
-      link.href = "/styles.css?v=20260330-elite8";
->>>>>>> c979f5fa930fe187db3d1230a0415402132c5158
+      link.href = "/styles.css?v=20260330-elite10";
       document.head.appendChild(link);
     } catch (e) {}
   })();
 
-  function setActiveNav() {
-    const path = (location.pathname || "/").toLowerCase();
+  function currentPath() {
+    return (location.pathname || "/").toLowerCase();
+  }
 
-    document.querySelectorAll(".twm-pill").forEach((a) => {
+  function setActiveNav(scope) {
+    const path = currentPath();
+    const links = (scope || document).querySelectorAll(".twm-pill");
+
+    links.forEach((a) => {
       a.classList.remove("is-active");
-<<<<<<< HEAD
       a.removeAttribute("aria-current");
-=======
->>>>>>> c979f5fa930fe187db3d1230a0415402132c5158
 
       const href = (a.getAttribute("href") || "").toLowerCase();
       const isHome = href === "/" && (path === "/" || path === "/index.html");
@@ -53,10 +47,6 @@
     if (toggle) {
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-label", "Open navigation menu");
-<<<<<<< HEAD
-      toggle.classList.remove("is-open");
-=======
->>>>>>> c979f5fa930fe187db3d1230a0415402132c5158
     }
     if (panel) panel.setAttribute("hidden", "");
     document.body.classList.remove("twm-mobile-nav-open");
@@ -71,41 +61,16 @@
     if (toggle) {
       toggle.setAttribute("aria-expanded", "true");
       toggle.setAttribute("aria-label", "Close navigation menu");
-<<<<<<< HEAD
-      toggle.classList.add("is-open");
-=======
->>>>>>> c979f5fa930fe187db3d1230a0415402132c5158
     }
     if (panel) panel.removeAttribute("hidden");
     document.body.classList.add("twm-mobile-nav-open");
   }
 
-<<<<<<< HEAD
-  function bindMobileMenu() {
-    const toggle = document.querySelector(".twm-mobile-toggle");
-    const panel = document.querySelector(".twm-mobile-panel");
-    if (!toggle || !panel || toggle.dataset.bound === "1") return;
-
-    toggle.dataset.bound = "1";
-
-    toggle.addEventListener("click", function () {
-      const wrap = document.querySelector(".twm-header-wrap");
-      if (wrap && wrap.classList.contains("is-mobile-open")) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
-    });
-=======
   function toggleMobileMenu() {
     const wrap = document.querySelector(".twm-header-wrap");
     if (!wrap) return;
-
-    if (wrap.classList.contains("is-mobile-open")) {
-      closeMobileMenu();
-    } else {
-      openMobileMenu();
-    }
+    if (wrap.classList.contains("is-mobile-open")) closeMobileMenu();
+    else openMobileMenu();
   }
 
   function buildMobileHeader() {
@@ -129,12 +94,10 @@
     toggle.setAttribute("aria-label", "Open navigation menu");
     toggle.setAttribute("aria-expanded", "false");
     toggle.innerHTML = `
-      <span class="twm-mobile-toggle-box" aria-hidden="true">
-        <span class="twm-mobile-toggle-line"></span>
-        <span class="twm-mobile-toggle-line"></span>
-        <span class="twm-mobile-toggle-line"></span>
+      <span class="twm-mobile-toggle-icon" aria-hidden="true">
+        <span></span><span></span><span></span>
       </span>
-      <span class="twm-mobile-toggle-text">Menu</span>
+      <span class="twm-mobile-toggle-label">Menu</span>
     `;
 
     topbar.appendChild(brandClone);
@@ -146,6 +109,7 @@
 
     const navClone = nav.cloneNode(true);
     navClone.classList.add("twm-mobile-nav");
+    setActiveNav(navClone);
 
     panel.appendChild(navClone);
 
@@ -153,44 +117,19 @@
     header.appendChild(panel);
 
     toggle.addEventListener("click", toggleMobileMenu);
->>>>>>> c979f5fa930fe187db3d1230a0415402132c5158
+    panel.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMobileMenu));
 
-    panel.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", closeMobileMenu);
-    });
-
-<<<<<<< HEAD
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeMobileMenu();
-    });
-
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 860) closeMobileMenu();
-    });
-  }
-
-=======
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMobileMenu();
     });
 
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 900) closeMobileMenu();
+      if (window.innerWidth > 860) closeMobileMenu();
     });
   }
 
-  function addMobileNavHelpers() {
-    const wrap = document.querySelector(".twm-header-wrap");
-    const nav = document.querySelector(".twm-nav");
-    if (!wrap || !nav) return;
-
-    wrap.classList.add("twm-header-ready");
-    nav.classList.add("twm-nav-scroll");
-  }
-
->>>>>>> c979f5fa930fe187db3d1230a0415402132c5158
   function injectHomeCTA() {
-    const path = (location.pathname || "/").toLowerCase();
+    const path = currentPath();
     const isHome = path === "/" || path === "/index.html";
     if (!isHome) return;
 
@@ -200,12 +139,7 @@
       document.querySelector(".twm-hero") ||
       document.querySelector("section");
 
-<<<<<<< HEAD
     if (!hero || hero.querySelector(".twm-home-cta-row")) return;
-=======
-    if (!hero) return;
-    if (hero.querySelector(".twm-home-cta-row")) return;
->>>>>>> c979f5fa930fe187db3d1230a0415402132c5158
 
     const ctaRow = document.createElement("div");
     ctaRow.className = "twm-home-cta-row";
@@ -214,41 +148,18 @@
       <a class="twm-home-cta twm-home-cta-secondary" href="/compound-interest-calculator/">Try Compound Calculator</a>
     `;
 
-<<<<<<< HEAD
     const target = hero.querySelector("h1") || hero.querySelector("h2") || hero.firstElementChild;
-=======
-    const target =
-      hero.querySelector("h1") ||
-      hero.querySelector("h2") ||
-      hero.firstElementChild;
-
->>>>>>> c979f5fa930fe187db3d1230a0415402132c5158
-    if (target && target.parentNode) {
-      target.parentNode.insertBefore(ctaRow, target.nextSibling);
-    } else {
-      hero.appendChild(ctaRow);
-    }
+    if (target && target.parentNode) target.parentNode.insertBefore(ctaRow, target.nextSibling);
+    else hero.appendChild(ctaRow);
   }
 
   function afterHeaderInjected() {
-<<<<<<< HEAD
-    const main = document.querySelector("main");
-    if (main) main.classList.add("twm-page");
-    setActiveNav();
-    bindMobileMenu();
-=======
-    addMobileNavHelpers();
     buildMobileHeader();
-    setActiveNav();
->>>>>>> c979f5fa930fe187db3d1230a0415402132c5158
+    setActiveNav(document);
     injectHomeCTA();
   }
 
   async function injectHeader() {
-<<<<<<< HEAD
-=======
-    // If header already exists, do nothing.
->>>>>>> c979f5fa930fe187db3d1230a0415402132c5158
     if (document.querySelector(".twm-header-wrap")) {
       afterHeaderInjected();
       return;
@@ -260,20 +171,12 @@
       const html = await res.text();
 
       const mount = document.getElementById("site-header");
-      if (mount) {
-        mount.innerHTML = html;
-      } else {
-        document.body.insertAdjacentHTML("afterbegin", html);
-      }
+      if (mount) mount.innerHTML = html;
+      else document.body.insertAdjacentHTML("afterbegin", html);
 
-<<<<<<< HEAD
-=======
-      // Optional: wrap page content a bit for spacing consistency
-      // Add class to main container if found
       const main = document.querySelector("main");
       if (main) main.classList.add("twm-page");
 
->>>>>>> c979f5fa930fe187db3d1230a0415402132c5158
       afterHeaderInjected();
     } catch (e) {
       console.warn("Header inject failed:", e);
