@@ -2098,3 +2098,230 @@ input:focus, select:focus, textarea:focus, .twm-input:focus{
   .hero::after,
   .twm-hero::after{width:180px;height:180px;right:2%;top:-10px}
 }
+
+/* =============================
+   2026 Phase 3 — Visual Dominance Layer
+   Final polish: stronger value emphasis, richer gradients,
+   more premium result hierarchy, and better perceived conversion quality.
+   ============================= */
+:root{
+  --accent:#34d399;
+  --accent2:#60a5fa;
+  --accent3:#a78bfa;
+  --accent4:#f472b6;
+  --accent5:#fbcfe8;
+}
+
+body{
+  background:
+    radial-gradient(1100px 640px at 3% -10%, rgba(125,211,252,.26), transparent 54%),
+    radial-gradient(980px 620px at 97% -8%, rgba(244,114,182,.18), transparent 52%),
+    radial-gradient(860px 560px at 84% 28%, rgba(167,139,250,.14), transparent 58%),
+    radial-gradient(680px 460px at 18% 58%, rgba(52,211,153,.10), transparent 62%),
+    linear-gradient(180deg, #0d1830 0%, #081223 34%, #050b17 100%);
+}
+
+.twm-header-wrap{
+  background:
+    linear-gradient(180deg, rgba(7,12,24,.94), rgba(7,12,24,.82)),
+    radial-gradient(700px 120px at 20% 0%, rgba(96,165,250,.12), transparent 70%),
+    radial-gradient(700px 120px at 80% 0%, rgba(244,114,182,.08), transparent 70%);
+}
+.twm-brand{
+  box-shadow:0 18px 34px rgba(0,0,0,.24), 0 0 0 1px rgba(255,255,255,.04) inset;
+}
+.twm-pill{
+  border-color:rgba(255,255,255,.13);
+}
+.twm-pill.is-active,
+.twm-pill[aria-current="page"]{
+  background:
+    linear-gradient(135deg, rgba(52,211,153,.24), rgba(96,165,250,.18) 42%, rgba(244,114,182,.20) 100%);
+  border-color:rgba(190,242,223,.28);
+  box-shadow:0 14px 30px rgba(0,0,0,.24), 0 0 24px rgba(96,165,250,.12), 0 0 18px rgba(244,114,182,.10);
+}
+
+.twm-hero::before,
+.hero::before{
+  background:
+    radial-gradient(980px 340px at 10% 6%, rgba(125,211,252,.18), transparent 56%),
+    radial-gradient(860px 300px at 88% 8%, rgba(244,114,182,.17), transparent 56%),
+    radial-gradient(780px 260px at 68% 84%, rgba(167,139,250,.13), transparent 58%),
+    linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.018));
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 34px 90px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.10), inset 0 -18px 40px rgba(96,165,250,.03);
+}
+.twm-title,
+.hero h1,
+h1{
+  background:linear-gradient(180deg, #ffffff 0%, #ffe9f5 42%, #dcecff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.twm-badge,
+.badge,
+.pill,
+.tag{
+  border-color:rgba(244,114,182,.18);
+}
+
+.twm-card,
+.card,
+.twm-panel,
+.authority-intro,
+.author-byline,
+.notice,
+.callout,
+.banner,
+.warnBox{
+  box-shadow:0 24px 64px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.06), inset 0 -24px 40px rgba(96,165,250,.02);
+}
+
+/* stronger hierarchy for alternating cards */
+.twm-grid > .twm-card:nth-child(odd),
+.grid > .card:nth-child(odd){
+  background:
+    linear-gradient(180deg, rgba(10,18,34,.92), rgba(7,14,26,.82)),
+    radial-gradient(560px 220px at 0% 0%, rgba(96,165,250,.11), transparent 60%),
+    radial-gradient(320px 180px at 100% 100%, rgba(52,211,153,.06), transparent 60%);
+}
+.twm-grid > .twm-card:nth-child(even),
+.grid > .card:nth-child(even){
+  background:
+    linear-gradient(180deg, rgba(10,18,34,.92), rgba(7,14,26,.82)),
+    radial-gradient(560px 220px at 100% 0%, rgba(244,114,182,.12), transparent 60%),
+    radial-gradient(320px 180px at 0% 100%, rgba(96,165,250,.07), transparent 60%);
+}
+
+/* result-side cards feel more premium without changing structure */
+.grid > .card:nth-child(2),
+.grid > .card:nth-child(4),
+.twm-grid > .twm-card:nth-child(2),
+.twm-grid > .twm-card:nth-child(4),
+#resultsCard,
+.tableCard,
+[id$="resultsCard"],
+[id*="resultsCard"],
+[id*="Results"],
+[id*="results"]{
+  border-color:rgba(190,242,223,.16);
+  background:
+    linear-gradient(180deg, rgba(10,18,34,.95), rgba(8,15,28,.88)),
+    radial-gradient(540px 220px at 0% 0%, rgba(96,165,250,.13), transparent 58%),
+    radial-gradient(520px 220px at 100% 100%, rgba(244,114,182,.14), transparent 58%);
+  box-shadow:0 28px 74px rgba(0,0,0,.34), 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 28px rgba(244,114,182,.08);
+}
+
+.kpi,
+.kpiCard,
+.metric,
+.metricCard,
+.statCard,
+.resultMetric,
+.result-card,
+.results .card,
+.results-grid > div,
+[id*="result"] .card,
+[id*="results"] .card{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.12);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.028)),
+    radial-gradient(260px 120px at 0% 0%, rgba(125,211,252,.14), transparent 70%),
+    radial-gradient(260px 120px at 100% 100%, rgba(244,114,182,.12), transparent 70%);
+  box-shadow:0 18px 34px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.06);
+}
+.kpi::after,
+.kpiCard::after,
+.metric::after,
+.metricCard::after,
+.statCard::after,
+.resultMetric::after,
+.result-card::after{
+  content:"";
+  position:absolute;
+  inset:auto -30px -34px auto;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(244,114,182,.14), transparent 68%);
+  pointer-events:none;
+}
+.kpi .v,
+.v,
+.mono,
+.metric-value,
+.stat-value,
+.result-value{
+  text-shadow:0 0 20px rgba(255,255,255,.02);
+}
+.pos,
+.good,
+.profit,
+.gain,
+.green{
+  color:#86efac;
+}
+.neg,
+.loss,
+.red{
+  color:#fca5a5;
+}
+
+.actions button,
+.btn,
+.primary,
+.secondary,
+.smallBtn,
+.smallbtn,
+.twm-btn{
+  box-shadow:0 16px 34px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.06);
+}
+.twm-btn-primary,
+.actions button,
+.primary{
+  background:
+    linear-gradient(135deg, rgba(52,211,153,.34) 0%, rgba(96,165,250,.24) 44%, rgba(244,114,182,.24) 100%);
+  border-color:rgba(190,242,223,.24);
+}
+.twm-btn-primary:hover,
+.actions button:hover,
+.primary:hover{
+  box-shadow:0 22px 42px rgba(0,0,0,.34), 0 0 34px rgba(96,165,250,.16), 0 0 26px rgba(244,114,182,.10);
+}
+.twm-btn-ghost,
+.secondary{
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+}
+
+input:focus, select:focus, textarea:focus,
+.twm-input:focus{
+  box-shadow:0 0 0 4px rgba(96,165,250,.14), 0 0 24px rgba(96,165,250,.10), 0 0 0 1px rgba(125,211,252,.18) inset;
+}
+
+th{
+  background:linear-gradient(180deg, rgba(7,13,24,.98), rgba(11,20,35,.96));
+}
+tr:hover td{
+  background:rgba(255,255,255,.018);
+}
+
+.stickyInner{
+  background:
+    linear-gradient(180deg, rgba(8,15,29,.92), rgba(7,14,26,.86)),
+    radial-gradient(420px 120px at 0% 0%, rgba(96,165,250,.16), transparent 70%),
+    radial-gradient(320px 120px at 100% 100%, rgba(244,114,182,.12), transparent 70%);
+  border-color:rgba(255,255,255,.12);
+  box-shadow:0 24px 54px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.05), 0 0 26px rgba(96,165,250,.08);
+}
+
+@media (max-width:860px){
+  .twm-hero,
+  .hero{padding:32px 0 10px}
+  .twm-hero::before,
+  .hero::before{box-shadow:0 24px 60px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.08)}
+}
