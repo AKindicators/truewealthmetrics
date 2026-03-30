@@ -7,6 +7,13 @@
     <ns0:priority>1.0</ns0:priority>
   </ns0:url>
 
+  <ns0:url>
+    <ns0:loc>https://truewealthmetrics.com/financial-calculators/</ns0:loc>
+    <ns0:lastmod>2026-03-30</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.95</ns0:priority>
+  </ns0:url>
+
   
   <ns0:url>
     <ns0:loc>https://truewealthmetrics.com/editorial-policy/</ns0:loc>

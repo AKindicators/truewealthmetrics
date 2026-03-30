@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Host: https://truewealthmetrics.com
 Sitemap: https://truewealthmetrics.com/sitemap.xml
