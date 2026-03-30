@@ -57,10 +57,32 @@
 <div class="wrap">
 <h1>Mortgage Payment Calculator</h1>
 <p class="sub">Advanced mortgage calculator with a full amortization schedule and extra payment impact. Estimate your monthly payment, payoff date, total interest, and interest saved.</p>
+
+<div aria-label="Author and policy note" class="author-byline" id="twm-author-byline" role="note">
+  <div class="author-byline__title">Written by: <strong><a href="/about-the-author/">TrueWealthMetrics Editorial Team</a></strong></div>
+  <div class="author-byline__role">Personal Finance Research &amp; Tools</div>
+  <div class="author-byline__note">Independent financial education and calculators. This page is designed to help you estimate mortgage costs, overpayments, and payoff timing with transparent assumptions.</div>
+  <div class="author-byline__links">
+    <a href="/about-the-author/">About the Author</a>
+    <span aria-hidden="true">·</span>
+    <a href="/editorial-policy/">Editorial Policy</a>
+    <span aria-hidden="true">·</span>
+    <a href="/calculator-methodology/">Calculator Methodology</a>
+  </div>
+</div>
+
+<p class="small" style="margin:14px 0 0;">
+  Related:
+  <a href="/loan-repayment-calculator/">loan calculator</a> ·
+  <a href="/budget-planner-calculator/">budget planner</a> ·
+  <a href="/savings-goal-calculator/">savings goal</a> ·
+  <a href="/credit-card-payoff-calculator/">credit card payoff</a>
+</p>
+
 <section class="card section" data-twm-explain="1">
 <h2>How this mortgage calculator works</h2>
-<p>This mortgage payment calculator estimates your monthly payment based on loan amount, interest rate, and term. It breaks your payment into principal and interest and can model the effect of overpayments. Use it to compare scenarios (different rates or terms) and to see how extra payments reduce total interest and shorten the payoff timeline. If your mortgage has fees, insurance, or taxes that vary by region, treat the result as the base loan payment and add those costs separately. For accuracy, always confirm with your lender’s illustration.</p>
-<p>Practical tips: compare a shorter vs longer term to see the trade‑off; test one small overpayment amount (e.g., £50–£200); use a slightly higher rate to stress‑test affordability. Limitations: results assume fixed rates and steady payments/contributions. If your situation changes (rate changes, fees, irregular income), rerun the calculator with updated inputs to keep your plan accurate.</p>
+<p><strong>This mortgage payment calculator estimates your monthly payment</strong> based on loan amount, interest rate, and term. It breaks your payment into principal and interest and can model the effect of overpayments. Use it to compare scenarios (different rates or terms) and to see how extra payments reduce total interest and shorten the payoff timeline. If your mortgage has fees, insurance, or taxes that vary by region, treat the result as the base loan payment and add those costs separately. For accuracy, always confirm with your lender’s illustration.</p>
+<p><strong>Practical tips:</strong> compare a shorter vs longer term to see the trade-off; test one small overpayment amount (e.g., £50–£200); use a slightly higher rate to stress-test affordability. <strong>Limitations:</strong> results assume fixed rates and steady payments/contributions. If your situation changes (rate changes, fees, irregular income), rerun the calculator with updated inputs to keep your plan accurate.</p>
 <p>If you’re remortgaging, use the calculator to estimate how a new rate changes your monthly cost, then keep a buffer for unexpected maintenance and rate increases.</p>
 </section>
 <div class="grid">
@@ -203,11 +225,11 @@
 </section>
 <section class="card" style="margin-top:16px">
 <h2 style="margin:0 0 8px;font-size:18px">Related calculators</h2>
-<p class="hint" style="margin:0">Use these tools together for better planning and realistic cash‑flow decisions.</p>
+<p class="hint" style="margin:0">Use these tools together for better planning and realistic cash-flow decisions.</p>
 <ul class="small" style="margin:12px 0 0;padding-left:18px;line-height:1.8">
 <li><a href="/loan-repayment-calculator/"><b>Loan Repayment Calculator</b></a> — compare personal loan payments vs mortgage scenarios.</li>
 <li><a href="/budget-planner-calculator/"><b>Budget Planner</b></a> — estimate what monthly payment fits your cash flow.</li>
-<li><a href="/credit-card-payoff-calculator/"><b>Credit Card Payoff</b></a> — reduce high‑interest debt before overpaying a mortgage.</li>
+<li><a href="/credit-card-payoff-calculator/"><b>Credit Card Payoff</b></a> — reduce high-interest debt before overpaying a mortgage.</li>
 <li><a href="/debt-snowball-avalanche-calculator/"><b>Debt Snowball/Avalanche</b></a> — plan multiple debts alongside housing costs.</li>
 <li><a href="/savings-goal-calculator/"><b>Savings Goal</b></a> — plan an emergency fund alongside mortgage payments.</li>
 </ul>
@@ -275,7 +297,6 @@
     const r = (apr/100)/12;
     const pi = monthlyPayment(loanAmount, apr, termMonths);
 
-    // Safety: if PI doesn't cover interest, schedule won't reduce.
     if (loanAmount > 0 && r > 0 && pi <= loanAmount * r && extraMonthly <= 0){
       return { ok:false, reason:"Your principal+interest payment does not cover monthly interest. Increase payment, add an extra amount, lower the rate, or extend term." };
     }
@@ -285,37 +306,31 @@
     let totalInterest = 0;
     let rows = [];
 
-    // Prevent infinite loops
-    const MAX_MONTHS = 1200; // 100 years
+    const MAX_MONTHS = 1200;
 
     while (bal > 0.005 && month < MAX_MONTHS){
       month += 1;
       const interest = r === 0 ? 0 : bal * r;
       let principalPart = pi - interest;
 
-      // If rate=0, pi is principal/term
       if (r === 0){
         principalPart = pi;
       }
 
-      // Minimum: if principalPart negative, payment not sufficient (handled earlier)
       if (principalPart < 0) principalPart = 0;
 
-      // Extra payment applies directly to principal
       let extra = extraMonthly;
 
-      // If final month, cap payment to remaining balance + interest
       let principalPay = principalPart + extra;
       if (principalPay > bal){
         principalPay = bal;
-        // keep extra as the portion beyond base principal (for display)
         extra = Math.max(0, principalPay - principalPart);
       }
 
       bal = bal - principalPay;
       totalInterest += interest;
 
-      const paymentShown = (pi + extra); // loan payment only (excludes tax/ins/hoa)
+      const paymentShown = (pi + extra);
 
       rows.push({
         month,
@@ -378,7 +393,6 @@
     const loan = Math.max(0, price - down);
     const termMonths = term * 12;
 
-    // Base schedule (no extra) for savings comparison
     const base = buildSchedule(loan, rate, termMonths, 0);
     const withExtra = buildSchedule(loan, rate, termMonths, Math.max(0, extra));
 
@@ -388,7 +402,6 @@
     const allIn = pi + (tax/12) + (ins/12) + hoa + Math.max(0, extra);
     $("allInPay").textContent = fmtGBP(allIn);
 
-    // Status
     const statusBox = $("statusBox");
     statusBox.style.display = "none";
     statusBox.classList.remove("bad");
@@ -422,7 +435,6 @@
       return;
     }
 
-    // Interest saved (only if base schedule ok)
     let saved = 0;
     if (base.ok){
       saved = Math.max(0, base.totalInterest - withExtra.totalInterest);
@@ -483,7 +495,6 @@
     renderTable(fullSchedule);
   });
 
-  // First render
   reset();
 })();
 </script>
