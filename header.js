@@ -5,12 +5,11 @@
   (function injectLatestStyles() {
     try {
       const id = "twm-style-bust";
-      const existing = document.getElementById(id);
-      if (existing) return;
+      if (document.getElementById(id)) return;
       const link = document.createElement("link");
       link.id = id;
       link.rel = "stylesheet";
-      link.href = "/styles.css?v=20260330-elite10";
+      link.href = "/styles.css?v=20260330-elite11";
       document.head.appendChild(link);
     } catch (e) {}
   })();
@@ -66,64 +65,27 @@
     document.body.classList.add("twm-mobile-nav-open");
   }
 
-  function toggleMobileMenu() {
+  function bindMobileMenu() {
+    const toggle = document.querySelector(".twm-mobile-toggle");
+    const panel = document.querySelector(".twm-mobile-panel");
     const wrap = document.querySelector(".twm-header-wrap");
-    if (!wrap) return;
-    if (wrap.classList.contains("is-mobile-open")) closeMobileMenu();
-    else openMobileMenu();
-  }
+    if (!toggle || !panel || !wrap || toggle.dataset.bound === "1") return;
 
-  function buildMobileHeader() {
-    const wrap = document.querySelector(".twm-header-wrap");
-    const header = wrap ? wrap.querySelector(".twm-header") : null;
-    const brand = wrap ? wrap.querySelector(".twm-brand") : null;
-    const nav = wrap ? wrap.querySelector(".twm-nav") : null;
+    toggle.dataset.bound = "1";
+    toggle.addEventListener("click", function () {
+      if (wrap.classList.contains("is-mobile-open")) closeMobileMenu();
+      else openMobileMenu();
+    });
 
-    if (!wrap || !header || !brand || !nav) return;
-    if (wrap.querySelector(".twm-mobile-topbar")) return;
+    panel.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", closeMobileMenu);
+    });
 
-    const topbar = document.createElement("div");
-    topbar.className = "twm-mobile-topbar";
-
-    const brandClone = brand.cloneNode(true);
-    brandClone.classList.add("twm-brand-mobile");
-
-    const toggle = document.createElement("button");
-    toggle.type = "button";
-    toggle.className = "twm-mobile-toggle";
-    toggle.setAttribute("aria-label", "Open navigation menu");
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.innerHTML = `
-      <span class="twm-mobile-toggle-icon" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </span>
-      <span class="twm-mobile-toggle-label">Menu</span>
-    `;
-
-    topbar.appendChild(brandClone);
-    topbar.appendChild(toggle);
-
-    const panel = document.createElement("div");
-    panel.className = "twm-mobile-panel";
-    panel.setAttribute("hidden", "");
-
-    const navClone = nav.cloneNode(true);
-    navClone.classList.add("twm-mobile-nav");
-    setActiveNav(navClone);
-
-    panel.appendChild(navClone);
-
-    header.prepend(topbar);
-    header.appendChild(panel);
-
-    toggle.addEventListener("click", toggleMobileMenu);
-    panel.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMobileMenu));
-
-    document.addEventListener("keydown", (e) => {
+    document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") closeMobileMenu();
     });
 
-    window.addEventListener("resize", () => {
+    window.addEventListener("resize", function () {
       if (window.innerWidth > 860) closeMobileMenu();
     });
   }
@@ -154,8 +116,8 @@
   }
 
   function afterHeaderInjected() {
-    buildMobileHeader();
     setActiveNav(document);
+    bindMobileMenu();
     injectHomeCTA();
   }
 

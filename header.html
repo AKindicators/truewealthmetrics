@@ -1,12 +1,18 @@
 <!-- TrueWealthMetrics shared header -->
 <div class="twm-header-wrap">
   <div class="twm-header">
-    <a class="twm-brand" href="/">
-      <img class="twm-logo" src="/logo-mark.png" alt="TrueWealthMetrics" width="36" height="36" decoding="async" />
-      <span>TrueWealthMetrics</span>
-    </a>
+    <div class="twm-header-top">
+      <a class="twm-brand" href="/" aria-label="TrueWealthMetrics home">
+        <img class="twm-logo" src="/logo-mark.png" alt="TrueWealthMetrics" width="36" height="36" decoding="async" />
+        <span>TrueWealthMetrics</span>
+      </a>
 
-    <nav class="twm-nav" aria-label="Primary navigation">
+      <button class="twm-mobile-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="twm-mobile-panel">
+        <span class="twm-mobile-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+
+    <nav class="twm-nav twm-nav-desktop" aria-label="Primary navigation">
       <a class="twm-pill" href="/">Home</a>
       <a class="twm-pill" href="/learn/">Learn</a>
       <a class="twm-pill" href="/loan-repayment-calculator/">Loan</a>
@@ -20,5 +26,22 @@
       <a class="twm-pill" href="/investment-fee-impact-calculator/">Fees</a>
       <a class="twm-pill" href="/retirement-planning-calculator/">Retirement</a>
     </nav>
+
+    <div class="twm-mobile-panel" id="twm-mobile-panel" hidden>
+      <nav class="twm-mobile-nav" aria-label="Mobile navigation">
+        <a class="twm-pill" href="/">Home</a>
+        <a class="twm-pill" href="/learn/">Learn</a>
+        <a class="twm-pill" href="/loan-repayment-calculator/">Loan</a>
+        <a class="twm-pill" href="/mortgage-payment-calculator/">Mortgage</a>
+        <a class="twm-pill" href="/budget-planner-calculator/">Budget</a>
+        <a class="twm-pill" href="/compound-interest-calculator/">Compound</a>
+        <a class="twm-pill" href="/savings-goal-calculator/">Savings</a>
+        <a class="twm-pill" href="/credit-card-payoff-calculator/">Credit</a>
+        <a class="twm-pill" href="/debt-snowball-avalanche-calculator/">Debt</a>
+        <a class="twm-pill" href="/roi-calculator/">ROI</a>
+        <a class="twm-pill" href="/investment-fee-impact-calculator/">Fees</a>
+        <a class="twm-pill" href="/retirement-planning-calculator/">Retirement</a>
+      </nav>
+    </div>
   </div>
 </div>
