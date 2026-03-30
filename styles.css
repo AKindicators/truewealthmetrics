@@ -2325,3 +2325,347 @@ tr:hover td{
   .twm-hero::before,
   .hero::before{box-shadow:0 24px 60px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.08)}
 }
+
+
+/* =============================
+   2026 Phase 4 — Mobile + Conversion Fix
+   Focus: wider desktop layout, better mobile stacking,
+   stronger CTA clarity, less cramped calculators.
+   ============================= */
+html body .twm-container,
+html body .wrap,
+html body .twm-header,
+html body .site-footer .container{
+  max-width: 1360px;
+}
+
+html body .twm-container,
+html body .wrap{
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+html body .hero,
+html body .twm-hero{
+  padding-top: 44px;
+}
+
+/* Make primary calculator split breathe more on desktop */
+@media (min-width: 1100px){
+  html body .grid,
+  html body .twm-grid{
+    gap: 22px;
+  }
+
+  html body .grid > .card,
+  html body .twm-grid > .twm-card,
+  html body .grid > .card:first-child,
+  html body .grid > .card:last-child{
+    min-width: 0;
+  }
+
+  html body .kpi,
+  html body .kpiCard,
+  html body .metric,
+  html body .metricCard,
+  html body .statCard,
+  html body .resultMetric,
+  html body .result-card{
+    min-height: 148px;
+  }
+}
+
+/* Stronger CTA clarity */
+html body .actions button,
+html body .btn,
+html body .primary,
+html body .twm-btn,
+html body .smallBtn,
+html body .smallbtn{
+  min-height: 50px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+}
+
+html body .secondary,
+html body .twm-btn-ghost{
+  border-color: rgba(255,255,255,.14);
+}
+
+/* Make result values feel like the main payoff */
+html body .kpi .v,
+html body .v,
+html body .mono,
+html body .metric-value,
+html body .stat-value,
+html body .result-value{
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: .98;
+}
+
+html body .kpi .s,
+html body .small,
+html body .note,
+html body .hint,
+html body .statusLine{
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+/* Real mobile fix: stop side-by-side layouts from breaking */
+@media (max-width: 900px){
+  html body .grid,
+  html body .twm-grid,
+  html body .rowGrid,
+  html body .linksGrid,
+  html body .kpis,
+  html body .kpiGrid{
+    grid-template-columns: 1fr !important;
+    display: grid;
+    gap: 16px;
+  }
+
+  html body .row,
+  html body .row2,
+  html body .tableActions,
+  html body .toolbar,
+  html body .topbar,
+  html body .tabs,
+  html body .pillrow,
+  html body .btnrow,
+  html body .btns,
+  html body .actions,
+  html body .stickyBtns{
+    flex-wrap: wrap;
+  }
+
+  html body .twm-container,
+  html body .wrap{
+    max-width: 100%;
+    padding: 18px 14px 40px;
+  }
+
+  html body .twm-header{
+    max-width: 100%;
+    padding: 12px 12px;
+  }
+
+  html body .hero,
+  html body .twm-hero{
+    padding-top: 26px;
+  }
+
+  html body .hero::before,
+  html body .twm-hero::before,
+  html body .hero::after,
+  html body .twm-hero::after{
+    border-radius: 20px;
+  }
+
+  html body h1,
+  html body .twm-title,
+  html body .hero h1{
+    font-size: clamp(32px, 9vw, 46px) !important;
+    line-height: 1.04;
+    margin-bottom: 12px;
+  }
+
+  html body h2{
+    font-size: clamp(24px, 6.5vw, 34px);
+  }
+
+  html body p,
+  html body li,
+  html body .twm-subtitle,
+  html body .sub,
+  html body .lead,
+  html body p.sub,
+  html body .hero p{
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  html body .twm-card,
+  html body .card,
+  html body .twm-panel,
+  html body .authority-intro,
+  html body .author-byline,
+  html body .notice,
+  html body .callout,
+  html body .banner,
+  html body .warnBox,
+  html body .tableWrap,
+  html body .tablewrap{
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  /* Force calculator input/result areas into clean vertical flow */
+  html body .grid > .card,
+  html body .twm-grid > .twm-card,
+  html body .grid > div,
+  html body .rowGrid > div,
+  html body #resultsCard,
+  html body [id$="resultsCard"],
+  html body [id*="resultsCard"],
+  html body [id*="Results"],
+  html body [id*="results"]{
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  html body table{
+    min-width: 680px;
+  }
+
+  html body .stickyBar{
+    padding: 0 10px;
+    bottom: 10px;
+  }
+
+  html body .stickyInner{
+    padding: 10px 12px;
+    border-radius: 18px;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  html body .stickyMini,
+  html body .stickyBtns{
+    width: 100%;
+  }
+
+  html body .stickyBtns a{
+    flex: 1 1 calc(50% - 6px);
+    min-width: 130px;
+  }
+}
+
+/* Small phone polish */
+@media (max-width: 640px){
+  html body .twm-brand{
+    width: 100%;
+    justify-content: flex-start;
+    min-width: 0;
+  }
+
+  html body .twm-brand span{
+    font-size: 14px;
+  }
+
+  html body .twm-nav{
+    gap: 8px;
+    padding-bottom: 4px;
+  }
+
+  html body .twm-pill{
+    height: 34px;
+    padding: 0 12px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  html body .twm-badges,
+  html body .related{
+    gap: 8px;
+  }
+
+  html body .twm-badge,
+  html body .badge,
+  html body .pill,
+  html body .tag{
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
+  html body .actions button,
+  html body .btn,
+  html body .primary,
+  html body .secondary,
+  html body .smallBtn,
+  html body .smallbtn,
+  html body .twm-btn,
+  html body .twm-btn-primary,
+  html body .twm-btn-ghost{
+    min-height: 48px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  html body .actions,
+  html body .btnrow,
+  html body .btns,
+  html body .twm-cta{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  html body input,
+  html body select,
+  html body textarea,
+  html body .twm-input{
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  html body .kpi,
+  html body .kpiCard,
+  html body .metric,
+  html body .metricCard,
+  html body .statCard,
+  html body .resultMetric,
+  html body .result-card,
+  html body .results .card,
+  html body .results-grid > div,
+  html body [id*="result"] .card,
+  html body [id*="results"] .card{
+    min-height: 126px;
+    padding: 15px 14px;
+  }
+
+  html body .kpi .v,
+  html body .v,
+  html body .mono,
+  html body .metric-value,
+  html body .stat-value,
+  html body .result-value{
+    font-size: clamp(28px, 8vw, 38px);
+  }
+
+  html body .site-footer,
+  html body .footer{
+    padding-bottom: 26px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 420px){
+  html body .twm-container,
+  html body .wrap{
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  html body h1,
+  html body .twm-title,
+  html body .hero h1{
+    font-size: clamp(28px, 10vw, 38px) !important;
+  }
+
+  html body .twm-card,
+  html body .card,
+  html body .twm-panel,
+  html body .authority-intro,
+  html body .author-byline,
+  html body .notice,
+  html body .callout,
+  html body .banner,
+  html body .warnBox,
+  html body .tableWrap,
+  html body .tablewrap{
+    padding: 14px;
+    border-radius: 16px;
+  }
+}
