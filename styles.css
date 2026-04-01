@@ -2876,3 +2876,51 @@ html body .statusLine{
   html body .twm-home-cta-row{ grid-template-columns:1fr; }
   html body .twm-home-cta{ width:100%; }
 }
+
+/* =========================
+   Enhancements: Micro‑animations & Accessibility
+   These styles add subtle interactions to buttons and cards, provide clear focus
+   outlines for keyboard navigation, and respect users who prefer reduced motion.
+   ========================= */
+
+/* Micro‑animations for buttons and cards */
+.twm-btn,
+button,
+.twm-card,
+.card {
+  /* Smooth transitions across multiple properties */
+  transition-property: transform, box-shadow, border-color, background;
+  transition-duration: .2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover interactions */
+.twm-btn:hover,
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 28px rgba(0,0,0,.28);
+}
+.twm-card:hover,
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 30px 48px rgba(0,0,0,.32);
+  border-color: rgba(20,182,104,.28);
+}
+
+/* Focus states for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.twm-btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
