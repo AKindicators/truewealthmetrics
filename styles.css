@@ -2927,18 +2927,26 @@ textarea:focus-visible,
 
 
 /* TrueWealthMetrics wordmark logo override */
+html body .twm-header{
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 16px;
+}
+
 html body .twm-brand{
   display:flex;
   align-items:center;
   min-width:0;
   flex:0 0 auto;
+  max-width:min(30vw, 280px);
 }
+
 html body .twm-brand .twm-logo-wordmark{
   display:block;
-  width: clamp(240px, 26vw, 360px) !important;
+  width: clamp(170px, 16vw, 250px) !important;
   height: auto !important;
-  max-height: 58px;
-  min-width: 240px;
+  max-height: 42px;
+  min-width: 0;
   border: 0 !important;
   border-radius: 0 !important;
   background: transparent !important;
@@ -2946,10 +2954,36 @@ html body .twm-brand .twm-logo-wordmark{
   object-fit: contain;
 }
 
+html body .twm-nav{
+  flex:1 1 auto;
+  min-width:0;
+  justify-content:flex-end;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling: touch;
+}
+
+html body .twm-nav::-webkit-scrollbar{
+  display:none;
+}
+
+html body .twm-pill{
+  white-space:nowrap;
+  flex:0 0 auto;
+}
+
 @media (max-width: 860px){
+  html body .twm-header{
+    gap: 12px;
+  }
+
+  html body .twm-brand{
+    max-width:none;
+  }
+
   html body .twm-brand .twm-logo-wordmark{
-    width: clamp(190px, 44vw, 250px) !important;
-    min-width: 190px;
-    max-height: 46px;
+    width: clamp(150px, 42vw, 210px) !important;
+    max-height: 36px;
   }
 }
