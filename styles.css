@@ -2924,3 +2924,25 @@ textarea:focus-visible,
     transition: none !important;
   }
 }
+
+
+/* TrueWealthMetrics wordmark logo override */
+html body .twm-brand .twm-logo-wordmark{
+  width: clamp(190px, 24vw, 300px) !important;
+  height: auto !important;
+  min-width: 190px;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  object-fit: contain;
+}
+html body .twm-brand{
+  min-width: 0;
+}
+@media (max-width: 860px){
+  html body .twm-brand .twm-logo-wordmark{
+    width: clamp(170px, 48vw, 230px) !important;
+    min-width: 170px;
+  }
+}
