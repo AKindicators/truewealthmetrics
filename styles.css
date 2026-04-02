@@ -2927,22 +2927,29 @@ textarea:focus-visible,
 
 
 /* TrueWealthMetrics wordmark logo override */
+html body .twm-brand{
+  display:flex;
+  align-items:center;
+  min-width:0;
+  flex:0 0 auto;
+}
 html body .twm-brand .twm-logo-wordmark{
-  width: clamp(190px, 24vw, 300px) !important;
+  display:block;
+  width: clamp(240px, 26vw, 360px) !important;
   height: auto !important;
-  min-width: 190px;
+  max-height: 58px;
+  min-width: 240px;
   border: 0 !important;
   border-radius: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
   object-fit: contain;
 }
-html body .twm-brand{
-  min-width: 0;
-}
+
 @media (max-width: 860px){
   html body .twm-brand .twm-logo-wordmark{
-    width: clamp(170px, 48vw, 230px) !important;
-    min-width: 170px;
+    width: clamp(190px, 44vw, 250px) !important;
+    min-width: 190px;
+    max-height: 46px;
   }
 }
