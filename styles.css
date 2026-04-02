@@ -2970,6 +2970,7 @@ html body .twm-brand .twm-logo-mark{
   box-shadow: none !important;
   object-fit: contain;
   display: block;
+  transform: translateY(-1px);
 }
 
 html body .twm-brand-text{
