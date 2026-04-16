@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -340,23 +341,11 @@
 </details>
 </div>
 </section>
-
-<section class="section" style="margin-top:16px;">
-<div class="card">
-<h2>Build a stronger loan repayment plan</h2>
-<p>If you want more than a one-off estimate, use these support guides together with the calculator. They help you compare loan structures, check real-world affordability, and understand how extra payments change the payoff path.</p>
-<ul>
-<li><a href="/how-to-use-loan-repayment-calculator/"><strong>How to use a loan repayment calculator (step-by-step)</strong></a> — a practical walkthrough for comparing term length, APR, and overpayments.</li>
-<li><a href="/loan-repayment-calculator-examples/"><strong>Loan repayment calculator examples (real scenarios)</strong></a> — worked examples for standard loans, shorter terms, extra payments, and refinance checks.</li>
-</ul>
-</div>
-</section>
-
 <section class="section" style="margin-top:16px;">
 <div class="card">
 <h2>Related calculators</h2>
 <p>
-            Use these tools together to plan repayments, improve cash flow, and compare long-term scenarios.
+            Use these tools together to plan repayments, improve cash flow, and compare long‑term scenarios.
           </p>
 <ul>
 <li><a href="/mortgage-payment-calculator/">Mortgage Payment Calculator</a> — home loan estimates and amortization.</li>
@@ -369,7 +358,6 @@
 </div>
 </section>
 </div>
-
 <div aria-label="Sticky results bar" class="stickyBar" id="stickyBar">
 <div class="stickyInner">
 <div class="stickyMini">
@@ -382,7 +370,6 @@
 </div>
 </div>
 </div>
-
 <script>
       function toNum(v) {
         const n = Number(String(v).replace(/,/g, "").trim());
@@ -437,6 +424,7 @@
         const rows = [];
         let m = 0;
 
+        // safety limit (avoid infinite loops)
         const maxIter = Math.max(n + 1200, 2000);
 
         while (bal > 0.0000001 && m < maxIter) {
@@ -445,6 +433,7 @@
           const interest = r === 0 ? 0 : bal * r;
           let payment = base + extra;
 
+          // Minimum payment must cover interest when r>0, otherwise balance grows.
           if (r > 0 && payment <= interest + 0.0000001) {
             return { ok: false, reason: "Payment is not enough to cover monthly interest. Increase extra payment or reduce term.", basePayment: base, rows: [] };
           }
@@ -467,7 +456,7 @@
             balance: bal < 0 ? 0 : bal
           });
 
-          if (m > n + 600 && extra === 0) break;
+          if (m > n + 600 && extra === 0) break; // additional guard
         }
 
         return {
@@ -582,6 +571,7 @@
           return;
         }
 
+        // base scenario (no extra)
         const basePay = monthlyPayment(amount, apr, termMonths);
         const baseAm = amortize({ amount, aprPercent: apr, months: termMonths, extraMonthly: 0 });
 
@@ -590,6 +580,7 @@
           return;
         }
 
+        // extra scenario
         const extraAm = amortize({ amount, aprPercent: apr, months: termMonths, extraMonthly: extra });
 
         showAlert(extraAm.ok ? "" : extraAm.reason);
@@ -668,8 +659,9 @@ ${(extra > 0 && extraAm.ok) ? `With ${fmtMoney(currency, extra, 2)}/mo extra: pa
       var yrEl = document.getElementById("yr"); if (yrEl) yrEl.textContent = new Date().getFullYear();
       calculate();
     </script>
-
 <div class="wrap">
+
+
 <section aria-labelledby="calc-methodology" class="card">
 <h2 id="calc-methodology">Calculator methodology &amp; assumptions</h2>
 <p>
@@ -681,6 +673,7 @@ ${(extra > 0 && extraAm.ok) ? `With ${fmtMoney(currency, extra, 2)}/mo extra: pa
     For how we review content: <a href="/editorial-policy/">Editorial Policy</a>.
   </p>
 </section>
+
 </div>
 
 <footer class="site-footer">
