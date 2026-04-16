@@ -205,6 +205,51 @@
 
 <section class="section" style="margin-top:16px;">
 <div class="card">
+<h2>Loan repayment calculator guide: what each result means</h2>
+<p>When you use a loan repayment calculator, the most important number is usually the monthly payment because it shows whether the loan fits your current budget. But affordability is only one part of the decision. A lower monthly payment can still lead to a higher overall borrowing cost if the repayment term is stretched over more years. That is why this calculator also shows total interest, total paid, and payoff time, so you can judge the full cost of the loan rather than focusing on one number in isolation.</p>
+<p><strong>Monthly payment:</strong> this is the regular payment needed to repay the loan based on the amount borrowed, the APR, and the repayment term. If you are comparing lenders, this figure helps you see whether the payment works alongside rent or mortgage costs, utilities, food, insurance, and savings goals.</p>
+<p><strong>Total interest:</strong> this shows how much the lender charges over the life of the loan. Two loans can look similar month to month, but the one with the longer term often costs much more in interest overall. Watching this number carefully can help you avoid choosing a loan that feels cheaper today but becomes far more expensive over time.</p>
+<p><strong>Total paid:</strong> this is the full amount repaid across the term, including both principal and interest. It gives a simple top-line view of the total cost of borrowing.</p>
+<p><strong>Payoff time:</strong> this becomes especially useful when you add extra payments. Even a modest recurring overpayment can reduce the balance faster, which cuts future interest and may shorten the term by months or even years.</p>
+<p>Used together, these outputs make a loan repayment calculator more than a payment estimator. It becomes a planning tool for comparing offers, checking refinance scenarios, testing faster payoff plans, and deciding whether a shorter term is worth the higher monthly commitment.</p>
+</div>
+</section>
+
+<section class="section" style="margin-top:16px;">
+<div class="card">
+<h2>When to choose a shorter or longer loan term</h2>
+<p>A shorter loan term usually means a higher monthly payment but lower total interest. A longer term usually means a lower monthly payment but a higher total cost. Neither option is automatically right in every situation. The best choice depends on your cash flow, emergency savings, job stability, and how comfortably the payment fits into your overall financial plan.</p>
+<p>A shorter term may make sense when your income is stable, your essential expenses are under control, and you want to clear the debt quickly. It can also work well when the interest rate is high enough that extending the term would add a meaningful amount of extra cost. In those cases, paying more each month can create long-term savings and reduce the time you stay in debt.</p>
+<p>A longer term may be helpful when cash flow is tight and flexibility matters more than the fastest payoff. For example, someone balancing family costs, variable freelance income, or other debt payments may prefer a lower required payment to reduce financial pressure. The trade-off is that interest continues for longer, so the loan becomes more expensive overall.</p>
+<p>A practical approach is to use this loan repayment calculator to compare both options side by side. First test the shortest term you think you can manage. Then try a longer term and look at the difference in monthly payment and total interest. If the shorter term feels too tight, try the longer term with a smaller optional extra payment. That can preserve flexibility while still creating a path to pay the loan off faster when your budget allows.</p>
+<p>In other words, the decision is not only about the required payment. It is about finding a repayment structure that you can maintain consistently without damaging the rest of your financial priorities.</p>
+</div>
+</section>
+
+<section class="section" style="margin-top:16px;">
+<div class="card">
+<h2>How extra payments reduce interest and speed up payoff</h2>
+<p>One of the most useful features in a loan repayment calculator is the ability to test extra monthly payments. When you pay more than the required minimum on a fixed-rate loan, the extra amount usually goes toward principal. Because interest is calculated from the remaining balance, reducing the principal earlier means less interest is charged in future months.</p>
+<p>This creates a compounding benefit. First, more of the next payment goes toward principal instead of interest. Second, the balance falls faster. Third, the overall term can shorten because the loan reaches zero sooner than planned. The larger or more consistent the extra payment, the greater the potential interest savings.</p>
+<p>For example, adding a small overpayment each month may not seem dramatic at first, but on longer loans it can make a noticeable difference. It can also give you flexibility. You may choose a term with a manageable required payment, then make optional extra payments during stronger income months. That approach can be safer than committing to a higher mandatory payment that strains your budget every month.</p>
+<p>Before relying on overpayments, check your lender terms. Some loans allow extra payments freely, while others may have restrictions, fees, or specific rules about how overpayments are applied. If there is an overpayment penalty, compare the cost of that penalty with the interest you would save. In many cases the savings still matter, but it is worth confirming before making decisions.</p>
+<p>This calculator helps you model those possibilities quickly. Enter the base loan details first, then test different extra amounts to see how payoff time and total interest change. That gives you a realistic view of whether a faster repayment strategy fits your finances.</p>
+</div>
+</section>
+
+<section class="section" style="margin-top:16px;">
+<div class="card">
+<h2>Best ways to use this loan repayment calculator before borrowing</h2>
+<p>Many people use a loan repayment calculator after receiving a loan quote, but it is just as valuable before applying. Running a few scenarios in advance helps you set a safer borrowing limit and avoid choosing a payment that looks manageable on paper but feels difficult in real life.</p>
+<p>Start by estimating the monthly payment for the amount you plan to borrow. Then test a slightly higher interest rate than the best headline rate you have seen. This gives you a buffer in case the final lender offer is less attractive than expected. After that, compare at least two repayment terms so you can see the trade-off between monthly affordability and total interest.</p>
+<p>Next, think about the payment in context. Ask whether you could still manage it after covering essentials, minimum debt payments, savings contributions, and routine irregular costs such as annual insurance, school expenses, vehicle repairs, or home maintenance. A loan should fit inside your broader plan, not push every other goal aside.</p>
+<p>You can also use the calculator for refinance checks. If you already have a loan, enter the remaining balance, expected refinance rate, and proposed term. Then compare the new total interest with your current trajectory. This can help you decide whether refinancing lowers cost, improves monthly cash flow, or simply stretches the debt over a longer period without much real benefit.</p>
+<p>Finally, use this page together with related budgeting and debt payoff tools. A loan decision is rarely isolated. It interacts with your cash flow, emergency fund targets, other balances, and long-term savings plans. The more complete the picture, the easier it is to choose a repayment path that stays sustainable.</p>
+</div>
+</section>
+
+<section class="section" style="margin-top:16px;">
+<div class="card">
 <h2>FAQ</h2>
 <details>
 <summary>Does a lower interest rate always reduce the monthly payment?</summary>
@@ -542,7 +587,7 @@ ${(extra > 0 && extraAm.ok) ? `With ${fmtMoney(currency, extra, 2)}/mo extra: pa
         renderTable(document.getElementById("currency").value, __rows);
       });
 
-      document.getElementById("yr").textContent = new Date().getFullYear();
+      var yrEl = document.getElementById("yr"); if (yrEl) yrEl.textContent = new Date().getFullYear();
       calculate();
     </script>
 <div class="wrap">
