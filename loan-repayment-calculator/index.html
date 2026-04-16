@@ -27,7 +27,7 @@
       }
     </script>
 <script id="jsonld-faq" type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a loan repayment calculator work?","acceptedAnswer":{"@type":"Answer","text":"It estimates your monthly payment and total interest using the loan amount, interest rate, and term, based on standard amortization math."}},{"@type":"Question","name":"What is amortization?","acceptedAnswer":{"@type":"Answer","text":"Amortization means each payment covers interest plus some principal. Early payments are mostly interest; later payments pay down more principal."}},{"@type":"Question","name":"Can I see an amortization schedule?","acceptedAnswer":{"@type":"Answer","text":"Yes. A schedule shows how each payment is split between interest and principal over time so you can track progress."}},{"@type":"Question","name":"What happens if I make extra payments?","acceptedAnswer":{"@type":"Answer","text":"Extra payments usually reduce total interest and shorten the loan term because they reduce the remaining principal faster."}},{"@type":"Question","name":"Is the interest rate fixed?","acceptedAnswer":{"@type":"Answer","text":"This calculator assumes a fixed rate. Variable rates can change payments and total cost."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a loan repayment calculator work?","acceptedAnswer":{"@type":"Answer","text":"It estimates your monthly payment and total interest using the loan amount, interest rate, and term, based on standard amortization math."}},{"@type":"Question","name":"What is amortization?","acceptedAnswer":{"@type":"Answer","text":"Amortization means each payment covers interest plus some principal. Early payments are mostly interest; later payments pay down more principal."}},{"@type":"Question","name":"Can I see an amortization schedule?","acceptedAnswer":{"@type":"Answer","text":"Yes. A schedule shows how each payment is split between interest and principal over time so you can track progress."}},{"@type":"Question","name":"What happens if I make extra payments?","acceptedAnswer":{"@type":"Answer","text":"Extra payments usually reduce total interest and shorten the loan term because they reduce the remaining principal faster."}},{"@type":"Question","name":"Is the interest rate fixed?","acceptedAnswer":{"@type":"Answer","text":"This calculator assumes a fixed rate. Variable rates can change payments and total cost."}},{"@type":"Question","name":"Should I choose a longer or shorter loan term?","acceptedAnswer":{"@type":"Answer","text":"A shorter term usually means higher monthly payments but lower total interest. A longer term reduces the monthly payment but increases the total borrowing cost."}},{"@type":"Question","name":"How much difference do extra payments make?","acceptedAnswer":{"@type":"Answer","text":"Even modest extra payments can reduce total interest and shorten the payoff term because more of the balance is cleared earlier."}},{"@type":"Question","name":"Can this calculator be used for mortgages?","acceptedAnswer":{"@type":"Answer","text":"It can be used for basic mortgage estimates, but real mortgage payments may also include taxes, insurance, fees, and lender-specific rules not shown here."}},{"@type":"Question","name":"Can this calculator be used for car loans and personal loans?","acceptedAnswer":{"@type":"Answer","text":"Yes. It works well for many fixed-rate instalment loans, including personal loans and car loans, although lender fees and special terms should be checked separately."}}]}
 </script>
 <script id="jsonld-softwareapp" type="application/ld+json">
       {
@@ -250,6 +250,41 @@
 
 <section class="section" style="margin-top:16px;">
 <div class="card">
+<h2>Loan repayment calculator examples</h2>
+<p>Real examples make a loan repayment calculator easier to interpret because they show how monthly payment, total interest, and payoff time change together. Use the examples below as planning references, then enter your own figures for a more precise estimate.</p>
+
+<h3>Example 1: standard personal loan repayment</h3>
+<p>Suppose you borrow <strong>£15,000</strong> at <strong>7.5% APR</strong> over <strong>5 years</strong>. In that kind of scenario, the monthly payment is roughly <strong>£300</strong>. Over the full term, you repay the original principal plus several thousand pounds in interest. This is a useful baseline example because it shows how a moderate-rate fixed loan behaves when you make only the required monthly payments.</p>
+<p>Now test the same loan with an extra monthly payment of <strong>£50</strong>. The required payment stays the same, but the extra amount reduces principal faster. That usually shortens the payoff period and lowers total interest. This kind of comparison is one of the quickest ways to see whether a small overpayment could save meaningful money without forcing you into a shorter mandatory term.</p>
+
+<h3>Example 2: shorter term vs longer term</h3>
+<p>Imagine comparing the same loan amount at the same interest rate over <strong>3 years</strong> and <strong>5 years</strong>. The 3-year option usually has a much higher monthly payment, but a noticeably lower total interest cost. The 5-year option usually feels easier month to month, but the overall borrowing cost is higher because interest runs for longer.</p>
+<p>This example is helpful if you are deciding between affordability now and lower cost over time. A calculator makes that trade-off visible in seconds, which is why comparing multiple terms is often more useful than looking at a single loan quote in isolation.</p>
+
+<h3>Example 3: testing affordability before applying</h3>
+<p>If a lender advertises a low representative APR, do not assume you will receive that exact rate. A safer approach is to test your intended loan amount at the expected rate and then at a slightly higher rate. If the payment still fits your budget under the higher-rate scenario, your borrowing plan is more resilient. If not, you may need to reduce the loan amount, lengthen the term, or delay borrowing until your cash flow improves.</p>
+</div>
+</section>
+
+<section class="section" style="margin-top:16px;">
+<div class="card">
+<h2>Edge cases and special situations</h2>
+<p>Strong loan tools should not only explain the standard scenario. They should also help users understand edge cases, unusual inputs, and situations where estimates may differ from a lender statement.</p>
+<ul>
+<li><strong>0% APR loans:</strong> if the interest rate is zero, the math becomes much simpler. Your payment is just the loan amount divided by the number of months. This is common in short promotional offers and some special financing deals.</li>
+<li><strong>Very high APRs:</strong> when the rate is high, a large share of each early payment goes toward interest instead of principal. The loan can remain expensive even if the monthly payment still looks manageable.</li>
+<li><strong>Very short terms:</strong> a shorter term can save a lot of interest, but the required payment may become too aggressive for your budget. A loan is only helpful if the payment remains sustainable in real life.</li>
+<li><strong>Optional extra payments:</strong> overpayments usually reduce interest and shorten the term, but some lenders restrict them or charge fees. Always check your loan agreement before relying on a fast-payoff strategy.</li>
+<li><strong>Variable-rate loans:</strong> this calculator assumes a fixed rate. If your loan rate can change, future payments and total interest may be different from the estimate shown here.</li>
+<li><strong>Fees and add-ons:</strong> some lenders include origination fees, insurance, penalties, or other charges that do not appear in a simple amortization formula. Those extras can change the real cost materially.</li>
+<li><strong>Rounding differences:</strong> your lender may round daily or monthly interest in a different way, so small differences between this calculator and your official statement are normal.</li>
+</ul>
+<p>These cases do not make the calculator less useful. They simply show why it works best as a planning tool rather than a substitute for the exact terms in your credit agreement.</p>
+</div>
+</section>
+
+<section class="section" style="margin-top:16px;">
+<div class="card">
 <h2>FAQ</h2>
 <details>
 <summary>Does a lower interest rate always reduce the monthly payment?</summary>
@@ -268,6 +303,30 @@
 <p>
               Lenders may use different compounding conventions, add fees, or require escrow/insurance (especially for mortgages).
               This tool is a clean estimate for planning.
+            </p>
+</details>
+<details>
+<summary>Should I choose a longer or shorter loan term?</summary>
+<p>
+              A shorter term usually means higher monthly payments but lower total interest. A longer term reduces the monthly payment but increases the total cost of borrowing.
+            </p>
+</details>
+<details>
+<summary>How much difference do extra payments make?</summary>
+<p>
+              Even modest extra payments can reduce total interest and shorten the payoff term because more of the balance is cleared earlier.
+            </p>
+</details>
+<details>
+<summary>Can this calculator be used for car loans and personal loans?</summary>
+<p>
+              Yes. It works well for many fixed-rate instalment loans, including personal loans and car loans. Always check lender fees and any special terms separately.
+            </p>
+</details>
+<details>
+<summary>Can this calculator be used for mortgages?</summary>
+<p>
+              It can be used for basic mortgage estimates, but real mortgage payments may also include taxes, insurance, fees, and lender-specific rules not shown here.
             </p>
 </details>
 </div>
@@ -604,6 +663,14 @@ ${(extra > 0 && extraAm.ok) ? `With ${fmtMoney(currency, extra, 2)}/mo extra: pa
 <p>Extra payments usually reduce total interest and shorten the loan term because they reduce the remaining principal faster.</p>
 <h3>Is the interest rate fixed?</h3>
 <p>This calculator assumes a fixed rate. Variable rates can change payments and total cost.</p>
+<h3>Should I choose a longer or shorter loan term?</h3>
+<p>A shorter term usually means higher monthly payments but lower total interest. A longer term reduces the monthly payment but increases the total borrowing cost.</p>
+<h3>How much difference do extra payments make?</h3>
+<p>Even modest extra payments can reduce total interest and shorten the payoff term because more of the balance is cleared earlier.</p>
+<h3>Can this calculator be used for car loans and personal loans?</h3>
+<p>Yes. It works well for many fixed-rate instalment loans, including personal loans and car loans, although lender fees and special terms should be checked separately.</p>
+<h3>Can this calculator be used for mortgages?</h3>
+<p>It can be used for basic mortgage estimates, but real mortgage payments may also include taxes, insurance, fees, and lender-specific rules not shown here.</p>
 </section>
 <section aria-labelledby="calc-methodology" class="card">
 <h2 id="calc-methodology">Calculator methodology &amp; assumptions</h2>
