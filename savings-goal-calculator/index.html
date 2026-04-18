@@ -50,12 +50,12 @@
         "@type":"BreadcrumbList",
         "itemListElement":[
           {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
-          {"@type":"ListItem","position":2,"name":"Investment Calculator","item":"https://truewealthmetrics.com/savings-goal-calculator/"}
+          {"@type":"ListItem","position":2,"name":"Investment Calculator","item":"https://truewealthmetrics.com/investment-calculator/"}
         ]
       }
     </script>
 <script id="jsonld-faq" type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a savings goal calculator work?","acceptedAnswer":{"@type":"Answer","text":"It estimates how much your money could grow over time based on a starting balance, regular contributions, an expected rate of return, and your timeline."}},{"@type":"Question","name":"Should I save weekly or monthly?","acceptedAnswer":{"@type":"Answer","text":"Monthly investing is common, but weekly investing can feel easier for some budgets. The best choice is the one you can stick with consistently."}},{"@type":"Question","name":"Does it include investment returns?","acceptedAnswer":{"@type":"Answer","text":"If you enter an expected annual return, the calculator can estimate portfolio growth. If not, it assumes contributions only."}},{"@type":"Question","name":"What if I miss a month?","acceptedAnswer":{"@type":"Answer","text":"Missing contributions typically means you’ll need to save more later or extend your timeline. You can re-run the calculator with new inputs."}},{"@type":"Question","name":"What return rate should I use?","acceptedAnswer":{"@type":"Answer","text":"Use a cautious long-term estimate that matches your asset mix and risk tolerance. Lower assumptions are usually better for planning."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does an investment calculator work?","acceptedAnswer":{"@type":"Answer","text":"It estimates how much your money could grow over time based on a starting balance, regular contributions, an expected rate of return, and your timeline."}},{"@type":"Question","name":"Should I invest weekly or monthly?","acceptedAnswer":{"@type":"Answer","text":"Monthly investing is common, but weekly investing can feel easier for some budgets. The best choice is the one you can stick with consistently."}},{"@type":"Question","name":"Does it include investment returns?","acceptedAnswer":{"@type":"Answer","text":"If you enter an expected annual return, the calculator can estimate portfolio growth. If not, it assumes contributions only."}},{"@type":"Question","name":"What if I miss a month?","acceptedAnswer":{"@type":"Answer","text":"Missing contributions typically means you’ll need to save more later or extend your timeline. You can re-run the calculator with new inputs."}},{"@type":"Question","name":"What return rate should I use?","acceptedAnswer":{"@type":"Answer","text":"Use a cautious long-term estimate that matches your asset mix and risk tolerance. Lower assumptions are usually better for planning."}}]}
 </script>
 <link href="/styles.css" rel="stylesheet"/><link href="/favicon.ico" rel="icon" sizes="any"/>
 <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
@@ -70,9 +70,7 @@
 <section class="hero">
 <h1>Investment Calculator</h1>
 <p class="sub">
-            This investment calculator is built for practical planning. 
-            Use this <strong>investment calculator</strong> to estimate portfolio growth with or without interest. Use <strong>Time to Goal</strong> to estimate how long it takes to reach an investing target,
-            or <strong>Required Monthly</strong> to calculate the monthly contribution needed to hit a target by a deadline.
+            This investment calculator is built for practical planning. Use this <strong>investment calculator</strong> to estimate portfolio growth with or without interest. Use <strong>Time to Goal</strong> to estimate how long it takes to reach an investing target, or <strong>Required Monthly</strong> to calculate the monthly contribution needed to hit a target by a deadline.
           </p>
 </section>
 <section class="card section" data-twm-explain="1">
@@ -145,7 +143,7 @@
 </div>
 <div class="notice" style="margin-top:12px">
               We assume monthly compounding and monthly contributions made at the end of each month.
-              This is an estimate — real products may compound differently.
+              This is an estimate — real investment returns can vary significantly.
             </div>
 </div>
 <div class="btnrow">
@@ -160,12 +158,12 @@
 <h2>Results</h2>
 <div class="kpis">
 <div class="kpi">
-<div class="t" id="kpi1t">Time to reach goal</div>
+<div class="t" id="kpi1t">Time to reach investment goal</div>
 <div class="v" id="kpi1v">—</div>
 <div class="s" id="kpi1s"></div>
 </div>
 <div class="kpi">
-<div class="t" id="kpi2t">Required monthly contribution</div>
+<div class="t" id="kpi2t">Required monthly investment</div>
 <div class="v" id="kpi2v">—</div>
 <div class="s" id="kpi2s"></div>
 </div>
@@ -201,20 +199,13 @@
 <section class="card" style="margin-top:16px">
 <h2 style="margin:0 0 10px;font-size:16px">How this investment calculator works</h2>
 <p style="margin:0;color:var(--muted);line-height:1.55">
-          We simulate your portfolio month-by-month. Each month we apply estimated growth using your annual return assumption, then add your monthly investment.
-          In “Required Monthly” mode, we solve for the monthly contribution needed to reach your investment goal by your deadline.
-          Results are educational estimates and real investment performance will vary due to market returns, fees, and timing.
+          We simulate your balance month-by-month. Each month we add estimated returns using your expected annual rate, then add your monthly investment. In “Required Monthly” mode, we solve for the monthly investment needed to reach your target by your deadline. Results are educational estimates and may differ from real market performance.
         </p>
-</section>
-<section class="card" style="margin-top:16px">
-<h2 style="margin:0 0 10px;font-size:16px">Why use an investment calculator?</h2>
-<p style="margin:0;color:var(--muted);line-height:1.55">An investment calculator helps you estimate future value, compare return assumptions, and understand how regular monthly investing affects long-term growth. It is useful for retirement planning, medium-term goals, and testing whether a target is realistic before you commit new money.</p>
 </section>
 <section aria-labelledby="calc-methodology" class="card">
 <h2 id="calc-methodology">Calculator methodology &amp; assumptions</h2>
 <p>
-    This calculator uses standard financial formulas and simplified assumptions (for example: constant rates, regular payments,
-    and rounding). Real-world results can differ due to fees, taxes, rate changes, compounding conventions, and account rules.
+    This calculator uses standard financial formulas and simplified assumptions (for example: constant rates, regular contributions, and rounding). Real-world results can differ due to fees, taxes, market performance, rate changes, compounding conventions, and account rules.
   </p>
 <p>
     See how we build and validate our tools: <a href="/calculator-methodology/">Calculator Methodology</a>.
@@ -225,26 +216,26 @@
 <h2 style="margin:0 0 10px;font-size:16px">Related calculators</h2>
 <p style="margin:0;color:var(--muted);line-height:1.55">Use these tools together to plan your cash flow and long‑term goals:</p>
 <ul style="margin:12px 0 0;padding-left:18px;color:var(--muted);line-height:1.8;font-size:13px">
-<li><a href="/budget-planner-calculator/"><b>Budget Planner Calculator</b></a> — set a realistic monthly amount before committing to your investment plan.</li>
-<li><a href="/compound-interest-calculator/"><b>Compound Interest Calculator</b></a> — compare long-term growth scenarios with regular contributions.</li>
-<li><a href="/roi-calculator/"><b>ROI Calculator</b></a> — estimate percentage returns for a specific investment plan.</li>
-<li><a href="/investment-fee-impact-calculator/"><b>Investment Fee Impact</b></a> — compare low‑fee vs high‑fee outcomes over time.</li>
-<li><a href="/retirement-planning-calculator/"><b>Retirement Planning Calculator</b></a> — connect today’s investing habits to long-term retirement goals.</li>
+<li><a href="/budget-planner-calculator/"><b>Budget Planner</b></a> — check how much cash flow you can comfortably invest each month.</li>
+<li><a href="/compound-interest-calculator/"><b>Compound Interest Calculator</b></a> — compare long-term growth using the same contribution plan.</li>
+<li><a href="/roi-calculator/"><b>ROI Calculator</b></a> — estimate returns for an investment strategy or project.</li>
+<li><a href="/investment-fee-impact-calculator/"><b>Investment Fee Impact</b></a> — see how fees can reduce portfolio growth over time.</li>
+<li><a href="/retirement-planning-calculator/"><b>Retirement Planning</b></a> — connect today’s investment habits to long-term retirement goals.</li>
 </ul>
 </section>
 <section class="card" style="margin-top:16px">
 <h2 style="margin:0 0 10px;font-size:16px">FAQs</h2>
 <details style="border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);padding:12px 14px;margin:10px 0">
-<summary style="cursor:pointer;font-weight:700">Should I include interest in my savings goal?</summary>
-<div style="margin-top:8px;color:var(--muted);line-height:1.55">If your savings earn interest, include an estimated APY. If you’re unsure, use 0% for a conservative plan.</div>
+<summary style="cursor:pointer;font-weight:700">Should I include expected returns in my investment plan?</summary>
+<div style="margin-top:8px;color:var(--muted);line-height:1.55">If your investments are expected to grow, include a cautious annual return estimate. If you are unsure, use a lower rate for conservative planning.</div>
 </details>
 <details style="border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);padding:12px 14px;margin:10px 0">
-<summary style="cursor:pointer;font-weight:700">Why does the calculator say the goal is not reached?</summary>
-<div style="margin-top:8px;color:var(--muted);line-height:1.55">Your contribution may be too low for the target and horizon. Increase monthly savings, extend the horizon, or adjust the rate.</div>
+<summary style="cursor:pointer;font-weight:700">Why does the calculator say the investment goal is not reached?</summary>
+<div style="margin-top:8px;color:var(--muted);line-height:1.55">Your monthly investment may be too low for the target and timeline. Increase contributions, extend the time horizon, or lower the target.</div>
 </details>
 <details style="border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);padding:12px 14px;margin:10px 0">
-<summary style="cursor:pointer;font-weight:700">Are contributions assumed at the start or end of the month?</summary>
-<div style="margin-top:8px;color:var(--muted);line-height:1.55">We assume end-of-month contributions with monthly compounding. Real products may vary slightly.</div>
+<summary style="cursor:pointer;font-weight:700">Are investments assumed at the start or end of the month?</summary>
+<div style="margin-top:8px;color:var(--muted);line-height:1.55">We assume end-of-month contributions with monthly compounding. Real investment products and returns may vary.</div>
 </details>
 </section>
 </div>
@@ -408,7 +399,7 @@
           reqTab.setAttribute("aria-selected","false");
           modeTime.style.display = "";
           modeReq.style.display = "none";
-          $("kpi1t").textContent = "Time to reach goal";
+          $("kpi1t").textContent = "Time to reach investment goal";
           $("kpi2t").textContent = "Monthly investment";
         }else{
           reqTab.classList.add("active");
@@ -418,7 +409,7 @@
           modeReq.style.display = "";
           modeTime.style.display = "none";
           $("kpi1t").textContent = "Deadline";
-          $("kpi2t").textContent = "Required monthly contribution";
+          $("kpi2t").textContent = "Required monthly investment";
         }
         setMsg("");
       }
@@ -449,12 +440,12 @@
         const annualRate = Math.max(0, toNum($("rate").value));
 
         if (goal <= 0){
-          setMsg("Please enter a savings goal greater than 0.", "danger");
+          setMsg("Please enter an investment goal greater than 0.", "danger");
           return;
         }
 
         if (current > goal){
-          setMsg("Your current savings already exceed your goal. Time to goal is 0 months.", "");
+          setMsg("Your current investment balance already exceeds your goal. Time to goal is 0 months.", "");
         }else{
           setMsg("");
         }
@@ -478,10 +469,10 @@
           $("kpi3s").textContent = sim.reached ? "Total contributed until goal reached." : "Total contributed in simulated period.";
 
           $("kpi4v").textContent = fmtMoney(currency, sim.interestTotal);
-          $("kpi4s").textContent = "Estimated interest earned.";
+          $("kpi4s").textContent = "Estimated growth earned.";
 
           if (!sim.reached){
-            setMsg(`Goal not reached within ${maxYears} years. Try a higher monthly contribution, higher interest, or longer horizon.`, "danger");
+            setMsg(`Goal not reached within ${maxYears} years. Try a higher monthly investment, higher expected return, or longer horizon.`, "danger");
           }
 
           renderYearly(currency, sim.yearly);
@@ -499,7 +490,7 @@
           }
 
           if (pmt < 0){
-            setMsg("With this interest rate and deadline, you may already be on track (required monthly is ≤ 0).", "");
+            setMsg("With this return rate and deadline, you may already be on track (required monthly investment is ≤ 0).", "");
           }else{
             setMsg("");
           }
@@ -516,13 +507,13 @@
           $("kpi1s").textContent = `Deadline: ${years}y ${extraMonths}m`;
 
           $("kpi2v").textContent = fmtMoney(currency, Math.max(0, pmt));
-          $("kpi2s").textContent = "Required monthly contribution estimate.";
+          $("kpi2s").textContent = "Required monthly investment estimate.";
 
           $("kpi3v").textContent = fmtMoney(currency, sim.contribTotal);
           $("kpi3s").textContent = "Total contributed over the deadline.";
 
           $("kpi4v").textContent = fmtMoney(currency, sim.interestTotal);
-          $("kpi4s").textContent = "Estimated interest earned over the deadline.";
+          $("kpi4s").textContent = "Estimated growth earned over the deadline.";
 
           if (!sim.reached){
             setMsg("With the calculated monthly contribution, you may still fall slightly short due to rounding/assumptions. Add a small buffer.", "danger");
@@ -549,19 +540,19 @@
 <div class="wrap">
 <section class="card" style="margin-top:16px">
 <h2 style="margin:0 0 10px;font-size:16px">Ways to use an investment calculator</h2>
-<p style="margin:0;color:var(--muted);line-height:1.55">An investment calculator is most useful when you connect it to a real decision. You can use it to plan long-term wealth building, compare monthly investing targets, model a house deposit fund invested over time, or test how returns affect your retirement path. The key is to compare three levers: your timeline, your monthly contribution, and the return rate you assume.</p>
-<p style="margin:12px 0 0;color:var(--muted);line-height:1.55">For example, if the required monthly amount feels too high, you can test whether extending the timeline by 6-12 months makes the target more realistic. If you already have money invested, include that starting balance so the result reflects your true position. When planning an important goal, many people also add a buffer above the target to account for fees, taxes, or lower-than-expected returns.</p>
+<p style="margin:0;color:var(--muted);line-height:1.55">An investment calculator is most useful when you connect it to a real investing decision. You can use it to plan monthly investing, compare contribution levels, test long-term portfolio growth, or estimate how much you may need to invest to reach a future target. The key is to compare three levers: your timeline, your monthly investment, and the return rate you assume.</p>
+<p style="margin:12px 0 0;color:var(--muted);line-height:1.55">For example, if the required monthly investment feels too high, you can test whether extending the timeline by 6-12 months makes the target more realistic. If you already have money invested, include that starting balance so the result reflects your true position. Many investors also compare cautious and optimistic return assumptions to understand the range of possible outcomes.</p>
 <ul style="margin:12px 0 0;padding-left:18px;color:var(--muted);line-height:1.8;font-size:13px">
-<li><b>Retirement investing:</b> compare how different monthly contributions affect long-term growth.</li>
-<li><b>House deposit investing:</b> test a stricter monthly budget against a longer timeline.</li>
-<li><b>Portfolio growth:</b> compare conservative and optimistic return assumptions.</li>
-<li><b>Medium-term goal:</b> use cautious growth assumptions and rerun scenarios regularly.</li>
+<li><b>Long-term investing:</b> compare how contribution changes affect your final portfolio value.</li>
+<li><b>Future target:</b> estimate how much you need to invest to reach a chosen amount by a deadline.</li>
+<li><b>Portfolio planning:</b> test cautious versus optimistic annual return assumptions.</li>
+<li><b>Retirement prep:</b> use regular monthly investing to model long-term growth.</li>
 </ul>
 </section>
 <section class="card" style="margin-top:16px">
 <h2 style="margin:0 0 10px;font-size:16px">Best practice for setting a realistic investment target</h2>
-<p style="margin:0;color:var(--muted);line-height:1.55">Start with the monthly amount you can actually invest, not the number you wish you could invest. Then work backwards: if the target date is too soon, either increase contributions, reduce the target, or split the goal into smaller milestones. This makes the calculator more practical and helps you stay consistent instead of changing strategy after a few months.</p>
-<p style="margin:12px 0 0;color:var(--muted);line-height:1.55">If your goal is tied to a broader money plan, pair this tool with the <a href="/budget-planner-calculator/"><b>Budget Planner Calculator</b></a> to find spare cash flow, and the <a href="/compound-interest-calculator/"><b>Compound Interest Calculator</b></a> if you want to compare longer-term investment scenarios.</p>
+<p style="margin:0;color:var(--muted);line-height:1.55">Start with the monthly amount you can actually invest consistently, not the number you wish you could invest. Then work backwards: if the target date is too soon, either increase contributions, reduce the target, or extend the timeline. This makes the calculator more practical and helps you stay consistent instead of stopping after a few months.</p>
+<p style="margin:12px 0 0;color:var(--muted);line-height:1.55">If your goal is tied to a broader money plan, pair this tool with the <a href="/budget-planner-calculator/"><b>Budget Planner</b></a> to find spare cash flow, and the <a href="/compound-interest-calculator/"><b>Compound Interest Calculator</b></a> if you want to compare longer-term investing scenarios.</p>
 </section><section class="card section" data-twm-faq="1" id="faq">
 <h2>Frequently Asked Questions</h2>
 <h3>How does an investment calculator work?</h3>
