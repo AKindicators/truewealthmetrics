@@ -1,446 +1,752 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Investment Calculator | TrueWealthMetrics</title>
-<meta content="Estimate future value, total contributions, and investment growth with this investment calculator. Model recurring deposits, annual return, and compounding over time." name="description"/>
-<meta content="index,follow" name="robots"/>
-<link href="https://truewealthmetrics.com/investment-calculator/" rel="canonical"/>
-<meta content="Investment Calculator | TrueWealthMetrics" property="og:title"/>
-<meta content="Estimate future value, total contributions, and investment growth with this investment calculator. Model recurring deposits, annual return, and compounding over time." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://truewealthmetrics.com/investment-calculator/" property="og:url"/>
-<meta content="TrueWealthMetrics" property="og:site_name"/>
-<meta content="https://truewealthmetrics.com/logo.png" property="og:image"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="#0b1220" name="theme-color"/>
-<meta content="Investment Calculator | TrueWealthMetrics" name="twitter:title"/>
-<meta content="Estimate future value, total contributions, and investment growth with this investment calculator. Model recurring deposits, annual return, and compounding over time." name="twitter:description"/>
-<meta content="https://truewealthmetrics.com/logo.png" name="twitter:image"/>
-<link href="/styles.css" rel="stylesheet"/>
-<link href="/favicon.ico" rel="icon" sizes="any"/>
-<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
-<script defer="" src="/header.js"></script>
-<script id="jsonld-webapp" type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"WebApplication",
-  "name":"Investment Calculator",
-  "applicationCategory":"FinanceApplication",
-  "operatingSystem":"All",
-  "url":"https://truewealthmetrics.com/investment-calculator/",
-  "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
-}
-</script>
-<script id="jsonld-softwareapp" type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"SoftwareApplication",
-  "name":"Investment Calculator",
-  "applicationCategory":"FinanceApplication",
-  "operatingSystem":"Web",
-  "url":"https://truewealthmetrics.com/investment-calculator/",
-  "description":"Free investment calculator for future value, total contributions, and compound growth with recurring monthly deposits.",
-  "offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},
-  "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
-}
-</script>
-<script id="jsonld-breadcrumbs" type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
-    {"@type":"ListItem","position":2,"name":"Investment Calculator","item":"https://truewealthmetrics.com/investment-calculator/"}
-  ]
-}
-</script>
-<script id="jsonld-faq" type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What does this investment calculator estimate?","acceptedAnswer":{"@type":"Answer","text":"It estimates future value, total contributions, and total growth based on your starting balance, monthly deposit, annual return, and time horizon."}},
-{"@type":"Question","name":"Does this calculator include compound growth?","acceptedAnswer":{"@type":"Answer","text":"Yes. It applies your chosen compounding frequency to estimate how your balance could grow over time."}},
-{"@type":"Question","name":"Are investment returns guaranteed?","acceptedAnswer":{"@type":"Answer","text":"No. The calculator uses fixed assumptions for planning. Real investment performance can be higher or lower and may be affected by fees, taxes, and market conditions."}},
-{"@type":"Question","name":"Can I use this for monthly investing?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can enter a recurring monthly contribution to model ongoing investing alongside an initial amount."}},
-{"@type":"Question","name":"Why might real results differ?","acceptedAnswer":{"@type":"Answer","text":"Real portfolios can have irregular contributions, changing returns, fees, taxes, and market volatility, so actual outcomes may differ from estimates."}}
-]}
-</script>
-<script data-twm-schema="org" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com","logo":"https://truewealthmetrics.com/logo.png"}</script>
-<script data-twm-schema="website" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com"}</script>
-<script data-twm-schema="author" type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://truewealthmetrics.com/about-the-author/#author","name":"TrueWealthMetrics Editorial Team","url":"https://truewealthmetrics.com/about-the-author/","worksFor":{"@id":"https://truewealthmetrics.com/#org"},"jobTitle":"Personal Finance Research & Tools"}</script>
-<style>
-.invest-input-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.invest-inline{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.invest-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.invest-chart{margin-top:16px;padding:14px;border-radius:18px;border:1px solid rgba(255,255,255,.10);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02))}
-.invest-chart canvas{width:100%;height:240px;display:block}
-.link-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.link-card{display:block;padding:18px;border-radius:18px;border:1px solid rgba(255,255,255,.10);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));color:#f8fbff;text-decoration:none;box-shadow:0 18px 34px rgba(0,0,0,.18)}
-.link-card span{display:block;margin-top:6px;color:rgba(226,232,240,.74);font-weight:500}
-.invest-mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
-.invest-mini .badge{padding:12px 14px;border-radius:16px}
-@media (max-width: 920px){.invest-input-grid,.invest-inline,.invest-summary,.link-grid,.invest-mini{grid-template-columns:1fr}}
-</style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Investment Calculator | Estimate Compound Growth & Monthly Contributions</title>
+  <meta name="description" content="Use this investment calculator to estimate future value, total contributions, and compound growth from an initial investment, monthly additions, annual return, and time horizon."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://truewealthmetrics.com/investment-calculator/"/>
+  <meta property="og:title" content="Investment Calculator | Estimate Compound Growth & Monthly Contributions"/>
+  <meta property="og:description" content="Estimate compound growth, total contributions, and projected portfolio value with this standalone investment calculator."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://truewealthmetrics.com/investment-calculator/"/>
+  <meta property="og:site_name" content="TrueWealthMetrics"/>
+  <meta property="og:image" content="https://truewealthmetrics.com/logo.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Investment Calculator | Estimate Compound Growth & Monthly Contributions"/>
+  <meta name="twitter:description" content="Project future investment growth using an initial amount, monthly contributions, annual return, and investment period."/>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#111a2b;
+      --panel-2:#162238;
+      --text:#e5eefc;
+      --muted:#9fb2cf;
+      --line:rgba(255,255,255,.08);
+      --accent:#7cc6ff;
+      --accent-2:#58f0c1;
+      --good:#86efac;
+      --shadow:0 20px 50px rgba(0,0,0,.28);
+      --radius:24px;
+      --radius-sm:16px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124,198,255,.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(88,240,193,.12), transparent 28%),
+        linear-gradient(180deg, #08101d 0%, #0b1220 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{width:min(calc(100% - 32px), var(--max));margin:0 auto}
+    .hero{
+      padding:64px 0 28px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:start;
+    }
+    .eyebrow{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:.92rem;
+      margin-bottom:18px;
+    }
+    h1{
+      font-size:clamp(2.2rem,4vw,4.1rem);
+      line-height:1.08;
+      margin:0 0 16px;
+      letter-spacing:-.03em;
+    }
+    .lead{
+      margin:0 0 22px;
+      color:var(--muted);
+      max-width:62ch;
+      font-size:1.07rem;
+    }
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-top:24px;
+    }
+    .point,.card,.stat,.faq-item,.table-card,.info-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .point{
+      padding:16px;
+      border-radius:18px;
+    }
+    .point strong{display:block;font-size:1rem;margin-bottom:6px}
+    .point span{display:block;color:var(--muted);font-size:.95rem}
+    .card{
+      border-radius:var(--radius);
+      padding:22px;
+    }
+    .calc-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+    .field{display:flex;flex-direction:column;gap:8px}
+    .field label{
+      font-weight:600;
+      font-size:.96rem;
+    }
+    .field small{color:var(--muted)}
+    input,select{
+      width:100%;
+      padding:14px 15px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.09);
+      background:var(--panel-2);
+      color:var(--text);
+      font:inherit;
+      outline:none;
+    }
+    input:focus,select:focus{
+      border-color:rgba(124,198,255,.55);
+      box-shadow:0 0 0 4px rgba(124,198,255,.12);
+    }
+    .actions{
+      display:flex;
+      gap:12px;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+    button{
+      appearance:none;
+      border:0;
+      border-radius:14px;
+      padding:14px 18px;
+      font:inherit;
+      font-weight:700;
+      cursor:pointer;
+      transition:transform .15s ease, opacity .15s ease;
+    }
+    button:hover{transform:translateY(-1px)}
+    .primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#08101d;
+    }
+    .secondary{
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      border:1px solid var(--line);
+    }
+    .results{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-top:18px;
+    }
+    .stat{
+      border-radius:18px;
+      padding:16px;
+    }
+    .stat .label{
+      color:var(--muted);
+      font-size:.92rem;
+      margin-bottom:8px;
+    }
+    .stat .value{
+      font-size:1.65rem;
+      line-height:1.1;
+      font-weight:800;
+      letter-spacing:-.02em;
+    }
+    .stat .sub{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    section{padding:30px 0}
+    h2{
+      font-size:clamp(1.6rem,2vw,2.3rem);
+      margin:0 0 10px;
+      letter-spacing:-.02em;
+    }
+    .section-intro{
+      max-width:70ch;
+      color:var(--muted);
+      margin:0 0 22px;
+    }
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+    .info-card{
+      border-radius:22px;
+      padding:22px;
+    }
+    .info-card h3{margin-top:0;margin-bottom:10px}
+    .info-card p,.info-card li{color:var(--muted)}
+    .mini-table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:12px;
+    }
+    .mini-table th,.mini-table td{
+      text-align:left;
+      padding:12px 10px;
+      border-bottom:1px solid var(--line);
+      font-size:.96rem;
+    }
+    .mini-table th{color:var(--muted);font-weight:600}
+    .table-card{
+      border-radius:22px;
+      overflow:hidden;
+    }
+    .table-card .head{
+      padding:18px 20px 0;
+    }
+    .chart-wrap{
+      margin-top:16px;
+      height:250px;
+      border-radius:18px;
+      padding:10px;
+      background:rgba(255,255,255,.02);
+      border:1px solid var(--line);
+    }
+    canvas{width:100%;height:100%}
+    .faq{
+      display:grid;
+      gap:14px;
+    }
+    .faq-item{
+      border-radius:18px;
+      padding:18px 18px 14px;
+    }
+    .faq-item h3{margin:0 0 8px;font-size:1.05rem}
+    .faq-item p{margin:0;color:var(--muted)}
+    .links{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+    .links a{
+      display:block;
+      padding:16px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      text-decoration:none;
+    }
+    .links a span{
+      display:block;
+      color:var(--muted);
+      margin-top:6px;
+      font-size:.94rem;
+    }
+    footer{
+      padding:18px 0 50px;
+      color:var(--muted);
+      font-size:.94rem;
+    }
+    .disclaimer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    @media (max-width: 980px){
+      .hero-grid,.two-col{grid-template-columns:1fr}
+      .hero-points,.results,.links{grid-template-columns:1fr}
+    }
+    @media (max-width: 720px){
+      .calc-grid{grid-template-columns:1fr}
+      .hero{padding-top:38px}
+      .card,.info-card{padding:18px}
+      h1{font-size:2.2rem}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Investment Calculator",
+    "url":"https://truewealthmetrics.com/investment-calculator/",
+    "description":"Standalone investment calculator for projecting compound growth, contributions, and future portfolio value.",
+    "mainEntity":{
+      "@type":"SoftwareApplication",
+      "name":"Investment Calculator",
+      "applicationCategory":"FinanceApplication",
+      "operatingSystem":"Web",
+      "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"What does this investment calculator estimate?",
+        "acceptedAnswer":{"@type":"Answer","text":"This investment calculator estimates future portfolio value, total contributions, and total investment growth based on your starting amount, recurring additions, expected annual return, and time horizon."}
+      },
+      {
+        "@type":"Question",
+        "name":"Does the calculator assume compounding?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. It applies compound growth using the selected compounding frequency, such as monthly or annually, to project investment returns over time."}
+      },
+      {
+        "@type":"Question",
+        "name":"Can I include monthly contributions?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. You can enter a monthly contribution to estimate how regular investing may increase your ending balance over time."}
+      }
+    ]
+  }
+  </script>
 </head>
-<body><div id="site-header"></div>
-<div class="wrap">
-<section class="hero">
-<h1>Investment Calculator</h1>
-<p class="sub">
-  Estimate your <strong>future investment value</strong>, total contributions, and projected growth.
-  Model an initial amount, <strong>monthly investing</strong>, annual return, and compounding frequency in one place.
-</p>
-<div class="note" style="margin-top:12px;">
-  Use this investment calculator to test realistic scenarios for long-term investing, compare contribution levels, and see how time and compounding can change your result.
-</div>
-<p style="margin-top:14px;">
-  <a href="#calcForm">Calculate your investment growth now</a> ·
-  <a href="#growthTable">View the year-by-year breakdown</a> ·
-  <a href="#faq">Read common questions</a>
-</p>
-</section>
+<body>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">TrueWealthMetrics • Standalone investment planning tool</div>
+          <h1>Investment Calculator</h1>
+          <p class="lead">
+            Estimate how your money could grow with compound returns, recurring contributions, and time. This investment calculator gives you a clear future value projection, contribution breakdown, and growth estimate without relying on homepage content.
+          </p>
+          <div class="hero-points">
+            <div class="point">
+              <strong>Future value projection</strong>
+              <span>See your estimated ending balance over your selected investment period.</span>
+            </div>
+            <div class="point">
+              <strong>Contribution tracking</strong>
+              <span>Separate what you put in from the growth your portfolio may generate.</span>
+            </div>
+            <div class="point">
+              <strong>Compound growth view</strong>
+              <span>Compare the long-term effect of return assumptions and monthly investing.</span>
+            </div>
+          </div>
+        </div>
 
-<section class="card section" style="margin-top:16px;">
-<h2>How this investment calculator works</h2>
-<p>
-  This investment calculator estimates how a portfolio could grow using a starting balance, recurring monthly contributions,
-  an expected annual return, and your selected compounding frequency. It shows projected future value, total amount invested,
-  and the growth generated by returns.
-</p>
-<p>
-  It is useful for testing long-term investing scenarios, checking whether increasing your monthly contribution makes a bigger impact than assuming a slightly higher return,
-  and planning around education savings, general wealth building, or retirement goals. For a fuller plan, compare your result with our
-  <a href="/compound-interest-calculator/"><strong>compound interest calculator</strong></a>,
-  <a href="/roi-calculator/"><strong>ROI calculator</strong></a>, and
-  <a href="/retirement-planning-calculator/"><strong>retirement planning calculator</strong></a>.
-</p>
-<p>
-  Results are estimates based on fixed assumptions. Real investments can be affected by market volatility, fees, taxes, and irregular contribution timing,
-  so use this as a planning tool rather than a guarantee.
-</p>
-</section>
+        <div class="card" id="calculator">
+          <form id="investmentForm" novalidate>
+            <div class="calc-grid">
+              <div class="field">
+                <label for="initialAmount">Initial investment</label>
+                <input id="initialAmount" name="initialAmount" type="number" min="0" step="0.01" value="10000"/>
+                <small>Amount invested at the beginning.</small>
+              </div>
+              <div class="field">
+                <label for="monthlyContribution">Monthly contribution</label>
+                <input id="monthlyContribution" name="monthlyContribution" type="number" min="0" step="0.01" value="500"/>
+                <small>Regular amount added each month.</small>
+              </div>
+              <div class="field">
+                <label for="annualReturn">Expected annual return (%)</label>
+                <input id="annualReturn" name="annualReturn" type="number" min="0" step="0.01" value="7"/>
+                <small>Projected yearly rate of return before fees or taxes.</small>
+              </div>
+              <div class="field">
+                <label for="years">Investment period (years)</label>
+                <input id="years" name="years" type="number" min="1" step="1" value="20"/>
+                <small>Total length of the investment plan.</small>
+              </div>
+              <div class="field">
+                <label for="compoundFrequency">Compound frequency</label>
+                <select id="compoundFrequency" name="compoundFrequency">
+                  <option value="12" selected>Monthly</option>
+                  <option value="4">Quarterly</option>
+                  <option value="2">Semi-annually</option>
+                  <option value="1">Annually</option>
+                  <option value="365">Daily</option>
+                </select>
+                <small>How often returns are applied.</small>
+              </div>
+              <div class="field">
+                <label for="currency">Currency symbol</label>
+                <select id="currency" name="currency">
+                  <option value="$" selected>USD ($)</option>
+                  <option value="£">GBP (£)</option>
+                  <option value="€">EUR (€)</option>
+                  <option value="₹">INR (₹)</option>
+                </select>
+                <small>Display format only.</small>
+              </div>
+            </div>
 
-<section class="grid">
-<div class="card">
-<h2>Inputs</h2>
-<p class="sub">Use realistic assumptions for return and time horizon. Smaller changes in contribution amount often matter more than expected.</p>
-<div class="form" id="calcForm">
-  <div class="invest-input-grid">
-    <div>
-      <label for="initial">Initial investment (£)</label>
-      <input id="initial" min="0" step="100" type="number" value="10000"/>
+            <div class="actions">
+              <button class="primary" type="submit">Calculate investment growth</button>
+              <button class="secondary" type="button" id="resetBtn">Reset example</button>
+            </div>
+          </form>
+
+          <div class="results" aria-live="polite">
+            <div class="stat">
+              <div class="label">Estimated future value</div>
+              <div class="value" id="futureValue">$0</div>
+              <div class="sub">Projected ending portfolio balance</div>
+            </div>
+            <div class="stat">
+              <div class="label">Total contributions</div>
+              <div class="value" id="totalContributions">$0</div>
+              <div class="sub">Initial amount plus monthly additions</div>
+            </div>
+            <div class="stat">
+              <div class="label">Estimated investment growth</div>
+              <div class="value" id="investmentGrowth">$0</div>
+              <div class="sub">Projected earnings from returns</div>
+            </div>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="growthChart" aria-label="Investment growth chart"></canvas>
+          </div>
+
+          <p class="disclaimer">
+            This investment calculator provides estimates only. Actual performance can vary based on market returns, fees, taxes, contribution timing, and real investment choices.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap two-col">
+        <div class="info-card">
+          <h2>How the investment calculator works</h2>
+          <p>
+            The calculator starts with your initial investment, applies the selected annual return using compound growth, and adds your recurring monthly contribution throughout the investment period.
+          </p>
+          <p>
+            The final result shows three key numbers: your projected future value, the total amount you contributed, and the estimated growth generated by returns.
+          </p>
+          <table class="mini-table">
+            <thead>
+              <tr>
+                <th>Output</th>
+                <th>Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Future value</td>
+                <td>Your projected ending balance</td>
+              </tr>
+              <tr>
+                <td>Total contributions</td>
+                <td>Your own money invested over time</td>
+              </tr>
+              <tr>
+                <td>Investment growth</td>
+                <td>Estimated earnings from compounded returns</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-card">
+          <h2>Why compound growth matters</h2>
+          <p>
+            Time and consistency can have a powerful effect on long-term investing. Even small monthly contributions may add up meaningfully when returns compound over many years.
+          </p>
+          <p>
+            This is why investors often focus on starting early, contributing regularly, and using realistic return assumptions rather than chasing short-term performance.
+          </p>
+          <ul>
+            <li>Longer time horizons generally increase the impact of compounding.</li>
+            <li>Higher contribution rates may matter as much as return assumptions.</li>
+            <li>Return estimates should be treated as projections, not guarantees.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap table-card">
+        <div class="head">
+          <h2>Year-by-year investment summary</h2>
+          <p class="section-intro">
+            Review how your projected balance builds over time. This breakdown separates contributions from estimated growth for each year.
+          </p>
+        </div>
+        <div style="padding:0 20px 22px; overflow:auto;">
+          <table class="mini-table" id="yearlyTable">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Starting balance</th>
+                <th>Contributions</th>
+                <th>Estimated growth</th>
+                <th>Ending balance</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Investment calculator FAQs</h2>
+        <p class="section-intro">
+          These common questions explain what the calculator includes and how to interpret the results.
+        </p>
+        <div class="faq">
+          <div class="faq-item">
+            <h3>What does this investment calculator estimate?</h3>
+            <p>It estimates your future portfolio value, total contributions, and projected growth based on your inputs.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Are investment returns guaranteed?</h3>
+            <p>No. The return rate is only an assumption used for planning. Real investment outcomes can be higher or lower.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Should I include taxes and fees?</h3>
+            <p>This page does not automatically subtract taxes or fund fees, so your real-world outcome may differ from the estimate shown.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Helpful planning tools</h2>
+        <p class="section-intro">
+          Explore related pages to compare saving, budgeting, and long-term financial planning scenarios.
+        </p>
+        <div class="links">
+          <a href="/savings-goal-calculator/">
+            Savings Goal Calculator
+            <span>Estimate how much to save each month to reach a target amount.</span>
+          </a>
+          <a href="/budget-planner-calculator/">
+            Budget Planner Calculator
+            <span>Build a monthly budget and review income, expenses, and savings capacity.</span>
+          </a>
+          <a href="/loan-repayment-calculator/">
+            Loan Repayment Calculator
+            <span>Compare repayment timelines, interest costs, and extra payment strategies.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © TrueWealthMetrics — Investment calculator for future value and compound growth estimates.
     </div>
-    <div>
-      <label for="monthly">Monthly contribution (£)</label>
-      <input id="monthly" min="0" step="10" type="number" value="250"/>
-    </div>
-    <div>
-      <label for="years">Investment period (years)</label>
-      <input id="years" min="1" step="1" type="number" value="20"/>
-    </div>
-    <div>
-      <label for="rate">Expected annual return (%)</label>
-      <input id="rate" min="0" step="0.1" type="number" value="7"/>
-    </div>
-    <div>
-      <label for="compound">Compounding frequency</label>
-      <select id="compound">
-        <option selected="" value="12">Monthly</option>
-        <option value="4">Quarterly</option>
-        <option value="1">Annually</option>
-        <option value="365">Daily</option>
-      </select>
-    </div>
-    <div>
-      <label for="currency">Currency display</label>
-      <select id="currency">
-        <option selected="" value="GBP">GBP (£)</option>
-        <option value="USD">USD ($)</option>
-        <option value="EUR">EUR (€)</option>
-      </select>
-    </div>
-  </div>
-  <div class="btns">
-    <button class="primary" id="calcBtn">Calculate</button>
-    <button class="secondary" id="resetBtn" type="button">Reset</button>
-    <span class="muted" id="status" style="align-self:center;font-size:12px"></span>
-  </div>
-  <div class="hint">
-    Tip: Long-term results are usually driven most by time invested, contribution consistency, and staying realistic about return assumptions.
-  </div>
-</div>
-</div>
+  </footer>
 
-<div class="card" id="resultsCard">
-<h2>Results</h2>
-<p>Updated when you click Calculate.</p>
-<div class="kpiGrid">
-  <div class="kpi">
-    <div class="t">Estimated future value</div>
-    <div class="v" id="futureValue">—</div>
-    <div class="s">Projected ending portfolio balance.</div>
-  </div>
-  <div class="kpi">
-    <div class="t">Total contributions</div>
-    <div class="v" id="contributions">—</div>
-    <div class="s">Initial investment plus monthly additions.</div>
-  </div>
-  <div class="kpi">
-    <div class="t">Projected growth</div>
-    <div class="v" id="growth">—</div>
-    <div class="s">Estimated gain from investment returns.</div>
-  </div>
-  <div class="kpi">
-    <div class="t">Growth share</div>
-    <div class="v" id="growthPct">—</div>
-    <div class="s">How much of the ending balance comes from growth.</div>
-  </div>
-</div>
-<div class="callout" id="callout" style="margin-top:16px;">
-  Enter your numbers and click <strong>Calculate</strong> to estimate future investment value.
-</div>
-<div class="invest-chart">
-  <canvas aria-label="Investment growth chart" id="growthCanvas"></canvas>
-</div>
-<div class="invest-mini">
-  <div class="badge"><strong>Time horizon</strong><br/><span class="muted" id="summaryYears">—</span></div>
-  <div class="badge"><strong>Monthly investing</strong><br/><span class="muted" id="summaryMonthly">—</span></div>
-  <div class="badge"><strong>Compounding</strong><br/><span class="muted" id="summaryCompound">—</span></div>
-</div>
-</div>
-</section>
+  <script>
+    (function(){
+      const form = document.getElementById('investmentForm');
+      const resetBtn = document.getElementById('resetBtn');
+      const fvEl = document.getElementById('futureValue');
+      const contribEl = document.getElementById('totalContributions');
+      const growthEl = document.getElementById('investmentGrowth');
+      const tableBody = document.querySelector('#yearlyTable tbody');
+      const canvas = document.getElementById('growthChart');
+      const ctx = canvas.getContext('2d');
 
-<section class="card section" id="growthTableCard">
-<h2 id="growthTable">Year-by-year investment summary</h2>
-<p class="muted">This breakdown separates your own contributions from the growth estimated by compounding over time.</p>
-<div class="tableWrap" style="margin-top:14px;overflow:auto;">
-<table>
-<thead>
-<tr>
-<th>Year</th>
-<th>Starting balance</th>
-<th>Contributions</th>
-<th>Growth</th>
-<th>Ending balance</th>
-</tr>
-</thead>
-<tbody id="rows"></tbody>
-</table>
-</div>
-</section>
+      const defaults = {
+        initialAmount: 10000,
+        monthlyContribution: 500,
+        annualReturn: 7,
+        years: 20,
+        compoundFrequency: 12,
+        currency: '$'
+      };
 
-<section class="card section" data-twm-explain="1">
-<h2>Practical ways to use this calculator</h2>
-<p>
-  Try three scenarios: a conservative case, a base case, and an optimistic case. That gives you a more useful planning range than relying on one perfect-looking number.
-  You can also test whether increasing your monthly contribution by £50 to £100 has more impact than changing your expected return assumption.
-</p>
-<p>
-  If you are planning for a target amount, compare this page with the <a href="/savings-goal-calculator/">savings goal calculator</a>. If you want to focus on compounding frequency,
-  compare your result with the <a href="/compound-interest-calculator/">compound interest calculator</a>. If you are comparing overall performance, use the
-  <a href="/roi-calculator/">ROI calculator</a> as well.
-</p>
-<p>
-  Important limitation: this page assumes fixed returns and regular monthly investing. Real markets move up and down, so actual results can be very different, especially over shorter periods.
-</p>
-</section>
-
-<section class="card section" id="faq">
-<h2>Investment calculator FAQs</h2>
-<details>
-  <summary>What does this investment calculator estimate?</summary>
-  <p>It estimates future value, total contributions, and total growth from an initial amount, monthly deposits, annual return, and selected compounding frequency.</p>
-</details>
-<details>
-  <summary>Does this include compound growth?</summary>
-  <p>Yes. The calculator applies the selected compounding frequency to project how your portfolio could grow over time.</p>
-</details>
-<details>
-  <summary>Are investment returns guaranteed?</summary>
-  <p>No. Returns are assumptions for planning only. Real outcomes can differ because of market performance, fees, taxes, and timing of contributions.</p>
-</details>
-<details>
-  <summary>Can I model monthly investing?</summary>
-  <p>Yes. This page is designed to estimate growth from regular monthly contributions alongside an initial investment.</p>
-</details>
-</section>
-
-<section class="card section">
-<h2>Related calculators</h2>
-<p class="muted">Explore nearby tools for compounding, savings targets, and investment performance comparisons.</p>
-<div class="link-grid" style="margin-top:14px;">
-  <a class="link-card" href="/compound-interest-calculator/">Compound Interest Calculator<span>Model long-term growth with different compounding frequencies and recurring deposits.</span></a>
-  <a class="link-card" href="/roi-calculator/">ROI Calculator<span>Estimate return on investment, profit, and annualised performance.</span></a>
-  <a class="link-card" href="/retirement-planning-calculator/">Retirement Planning Calculator<span>Project long-term investing needs for retirement planning scenarios.</span></a>
-</div>
-</section>
-</div>
-
-<script>
-(function(){
-  const $ = (id) => document.getElementById(id);
-  const currencyMap = {
-    GBP: { locale: 'en-GB', currency: 'GBP', symbol: '£' },
-    USD: { locale: 'en-US', currency: 'USD', symbol: '$' },
-    EUR: { locale: 'en-IE', currency: 'EUR', symbol: '€' }
-  };
-
-  function formatMoney(value){
-    const c = currencyMap[$('currency').value] || currencyMap.GBP;
-    return new Intl.NumberFormat(c.locale, { style:'currency', currency:c.currency, maximumFractionDigits: 2 }).format(value);
-  }
-
-  function formatPct(value){
-    return value.toFixed(1) + '%';
-  }
-
-  function monthlyEffectiveRate(annualRate, compoundPerYear){
-    if (annualRate <= 0) return 0;
-    return Math.pow(1 + annualRate / compoundPerYear, compoundPerYear / 12) - 1;
-  }
-
-  function calculate(){
-    const initial = Math.max(0, parseFloat($('initial').value) || 0);
-    const monthly = Math.max(0, parseFloat($('monthly').value) || 0);
-    const years = Math.max(1, parseInt($('years').value, 10) || 1);
-    const rate = Math.max(0, parseFloat($('rate').value) || 0) / 100;
-    const compound = Math.max(1, parseInt($('compound').value, 10) || 12);
-
-    const mRate = monthlyEffectiveRate(rate, compound);
-    let balance = initial;
-    let contributions = initial;
-    const rows = [];
-    const chart = [];
-
-    for (let year = 1; year <= years; year++) {
-      const startBalance = balance;
-      let yearGrowth = 0;
-      let yearContrib = 0;
-      for (let m = 0; m < 12; m++) {
-        const growth = balance * mRate;
-        yearGrowth += growth;
-        balance += growth;
-        balance += monthly;
-        yearContrib += monthly;
-        contributions += monthly;
+      function getNum(id){
+        const value = parseFloat(document.getElementById(id).value);
+        return Number.isFinite(value) ? value : 0;
       }
-      rows.push({ year, startBalance, yearContrib, yearGrowth, endBalance: balance });
-      chart.push({ year, value: balance });
-    }
 
-    const growth = balance - contributions;
-    const growthPct = balance > 0 ? (growth / balance) * 100 : 0;
-    return { initial, monthly, years, compound, balance, contributions, growth, growthPct, rows, chart };
-  }
-
-  function renderTable(rows){
-    $('rows').innerHTML = rows.map(r => `
-      <tr>
-        <td>${r.year}</td>
-        <td>${formatMoney(r.startBalance)}</td>
-        <td>${formatMoney(r.yearContrib)}</td>
-        <td>${formatMoney(r.yearGrowth)}</td>
-        <td>${formatMoney(r.endBalance)}</td>
-      </tr>
-    `).join('');
-  }
-
-  function drawChart(points){
-    const canvas = $('growthCanvas');
-    const ctx = canvas.getContext('2d');
-    const ratio = window.devicePixelRatio || 1;
-    const width = canvas.clientWidth || 700;
-    const height = 240;
-    canvas.width = width * ratio;
-    canvas.height = height * ratio;
-    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    ctx.clearRect(0, 0, width, height);
-
-    const pad = { top: 16, right: 20, bottom: 34, left: 54 };
-    const plotW = width - pad.left - pad.right;
-    const plotH = height - pad.top - pad.bottom;
-    const max = Math.max(...points.map(p => p.value), 1);
-
-    ctx.strokeStyle = 'rgba(255,255,255,.10)';
-    ctx.lineWidth = 1;
-    ctx.font = '12px Inter, sans-serif';
-    ctx.fillStyle = 'rgba(226,232,240,.74)';
-
-    for (let i = 0; i <= 4; i++) {
-      const y = pad.top + (plotH * i / 4);
-      ctx.beginPath();
-      ctx.moveTo(pad.left, y);
-      ctx.lineTo(width - pad.right, y);
-      ctx.stroke();
-    }
-
-    if (!points.length) return;
-    const step = points.length > 1 ? plotW / (points.length - 1) : plotW;
-
-    ctx.beginPath();
-    points.forEach((p, i) => {
-      const x = pad.left + step * i;
-      const y = pad.top + plotH - ((p.value / max) * plotH);
-      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-    });
-    ctx.strokeStyle = 'rgba(96,165,250,.95)';
-    ctx.lineWidth = 3;
-    ctx.stroke();
-
-    ctx.beginPath();
-    points.forEach((p, i) => {
-      const x = pad.left + step * i;
-      const y = pad.top + plotH - ((p.value / max) * plotH);
-      ctx.moveTo(x + 4, y);
-      ctx.arc(x, y, 3.5, 0, Math.PI * 2);
-    });
-    ctx.fillStyle = 'rgba(74,222,128,.95)';
-    ctx.fill();
-
-    ctx.fillStyle = 'rgba(226,232,240,.74)';
-    points.forEach((p, i) => {
-      const x = pad.left + step * i;
-      if (i === 0 || i === points.length - 1 || i % Math.ceil(points.length / 5) === 0) {
-        ctx.fillText(String(p.year), x - 5, height - 10);
+      function getInputs(){
+        return {
+          initialAmount: Math.max(0, getNum('initialAmount')),
+          monthlyContribution: Math.max(0, getNum('monthlyContribution')),
+          annualReturn: Math.max(0, getNum('annualReturn')) / 100,
+          years: Math.max(1, Math.floor(getNum('years'))),
+          compoundFrequency: Math.max(1, parseInt(document.getElementById('compoundFrequency').value, 10) || 12),
+          currency: document.getElementById('currency').value || '$'
+        };
       }
-    });
-  }
 
-  function render(){
-    const result = calculate();
-    $('futureValue').textContent = formatMoney(result.balance);
-    $('contributions').textContent = formatMoney(result.contributions);
-    $('growth').textContent = formatMoney(result.growth);
-    $('growthPct').textContent = formatPct(result.growthPct);
-    $('summaryYears').textContent = result.years + (result.years === 1 ? ' year' : ' years');
-    $('summaryMonthly').textContent = formatMoney(result.monthly) + ' per month';
-    $('summaryCompound').textContent = $('compound').options[$('compound').selectedIndex].text;
-    $('status').textContent = 'Updated';
-    $('callout').innerHTML = 'Based on these assumptions, your projected ending balance is <strong>' + formatMoney(result.balance) + '</strong>, with estimated growth of <strong>' + formatMoney(result.growth) + '</strong>.';
-    renderTable(result.rows);
-    drawChart(result.chart);
-  }
+      function fmt(value, symbol){
+        return new Intl.NumberFormat(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        }).format(value).replace(/^/, symbol);
+      }
 
-  $('calcBtn').addEventListener('click', function(e){ e.preventDefault(); render(); });
-  $('resetBtn').addEventListener('click', function(){
-    $('initial').value = 10000;
-    $('monthly').value = 250;
-    $('years').value = 20;
-    $('rate').value = 7;
-    $('compound').value = 12;
-    $('currency').value = 'GBP';
-    render();
-  });
+      function calculateProjection(inputs){
+        const monthlyRate = Math.pow(1 + inputs.annualReturn / inputs.compoundFrequency, inputs.compoundFrequency / 12) - 1;
+        const totalMonths = inputs.years * 12;
+        let balance = inputs.initialAmount;
+        let totalContributions = inputs.initialAmount;
+        const yearlyRows = [];
+        const chart = [];
 
-  ['initial','monthly','years','rate','compound','currency'].forEach(id => {
-    $(id).addEventListener('change', render);
-    $(id).addEventListener('input', function(){ $('status').textContent = 'Edited'; });
-  });
-  window.addEventListener('resize', render);
-  render();
-})();
-</script>
+        for(let year = 1; year <= inputs.years; year++){
+          const startBalance = balance;
+          let yearGrowth = 0;
+          let yearContrib = 0;
+
+          for(let m = 0; m < 12; m++){
+            const growth = balance * monthlyRate;
+            yearGrowth += growth;
+            balance += growth;
+            balance += inputs.monthlyContribution;
+            yearContrib += inputs.monthlyContribution;
+            totalContributions += inputs.monthlyContribution;
+          }
+
+          yearlyRows.push({
+            year,
+            startBalance,
+            contributions: yearContrib,
+            growth: yearGrowth,
+            endBalance: balance
+          });
+
+          chart.push({ year, balance });
+        }
+
+        return {
+          futureValue: balance,
+          totalContributions,
+          investmentGrowth: balance - totalContributions,
+          yearlyRows,
+          chart
+        };
+      }
+
+      function renderTable(rows, symbol){
+        tableBody.innerHTML = rows.map(row => `
+          <tr>
+            <td>${row.year}</td>
+            <td>${fmt(row.startBalance, symbol)}</td>
+            <td>${fmt(row.contributions, symbol)}</td>
+            <td>${fmt(row.growth, symbol)}</td>
+            <td>${fmt(row.endBalance, symbol)}</td>
+          </tr>
+        `).join('');
+      }
+
+      function drawChart(points, symbol){
+        const ratio = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        const width = Math.max(320, rect.width || 600);
+        const height = Math.max(220, rect.height || 250);
+        canvas.width = width * ratio;
+        canvas.height = height * ratio;
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+        ctx.clearRect(0, 0, width, height);
+
+        const padding = { top: 18, right: 14, bottom: 34, left: 64 };
+        const plotW = width - padding.left - padding.right;
+        const plotH = height - padding.top - padding.bottom;
+
+        const maxY = Math.max(...points.map(p => p.balance), 1);
+        const minY = 0;
+
+        ctx.strokeStyle = 'rgba(255,255,255,.14)';
+        ctx.lineWidth = 1;
+
+        for(let i = 0; i <= 4; i++){
+          const y = padding.top + plotH * (i / 4);
+          ctx.beginPath();
+          ctx.moveTo(padding.left, y);
+          ctx.lineTo(width - padding.right, y);
+          ctx.stroke();
+
+          const val = maxY - (maxY - minY) * (i / 4);
+          ctx.fillStyle = 'rgba(229,238,252,.7)';
+          ctx.font = '12px Inter, sans-serif';
+          ctx.fillText(fmt(val, symbol), 8, y + 4);
+        }
+
+        const xStep = points.length > 1 ? plotW / (points.length - 1) : plotW;
+        points.forEach((p, i) => {
+          const x = padding.left + i * xStep;
+          ctx.fillStyle = 'rgba(229,238,252,.7)';
+          ctx.font = '12px Inter, sans-serif';
+          ctx.fillText(String(p.year), x - 4, height - 10);
+        });
+
+        ctx.beginPath();
+        points.forEach((p, i) => {
+          const x = padding.left + i * xStep;
+          const y = padding.top + (1 - ((p.balance - minY) / (maxY - minY || 1))) * plotH;
+          if(i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        });
+        ctx.strokeStyle = '#7cc6ff';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.beginPath();
+        points.forEach((p, i) => {
+          const x = padding.left + i * xStep;
+          const y = padding.top + (1 - ((p.balance - minY) / (maxY - minY || 1))) * plotH;
+          ctx.moveTo(x, y);
+          ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+        });
+        ctx.fillStyle = '#58f0c1';
+        ctx.fill();
+      }
+
+      function render(){
+        const inputs = getInputs();
+        const result = calculateProjection(inputs);
+
+        fvEl.textContent = fmt(result.futureValue, inputs.currency);
+        contribEl.textContent = fmt(result.totalContributions, inputs.currency);
+        growthEl.textContent = fmt(result.investmentGrowth, inputs.currency);
+
+        renderTable(result.yearlyRows, inputs.currency);
+        drawChart(result.chart, inputs.currency);
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        render();
+      });
+
+      resetBtn.addEventListener('click', function(){
+        Object.entries(defaults).forEach(([key, value]) => {
+          document.getElementById(key).value = value;
+        });
+        render();
+      });
+
+      ['initialAmount','monthlyContribution','annualReturn','years','compoundFrequency','currency'].forEach(id => {
+        document.getElementById(id).addEventListener('input', render);
+        document.getElementById(id).addEventListener('change', render);
+      });
+
+      window.addEventListener('resize', render);
+      render();
+    })();
+  </script>
 </body>
 </html>
