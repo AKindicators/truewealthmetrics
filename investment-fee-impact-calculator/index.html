@@ -74,60 +74,7 @@
         </p>
 <div class="grid">
 <!-- Inputs -->
-<section class="card">
-<h2>Inputs</h2>
-<div class="muted">Fees look small, but compound against you for decades.</div>
-<div class="rows">
-<div>
-<label for="initial">Starting balance</label>
-<input id="initial" min="0" step="100" type="number" value="10000"/>
-</div>
-<div>
-<label for="monthly">Monthly contribution</label>
-<input id="monthly" min="0" step="10" type="number" value="200"/>
-</div>
-<div>
-<label for="years">Time horizon (years)</label>
-<input id="years" min="1" step="1" type="number" value="20"/>
-</div>
-<div>
-<label for="returnRate">Expected annual return (before fees, %)</label>
-<input id="returnRate" min="-50" step="0.1" type="number" value="7"/>
-</div>
-<div>
-<label for="feeRate">Annual fee (%, e.g. 0.75)</label>
-<input id="feeRate" min="0" step="0.01" type="number" value="0.75"/>
-</div>
-<div>
-<label for="inflation">Inflation (optional, %)</label>
-<input id="inflation" min="0" step="0.1" type="number" value="2.5"/>
-</div>
-<div>
-<label for="currency">Currency</label>
-<select id="currency">
-<option selected="" value="GBP">GBP (£)</option>
-<option value="USD">USD ($)</option>
-<option value="EUR">EUR (€)</option>
-</select>
-</div>
-<div>
-<label for="freq">Compounding</label>
-<select id="freq">
-<option selected="" value="12">Monthly</option>
-<option value="4">Quarterly</option>
-<option value="1">Annually</option>
-</select>
-</div>
-</div>
-<div class="btnrow">
-<button class="primary" id="calcBtn">Calculate</button>
-<button class="secondary" id="resetBtn">Reset</button>
-<span class="badge" id="status">Ready</span>
-</div>
-<div class="note">
-            Tip: Many “all-in” fees are <span class="mono">0.20%–1.50%</span>. Even a <b>1% fee</b> can cost tens of thousands over long horizons.
-          </div>
-</section>
+
 <!-- Results -->
 <section class="card">
 <h2>Results</h2>
