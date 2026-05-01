@@ -74,7 +74,60 @@
         </p>
 <div class="grid">
 <!-- Inputs -->
-
+<section class="card">
+<h2>Inputs</h2>
+<div class="muted">Fees look small, but compound against you for decades.</div>
+<div class="rows">
+<div>
+<label for="initial">Starting balance</label>
+<input id="initial" min="0" step="100" type="number" value="10000"/>
+</div>
+<div>
+<label for="monthly">Monthly contribution</label>
+<input id="monthly" min="0" step="10" type="number" value="200"/>
+</div>
+<div>
+<label for="years">Time horizon (years)</label>
+<input id="years" min="1" step="1" type="number" value="20"/>
+</div>
+<div>
+<label for="returnRate">Expected annual return (before fees, %)</label>
+<input id="returnRate" min="-50" step="0.1" type="number" value="7"/>
+</div>
+<div>
+<label for="feeRate">Annual fee (%, e.g. 0.75)</label>
+<input id="feeRate" min="0" step="0.01" type="number" value="0.75"/>
+</div>
+<div>
+<label for="inflation">Inflation (optional, %)</label>
+<input id="inflation" min="0" step="0.1" type="number" value="2.5"/>
+</div>
+<div>
+<label for="currency">Currency</label>
+<select id="currency">
+<option selected="" value="GBP">GBP (£)</option>
+<option value="USD">USD ($)</option>
+<option value="EUR">EUR (€)</option>
+</select>
+</div>
+<div>
+<label for="freq">Compounding</label>
+<select id="freq">
+<option selected="" value="12">Monthly</option>
+<option value="4">Quarterly</option>
+<option value="1">Annually</option>
+</select>
+</div>
+</div>
+<div class="btnrow">
+<button class="primary" id="calcBtn">Calculate</button>
+<button class="secondary" id="resetBtn">Reset</button>
+<span class="badge" id="status">Ready</span>
+</div>
+<div class="note">
+            Tip: Many “all-in” fees are <span class="mono">0.20%–1.50%</span>. Even a <b>1% fee</b> can cost tens of thousands over long horizons.
+          </div>
+</section>
 <!-- Results -->
 <section class="card">
 <h2>Results</h2>
@@ -425,19 +478,7 @@
   </script>
 
 <section class="card" style="margin-top:16px">
-<h2>How investment fees affect returns</h2>
-<p class="muted">This investment fee calculator helps you understand how much fees reduce investment returns over time. Even small percentage fees can significantly impact your final portfolio value due to compounding.</p>
-
-<h3>Expense ratio impact calculator explained</h3>
-<p class="muted">An expense ratio impact calculator shows how ongoing fund costs reduce your net return. Over decades, these costs can lead to a large gap between low-fee and high-fee investments.</p>
-
-<h3>How much fees reduce investment returns</h3>
-<p class="muted">Using a portfolio fee impact calculator allows you to estimate the true cost of fees on investments. This includes mutual fund fees, platform costs, and advisory charges.</p>
-
-<h3>Investment fees over time calculator insights</h3>
-<p class="muted">An investment fees over time calculator reveals how compounding works against you when fees are applied annually. This makes it easier to compare different investment options.</p>
-
-<h3>Best way to calculate return after fees</h3>
+<h2></h3>
 <p class="muted">To calculate return on investment accurately, always subtract total fees. A good investment fee calculator helps you compare net returns and make better financial decisions.</p>
 </section>
 
