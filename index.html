@@ -27,96 +27,98 @@
 <script defer="" src="/header.js"></script>
 <!-- JSON-LD: Organization + Website + WebPage + Author + FAQ -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://truewealthmetrics.com/#organization",
-      "name": "TrueWealthMetrics",
-      "url": "https://truewealthmetrics.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://truewealthmetrics.com/logo.png"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://truewealthmetrics.com/#website",
-      "url": "https://truewealthmetrics.com/",
-      "name": "TrueWealthMetrics",
-      "publisher": {
-        "@id": "https://truewealthmetrics.com/#organization"
-      },
-      "inLanguage": "en"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://truewealthmetrics.com/#webpage",
-      "url": "https://truewealthmetrics.com/",
-      "name": "Free Financial Calculators for Budgeting, Debt & Savings",
-      "description": "Free financial calculators for budgeting, debt payoff and savings. Plan your money, track expenses, and calculate results instantly with simple tools.",
-      "isPartOf": {
-        "@id": "https://truewealthmetrics.com/#website"
-      },
-      "about": {
-        "@id": "https://truewealthmetrics.com/#organization"
-      },
-      "author": {
-        "@id": "https://truewealthmetrics.com/about-the-author/#author"
-      },
-      "inLanguage": "en"
-    },
-    {
-      "@type": "Person",
-      "@id": "https://truewealthmetrics.com/about-the-author/#author",
-      "name": "TrueWealthMetrics Editorial Team",
-      "url": "https://truewealthmetrics.com/about-the-author/",
-      "worksFor": {
-        "@id": "https://truewealthmetrics.com/#organization"
-      },
-      "jobTitle": "Personal Finance Research & Tools"
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://truewealthmetrics.com/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What are personal finance calculators used for?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Personal finance calculators help you estimate the impact of money decisions before you commit real cash. Common uses include budgeting, debt payoff, loan and mortgage planning, investment growth, ROI, fee comparisons, and retirement planning."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are these financial calculators free to use?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. TrueWealthMetrics calculators are free to use and do not require signup."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which calculator should I use first?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most visitors should start with the Budget Planner to understand monthly cash flow first, then move to savings, debt, loan, investing, or retirement calculators depending on the next decision they need to make."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are these calculator results accurate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "These tools use standard formulas to provide educational estimates. Real results can differ because of taxes, fees, changing interest rates, and personal circumstances, so outputs should be used for planning rather than personalized financial advice."
-          }
-        }
-      ]
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://truewealthmetrics.com/#organization",
+    "name": "TrueWealthMetrics",
+    "url": "https://truewealthmetrics.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://truewealthmetrics.com/logo.png"
     }
-  ]
-}
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://truewealthmetrics.com/#website",
+    "url": "https://truewealthmetrics.com/",
+    "name": "TrueWealthMetrics",
+    "publisher": {
+      "@id": "https://truewealthmetrics.com/#organization"
+    },
+    "inLanguage": "en"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://truewealthmetrics.com/#webpage",
+    "url": "https://truewealthmetrics.com/",
+    "name": "Free Financial Calculators for Budgeting, Debt & Savings",
+    "description": "Free financial calculators for budgeting, debt payoff and savings. Plan your money, track expenses, and calculate results instantly with simple tools.",
+    "isPartOf": {
+      "@id": "https://truewealthmetrics.com/#website"
+    },
+    "about": {
+      "@id": "https://truewealthmetrics.com/#organization"
+    },
+    "author": {
+      "@id": "https://truewealthmetrics.com/about-the-author/#author"
+    },
+    "inLanguage": "en"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://truewealthmetrics.com/about-the-author/#author",
+    "name": "TrueWealthMetrics Editorial Team",
+    "url": "https://truewealthmetrics.com/about-the-author/",
+    "worksFor": {
+      "@id": "https://truewealthmetrics.com/#organization"
+    },
+    "jobTitle": "Personal Finance Research & Tools"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://truewealthmetrics.com/#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are personal finance calculators used for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Personal finance calculators help you estimate the impact of money decisions before you commit real cash. Common uses include budgeting, debt payoff, loan and mortgage planning, investment growth, ROI, fee comparisons, and retirement planning."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are these financial calculators free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. TrueWealthMetrics calculators are free to use and do not require signup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which calculator should I use first?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most visitors should start with the Budget Planner to understand monthly cash flow first, then move to savings, debt, loan, investing, or retirement calculators depending on the next decision they need to make."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are these calculator results accurate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "These tools use standard formulas to provide educational estimates. Real results can differ because of taxes, fees, changing interest rates, and personal circumstances, so outputs should be used for planning rather than personalized financial advice."
+        }
+      }
+    ]
+  }
+]
 </script></head>
 <body>
 <!-- Shared header inject target -->
