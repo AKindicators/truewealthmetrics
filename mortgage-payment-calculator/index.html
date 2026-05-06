@@ -18,40 +18,145 @@
 <meta content="Monthly Mortgage Payment Calculator (Taxes & Interest Included)" name="twitter:title"/>
 <meta content="Monthly mortgage payment calculator with taxes, interest, and insurance. Calculate your exact home loan payment fast." name="twitter:description"/>
 <meta content="https://truewealthmetrics.com/logo.png" name="twitter:image"/>
-<meta content="#0b1220" name="theme-color"/><script id="jsonld-softwareapp" type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"Mortgage Payment Calculator (Amortization + Overpayments)",
-    "applicationCategory":"FinanceApplication",
-    "operatingSystem":"Web",
-    "url":"https://truewealthmetrics.com/mortgage-payment-calculator/",
-    "description":"Advanced mortgage calculator with amortization schedule and extra payments. Estimate monthly payment, payoff date, total interest, and interest saved.",
-    "offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},
-    "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
-  }
-  </script>
-<script id="jsonld-breadcrumbs" type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
-      {"@type":"ListItem","position":2,"name":"Mortgage Payment Calculator","item":"https://truewealthmetrics.com/mortgage-payment-calculator/"}
-    ]
-  }
-  </script>
-<script id="jsonld-faq" type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a mortgage payment calculator work?","acceptedAnswer":{"@type":"Answer","text":"It estimates your monthly mortgage payment based on the loan amount, interest rate, and term using standard amortization formulas."}},{"@type":"Question","name":"Does this include taxes and insurance?","acceptedAnswer":{"@type":"Answer","text":"This tool focuses on principal and interest. Property taxes, insurance, HOA fees, and other costs can increase the real monthly payment."}},{"@type":"Question","name":"What is the difference between 25 and 30 years?","acceptedAnswer":{"@type":"Answer","text":"A longer term usually lowers the monthly payment but increases total interest paid. A shorter term costs more monthly but can save interest."}},{"@type":"Question","name":"What if I overpay my mortgage?","acceptedAnswer":{"@type":"Answer","text":"Overpayments usually reduce interest and can shorten the term by reducing the principal faster, depending on lender rules."}},{"@type":"Question","name":"Fixed vs variable rate — what changes?","acceptedAnswer":{"@type":"Answer","text":"Fixed rates keep payments stable. Variable rates can change over time, which can raise or lower payments and total interest."}}]}
+<meta content="#0b1220" name="theme-color"/><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://truewealthmetrics.com/#org",
+      "name": "TrueWealthMetrics",
+      "url": "https://truewealthmetrics.com/",
+      "logo": "https://truewealthmetrics.com/logo.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://truewealthmetrics.com/#website",
+      "name": "TrueWealthMetrics",
+      "url": "https://truewealthmetrics.com/",
+      "publisher": {
+        "@id": "https://truewealthmetrics.com/#org"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://truewealthmetrics.com/about-the-author/#author",
+      "name": "TrueWealthMetrics Editorial Team",
+      "url": "https://truewealthmetrics.com/about-the-author/",
+      "worksFor": {
+        "@id": "https://truewealthmetrics.com/#org"
+      },
+      "jobTitle": "Personal Finance Research & Tools"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://truewealthmetrics.com/mortgage-payment-calculator/#webpage",
+      "url": "https://truewealthmetrics.com/mortgage-payment-calculator/",
+      "name": "Monthly Mortgage Payment Calculator",
+      "description": "Monthly mortgage payment calculator with taxes, interest, and insurance. Calculate your exact home loan payment fast.",
+      "isPartOf": {
+        "@id": "https://truewealthmetrics.com/#website"
+      },
+      "publisher": {
+        "@id": "https://truewealthmetrics.com/#org"
+      },
+      "author": {
+        "@id": "https://truewealthmetrics.com/about-the-author/#author"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://truewealthmetrics.com/logo.png"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://truewealthmetrics.com/mortgage-payment-calculator/#calculator",
+      "name": "Monthly Mortgage Payment Calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "url": "https://truewealthmetrics.com/mortgage-payment-calculator/",
+      "description": "Monthly mortgage payment calculator with taxes, insurance, amortization schedule, and extra payment impact. Estimate monthly payment, payoff date, total interest, and interest saved.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      },
+      "publisher": {
+        "@id": "https://truewealthmetrics.com/#org"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://truewealthmetrics.com/mortgage-payment-calculator/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://truewealthmetrics.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Monthly Mortgage Payment Calculator",
+          "item": "https://truewealthmetrics.com/mortgage-payment-calculator/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://truewealthmetrics.com/mortgage-payment-calculator/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does a mortgage payment calculator work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It estimates your monthly mortgage payment based on the loan amount, interest rate, and term using standard amortization formulas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this include taxes and insurance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This calculator includes fields for property tax, insurance, and HOA or service charges so you can estimate a more complete monthly housing cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between 25 and 30 years?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A longer term usually lowers the monthly payment but increases total interest paid. A shorter term costs more monthly but can save interest."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I overpay my mortgage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Overpayments usually reduce interest and can shorten the term by reducing the principal faster, depending on lender rules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fixed vs variable rate — what changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fixed rates keep payments stable. Variable rates can change over time, which can raise or lower payments and total interest."
+          }
+        }
+      ]
+    }
+  ]
+}
 </script>
+
 <link href="/styles.css" rel="stylesheet"/><link rel="icon" href="/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/><script defer="" src="/header.js"></script>
-<script data-twm-schema="org" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com","logo":"https://truewealthmetrics.com/logo.png"}</script>
-
-<script data-twm-schema="website" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com"}</script>
-  <script data-twm-schema="author" type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://truewealthmetrics.com/about-the-author/#author","name":"TrueWealthMetrics Editorial Team","url":"https://truewealthmetrics.com/about-the-author/","worksFor":{"@id":"https://truewealthmetrics.com/#org"},"jobTitle":"Personal Finance Research & Tools"}</script>
 </head>
 <body><div id="site-header"></div>
 <div class="wrap">
