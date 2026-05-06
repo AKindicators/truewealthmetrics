@@ -15,38 +15,178 @@
 <meta content="TrueWealthMetrics" property="og:site_name"/>
 <meta content="https://truewealthmetrics.com/logo.png" property="og:image"/>
 <meta content="summary" name="twitter:card"/>
-<meta content="#0b1220" name="theme-color"/><script id="jsonld-faq" type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"How does a loan repayment calculator work?","acceptedAnswer":{"@type":"Answer","text":"It estimates your monthly payment and total interest using the loan amount, interest rate, and term."}},
-{"@type":"Question","name":"What is amortization?","acceptedAnswer":{"@type":"Answer","text":"Each payment covers interest and principal, shifting over time."}},
-{"@type":"Question","name":"Can I see an amortization schedule?","acceptedAnswer":{"@type":"Answer","text":"Yes, it shows payment breakdown over time."}},
-{"@type":"Question","name":"What happens if I make extra payments?","acceptedAnswer":{"@type":"Answer","text":"They reduce interest and shorten the loan term."}},
-{"@type":"Question","name":"Is the interest rate fixed?","acceptedAnswer":{"@type":"Answer","text":"This tool assumes a fixed rate."}},
-{"@type":"Question","name":"What if APR is 0%?","acceptedAnswer":{"@type":"Answer","text":"Payments equal loan divided by months."}},
-{"@type":"Question","name":"Why might lender results differ?","acceptedAnswer":{"@type":"Answer","text":"Fees, rounding, and compounding differ."}},
-{"@type":"Question","name":"Can I use this for mortgages?","acceptedAnswer":{"@type":"Answer","text":"Yes for estimates, but real costs vary."}},
-{"@type":"Question","name":"Can I use this for car or personal loans?","acceptedAnswer":{"@type":"Answer","text":"Yes for most fixed-rate loans."}}
-]}
-</script>
-<script id="jsonld-breadcrumbs" type="application/ld+json">
-      {
-        "@context":"https://schema.org",
-        "@type":"BreadcrumbList",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
-          {"@type":"ListItem","position":2,"name":"Loan Repayment Calculator","item":"https://truewealthmetrics.com/loan-repayment-calculator/"}
-        ]
+<meta content="#0b1220" name="theme-color"/><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://truewealthmetrics.com/#org",
+      "name": "TrueWealthMetrics",
+      "url": "https://truewealthmetrics.com/",
+      "logo": "https://truewealthmetrics.com/logo.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://truewealthmetrics.com/#website",
+      "name": "TrueWealthMetrics",
+      "url": "https://truewealthmetrics.com/",
+      "publisher": {
+        "@id": "https://truewealthmetrics.com/#org"
       }
-    </script>
+    },
+    {
+      "@type": "Person",
+      "@id": "https://truewealthmetrics.com/about-the-author/#author",
+      "name": "TrueWealthMetrics Editorial Team",
+      "url": "https://truewealthmetrics.com/about-the-author/",
+      "worksFor": {
+        "@id": "https://truewealthmetrics.com/#org"
+      },
+      "jobTitle": "Personal Finance Research & Tools"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://truewealthmetrics.com/loan-repayment-calculator/#webpage",
+      "url": "https://truewealthmetrics.com/loan-repayment-calculator/",
+      "name": "Loan Repayment Calculator with Extra Payments",
+      "description": "Loan repayment calculator with extra payments. Calculate monthly payments, total interest, amortization, and compare loan costs to pay off debt faster.",
+      "isPartOf": {
+        "@id": "https://truewealthmetrics.com/#website"
+      },
+      "publisher": {
+        "@id": "https://truewealthmetrics.com/#org"
+      },
+      "author": {
+        "@id": "https://truewealthmetrics.com/about-the-author/#author"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://truewealthmetrics.com/logo.png"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://truewealthmetrics.com/loan-repayment-calculator/#calculator",
+      "name": "Loan Repayment Calculator with Extra Payments",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "url": "https://truewealthmetrics.com/loan-repayment-calculator/",
+      "description": "Free loan repayment calculator with extra payments and amortization schedule. Calculate monthly payments, total interest, payoff date, and compare how extra payments reduce interest.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      },
+      "publisher": {
+        "@id": "https://truewealthmetrics.com/#org"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://truewealthmetrics.com/loan-repayment-calculator/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://truewealthmetrics.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Loan Repayment Calculator with Extra Payments",
+          "item": "https://truewealthmetrics.com/loan-repayment-calculator/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://truewealthmetrics.com/loan-repayment-calculator/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does a loan repayment calculator work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It estimates your monthly payment and total interest using the loan amount, interest rate, and term."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is amortization?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each payment covers interest and principal, shifting over time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I see an amortization schedule?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, it shows payment breakdown over time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if I make extra payments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They reduce interest and shorten the loan term."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the interest rate fixed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This tool assumes a fixed rate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if APR is 0%?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Payments equal loan divided by months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why might lender results differ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fees, rounding, and compounding differ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this for mortgages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes for estimates, but real costs vary."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this for car or personal loans?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes for most fixed-rate loans."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <link href="/styles.css" rel="stylesheet"/><link rel="icon" href="/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/><script defer="" src="/header.js"></script><meta content="Loan Repayment Calculator with Extra Payments" name="twitter:title"/><meta content="Loan repayment calculator with extra payments. Calculate monthly payments, total interest, amortization, and compare loan costs to pay off debt faster." name="twitter:description"/>
 <meta content="https://truewealthmetrics.com/logo.png" name="twitter:image"/>
-<script data-twm-schema="org" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueWealthMetrics","@id":"https://truewealthmetrics.com/#org","url":"https://truewealthmetrics.com","logo":"https://truewealthmetrics.com/logo.png"}</script>
-
-<script data-twm-schema="website" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com","publisher":{"@id":"https://truewealthmetrics.com/#org"}}</script>
-  <script data-twm-schema="author" type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://truewealthmetrics.com/about-the-author/#author","name":"TrueWealthMetrics Editorial Team","url":"https://truewealthmetrics.com/about-the-author/","worksFor":{"@id":"https://truewealthmetrics.com/#org"},"jobTitle":"Personal Finance Research & Tools"}</script>
 </head>
 <body><div id="site-header"></div>
 <div class="wrap">
