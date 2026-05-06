@@ -14,6 +14,7 @@
 <meta content="website" property="og:type"/>
 <meta content="https://truewealthmetrics.com/learn/" property="og:url"/>
 <meta content="https://truewealthmetrics.com/logo.png" property="og:image"/>
+<meta content="TrueWealthMetrics" property="og:site_name"/>
 <!-- Twitter -->
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Personal Finance Guides for Beginners | Learn Money Basics" name="twitter:title"/>
@@ -26,195 +27,223 @@
 <link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
 <link href="/styles.css" rel="stylesheet"/>
 <!-- Organization / Website schema -->
+
+
+
+
+
+
+
+
 <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"TrueWealthMetrics",
-    "url":"https://truewealthmetrics.com/",
-    "publisher":{
-      "@type":"Organization",
-      "name":"TrueWealthMetrics",
-      "url":"https://truewealthmetrics.com/",
-      "logo":{"@type":"ImageObject","url":"https://truewealthmetrics.com/logo.png"}
-    },
-    "inLanguage":"en-GB"
-  }
-  </script>
-
-<script data-twm-schema="org" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com","logo":"https://truewealthmetrics.com/logo.png"}</script>
-
-<script data-twm-schema="website" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com"}</script>
-  <script data-twm-schema="author" type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://truewealthmetrics.com/about-the-author/#author","name":"Mudasar Aziz","url":"https://truewealthmetrics.com/about-the-author/","worksFor":{"@id":"https://truewealthmetrics.com/#org"},"jobTitle":"Founder"}</script>
-
-<script data-twm-schema="collection" type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "@id": "https://truewealthmetrics.com/learn/#webpage",
-  "url": "https://truewealthmetrics.com/learn/",
-  "name": "Personal Finance Guides for Beginners",
-  "description": "A learning hub of personal finance guides for beginners covering budgeting, saving, investing, debt, and retirement planning.",
-  "isPartOf": {
-    "@type": "WebSite",
-    "@id": "https://truewealthmetrics.com/#website"
-  },
-  "about": [
-    "Personal finance",
-    "Budgeting",
-    "Saving money",
-    "Investing",
-    "Compound interest",
-    "Retirement planning",
-    "Inflation",
-    "Debt management"
-  ],
-  "author": {
-    "@id": "https://truewealthmetrics.com/about-the-author/#author"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "@id": "https://truewealthmetrics.com/#org",
-    "name": "TrueWealthMetrics",
-    "url": "https://truewealthmetrics.com"
-  },
-  "inLanguage": "en-GB"
-}
-</script>
-
-<script data-twm-schema="itemlist" type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Personal Finance Guides for Beginners",
-  "itemListOrder": "https://schema.org/ItemListOrderAscending",
-  "numberOfItems": 12,
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "url": "https://truewealthmetrics.com/how-compound-interest-works/",
-      "name": "How Compound Interest Works"
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "TrueWealthMetrics",
+      "url": "https://truewealthmetrics.com/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TrueWealthMetrics",
+        "url": "https://truewealthmetrics.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://truewealthmetrics.com/logo.png"
+        }
+      },
+      "inLanguage": "en-GB",
+      "@id": "https://truewealthmetrics.com/#website"
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "url": "https://truewealthmetrics.com/how-much-should-you-save/",
-      "name": "How Much Should You Save?"
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TrueWealthMetrics",
+      "url": "https://truewealthmetrics.com",
+      "logo": "https://truewealthmetrics.com/logo.png",
+      "@id": "https://truewealthmetrics.com/#org"
     },
     {
-      "@type": "ListItem",
-      "position": 3,
-      "url": "https://truewealthmetrics.com/investment-fees-retirement/",
-      "name": "How 1% Investment Fees Quietly Destroy Your Retirement"
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://truewealthmetrics.com/about-the-author/#author",
+      "name": "Mudasar Aziz",
+      "url": "https://truewealthmetrics.com/about-the-author/",
+      "worksFor": {
+        "@id": "https://truewealthmetrics.com/#org"
+      },
+      "jobTitle": "Founder"
     },
     {
-      "@type": "ListItem",
-      "position": 4,
-      "url": "https://truewealthmetrics.com/how-much-emergency-fund/",
-      "name": "How Much Emergency Fund Do You Need?"
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://truewealthmetrics.com/learn/#webpage",
+      "url": "https://truewealthmetrics.com/learn/",
+      "name": "Personal Finance Guides for Beginners",
+      "description": "A learning hub of personal finance guides for beginners covering budgeting, saving, investing, debt, and retirement planning.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://truewealthmetrics.com/#website"
+      },
+      "about": [
+        "Personal finance",
+        "Budgeting",
+        "Saving money",
+        "Investing",
+        "Compound interest",
+        "Retirement planning",
+        "Inflation",
+        "Debt management"
+      ],
+      "author": {
+        "@id": "https://truewealthmetrics.com/about-the-author/#author"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://truewealthmetrics.com/#org",
+        "name": "TrueWealthMetrics",
+        "url": "https://truewealthmetrics.com"
+      },
+      "inLanguage": "en-GB"
     },
     {
-      "@type": "ListItem",
-      "position": 5,
-      "url": "https://truewealthmetrics.com/inflation-vs-investing/",
-      "name": "Inflation vs Investing"
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Personal Finance Guides for Beginners",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 12,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://truewealthmetrics.com/how-compound-interest-works/",
+          "name": "How Compound Interest Works"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://truewealthmetrics.com/how-much-should-you-save/",
+          "name": "How Much Should You Save?"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://truewealthmetrics.com/investment-fees-retirement/",
+          "name": "How 1% Investment Fees Quietly Destroy Your Retirement"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "url": "https://truewealthmetrics.com/how-much-emergency-fund/",
+          "name": "How Much Emergency Fund Do You Need?"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "url": "https://truewealthmetrics.com/inflation-vs-investing/",
+          "name": "Inflation vs Investing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "url": "https://truewealthmetrics.com/how-loan-interest-works/",
+          "name": "How Loan Interest Works"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "url": "https://truewealthmetrics.com/amortization-schedule-explained/",
+          "name": "Amortization Schedule Explained"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "url": "https://truewealthmetrics.com/extra-loan-payments-strategy/",
+          "name": "Extra Loan Payments Strategy"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "url": "https://truewealthmetrics.com/4-percent-rule-retirement/",
+          "name": "The 4% Rule for Retirement"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "url": "https://truewealthmetrics.com/how-investing-works-for-beginners/",
+          "name": "How Investing Works for Beginners"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "url": "https://truewealthmetrics.com/how-to-calculate-loan-interest-easily/",
+          "name": "How to Calculate Loan Interest Easily"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "url": "https://truewealthmetrics.com/budgeting-tips-for-beginners/",
+          "name": "Budgeting Tips for Beginners"
+        }
+      ]
     },
     {
-      "@type": "ListItem",
-      "position": 6,
-      "url": "https://truewealthmetrics.com/how-loan-interest-works/",
-      "name": "How Loan Interest Works"
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the most important personal finance rule?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The most important personal finance rule is to spend less than you earn and invest the difference consistently over time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much should I save each month?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A common guideline is to save 20% of your income, but the right amount depends on your goals, expenses and timeline."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it better to save money or invest it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Saving is best for short-term stability and emergencies, while investing is better for long-term wealth building. Most people need both."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I start investing with little money?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can start by investing small monthly amounts consistently and focusing on long-term growth rather than trying to time the market."
+          }
+        }
+      ]
     },
     {
-      "@type": "ListItem",
-      "position": 7,
-      "url": "https://truewealthmetrics.com/amortization-schedule-explained/",
-      "name": "Amortization Schedule Explained"
-    },
-    {
-      "@type": "ListItem",
-      "position": 8,
-      "url": "https://truewealthmetrics.com/extra-loan-payments-strategy/",
-      "name": "Extra Loan Payments Strategy"
-    },
-    {
-      "@type": "ListItem",
-      "position": 9,
-      "url": "https://truewealthmetrics.com/4-percent-rule-retirement/",
-      "name": "The 4% Rule for Retirement"
-    },
-    {
-      "@type": "ListItem",
-      "position": 10,
-      "url": "https://truewealthmetrics.com/how-investing-works-for-beginners/",
-      "name": "How Investing Works for Beginners"
-    },
-    {
-      "@type": "ListItem",
-      "position": 11,
-      "url": "https://truewealthmetrics.com/how-to-calculate-loan-interest-easily/",
-      "name": "How to Calculate Loan Interest Easily"
-    },
-    {
-      "@type": "ListItem",
-      "position": 12,
-      "url": "https://truewealthmetrics.com/budgeting-tips-for-beginners/",
-      "name": "Budgeting Tips for Beginners"
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://truewealthmetrics.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Personal Finance Guides for Beginners",
+          "item": "https://truewealthmetrics.com/learn/"
+        }
+      ]
     }
-  ]
-}
-</script>
-
-<script data-twm-schema="faq" type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the most important personal finance rule?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The most important personal finance rule is to spend less than you earn and invest the difference consistently over time."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much should I save each month?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A common guideline is to save 20% of your income, but the right amount depends on your goals, expenses and timeline."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is it better to save money or invest it?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Saving is best for short-term stability and emergencies, while investing is better for long-term wealth building. Most people need both."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I start investing with little money?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You can start by investing small monthly amounts consistently and focusing on long-term growth rather than trying to time the market."
-      }
-    }
-  ]
-}
-</script>
-
-
-<script data-twm-schema="breadcrumb" type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
-    {"@type":"ListItem","position":2,"name":"Personal Finance Guides for Beginners","item":"https://truewealthmetrics.com/learn/"}
   ]
 }
 </script>
