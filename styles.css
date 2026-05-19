@@ -4321,3 +4321,394 @@ html body .site-footer .footer-links a{
     border-radius: 18px !important;
   }
 }
+
+/* =========================================================
+   Final benchmark alignment pass — homepage + investment calculator standard
+   Targets older calculator, guide, methodology and hub pages without changing
+   markup, SEO tags, schema or JavaScript calculator logic.
+   ========================================================= */
+:root{
+  --twm-final-page-max: 1200px;
+  --twm-final-wide-max: 1380px;
+  --twm-final-radius: 28px;
+  --twm-final-gap: clamp(22px, 3vw, 34px);
+  --twm-final-pad: clamp(20px, 2.4vw, 34px);
+  --twm-final-panel:
+    radial-gradient(760px 260px at 0% 0%, rgba(96,165,250,.13), transparent 62%),
+    radial-gradient(560px 220px at 100% 0%, rgba(244,114,182,.115), transparent 64%),
+    linear-gradient(180deg, rgba(9,17,32,.94), rgba(6,12,24,.87));
+  --twm-final-panel-soft:
+    radial-gradient(520px 180px at 0% 0%, rgba(96,165,250,.10), transparent 62%),
+    radial-gradient(420px 160px at 100% 100%, rgba(244,114,182,.08), transparent 66%),
+    linear-gradient(180deg, rgba(10,18,34,.92), rgba(7,14,26,.86));
+}
+
+/* More balanced desktop canvas: old pages were visually boxed in compared with the homepage/investment page. */
+html body .wrap,
+html body .twm-container{
+  width: min(var(--twm-final-page-max), calc(100% - 44px));
+  max-width: var(--twm-final-page-max);
+  padding-top: clamp(28px, 4vw, 52px);
+  padding-bottom: clamp(56px, 7vw, 90px);
+}
+
+html body .hub-shell,
+html body .twm-premium-home,
+html body .hero .wrap.hero-grid,
+html body .hero-grid{
+  width: min(var(--twm-final-wide-max), calc(100% - 44px));
+  max-width: var(--twm-final-wide-max);
+}
+
+/* Premium hero banner used by older calculator and guide pages. */
+html body .wrap > .hero,
+html body .twm-hero,
+html body .hub-hero{
+  width: 100%;
+  margin: clamp(20px, 3vw, 36px) auto var(--twm-final-gap);
+  padding: clamp(30px, 4.2vw, 56px) clamp(24px, 4vw, 48px);
+  border-radius: 30px;
+  background: var(--twm-final-panel) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  box-shadow: 0 34px 90px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.075) !important;
+  overflow: hidden;
+}
+
+html body .wrap > .hero::before,
+html body .wrap > .hero::after{
+  border-radius: inherit;
+}
+
+html body .wrap > .hero h1,
+html body .twm-hero h1,
+html body .hub-hero h1{
+  max-width: 920px;
+  font-size: clamp(42px, 5vw, 72px) !important;
+  line-height: .98 !important;
+  letter-spacing: -.05em !important;
+  margin-bottom: 18px !important;
+}
+
+html body .wrap > .hero p,
+html body .twm-hero p,
+html body .hub-hero p,
+html body .lead{
+  max-width: 850px;
+  font-size: clamp(16px, 1.45vw, 20px) !important;
+  line-height: 1.68 !important;
+  color: rgba(232,238,248,.86) !important;
+}
+
+/* Older calculators: make input/result areas feel like one intentional product module. */
+html body .wrap > .grid{
+  display: grid;
+  grid-template-columns: minmax(0, 1.03fr) minmax(380px, .97fr);
+  gap: var(--twm-final-gap);
+  align-items: stretch;
+  margin-top: var(--twm-final-gap);
+}
+
+html body .wrap > .grid > .card,
+html body .wrap > .card,
+html body .wrap > section.card,
+html body .wrap > article.card,
+html body .two-col > .info-card,
+html body .info-card,
+html body .faq-item,
+html body .point,
+html body .stat,
+html body .method-card,
+html body .related-box{
+  border-radius: var(--twm-final-radius) !important;
+  padding: var(--twm-final-pad) !important;
+  background: var(--twm-final-panel-soft) !important;
+  border: 1px solid rgba(255,255,255,.115) !important;
+  box-shadow: 0 26px 70px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.06) !important;
+}
+
+html body .wrap > .grid > .card{
+  min-height: 100%;
+}
+
+/* Do not let large financial figures clip inside result cards. */
+html body .kpis,
+html body .kpiGrid,
+html body .results,
+html body .results-grid{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px !important;
+}
+
+html body .kpi,
+html body .stat,
+html body .result-card,
+html body .metric,
+html body .metricCard,
+html body .statCard{
+  min-width: 0;
+  overflow: hidden;
+}
+
+html body .kpi .v,
+html body .stat .value,
+html body .value,
+html body .stat-value,
+html body .mono{
+  max-width: 100%;
+  font-size: clamp(28px, 3.1vw, 46px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.045em !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+html body .kpi .t,
+html body .kpi .l,
+html body .label,
+html body .smallLabel{
+  font-size: 12px !important;
+  letter-spacing: .085em !important;
+  line-height: 1.2 !important;
+}
+
+html body .kpi .s,
+html body .stat .sub,
+html body .note,
+html body .hint,
+html body small{
+  line-height: 1.55;
+}
+
+/* Form rhythm: labels, fields and actions now match the investment calculator’s cleaner product feel. */
+html body .form,
+html body form{
+  gap: 13px !important;
+}
+
+html body .form .row,
+html body form .row,
+html body .field{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 7px;
+}
+
+html body label{
+  font-size: 13px !important;
+  font-weight: 850 !important;
+  color: rgba(248,250,252,.92) !important;
+}
+
+html body input,
+html body select,
+html body textarea,
+html body .twm-input{
+  min-height: 52px;
+  border-radius: 17px;
+  font-size: 15px;
+}
+
+html body .actions{
+  margin-top: 18px !important;
+}
+
+html body .actions button,
+html body .btn,
+html body .primary,
+html body .secondary,
+html body .smallBtn,
+html body .smallbtn,
+html body .twm-btn,
+html body .hub-btn{
+  min-height: 48px;
+  border-radius: 17px !important;
+  padding: 12px 18px !important;
+}
+
+/* Educational / support pages: make stacked text blocks feel designed, not template generated. */
+html body .wrap > .card:not(.tableCard),
+html body .wrap > section.card:not(.tableCard){
+  margin-top: var(--twm-final-gap) !important;
+}
+
+html body .wrap > .card p,
+html body .wrap > section.card p,
+html body .info-card p,
+html body .authority-intro p,
+html body .author-byline p{
+  max-width: 82ch;
+}
+
+html body .wrap > .card h2,
+html body .wrap > section.card h2,
+html body .info-card h2{
+  font-size: clamp(26px, 2.6vw, 38px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.035em !important;
+}
+
+html body .related,
+html body .related-links,
+html body .links,
+html body .hub-mini-links{
+  gap: 12px !important;
+}
+
+html body .related a,
+html body .related-links a,
+html body .links a,
+html body .hub-mini-links a,
+html body .linkCard{
+  border-radius: 18px !important;
+  min-height: 48px;
+  padding: 12px 16px !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025)),
+    radial-gradient(240px 90px at 0% 0%, rgba(125,211,252,.09), transparent 72%) !important;
+  border: 1px solid rgba(255,255,255,.105) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+/* Tables and sticky bars: less cramped and more premium. */
+html body .tableWrap,
+html body .tablewrap,
+html body table{
+  border-radius: 22px !important;
+}
+
+html body th,
+html body td{
+  padding: 13px 14px !important;
+}
+
+html body .stickyBar{
+  left: 0;
+  right: 0;
+  max-width: min(1180px, calc(100% - 32px));
+  border-radius: 22px;
+}
+
+/* Header final polish: consistent heights, cleaner spacing, no crowded visual rhythm. */
+@media (min-width: 861px){
+  html body .twm-header{
+    width: min(1500px, calc(100% - 32px));
+    max-width: 1500px;
+    min-height: 74px;
+    gap: 18px;
+  }
+
+  html body .twm-brand{
+    min-height: 54px;
+    padding: 7px 15px 7px 8px;
+  }
+
+  html body .twm-brand .twm-logo,
+  html body .twm-brand img{
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  html body .twm-nav-desktop{
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  html body .twm-nav-tools{
+    max-width: 865px;
+  }
+
+  html body .twm-nav-group{
+    gap: 6px;
+    padding: 5px;
+  }
+
+  html body .twm-pill{
+    height: 36px;
+    min-height: 36px;
+    padding-inline: 13px;
+    font-size: 12.5px;
+  }
+}
+
+@media (min-width: 861px) and (max-width: 1180px){
+  html body .twm-brand-text{ display:none; }
+  html body .twm-nav-tools{ max-width: 660px; }
+}
+
+@media (max-width: 980px){
+  html body .wrap,
+  html body .twm-container,
+  html body .hub-shell,
+  html body .hero .wrap.hero-grid,
+  html body .hero-grid{
+    width: min(100% - 28px, var(--twm-final-page-max));
+  }
+
+  html body .wrap > .grid,
+  html body .hero-grid,
+  html body .two-col{
+    grid-template-columns: 1fr !important;
+  }
+
+  html body .kpis,
+  html body .kpiGrid,
+  html body .results,
+  html body .results-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 680px){
+  html body .wrap,
+  html body .twm-container,
+  html body .hub-shell,
+  html body .hero .wrap.hero-grid,
+  html body .hero-grid{
+    width: min(100% - 22px, var(--twm-final-page-max));
+    padding-top: 18px;
+  }
+
+  html body .wrap > .hero,
+  html body .twm-hero,
+  html body .hub-hero{
+    margin-top: 14px;
+    padding: 22px 18px;
+    border-radius: 24px;
+  }
+
+  html body .wrap > .hero h1,
+  html body h1,
+  html body .twm-title,
+  html body .hub-hero h1{
+    font-size: clamp(34px, 10.5vw, 48px) !important;
+    letter-spacing: -.04em !important;
+  }
+
+  html body .wrap > .grid,
+  html body .wrap > .card,
+  html body .wrap > section.card{
+    margin-top: 20px !important;
+  }
+
+  html body .kpis,
+  html body .kpiGrid,
+  html body .results,
+  html body .results-grid{
+    grid-template-columns: 1fr !important;
+  }
+
+  html body .kpi .v,
+  html body .stat .value,
+  html body .value,
+  html body .stat-value,
+  html body .mono{
+    font-size: clamp(27px, 9vw, 38px) !important;
+  }
+
+  html body .stickyBar{
+    max-width: calc(100% - 20px);
+    bottom: 10px;
+  }
+}
