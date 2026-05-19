@@ -5220,3 +5220,88 @@ html body .twm-header-wrap{
     transform: none !important;
   }
 }
+
+/* =========================================================
+   Homepage mobile overflow correction — 2026-05-19
+   Fixes clipped hero/preview content on narrow phones without
+   changing desktop navigation, SEO markup, or calculator logic.
+   ========================================================= */
+@media (max-width: 680px){
+  html,
+  body{
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  html body .twm-premium-home,
+  html body .twm-premium-hero,
+  html body .twm-home-hero-copy,
+  html body .twm-hero-panel,
+  html body .twm-calculator-preview{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+  }
+
+  html body .twm-premium-hero{
+    padding:22px;
+    gap:22px;
+  }
+
+  html body .twm-premium-hero h1{
+    max-width:100%;
+    font-size:clamp(34px,10.2vw,44px) !important;
+    line-height:1.04;
+    letter-spacing:-.045em;
+    overflow-wrap:break-word;
+    word-break:normal;
+  }
+
+  html body .twm-home-lede{
+    max-width:100%;
+    overflow-wrap:break-word;
+  }
+
+  html body .twm-premium-home .twm-eyebrow{
+    width:100%;
+    max-width:100%;
+    justify-content:center;
+    text-align:center;
+    white-space:normal;
+    overflow-wrap:break-word;
+    line-height:1.35;
+  }
+
+  html body .twm-panel-topline,
+  html body .twm-preview-row{
+    min-width:0;
+  }
+
+  html body .twm-panel-topline{
+    align-items:flex-start;
+  }
+
+  html body .twm-panel-topline strong,
+  html body .twm-preview-row span,
+  html body .twm-preview-row strong,
+  html body .twm-mini-steps strong,
+  html body .twm-mini-steps span{
+    min-width:0;
+    overflow-wrap:break-word;
+  }
+}
+
+@media (max-width: 420px){
+  html body .twm-premium-hero{
+    padding:18px;
+    border-radius:24px;
+  }
+
+  html body .twm-premium-hero h1{
+    font-size:clamp(31px,9.4vw,38px) !important;
+  }
+
+  html body .twm-calculator-preview{
+    padding:16px;
+  }
+}
