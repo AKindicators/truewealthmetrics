@@ -3864,3 +3864,460 @@ footer .wrap,
   }
 }
 
+
+/* =========================================================
+   Site-wide Design System Cohesion Pass — May 2026
+   Purpose: align calculators, hubs, guides, trust pages, header, footer,
+   cards, CTAs and mobile layouts with the premium homepage without touching
+   SEO copy, schemas, URLs or calculator logic.
+   ========================================================= */
+:root{
+  --twm-page-max: 1320px;
+  --twm-card-radius: 24px;
+  --twm-card-pad: clamp(18px, 2vw, 26px);
+  --twm-section-gap: clamp(18px, 2.2vw, 30px);
+  --twm-glass-bg:
+    linear-gradient(180deg, rgba(10,18,34,.92), rgba(6,12,24,.86)),
+    radial-gradient(520px 180px at 0% 0%, rgba(96,165,250,.11), transparent 62%),
+    radial-gradient(420px 160px at 100% 100%, rgba(244,114,182,.085), transparent 66%);
+  --twm-glass-border: rgba(255,255,255,.115);
+  --twm-soft-shadow: 0 24px 62px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.055);
+  --twm-hover-shadow: 0 30px 76px rgba(0,0,0,.38), 0 0 0 1px rgba(255,255,255,.035) inset, 0 0 28px rgba(125,211,252,.09);
+}
+
+html body .wrap,
+html body .twm-container,
+html body .hub-shell,
+html body .site-footer .container,
+html body .footer-inner{
+  max-width: var(--twm-page-max);
+}
+
+html body .section,
+html body .hub-section{
+  margin-top: var(--twm-section-gap);
+}
+
+/* Header: balanced groups, consistent nav pill rhythm, less crowded desktop */
+html body .twm-header-wrap{
+  backdrop-filter: blur(18px) saturate(1.12);
+  -webkit-backdrop-filter: blur(18px) saturate(1.12);
+}
+
+html body .twm-header{
+  min-height: 78px;
+}
+
+html body .twm-nav{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+html body .twm-nav-group{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 5px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.075);
+  background: rgba(255,255,255,.026);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+html body .twm-nav-main{
+  flex: 0 0 auto;
+}
+
+html body .twm-nav-tools{
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  overflow-x: auto;
+  max-width: 780px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  mask-image: linear-gradient(90deg, black calc(100% - 34px), transparent);
+}
+html body .twm-nav-tools::-webkit-scrollbar{ display:none; }
+
+html body .twm-pill{
+  height: 38px;
+  min-height: 38px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  line-height: 1;
+  font-size: 13px;
+  letter-spacing: -.005em;
+  box-shadow: none;
+}
+
+html body .twm-nav-main .twm-pill{
+  font-weight: 850;
+}
+
+html body .twm-pill:hover{
+  transform: translateY(-1px);
+}
+
+html body .twm-pill.is-active,
+html body .twm-pill[aria-current="page"]{
+  color: #ffffff;
+  border-color: rgba(190,242,223,.36) !important;
+}
+
+/* Cards/panels: one premium card system across calculators, guides and trust pages */
+html body .card,
+html body .twm-card,
+html body .twm-panel,
+html body .author-byline,
+html body .authority-intro,
+html body .notice,
+html body .callout,
+html body .banner,
+html body .warnBox,
+html body .hub-panel,
+html body .hub-card,
+html body .hub-cta,
+html body .hub-popular-card,
+html body .hub-faq-item,
+html body .hub-stat,
+html body section[style*="rgba(6,13,28"]{
+  border-radius: var(--twm-card-radius) !important;
+  padding: var(--twm-card-pad);
+  background: var(--twm-glass-bg) !important;
+  border: 1px solid var(--twm-glass-border) !important;
+  box-shadow: var(--twm-soft-shadow) !important;
+  backdrop-filter: blur(14px) saturate(1.08);
+  -webkit-backdrop-filter: blur(14px) saturate(1.08);
+}
+
+html body .card,
+html body .twm-card,
+html body .hub-card,
+html body .hub-cta,
+html body .hub-popular-card,
+html body .hub-tool,
+html body .related a,
+html body .hub-mini-links a{
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+html body .card:hover,
+html body .twm-card:hover,
+html body .hub-card:hover,
+html body .hub-cta:hover,
+html body .hub-popular-card:hover,
+html body .hub-tool:hover{
+  transform: translateY(-2px);
+  border-color: rgba(125,211,252,.26) !important;
+  box-shadow: var(--twm-hover-shadow) !important;
+}
+
+/* Hub page: remove old flat feel and align with homepage/calculators */
+html body .hub-shell{
+  width: min(var(--twm-page-max), calc(100% - 48px));
+  padding-top: 28px;
+}
+
+html body .hub-hero{
+  border-radius: 32px !important;
+  padding: clamp(24px, 3vw, 38px) !important;
+  background:
+    radial-gradient(900px 420px at 10% 0%, rgba(96,165,250,.20), transparent 58%),
+    radial-gradient(760px 380px at 90% 10%, rgba(244,114,182,.16), transparent 58%),
+    linear-gradient(135deg, rgba(15,23,42,.88), rgba(8,16,30,.76)) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  box-shadow: 0 34px 90px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+html body .hub-hero h1{
+  font-size: clamp(40px, 5.5vw, 72px) !important;
+  line-height: .98 !important;
+  letter-spacing: -.05em !important;
+}
+
+html body .hub-lead{
+  font-size: clamp(17px, 1.65vw, 21px) !important;
+  line-height: 1.62 !important;
+  color: rgba(232,238,248,.86) !important;
+}
+
+html body .hub-kicker,
+html body .twm-eyebrow{
+  border-color: rgba(125,211,252,.28) !important;
+  background: rgba(125,211,252,.08) !important;
+  color: #dff7ff !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+html body .hub-btn,
+html body .hub-tool b{
+  min-height: 48px;
+  border-radius: 16px;
+  font-weight: 850;
+}
+html body .hub-btn-primary{
+  color: #06111d !important;
+  background: linear-gradient(135deg, #8df7d1 0%, #7dd3fc 52%, #f0abfc 100%) !important;
+  box-shadow: 0 18px 36px rgba(0,0,0,.26);
+}
+html body .hub-btn-secondary{
+  color: #f8fbff !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03)) !important;
+  border: 1px solid rgba(255,255,255,.13) !important;
+}
+
+html body .hub-tool,
+html body .related a,
+html body .hub-mini-links a{
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.024)),
+    radial-gradient(240px 80px at 0% 0%, rgba(125,211,252,.08), transparent 70%) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+html body .hub-tool:hover,
+html body .related a:hover,
+html body .hub-mini-links a:hover{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035)),
+    radial-gradient(260px 90px at 100% 0%, rgba(244,114,182,.10), transparent 70%) !important;
+}
+
+/* Calculator forms/results: consistent premium input and output hierarchy */
+html body form,
+html body .form{
+  display: grid;
+  gap: 10px;
+}
+
+html body label{
+  margin: 0 0 6px;
+  color: rgba(248,250,252,.90);
+  letter-spacing: .005em;
+}
+
+html body input,
+html body select,
+html body textarea,
+html body .twm-input{
+  min-height: 50px;
+  border-radius: 16px;
+  padding: 13px 14px;
+}
+
+html body .row{
+  gap: 12px;
+}
+
+html body .kpis,
+html body .kpiGrid,
+html body .results-grid{
+  gap: 16px;
+}
+
+html body .kpi,
+html body .kpiCard,
+html body .metric,
+html body .metricCard,
+html body .statCard,
+html body .resultMetric,
+html body .result-card,
+html body .hub-stat{
+  border-radius: 22px !important;
+  padding: clamp(16px, 1.8vw, 22px) !important;
+}
+
+html body .kpi .t,
+html body .kpi .l,
+html body .smallLabel,
+html body .hub-popular-tag{
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: rgba(226,232,240,.68);
+}
+
+/* Educational pages: less plain, better scan rhythm, stronger related blocks */
+html body main.wrap > .card + .card,
+html body .wrap > .section + .section,
+html body .wrap > section.card + section.card{
+  margin-top: var(--twm-section-gap);
+}
+
+html body .summary-grid,
+html body .related-links,
+html body .linksGrid,
+html body .cards,
+html body .tool-grid{
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 780px){
+  html body .summary-grid,
+  html body .related-links,
+  html body .linksGrid,
+  html body .cards,
+  html body .tool-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+html body .related-links a,
+html body .related a,
+html body .linkCard{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.11);
+  background: rgba(255,255,255,.035);
+  color: #eaf6ff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+html body .author-byline,
+html body .authority-intro{
+  border-left: 3px solid rgba(125,211,252,.34) !important;
+}
+
+html body details{
+  border-radius: 20px;
+  padding: 16px 18px;
+}
+
+/* Footer: same restrained fintech identity on every page */
+html body .site-footer,
+html body .footer{
+  margin-top: clamp(38px, 5vw, 70px);
+  padding: 34px 18px 44px;
+}
+
+html body .footer-row,
+html body .footer-inner{
+  gap: 18px;
+  align-items: center;
+}
+
+html body .footer-links,
+html body .site-footer .footer-links{
+  gap: 10px 14px;
+}
+
+html body .footer-links a,
+html body .site-footer .footer-links a{
+  padding: 6px 0;
+  font-weight: 700;
+}
+
+/* Desktop/tablet layout consistency */
+@media (max-width: 1180px){
+  html body .twm-nav-tools{
+    max-width: 620px;
+  }
+  html body .twm-pill{
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 980px){
+  html body .hub-shell{
+    width: min(var(--twm-page-max), calc(100% - 28px));
+  }
+  html body .hub-hero-grid,
+  html body .hub-row,
+  html body .hub-category-grid,
+  html body .hub-popular-grid,
+  html body .hub-stat-grid{
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Mobile: professional menu panel, better card spacing, no crowded pills */
+@media (max-width: 860px){
+  html body .twm-header-wrap{
+    padding: 10px 10px 8px;
+  }
+  html body .twm-header{
+    min-height: 0;
+  }
+  html body .twm-header-top{
+    padding: 10px 12px;
+    border-radius: 22px;
+  }
+  html body .twm-mobile-panel{
+    border-radius: 24px;
+  }
+  html body .twm-mobile-nav{
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  html body .twm-mobile-nav .twm-pill{
+    min-height: 50px;
+    justify-content: center;
+    text-align: center;
+    font-size: 15px;
+    padding: 0 12px;
+    border-radius: 16px;
+  }
+  html body .twm-mobile-nav .twm-pill:nth-child(-n+3){
+    grid-column: span 2;
+  }
+  html body .hub-shell{
+    width: min(var(--twm-page-max), calc(100% - 24px));
+    padding-top: 18px;
+  }
+  html body .hub-hero{
+    border-radius: 24px !important;
+    padding: 20px !important;
+  }
+}
+
+@media (max-width: 560px){
+  html body .twm-brand-text{
+    font-size: 13px;
+  }
+  html body .twm-brand .twm-logo-mark{
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px;
+  }
+  html body .twm-mobile-toggle{
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    border-radius: 16px;
+  }
+  html body .twm-mobile-nav{
+    grid-template-columns: 1fr;
+  }
+  html body .twm-mobile-nav .twm-pill:nth-child(-n+3){
+    grid-column: auto;
+  }
+  html body .hub-hero h1,
+  html body h1,
+  html body .twm-title,
+  html body .hero h1{
+    letter-spacing: -.035em !important;
+  }
+  html body .card,
+  html body .twm-card,
+  html body .twm-panel,
+  html body .hub-panel,
+  html body .hub-card,
+  html body .hub-cta,
+  html body .hub-popular-card,
+  html body .hub-faq-item,
+  html body .hub-stat{
+    border-radius: 18px !important;
+  }
+}
