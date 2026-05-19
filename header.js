@@ -9,7 +9,7 @@
       const link = document.createElement("link");
       link.id = id;
       link.rel = "stylesheet";
-      link.href = "/styles.css?v=20260330-elite12";
+      link.href = "/styles.css?v=20260519-sitewide-premium";
       document.head.appendChild(link);
     } catch (e) {}
   })();
