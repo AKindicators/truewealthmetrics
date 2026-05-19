@@ -4712,3 +4712,240 @@ html body .stickyBar{
     bottom: 10px;
   }
 }
+
+/* =========================================================
+   Final premium polish pass — sticky bars, density, and mobile rhythm
+   Scope: CSS-only refinements. No markup, SEO, schema or calculator logic changed.
+   ========================================================= */
+:root{
+  --twm-polish-max: 1180px;
+  --twm-polish-soft-border: rgba(255,255,255,.105);
+}
+
+/* Reduce the remaining boxed-in/heavy feeling on legacy calculator pages while preserving the new premium system. */
+html body .wrap > .hero,
+html body .twm-hero,
+html body .hub-hero{
+  margin-top: clamp(18px, 2.4vw, 30px) !important;
+  margin-bottom: clamp(20px, 2.8vw, 32px) !important;
+  padding-block: clamp(28px, 3.7vw, 48px) !important;
+}
+
+html body .wrap > .hero h1,
+html body .twm-hero h1,
+html body .hub-hero h1{
+  max-width: 980px;
+}
+
+html body .wrap > .card,
+html body .wrap > section.card,
+html body .wrap > article.card,
+html body .info-card,
+html body .authority-intro,
+html body .author-byline{
+  border-color: var(--twm-polish-soft-border) !important;
+}
+
+html body .wrap > .card p,
+html body .wrap > section.card p,
+html body .info-card p,
+html body .authority-intro p,
+html body .author-byline p{
+  color: rgba(226,232,240,.80);
+}
+
+/* Make calculator modules feel connected without forcing every old page into the exact same shape. */
+html body .wrap > .grid{
+  align-items: start;
+}
+
+@media (min-width: 981px){
+  html body .wrap > .grid > .card:first-child{
+    min-height: 560px;
+  }
+  html body .wrap > .grid > .card:nth-child(2){
+    min-height: 560px;
+  }
+}
+
+/* Result cards: avoid cramped numbers and keep visual hierarchy consistent across all calculators. */
+html body .kpi,
+html body .kpiCard,
+html body .metric,
+html body .metricCard,
+html body .statCard,
+html body .resultMetric,
+html body .result-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+html body .kpi .v,
+html body .stat .value,
+html body .value,
+html body .stat-value,
+html body .mono{
+  white-space: normal;
+  text-wrap: balance;
+}
+
+/* Sticky result bars were the main remaining distraction: keep them useful, but calmer and less intrusive. */
+html body .stickyBar,
+html body #stickyBar{
+  position: sticky;
+  left: auto;
+  right: auto;
+  bottom: 16px;
+  z-index: 24;
+  width: min(var(--twm-polish-max), calc(100% - 36px));
+  max-width: var(--twm-polish-max);
+  margin: clamp(16px, 2vw, 24px) auto 0;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body .stickyInner{
+  min-height: 64px;
+  padding: 10px 14px !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  background:
+    linear-gradient(180deg, rgba(7,13,25,.84), rgba(6,11,21,.78)),
+    radial-gradient(360px 100px at 0% 0%, rgba(96,165,250,.11), transparent 70%),
+    radial-gradient(320px 100px at 100% 100%, rgba(244,114,182,.10), transparent 70%) !important;
+  box-shadow:
+    0 18px 42px rgba(0,0,0,.30),
+    inset 0 1px 0 rgba(255,255,255,.055) !important;
+  backdrop-filter: blur(16px) saturate(1.08);
+  -webkit-backdrop-filter: blur(16px) saturate(1.08);
+}
+
+html body .stickyMini{
+  min-width: 0;
+}
+
+html body .stickyMini .l{
+  font-size: 11px !important;
+  letter-spacing: .08em;
+  color: rgba(226,232,240,.62) !important;
+}
+
+html body .stickyMini .v{
+  font-size: clamp(18px, 2vw, 24px) !important;
+  line-height: 1.05;
+  letter-spacing: -.03em;
+}
+
+html body .stickyBtns{
+  align-items: center;
+  gap: 8px !important;
+}
+
+html body .stickyBtns a,
+html body .stickyBar .btn,
+html body .stickyBar .primary,
+html body #stickyBar .btn,
+html body #stickyBar .primary{
+  min-height: 44px !important;
+  padding: 10px 16px !important;
+  border-radius: 14px !important;
+  font-size: 14px !important;
+  white-space: nowrap;
+}
+
+/* Tables/long blocks: cleaner reading rhythm on guide and methodology pages. */
+html body .wrap > .card:not(.tableCard),
+html body .wrap > section.card:not(.tableCard){
+  overflow: hidden;
+}
+
+html body .wrap > .card:not(.tableCard) h2 + p,
+html body .wrap > section.card:not(.tableCard) h2 + p{
+  margin-top: 4px;
+}
+
+html body .related,
+html body .related-links,
+html body .links{
+  margin-top: 14px;
+}
+
+/* Header: keep the improved pill system but prevent visual crowding on medium desktop widths. */
+@media (min-width: 861px) and (max-width: 1320px){
+  html body .twm-header{
+    width: min(100% - 24px, 1320px);
+    gap: 12px;
+  }
+  html body .twm-nav-desktop{
+    gap: 10px;
+  }
+  html body .twm-nav-tools{
+    max-width: 760px;
+  }
+  html body .twm-pill{
+    height: 34px;
+    min-height: 34px;
+    padding-inline: 11px;
+    font-size: 12px;
+  }
+}
+
+/* Mobile: sticky bars become a compact card and never crowd the screen. */
+@media (max-width: 680px){
+  html body .wrap > .hero,
+  html body .twm-hero,
+  html body .hub-hero{
+    padding: 22px 16px !important;
+  }
+
+  html body .stickyBar,
+  html body #stickyBar{
+    width: calc(100% - 20px);
+    max-width: none;
+    bottom: 8px;
+    margin-top: 16px;
+  }
+
+  html body .stickyInner{
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px !important;
+    border-radius: 16px !important;
+  }
+
+  html body .stickyMini{
+    width: 100%;
+  }
+
+  html body .stickyBtns{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  html body .stickyBtns a,
+  html body .stickyBar .btn,
+  html body .stickyBar .primary,
+  html body #stickyBar .btn,
+  html body #stickyBar .primary{
+    width: 100%;
+    min-width: 0;
+    min-height: 42px !important;
+    padding: 9px 10px !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 420px){
+  html body .stickyBtns{
+    grid-template-columns: 1fr;
+  }
+}
