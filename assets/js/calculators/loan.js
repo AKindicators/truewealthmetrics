@@ -1,5 +1,5 @@
 import { amortize } from '../calc-core.js?v=98c18a5445';
-import { mount, currencyOptions } from '../calc-ui.js?v=d6431262b6';
+import { mount, currencyOptions } from '../calc-ui.js?v=a0568ddf45';
 
 const config = {
   slug: 'loan',

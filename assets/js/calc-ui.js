@@ -218,7 +218,15 @@ export function resultsHTML(config, result, v, uid = 'r') {
   const breakdown = result.breakdown && result.breakdown.length
     ? `<div class="breakdown"><h3 class="h-sm">Calculation breakdown</h3><dl>${result.breakdown.map((b) => `<div class="${b.total ? 'total' : ''}"><dt>${b.label}</dt><dd>${esc(fmt.any(b.value, b.format))}</dd></div>`).join('')}</dl></div>`
     : '';
-  return `${assumptions ? `<details class="assumptions" open><summary>Assumptions used</summary><ul>${assumptions}</ul></details>` : ''}<div class="kpis">${kpis}</div>${warnings}<p class="summary">${result.summary || ''}</p>${chartSVG(result.chart, fmt, uid)}${breakdown}${tableHTML(result.table, fmt)}`;
+  return `<div class="kpis">${kpis}</div>${warnings}<p class="summary">${result.summary || ''}</p>${assumptions ? `<details class="assumptions" open><summary>Assumptions used</summary><ul>${assumptions}</ul></details>` : ''}${chartSVG(result.chart, fmt, uid)}${breakdown}${tableHTML(result.table, fmt)}`;
+}
+
+/** Compact "headline result" bar shown fixed at the bottom of small screens. */
+function resultBarInner(result, v) {
+  const fmt = makeFormat(v.currency);
+  if (!result || result.error) return '<span class="rb-label">Results paused</span><strong class="rb-value">Check inputs</strong><span class="rb-go">View</span>';
+  const k = result.kpis.find((x) => x.primary) || result.kpis[0];
+  return `<span class="rb-label">${esc(k.label)}</span><strong class="rb-value">${esc(fmt.any(k.value, k.format))}</strong><span class="rb-go">See full results</span>`;
 }
 
 /** Full static markup for a calculator (form + pre-computed default results). */
@@ -251,6 +259,7 @@ ${formBody}
 <div class="compare" data-compare hidden></div>
 <p class="disclaimer">Estimates for education only, not financial advice. Results depend on the assumptions shown and are not guaranteed.</p>
 </section>
+<a class="result-bar no-print" href="#calc-results-title" data-result-bar>${resultBarInner(result, values)}</a>
 </div>`;
 }
 
@@ -261,6 +270,21 @@ export function mount(root, config) {
   const out = root.querySelector('[data-results]');
   const summaryBox = root.querySelector('[data-error-summary]');
   const compareBox = root.querySelector('[data-compare]');
+  const bar = root.querySelector('[data-result-bar]');
+  const panel = root.querySelector('[data-results-panel]');
+  const setBusy = (on) => { if (on) out.setAttribute('aria-busy', 'true'); else out.removeAttribute('aria-busy'); };
+  const updateBar = (result, values) => { if (bar) bar.innerHTML = resultBarInner(result, values); };
+  if (bar && panel && 'IntersectionObserver' in window) {
+    // Hide the bar while the results panel (or the footer) is on screen.
+    const seen = new Set();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) seen.add(en.target); else seen.delete(en.target); });
+      bar.classList.toggle('is-hidden', seen.size > 0);
+    }, { threshold: 0.05 });
+    io.observe(panel);
+    const foot = document.querySelector('.site-footer');
+    if (foot) io.observe(foot);
+  }
   let last = null;
   let scenario = null;
   let timer = null;
@@ -307,9 +331,11 @@ export function mount(root, config) {
     const { values, errors } = validate(config, raw);
     showErrors(errors);
     const fmt = makeFormat(values.currency);
+    setBusy(false);
     if (Object.keys(errors).length) {
       last = null;
       out.innerHTML = resultsHTML(config, { error: 'Results paused: some inputs need fixing.' }, values);
+      updateBar(null, values);
       return;
     }
     let result;
@@ -318,6 +344,7 @@ export function mount(root, config) {
     // The page ships with the default results pre-rendered; skip the redundant first repaint.
     if (initial && out.querySelector('.kpis')) return;
     out.innerHTML = resultsHTML(config, result, values, `r${Date.now() % 1e6}`);
+    updateBar(result, values);
     renderCompare();
     if (focusResults && window.matchMedia('(max-width: 900px)').matches) {
       root.querySelector('[data-results-panel]').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
@@ -338,7 +365,7 @@ export function mount(root, config) {
     compareBox.hidden = false;
   };
 
-  const schedule = () => { clearTimeout(timer); timer = setTimeout(() => run(false), 180); };
+  const schedule = () => { clearTimeout(timer); setBusy(true); timer = setTimeout(() => run(false), 180); };
 
   form.addEventListener('input', schedule);
   form.addEventListener('change', schedule);

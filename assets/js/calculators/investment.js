@@ -1,5 +1,5 @@
 import { growth } from '../calc-core.js?v=98c18a5445';
-import { mount, currencyOptions } from '../calc-ui.js?v=d6431262b6';
+import { mount, currencyOptions } from '../calc-ui.js?v=a0568ddf45';
 import { freqOptions, freqName, growthChart, growthTable, returnWarnings } from './growth-shared.js?v=d7424a2b3f';
 
 const config = {
