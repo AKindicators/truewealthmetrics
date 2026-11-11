@@ -1,193 +1,67 @@
-<!DOCTYPE html>
-
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Compound Interest Calculator | Monthly Contributions</title>
-<meta content="Compound interest calculator with monthly contributions. Calculate investment growth, returns, and future value easily." name="description"/>
-<meta content="index,follow" name="robots"/>
-<link href="https://truewealthmetrics.com/compound-interest-calculator/" rel="canonical"/>
-<meta content="Compound Interest Calculator with Contributions | TrueWealthMetrics" property="og:title"/>
-<meta content="Compound interest calculator with monthly contributions. Calculate investment growth, returns, and future value easily." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://truewealthmetrics.com/compound-interest-calculator/" property="og:url"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="#0b1220" name="theme-color"/>
-<link href="/styles.css" rel="stylesheet"/><script defer="" src="/header.js"></script>
-<script id="jsonld-webpage" type="application/ld+json">
-      {
-        "@context":"https://schema.org",
-        "@type":"WebPage",
-        "name":"Compound Interest Calculator",
-        "url":"https://truewealthmetrics.com/compound-interest-calculator/",
-        "description":"Use this compound interest calculator to model growth with monthly contributions, compare compounding frequency, and review worked examples.",
-        "isPartOf":{
-          "@type":"WebSite",
-          "name":"TrueWealthMetrics",
-          "url":"https://truewealthmetrics.com/"
-        }
-      }
-    </script>
-<script id="jsonld-faq" type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is compound interest calculated with monthly contributions?","acceptedAnswer":{"@type":"Answer","text":"A common method compounds your balance each period and adds your regular contribution. Over time you earn growth on both your original money and past growth."}},{"@type":"Question","name":"Does compounding monthly vs yearly make a big difference?","acceptedAnswer":{"@type":"Answer","text":"More frequent compounding can slightly increase results over long periods, but your contribution amount, return rate, and time horizon usually matter more."}},{"@type":"Question","name":"What annual return should I assume?","acceptedAnswer":{"@type":"Answer","text":"For long-term planning, many people use a conservative range such as 5%–8% for diversified investments, or a lower rate for cash savings."}},{"@type":"Question","name":"Is this calculator accurate for real investments?","acceptedAnswer":{"@type":"Answer","text":"It provides educational estimates using simplified assumptions. Real returns vary, fees and taxes may apply, and contributions may not be invested at the same time each month."}},{"@type":"Question","name":"Why does starting earlier matter so much?","acceptedAnswer":{"@type":"Answer","text":"Time increases the number of compounding periods. Even small contributions can grow substantially over decades because each year builds on the last."}},{"@type":"Question","name":"Is daily compounding better than monthly compounding?","acceptedAnswer":{"@type":"Answer","text":"Daily compounding can produce a slightly higher final balance than monthly compounding when the annual rate is the same, but the difference is usually small compared with contribution size and investment length."}},{"@type":"Question","name":"What is the formula for compound interest?","acceptedAnswer":{"@type":"Answer","text":"A common simplified formula is A = P(1 + r/n)^(n·t), where P is the starting amount, r is the annual rate, n is the number of compounding periods per year, and t is time in years. Regular contributions are usually modeled period by period."}}]}
-</script>
-<script id="jsonld-breadcrumbs" type="application/ld+json">
-      {
-        "@context":"https://schema.org",
-        "@type":"BreadcrumbList",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
-          {"@type":"ListItem","position":2,"name":"Compound Interest Calculator","item":"https://truewealthmetrics.com/compound-interest-calculator/"}
-        ]
-      }
-    </script>
-<script id="jsonld-softwareapp" type="application/ld+json">
-      {
-        "@context":"https://schema.org",
-        "@type":"SoftwareApplication",
-        "name":"Compound Interest Calculator",
-        "applicationCategory":"FinanceApplication",
-        "operatingSystem":"Web",
-        "url":"https://truewealthmetrics.com/compound-interest-calculator/",
-        "description":"Use this compound interest calculator to model growth with monthly contributions, compare daily, monthly, and yearly compounding, and review worked examples.",
-        "offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},
-        "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
-      }
-    </script>
-<link href="/favicon.ico" rel="icon" sizes="any"/>
-<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/apple-touch-icon.png" rel="apple-touch-icon"/><meta content="Compound Interest Calculator with Contributions | TrueWealthMetrics" name="twitter:title"/><meta content="Compound interest calculator with monthly contributions. Calculate investment growth, returns, and future value easily." name="twitter:description"/>
-<script data-twm-schema="org" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com","logo":"https://truewealthmetrics.com/logo.png"}</script>
-<script data-twm-schema="website" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com"}</script>
-<script data-twm-schema="author" type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://truewealthmetrics.com/about-the-author/#author","name":"TrueWealthMetrics Editorial Team","url":"https://truewealthmetrics.com/about-the-author/","worksFor":{"@id":"https://truewealthmetrics.com/#org"},"jobTitle":"Personal Finance Research & Tools"}</script>
-<meta content="https://truewealthmetrics.com/logo.png" property="og:image"/><meta content="TrueWealthMetrics compound interest calculator" property="og:image:alt"/><meta content="TrueWealthMetrics" property="og:site_name"/><meta content="https://truewealthmetrics.com/logo.png" name="twitter:image"/></head>
-<body><div id="site-header"></div>
-<div class="wrap">
-<section class="hero">
-<h1>Compound Interest Calculator with Monthly Contributions</h1>
-<p class="sub">
+<meta name="description" content="Compound interest calculator with monthly contributions. Calculate investment growth, returns, and future value easily.">
+<link rel="canonical" href="https://truewealthmetrics.com/compound-interest-calculator/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0a1a33">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TrueWealthMetrics">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Compound Interest Calculator | Monthly Contributions">
+<meta property="og:description" content="Compound interest calculator with monthly contributions. Calculate investment growth, returns, and future value easily.">
+<meta property="og:url" content="https://truewealthmetrics.com/compound-interest-calculator/">
+<meta property="og:image" content="https://truewealthmetrics.com/assets/img/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TrueWealthMetrics personal finance calculators">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Compound Interest Calculator | Monthly Contributions">
+<meta name="twitter:description" content="Compound interest calculator with monthly contributions. Calculate investment growth, returns, and future value easily.">
+<meta name="twitter:image" content="https://truewealthmetrics.com/assets/img/og-default.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/css/site.css?v=7bfd2bf34a">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://truewealthmetrics.com/#organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/","logo":{"@type":"ImageObject","url":"https://truewealthmetrics.com/logo.png"},"email":"support@truewealthmetrics.com"},{"@type":"WebSite","@id":"https://truewealthmetrics.com/#website","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/","publisher":{"@id":"https://truewealthmetrics.com/#organization"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","@id":"https://truewealthmetrics.com/compound-interest-calculator/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://truewealthmetrics.com/financial-calculators/"},{"@type":"ListItem","position":3,"name":"Compound Interest Calculator","item":"https://truewealthmetrics.com/compound-interest-calculator/"}]},{"@type":"WebPage","@id":"https://truewealthmetrics.com/compound-interest-calculator/#webpage","url":"https://truewealthmetrics.com/compound-interest-calculator/","name":"Compound Interest Calculator | Monthly Contributions","description":"Compound interest calculator with monthly contributions. Calculate investment growth, returns, and future value easily.","isPartOf":{"@id":"https://truewealthmetrics.com/#website"},"inLanguage":"en-GB","breadcrumb":{"@id":"https://truewealthmetrics.com/compound-interest-calculator/#breadcrumb"},"dateModified":"2026-11-11"},{"@type":"WebApplication","@id":"https://truewealthmetrics.com/compound-interest-calculator/#app","name":"Compound Interest Calculator with Monthly Contributions","url":"https://truewealthmetrics.com/compound-interest-calculator/","description":"Compound interest calculator with monthly contributions. Calculate investment growth, returns, and future value easily.","applicationCategory":"FinanceApplication","operatingSystem":"Any (runs in a web browser)","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"publisher":{"@id":"https://truewealthmetrics.com/#organization"},"mainEntityOfPage":{"@id":"https://truewealthmetrics.com/compound-interest-calculator/#webpage"}},{"@type":"FAQPage","@id":"https://truewealthmetrics.com/compound-interest-calculator/#faq","url":"https://truewealthmetrics.com/compound-interest-calculator/","mainEntity":[{"@type":"Question","name":"How is compound interest calculated with monthly contributions?","acceptedAnswer":{"@type":"Answer","text":"A common method compounds your balance each period and adds your regular contribution. Over time you earn growth on both your original money and past growth."}},{"@type":"Question","name":"Does compounding monthly vs yearly make a big difference?","acceptedAnswer":{"@type":"Answer","text":"More frequent compounding can slightly increase results over long periods, but your contribution amount, return rate, and time horizon usually matter more."}},{"@type":"Question","name":"What annual return should I assume?","acceptedAnswer":{"@type":"Answer","text":"For long-term planning, many people use a conservative range such as 5%–8% for diversified investments, or a lower rate for cash savings."}},{"@type":"Question","name":"Is this calculator accurate for real investments?","acceptedAnswer":{"@type":"Answer","text":"It provides educational estimates using simplified assumptions. Real returns vary, fees and taxes may apply, and contributions may not be invested at the same time each month."}},{"@type":"Question","name":"Why does starting earlier matter so much?","acceptedAnswer":{"@type":"Answer","text":"Time increases the number of compounding periods. Even small contributions can grow substantially over decades because each year builds on the last."}},{"@type":"Question","name":"Is daily compounding better than monthly compounding?","acceptedAnswer":{"@type":"Answer","text":"Daily compounding can produce a slightly higher final balance than monthly compounding when the annual rate is the same, but the difference is usually small compared with contribution size and investment length."}},{"@type":"Question","name":"What is the formula for compound interest?","acceptedAnswer":{"@type":"Answer","text":"A common simplified formula is A = P(1 + r/n)^(n·t), where P is the starting amount, r is the annual rate, n is the number of compounding periods per year, and t is time in years. Regular contributions are usually modeled period by period."}}]}]}</script>
+<script type="module" src="/assets/js/calculators/compound.js?v=0374344ca0"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="/"><svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#0a1a33"/><path d="M9 25V19M15 25V15M21 25V17M27 25V10" stroke="#12a594" stroke-width="3.2" stroke-linecap="round"/><path d="M8.5 15.5 14.5 11l6 3 7-6.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>True<b>Wealth</b>Metrics</span></a><nav class="site-nav" aria-label="Main"><ul><li><a href="/financial-calculators/" aria-current="page">Calculators</a></li><li><a href="/financial-calculators/#budgeting">Budgeting</a></li><li><a href="/financial-calculators/#borrowing">Loans &amp; debt</a></li><li><a href="/financial-calculators/#investing">Investing</a></li><li><a href="/financial-calculators/#retirement">Retirement</a></li><li><a href="/learn/">Guides</a></li><li><a href="/calculator-methodology/">Methodology</a></li><li><a href="/about/">About</a></li></ul></nav></div></header>
+<main id="main">
+<div class="page-head"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/financial-calculators/">Calculators</a></li><li><span aria-current="page">Compound Interest Calculator</span></li></ol></nav><h1>Compound Interest Calculator with Monthly Contributions</h1><p class="lead">
           Calculate compound growth with <strong>monthly contributions</strong>. See your final balance, total contributions,
           total interest earned, and a year-by-year growth table.
-        </p>
-<div class="note" style="margin-top:12px;">
-          Start with your current balance, contribution amount, expected return, and time horizon, then compare <strong>daily, monthly, quarterly, and yearly compounding</strong> to see how small changes can affect long-term growth.
-        </div>
-<p style="margin-top:14px;">
-<a href="#calcForm">Calculate your future value now</a> ·
+        </p><div class="meta-row"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12 5 5 9-10"/></svg>Free, no sign-up</span><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Runs in your browser</span><span>Formulas last reviewed <time datetime="2026-11-11">11 November 2026</time></span></div></div></div>
+<div class="container calc-wrap" id="calculator"><div class="calc" data-calc="compound">
+<form class="calc-form" novalidate aria-labelledby="calc-form-title" data-form>
+<h2 class="h-sm" id="calc-form-title">Your numbers</h2>
+<p class="alert alert-error" data-error-summary role="alert" hidden></p>
+<div class="field" data-field="principal"><label for="principal">Starting amount</label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="principal" name="principal" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="1000" aria-describedby="principal-err"></div><p class="field-err" id="principal-err" hidden></p></div><div class="field" data-field="monthly"><label for="monthly">Monthly contribution <span class="opt">(optional)</span></label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="monthly" name="monthly" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="200" aria-describedby="monthly-err"></div><p class="field-err" id="monthly-err" hidden></p></div><div class="field" data-field="rate"><label for="rate">Interest rate or return (per year)</label><div class="input-wrap has-suffix"><input id="rate" name="rate" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="8" aria-describedby="rate-err"><span class="affix affix-end" aria-hidden="true">%</span></div><p class="field-err" id="rate-err" hidden></p></div><div class="field" data-field="years"><label for="years">Time period (years)</label><div class="input-wrap"><input id="years" name="years" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="20" aria-describedby="years-err"></div><p class="field-err" id="years-err" hidden></p></div><div class="field" data-field="freq"><label for="freq">Compounding</label><select id="freq" name="freq" aria-describedby="freq-help freq-err"><option value="12" selected>Monthly</option><option value="4">Quarterly</option><option value="2">Twice a year</option><option value="1">Yearly</option><option value="365">Daily</option></select><p class="field-help" id="freq-help">How often interest is added. The rate is treated as a nominal annual rate.</p></div><fieldset class="field field-choice" data-field="timing"><legend>Contributions are added</legend><div class="segmented"><label class="seg"><input type="radio" name="timing" value="end" checked><span>End of each month</span></label><label class="seg"><input type="radio" name="timing" value="start"><span>Start of each month</span></label></div></fieldset><div class="field" data-field="inflation"><label for="inflation">Inflation (per year) <span class="opt">(optional)</span></label><div class="input-wrap has-suffix"><input id="inflation" name="inflation" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="0" aria-describedby="inflation-help inflation-err"><span class="affix affix-end" aria-hidden="true">%</span></div><p class="field-help" id="inflation-help">Optional. Shows what the final amount would be worth in today’s money.</p><p class="field-err" id="inflation-err" hidden></p></div><div class="field" data-field="currency"><label for="currency">Currency</label><select id="currency" name="currency" aria-describedby="currency-err"><option value="GBP" selected>GBP (£)</option><option value="USD">USD ($)</option><option value="EUR">EUR (€)</option></select></div>
+<div class="btn-row"><button type="submit" class="btn btn-primary">Update results</button><button type="button" class="btn btn-ghost" data-action="reset">Reset</button></div>
+<p class="privacy-note">Calculated in your browser. Nothing you enter is sent or stored.</p>
+</form>
+<section class="calc-results" aria-labelledby="calc-results-title" data-results-panel>
+<div class="results-head"><h2 class="h-sm" id="calc-results-title">Results</h2><div class="btn-row btn-row-tight no-print"><button type="button" class="btn btn-ghost btn-sm" data-action="save-scenario">Save as scenario A</button><button type="button" class="btn btn-ghost btn-sm" data-action="print">Print / save PDF</button></div></div>
+<div data-results aria-live="polite"><details class="assumptions" open><summary>Assumptions used</summary><ul><li>8% a year, compounded monthly, every year with no variation.</li><li>£200.00 added at the end of every month.</li><li>No inflation adjustment.</li><li>No tax, fees or withdrawals.</li></ul></details><div class="kpis"><div class="kpi kpi-primary"><p class="kpi-label">Final balance</p><p class="kpi-value" data-kpi="final">£122,730.89</p><p class="kpi-sub">After 20 years</p></div><div class="kpi"><p class="kpi-label">Total paid in</p><p class="kpi-value" data-kpi="contrib">£49,000.00</p></div><div class="kpi"><p class="kpi-label">Interest earned</p><p class="kpi-value" data-kpi="interest">£73,730.89</p></div></div><p class="summary">Starting with £1,000.00 and adding £200.00 a month, at 8% compounded monthly you would have about <strong>£122,730.89</strong> after 20 years. <strong>£73,730.89</strong> of that is interest, 60% of the total.</p><figure class="chart"><figcaption><span class="chart-title" id="r-t">How your money grows</span><ul class="legend"><li><span class="sw s1" aria-hidden="true"></span>Paid in</li><li><span class="sw s2" aria-hidden="true"></span>Growth</li></ul></figcaption><svg viewBox="0 0 520 250" role="img" aria-labelledby="r-t r-d" focusable="false"><desc id="r-d">Total paid in and growth after fees, by year.</desc><line class="gl" x1="60" x2="508" y1="214.0" y2="214.0"></line><text class="ax" x="52" y="218.0" text-anchor="end">£0</text><line class="gl" x1="60" x2="508" y1="164.0" y2="164.0"></line><text class="ax" x="52" y="168.0" text-anchor="end">£31k</text><line class="gl" x1="60" x2="508" y1="114.0" y2="114.0"></line><text class="ax" x="52" y="118.0" text-anchor="end">£63k</text><line class="gl" x1="60" x2="508" y1="64.0" y2="64.0"></line><text class="ax" x="52" y="68.0" text-anchor="end">£94k</text><line class="gl" x1="60" x2="508" y1="14.0" y2="14.0"></line><text class="ax" x="52" y="18.0" text-anchor="end">£125k</text><text class="ax" x="60.0" y="238" text-anchor="middle">Yr 1</text><text class="ax" x="154.3" y="238" text-anchor="middle">Yr 5</text><text class="ax" x="248.6" y="238" text-anchor="middle">Yr 9</text><text class="ax" x="342.9" y="238" text-anchor="middle">Yr 13</text><text class="ax" x="437.3" y="238" text-anchor="middle">Yr 17</text><text class="ax" x="508.0" y="238" text-anchor="middle">Yr 20</text><polygon class="area s1" points="60.0,208.6 83.6,204.7 107.2,200.9 130.7,197.0 154.3,193.2 177.9,189.4 201.5,185.5 225.1,181.7 248.6,177.8 272.2,174.0 295.8,170.2 319.4,166.3 342.9,162.5 366.5,158.6 390.1,154.8 413.7,151.0 437.3,147.1 460.8,143.3 484.4,139.4 508.0,135.6 508.0,214.0 484.4,214.0 460.8,214.0 437.3,214.0 413.7,214.0 390.1,214.0 366.5,214.0 342.9,214.0 319.4,214.0 295.8,214.0 272.2,214.0 248.6,214.0 225.1,214.0 201.5,214.0 177.9,214.0 154.3,214.0 130.7,214.0 107.2,214.0 83.6,214.0 60.0,214.0"></polygon><polygon class="area s2" points="60.0,208.3 83.6,203.8 107.2,199.0 130.7,193.8 154.3,188.1 177.9,182.0 201.5,175.3 225.1,168.1 248.6,160.3 272.2,151.9 295.8,142.8 319.4,132.9 342.9,122.2 366.5,110.5 390.1,98.0 413.7,84.4 437.3,69.6 460.8,53.7 484.4,36.4 508.0,17.6 508.0,135.6 484.4,139.4 460.8,143.3 437.3,147.1 413.7,151.0 390.1,154.8 366.5,158.6 342.9,162.5 319.4,166.3 295.8,170.2 272.2,174.0 248.6,177.8 225.1,181.7 201.5,185.5 177.9,189.4 154.3,193.2 130.7,197.0 107.2,200.9 83.6,204.7 60.0,208.6"></polygon><line class="axis" x1="60" x2="508" y1="214" y2="214"></line><text class="ax ax-title" x="508" y="249" text-anchor="end">Year</text></svg></figure><div class="breakdown"><h3 class="h-sm">Calculation breakdown</h3><dl><div class=""><dt>Starting amount</dt><dd>£1,000.00</dd></div><div class=""><dt>Monthly contributions</dt><dd>£48,000.00</dd></div><div class=""><dt>Interest</dt><dd>£73,730.89</dd></div><div class="total"><dt>Final balance</dt><dd>£122,730.89</dd></div></dl></div><details class="table-block"><summary>Year-by-year growth</summary><div class="table-scroll" tabindex="0" role="region" aria-label="Year-by-year growth"><table><thead><tr><th scope="col" class="num">Year</th><th scope="col" class="num">Paid in this year</th><th scope="col" class="num">Growth this year</th><th scope="col" class="num">Balance</th></tr></thead><tbody><tr><th scope="row">1</th><td class="num">£2,400.00</td><td class="num">£172.98</td><td class="num">£3,572.98</td></tr><tr><th scope="row">2</th><td class="num">£2,400.00</td><td class="num">£386.54</td><td class="num">£6,359.53</td></tr><tr><th scope="row">3</th><td class="num">£2,400.00</td><td class="num">£617.82</td><td class="num">£9,377.35</td></tr><tr><th scope="row">4</th><td class="num">£2,400.00</td><td class="num">£868.30</td><td class="num">£12,645.65</td></tr><tr><th scope="row">5</th><td class="num">£2,400.00</td><td class="num">£1,139.57</td><td class="num">£16,185.22</td></tr><tr><th scope="row">6</th><td class="num">£2,400.00</td><td class="num">£1,433.35</td><td class="num">£20,018.57</td></tr><tr><th scope="row">7</th><td class="num">£2,400.00</td><td class="num">£1,751.52</td><td class="num">£24,170.08</td></tr><tr><th scope="row">8</th><td class="num">£2,400.00</td><td class="num">£2,096.09</td><td class="num">£28,666.17</td></tr><tr><th scope="row">9</th><td class="num">£2,400.00</td><td class="num">£2,469.26</td><td class="num">£33,535.44</td></tr><tr><th scope="row">10</th><td class="num">£2,400.00</td><td class="num">£2,873.41</td><td class="num">£38,808.85</td></tr><tr><th scope="row">11</th><td class="num">£2,400.00</td><td class="num">£3,311.10</td><td class="num">£44,519.95</td></tr><tr><th scope="row">12</th><td class="num">£2,400.00</td><td class="num">£3,785.12</td><td class="num">£50,705.07</td></tr><tr class="more" hidden><th scope="row">13</th><td class="num">£2,400.00</td><td class="num">£4,298.48</td><td class="num">£57,403.55</td></tr><tr class="more" hidden><th scope="row">14</th><td class="num">£2,400.00</td><td class="num">£4,854.45</td><td class="num">£64,658.00</td></tr><tr class="more" hidden><th scope="row">15</th><td class="num">£2,400.00</td><td class="num">£5,456.57</td><td class="num">£72,514.57</td></tr><tr class="more" hidden><th scope="row">16</th><td class="num">£2,400.00</td><td class="num">£6,108.66</td><td class="num">£81,023.22</td></tr><tr class="more" hidden><th scope="row">17</th><td class="num">£2,400.00</td><td class="num">£6,814.87</td><td class="num">£90,238.10</td></tr><tr class="more" hidden><th scope="row">18</th><td class="num">£2,400.00</td><td class="num">£7,579.70</td><td class="num">£100,217.80</td></tr><tr class="more" hidden><th scope="row">19</th><td class="num">£2,400.00</td><td class="num">£8,408.01</td><td class="num">£111,025.81</td></tr><tr class="more" hidden><th scope="row">20</th><td class="num">£2,400.00</td><td class="num">£9,305.07</td><td class="num">£122,730.89</td></tr></tbody></table></div><div class="btn-row"><button type="button" class="btn btn-ghost btn-sm" data-action="toggle-rows" aria-expanded="false">Show all 20 rows</button><button type="button" class="btn btn-ghost btn-sm" data-action="csv">Download CSV</button></div></details></div>
+<div class="compare" data-compare hidden></div>
+<p class="disclaimer">Estimates for education only, not financial advice. Results depend on the assumptions shown and are not guaranteed.</p>
+</section>
+</div></div>
+<div class="container section content-area"><div class="content-grid"><article class="prose"><section><p>
+<a href="#calculator">Calculate your future value now</a> ·
 <a href="#worked-example">See a worked example</a> ·
 <a href="#compounding-comparison">Compare compounding frequencies</a>
-</p>
-</section>
-
-<section class="card section" data-twm-explain="1">
-<h2>Why use this compound interest calculator (investment & savings compound interest calculator)?</h2>
+</p></section>
+<section><h2 id="why-use-this-compound-interest-calculator-investment-and-sav">Why use this compound interest calculator (investment &amp; savings compound interest calculator)?</h2>
 <p>This compound interest calculator helps you estimate how savings or investments can grow over time with regular contributions. Enter your starting balance, monthly deposit, expected annual return, and time horizon. The tool shows final balance, total contributions, total interest earned, and a year-by-year growth table so you can compare realistic scenarios.</p>
 <p>It is useful for retirement planning, ISA or brokerage growth estimates, long-term savings targets, and checking whether increasing your monthly contribution has a bigger effect than assuming a slightly higher return. Instead of guessing, you can test a conservative, base-case, and optimistic scenario in minutes.</p>
-<p>Returns are not guaranteed. For a more realistic plan, test lower return assumptions, include inflation, and compare the effect of fees over time. If you are planning around a real goal, this calculator works well alongside a <a href="/savings-goal-calculator/">Savings Goal Calculator</a>, <a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a>, and <a href="/retirement-planning-calculator/">Retirement Planning Calculator</a>.</p>
-</section>
-
-<section class="grid">
-<div class="card">
-<h2>Inputs</h2>
-<p class="sub">Use realistic assumptions. Returns are estimates and not financial advice.</p>
-<div class="form" id="calcForm">
-<div class="row">
-<label for="principal">Starting amount (£)</label>
-<input id="principal" inputmode="decimal" value="1000"/>
-</div>
-<div class="row">
-<label for="monthly">Monthly contribution (£)</label>
-<input id="monthly" inputmode="decimal" value="200"/>
-</div>
-<div class="row">
-<label for="rate">Annual return (%)</label>
-<input id="rate" inputmode="decimal" value="8"/>
-</div>
-<div class="row">
-<label for="years">Time horizon (years)</label>
-<input id="years" inputmode="numeric" value="20"/>
-</div>
-<div class="row">
-<label for="compound">Compounding</label>
-<select id="compound">
-<option selected="" value="12">Monthly (12x)</option>
-<option value="4">Quarterly (4x)</option>
-<option value="1">Yearly (1x)</option>
-<option value="365">Daily (365x)</option>
-</select>
-</div>
-<div class="row">
-<label for="inflation">Inflation (optional %)</label>
-<input id="inflation" inputmode="decimal" value="0"/>
-</div>
-</div>
-<div class="actions">
-<button id="btnCalc">Calculate</button>
-<button class="secondary" id="btnReset" type="button">Reset</button>
-</div>
-<div class="note">
-            Tip: If you want a “real return” estimate, add inflation (e.g., 2–3%). We’ll show an inflation-adjusted final value too.
-          </div>
-</div>
-<div class="card" id="resultsCard">
-<h2>Results</h2>
-<p class="sub">Updated instantly from your inputs.</p>
-<div class="kpis">
-<div class="kpi">
-<div class="t">Final balance</div>
-<div class="v" id="finalBalance">—</div>
-<div class="s">Estimated total value</div>
-</div>
-<div class="kpi">
-<div class="t">Total contributions</div>
-<div class="v" id="totalContrib">—</div>
-<div class="s">Starting + monthly deposits</div>
-</div>
-<div class="kpi">
-<div class="t">Total interest earned</div>
-<div class="v" id="interestEarned">—</div>
-<div class="s">Growth beyond contributions</div>
-</div>
-<div class="kpi">
-<div class="t">Inflation-adjusted final</div>
-<div class="v" id="realFinal">—</div>
-<div class="s">If inflation is provided</div>
-</div>
-</div>
-<div class="note" id="summaryLine">—</div>
-</div>
-</section>
-
-<section class="card section" id="growthTableCard" style="margin-top:16px;">
-<h2>Year-by-year growth table</h2>
-<p>
-          This table shows your balance at the end of each year, based on your inputs.
-          It’s useful for comparing scenarios such as higher monthly contributions, a different return assumption, or a longer time horizon.
-        </p>
-<div class="tableActions">
-<button class="secondary" id="btnToggleTable" type="button">Show full table</button>
-<span class="badge" id="tableBadge">Mobile-friendly: showing first 10 years</span>
-</div>
-<table aria-label="Compound interest growth table">
-<thead>
-<tr>
-<th>Year</th>
-<th>End balance</th>
-<th>Contributions</th>
-<th>Interest earned</th>
-</tr>
-</thead>
-<tbody id="tableBody">
-<tr><td colspan="4" style="text-align:left;color:rgba(255,255,255,0.70);">Run a calculation to see results.</td></tr>
-</tbody>
-</table>
-</section>
-
-<section class="section" style="margin-top:22px;">
-<div class="card">
-<h2>How compound interest works (compound growth calculator explained)</h2>
+<p>Returns are not guaranteed. For a more realistic plan, test lower return assumptions, include inflation, and compare the effect of fees over time. If you are planning around a real goal, this calculator works well alongside a <a href="/savings-goal-calculator/">Savings Goal Calculator</a>, <a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a>, and <a href="/retirement-planning-calculator/">Retirement Planning Calculator</a>.</p></section>
+<section><h2 id="how-compound-interest-works-compound-growth-calculator-expla">How compound interest works (compound growth calculator explained)</h2>
 <p>
             Compound interest means you earn returns on both your original money and on the returns you’ve already earned.
             Over time, this creates a snowball effect where growth can accelerate. The longer your money stays invested,
@@ -198,7 +72,7 @@
             Many people focus too much on finding a perfect rate and not enough on starting earlier or contributing more consistently.
           </p>
 
-<h2 style="margin-top:16px;">Compound interest formula</h2>
+<h2 id="compound-interest-formula">Compound interest formula</h2>
 <p>
             A common simplified formula is: <strong>A = P(1 + r/n)^(n·t)</strong>.
             Where <strong>P</strong> is the starting amount, <strong>r</strong> is the annual rate, <strong>n</strong> is the compounding frequency,
@@ -207,13 +81,8 @@
 <p>
             When you add regular monthly contributions, the calculation is usually done period by period rather than with a single simple formula.
             That is why this calculator models growth over time instead of only showing a one-line estimate.
-          </p>
-</div>
-</section>
-
-<section class="section" id="worked-example" style="margin-top:16px;">
-<div class="card">
-<h2>Worked compound interest example</h2>
+          </p></section>
+<section id="worked-example"><h2 id="worked-compound-interest-example">Worked compound interest example</h2>
 <p>Here is a simple example of how compound interest can build over time:</p>
 <ul>
 <li>Starting amount: <strong>£1,000</strong></li>
@@ -229,13 +98,8 @@
 <p>
             A useful comparison is to keep the rate the same but change the monthly contribution from £200 to £250, then compare the result.
             After that, keep the contribution the same and extend the time horizon from 20 years to 25 years. In many cases, more time produces a bigger jump than a small rate change.
-          </p>
-</div>
-</section>
-
-<section class="section" id="compounding-comparison" style="margin-top:16px;">
-<div class="card">
-<h2>Daily vs monthly vs yearly compounding</h2>
+          </p></section>
+<section id="compounding-comparison"><h2 id="daily-vs-monthly-vs-yearly-compounding">Daily vs monthly vs yearly compounding</h2>
 <p>
             Compounding frequency affects how often returns are added back to your balance. More frequent compounding can produce a slightly higher final value,
             but the gap is often smaller than people expect.
@@ -249,35 +113,20 @@
 <p>
             For most people, the bigger drivers are still contribution amount, return rate, and the number of years invested.
             Use the compounding dropdown above to compare daily, monthly, quarterly, and yearly results with your exact numbers.
-          </p>
-</div>
-</section>
-
-<section class="section" style="margin-top:16px;">
-<div class="card">
-<h2>How to use this compound interest calculator (interest calculator with contributions)</h2>
+          </p></section>
+<section><h2 id="how-to-use-this-compound-interest-calculator-interest-calcul">How to use this compound interest calculator (interest calculator with contributions)</h2>
 <p>Start with realistic numbers. Enter your current balance, the amount you can add each month, an annual return assumption, and the number of years you expect to stay invested. For most people, the biggest drivers are time and contribution size, not trying to guess the perfect return.</p>
 <p>A useful way to plan is to test three scenarios: conservative, base case, and optimistic. For example, you can compare 5%, 7%, and 9% annual returns, or compare £150 per month versus £250 per month. That shows whether increasing your contribution has a bigger effect than chasing a slightly higher return.</p>
-<p>You can also add inflation to estimate future purchasing power. That helps turn a headline final balance into a more realistic planning number. If you are comparing investments, fees, or retirement goals, use this calculator together with the Investment Fee Impact Calculator and Retirement Planning Calculator for a fuller picture.</p>
-</div>
-</section>
-
-<section class="section" style="margin-top:16px;">
-<div class="card">
-<h2>What affects compound growth the most (future value & investment calculator factors)?</h2>
+<p>You can also add inflation to estimate future purchasing power. That helps turn a headline final balance into a more realistic planning number. If you are comparing investments, fees, or retirement goals, use this calculator together with the Investment Fee Impact Calculator and Retirement Planning Calculator for a fuller picture.</p></section>
+<section><h2 id="what-affects-compound-growth-the-most-future-value-and-inves">What affects compound growth the most (future value &amp; investment calculator factors)?</h2>
 <ul>
 <li><strong>Time horizon</strong> — More years usually increase the final balance more than small changes in rate.</li>
 <li><strong>Monthly contributions</strong> — Regular deposits create steady growth and give new money more time to compound.</li>
 <li><strong>Return rate</strong> — Higher returns help, but they are less controllable than time and savings discipline.</li>
 <li><strong>Fees and inflation</strong> — Both can quietly reduce real long-term growth, so they should be tested in your scenarios.</li>
 </ul>
-<p>That is why this page works best as a practical planning tool: enter your real numbers, compare a few scenarios, and use the yearly table to see how results change over time.</p>
-</div>
-</section>
-
-<section class="section" style="margin-top:16px;">
-<div class="card">
-<h2>When this calculator is most useful</h2>
+<p>That is why this page works best as a practical planning tool: enter your real numbers, compare a few scenarios, and use the yearly table to see how results change over time.</p></section>
+<section><h2 id="when-this-calculator-is-most-useful">When this calculator is most useful</h2>
 <p>This compound interest calculator is especially useful when you want to decide between increasing your contribution, changing your time horizon, or comparing savings and investment assumptions. Common use cases include:</p>
 <ul>
 <li>Planning long-term ISA, pension, or brokerage growth</li>
@@ -286,202 +135,8 @@
 <li>Comparing the effect of inflation and investment fees on future value</li>
 <li>Testing whether a financial goal is realistic before choosing a monthly savings target</li>
 </ul>
-<p>If your goal is target-based rather than growth-based, use this page with the <a href="/savings-goal-calculator/">Savings Goal Calculator</a>. If you want to compare fee drag, pair it with the <a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a>.</p>
-</div>
-</section>
-
-<section class="section" style="margin-top:16px;">
-<div class="card">
-<h2>Related calculators</h2>
-<p>
-            Use these tools together to compare scenarios such as contributions, fees, debt payoff, and long-term retirement planning.
-          </p>
-<ul>
-<li><a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a> — compare low-fee vs high-fee outcomes over time.</li>
-<li><a href="/roi-calculator/">ROI Calculator</a> — estimate profit, ROI %, and CAGR for a single investment.</li>
-<li><a href="/savings-goal-calculator/">Savings Goal Calculator</a> — find the monthly savings needed to reach a target.</li>
-<li><a href="/retirement-planning-calculator/">Retirement Planning Calculator</a> — project long-term retirement savings.</li>
-<li><a href="/budget-planner-calculator/">Budget Planner</a> — check monthly cash flow and set a realistic contribution amount.</li>
-</ul>
-</div>
-</section>
-</div>
-
-<div aria-label="Sticky results bar" class="stickyBar" id="stickyBar">
-<div class="stickyInner">
-<div class="stickyMini">
-<div class="l">Final balance</div>
-<div class="v" id="stickyFinal">—</div>
-</div>
-<div class="stickyBtns">
-<a href="#resultsCard">Results</a>
-<a class="primary" href="#growthTableCard">Table</a>
-</div>
-</div>
-</div>
-
-<script>
-      const fmtGBP = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 });
-
-      function toNum(v) {
-        const n = Number(String(v).replace(/,/g, "").trim());
-        return Number.isFinite(n) ? n : 0;
-      }
-
-      function monthlyRateFromNominal(annualRatePercent, compoundsPerYear) {
-        const r = Math.max(0, annualRatePercent) / 100;
-        const n = Math.max(1, Number(compoundsPerYear) || 12);
-        const factor = Math.pow(1 + (r / n), (n / 12));
-        return factor - 1;
-      }
-
-      function compoundWithContrib({ principal, monthly, annualRate, years, compoundsPerYear }) {
-        const totalMonths = Math.max(0, Math.round(years * 12));
-        const mRate = monthlyRateFromNominal(annualRate, compoundsPerYear);
-
-        let balance = Math.max(0, principal);
-        let contrib = Math.max(0, principal);
-        const rows = [];
-
-        for (let m = 1; m <= totalMonths; m++) {
-          balance += Math.max(0, monthly);
-          contrib += Math.max(0, monthly);
-          balance = balance * (1 + mRate);
-
-          if (m % 12 === 0) {
-            const year = m / 12;
-            const interestEarned = balance - contrib;
-            rows.push({ year, balance, contrib, interestEarned });
-          }
-        }
-
-        return { finalBalance: balance, totalContrib: contrib, interestEarned: balance - contrib, rows };
-      }
-
-      function adjustForInflation(finalValue, inflationRate, years) {
-        const i = Math.max(0, inflationRate) / 100;
-        if (!i || !years) return null;
-        return finalValue / Math.pow(1 + i, years);
-      }
-
-      let __allRows = [];
-      let __showFullTable = false;
-
-      function renderTable(rows) {
-        const tb = document.getElementById("tableBody");
-        if (!rows.length) {
-          tb.innerHTML = `<tr><td colspan="4" style="text-align:left;color:rgba(255,255,255,0.70);">No data.</td></tr>`;
-          return;
-        }
-
-        const isMobile = window.matchMedia("(max-width: 720px)").matches;
-        const limit = (isMobile && !__showFullTable) ? 10 : rows.length;
-        const visible = rows.slice(0, limit);
-
-        tb.innerHTML = visible.map(r => {
-          return `
-            <tr>
-              <td>${r.year}</td>
-              <td>${fmtGBP.format(r.balance)}</td>
-              <td>${fmtGBP.format(r.contrib)}</td>
-              <td>${fmtGBP.format(r.interestEarned)}</td>
-            </tr>
-          `;
-        }).join("");
-
-        const badge = document.getElementById("tableBadge");
-        const btn = document.getElementById("btnToggleTable");
-
-        if (!isMobile) {
-          badge.textContent = `Showing all ${rows.length} years`;
-          btn.style.display = "none";
-          return;
-        }
-
-        btn.style.display = "inline-flex";
-        if (__showFullTable) {
-          badge.textContent = `Showing all ${rows.length} years`;
-          btn.textContent = "Show less";
-        } else {
-          badge.textContent = `Mobile-friendly: showing first 10 years`;
-          btn.textContent = "Show full table";
-        }
-      }
-
-      function calculate() {
-        const principal = toNum(document.getElementById("principal").value);
-        const monthly = toNum(document.getElementById("monthly").value);
-        const rate = toNum(document.getElementById("rate").value);
-        const years = toNum(document.getElementById("years").value);
-        const compoundsPerYear = toNum(document.getElementById("compound").value);
-        const inflation = toNum(document.getElementById("inflation").value);
-
-        const res = compoundWithContrib({ principal, monthly, annualRate: rate, years, compoundsPerYear });
-        __allRows = res.rows;
-
-        const realFinal = adjustForInflation(res.finalBalance, inflation, years);
-
-        document.getElementById("finalBalance").textContent = fmtGBP.format(res.finalBalance);
-        document.getElementById("totalContrib").textContent = fmtGBP.format(res.totalContrib);
-        document.getElementById("interestEarned").textContent = fmtGBP.format(res.interestEarned);
-        document.getElementById("realFinal").textContent = realFinal ? fmtGBP.format(realFinal) : "—";
-
-        document.getElementById("stickyFinal").textContent = fmtGBP.format(res.finalBalance);
-
-        const summary = `With £${principal.toLocaleString()} starting and £${monthly.toLocaleString()}/month for ${years} years at ${rate}%,
-you could end with ${fmtGBP.format(res.finalBalance)} (interest earned: ${fmtGBP.format(res.interestEarned)}).`;
-        document.getElementById("summaryLine").textContent = summary;
-
-        renderTable(res.rows);
-      }
-
-      document.getElementById("btnCalc").addEventListener("click", (e) => {
-        e.preventDefault();
-        calculate();
-        if (window.matchMedia("(max-width: 980px)").matches) {
-          document.getElementById("resultsCard").scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
-
-      document.getElementById("btnReset").addEventListener("click", () => {
-        document.getElementById("principal").value = "1000";
-        document.getElementById("monthly").value = "200";
-        document.getElementById("rate").value = "8";
-        document.getElementById("years").value = "20";
-        document.getElementById("compound").value = "12";
-        document.getElementById("inflation").value = "0";
-        __showFullTable = false;
-        calculate();
-      });
-
-      document.getElementById("btnToggleTable").addEventListener("click", () => {
-        __showFullTable = !__showFullTable;
-        renderTable(__allRows);
-        if (__showFullTable) {
-          document.getElementById("growthTableCard").scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
-
-      ["principal","monthly","rate","years","compound","inflation"].forEach(id => {
-        document.getElementById(id).addEventListener("input", () => {
-          clearTimeout(window.__twcT);
-          window.__twcT = setTimeout(() => {
-            __showFullTable = false;
-            calculate();
-          }, 150);
-        });
-      });
-
-      window.addEventListener("resize", () => {
-        renderTable(__allRows);
-      });
-
-      calculate();
-    </script>
-
-<div class="wrap">
-<section class="card section" data-twm-faq="1" id="faq">
-<h2>Frequently Asked Questions</h2>
+<p>If your goal is target-based rather than growth-based, use this page with the <a href="/savings-goal-calculator/">Savings Goal Calculator</a>. If you want to compare fee drag, pair it with the <a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a>.</p></section>
+<section id="faq" class="faq"><h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
 <h3>How is compound interest calculated with monthly contributions?</h3>
 <p>A common method compounds your balance each period and adds your regular contribution. Over time you earn growth on both your original money and past growth.</p>
 <h3>Does compounding monthly vs yearly make a big difference?</h3>
@@ -495,42 +150,25 @@ you could end with ${fmtGBP.format(res.finalBalance)} (interest earned: ${fmtGBP
 <h3>Is daily compounding better than monthly compounding?</h3>
 <p>Daily compounding can produce a slightly higher final balance than monthly compounding when the annual rate is the same, but the difference is usually small compared with contribution size and investment length.</p>
 <h3>What is the formula for compound interest?</h3>
-<p>A common simplified formula is A = P(1 + r/n)^(n·t), where P is the starting amount, r is the annual rate, n is the number of compounding periods per year, and t is time in years. Regular contributions are usually modeled period by period.</p>
-</section>
-
-<section aria-labelledby="calc-methodology" class="card">
-<h2 id="calc-methodology">Calculator methodology &amp; assumptions</h2>
-<p>
-    This calculator uses standard financial formulas and simplified assumptions such as constant rates, regular payments,
-    and rounding. Real-world results can differ due to fees, taxes, rate changes, compounding conventions, and account rules.
-  </p>
-<p>
-    See how we build and validate our tools: <a href="/calculator-methodology/">Calculator Methodology</a>.
-    For how we review content: <a href="/editorial-policy/">Editorial Policy</a>.
-  </p>
-</section>
+<p>A common simplified formula is A = P(1 + r/n)^(n·t), where P is the starting amount, r is the annual rate, n is the number of compounding periods per year, and t is time in years. Regular contributions are usually modeled period by period.</p></section>
+<section class="method" id="methodology"><h2>How this calculator works</h2>
+<h3>Formula</h3><p class="formula">Each month: balance × (1 + r/k)^(k/12), then add the contribution
+where r = annual rate and k = compounding periods per year
+Lump sum only: FV = P × (1 + r/k)^(k × t)</p>
+<h3>Conventions</h3><ul><li>The rate is a nominal annual rate. Monthly compounding is the default.</li><li>Contributions are added at the end of each month by default; switch to the start of the month if you pay in first.</li><li>Today’s money = future value ÷ (1 + inflation)^years.</li></ul>
+<h3>Limitations</h3><ul><li>Returns are assumed constant every year; real investment returns vary and can be negative.</li><li>Tax and fees are not included (see the investment fee calculator).</li></ul>
+<dl><dt>Jurisdiction</dt><dd>Not country-specific.</dd><dt>Tested</dt><dd>Checked against independent reference calculations (closed-form formulas and published textbook values), including edge cases such as 0% rates and unreachable goals.</dd><dt>Last reviewed</dt><dd><time datetime="2026-11-11">11 November 2026</time></dd></dl>
+<p>Read the full <a href="/calculator-methodology/">calculator methodology</a> or <a href="/contact/">report a problem</a>.</p></section></article><aside class="aside" aria-label="Related"><div class="card"><h2>Related calculators</h2><ul><li><a href="/investment-calculator/">Investment Calculator</a></li><li><a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a></li><li><a href="/roi-calculator/">ROI Calculator</a></li><li><a href="/budget-planner-calculator/">Budget Planner</a></li><li><a href="/savings-goal-calculator/">Savings Goal Calculator</a></li></ul></div><div class="card"><h2>Related guides</h2><ul><li><a href="/how-compound-interest-works/">How Compound Interest Works</a></li><li><a href="/how-investing-works-for-beginners/">How Investing Works for Beginners</a></li><li><a href="/inflation-vs-investing/">Inflation vs Investing</a></li><li><a href="/budgeting-tips-for-beginners/">Budgeting Tips for Beginners</a></li><li><a href="/how-much-should-you-save/">How Much Should You Save Each Month?</a></li></ul></div></aside></div></div>
+</main>
+<footer class="site-footer"><div class="container">
+<div class="footer-grid">
+<div class="footer-brand"><a class="brand" href="/"><svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#0a1a33"/><path d="M9 25V19M15 25V15M21 25V17M27 25V10" stroke="#12a594" stroke-width="3.2" stroke-linecap="round"/><path d="M8.5 15.5 14.5 11l6 3 7-6.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>True<b>Wealth</b>Metrics</span></a><p>Free, transparent personal finance calculators and plain-English guides. Calculations run in your browser: we don’t ask for an account or store what you enter.</p></div>
+<div><h2>Budget &amp; borrow</h2><ul><li><a href="/budget-planner-calculator/">Budget Planner</a></li><li><a href="/savings-goal-calculator/">Savings Goal Calculator</a></li><li><a href="/loan-repayment-calculator/">Loan Repayment Calculator</a></li><li><a href="/mortgage-payment-calculator/">Mortgage Calculator</a></li><li><a href="/credit-card-payoff-calculator/">Credit Card Payoff Calculator</a></li><li><a href="/debt-snowball-avalanche-calculator/">Debt Snowball vs Avalanche</a></li></ul></div>
+<div><h2>Invest &amp; retire</h2><ul><li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li><li><a href="/investment-calculator/">Investment Calculator</a></li><li><a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a></li><li><a href="/roi-calculator/">ROI Calculator</a></li><li><a href="/retirement-planning-calculator/">Retirement Planning Calculator</a></li></ul></div>
+<div><h2>Guides</h2><ul><li><a href="/learn/">All guides</a></li><li><a href="/budgeting-tips-for-beginners/">Budgeting Tips for Beginners</a></li><li><a href="/how-much-should-you-save/">How Much Should You Save Each Month?</a></li><li><a href="/how-much-emergency-fund/">How Much Emergency Fund Do You Need?</a></li><li><a href="/how-loan-interest-works/">How Loan Interest Works</a></li><li><a href="/how-to-calculate-loan-interest-easily/">How to Calculate Loan Interest Easily</a></li><li><a href="/amortization-schedule-explained/">Amortization Schedule Explained</a></li></ul></div>
+<div><h2>TrueWealthMetrics</h2><ul><li><a href="/about/">About</a></li><li><a href="/about-the-author/">About the author</a></li><li><a href="/editorial-policy/">Editorial policy</a></li><li><a href="/calculator-methodology/">Calculator methodology</a></li><li><a href="/contact/">Contact &amp; corrections</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms-of-use/">Terms of use</a></li></ul></div>
 </div>
-
-<footer class="site-footer">
-<div class="container">
-<div class="footer-row">
-<div class="footer-left">
-<div class="footer-brand">© <span id="footerYear"></span> TrueWealthMetrics.</div>
-<div class="footer-note">These calculators provide educational estimates only and do not constitute financial advice.</div>
-</div>
-<div class="footer-links">
-<a href="/about/">About</a>
-<a href="/about-the-author/">About the Author</a>
-<a href="/editorial-policy/">Editorial Policy</a>
-<a href="/calculator-methodology/">Calculator Methodology</a>
-<a href="/contact/">Contact</a>
-<a href="/privacy-policy/">Privacy Policy</a>
-<a href="/terms-of-use/">Terms of Use</a>
-</div>
-</div>
-</div>
-<script>
-    (function(){try{document.getElementById('footerYear').textContent=new Date().getFullYear();}catch(e){}})();
-  </script>
-</footer></body>
+<div class="footer-legal"><p><strong>Educational tools, not financial advice.</strong> TrueWealthMetrics is not a regulated financial adviser. Results are estimates based on the assumptions shown and are not guaranteed. Consider independent, regulated advice before making major financial decisions.</p><p>© 2026 TrueWealthMetrics</p></div>
+</div></footer>
+</body>
 </html>

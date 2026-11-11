@@ -1,452 +1,102 @@
-<!DOCTYPE html>
-
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Investment Fee Calculator | Compare Fees & Cost Impact</title>
-<meta content="Investment fee calculator to compare expense ratios, adviser costs and portfolio fees. See how fees reduce returns over time." name="description"/>
-<link href="https://truewealthmetrics.com/investment-fee-impact-calculator/" rel="canonical"/>
-<meta content="index,follow" name="robots"/>
-<meta content="Investment Fee Calculator | Compare Fees & Cost Impact" property="og:title"/>
-<meta content="Investment fee calculator to compare expense ratios, adviser costs and portfolio fees. See how fees reduce returns over time." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://truewealthmetrics.com/investment-fee-impact-calculator/" property="og:url"/>
-<meta content="TrueWealthMetrics" property="og:site_name"/>
-<meta content="https://truewealthmetrics.com/logo.png" property="og:image"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Investment Fee Calculator | Compare Fees & Cost Impact" name="twitter:title"/>
-<meta content="Investment fee calculator to compare expense ratios, adviser costs and portfolio fees. See how fees reduce returns over time." name="twitter:description"/>
-<meta content="https://truewealthmetrics.com/logo.png" name="twitter:image"/>
-<meta content="#0b1220" name="theme-color"/><script id="jsonld-softwareapp" type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"SoftwareApplication",
-      "name":"Investment Fee Calculator",
-      "applicationCategory":"FinanceApplication",
-      "operatingSystem":"Web",
-      "url":"https://truewealthmetrics.com/investment-fee-impact-calculator/",
-      "description":"Free investment fee calculator to compare expense ratios, platform fees and adviser costs, estimate fee drag and see how fees reduce long-term returns.",
-      "offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},
-      "publisher":{"@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"}
-    }
-    </script>
-<script id="jsonld-breadcrumbs" type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"BreadcrumbList",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},
-        {"@type":"ListItem","position":2,"name":"Investment Fee Calculator","item":"https://truewealthmetrics.com/investment-fee-impact-calculator/"}
-      ]
-    }
-    </script>
-<script id="jsonld-faq" type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an investment fee impact calculator?","acceptedAnswer":{"@type":"Answer","text":"It estimates how ongoing fees (like expense ratios or platform fees) can reduce your long‑term investment balance compared with a lower‑fee alternative."}},{"@type":"Question","name":"Why can a 1% fee be so costly?","acceptedAnswer":{"@type":"Answer","text":"Fees reduce your balance every year and also reduce the future growth you would have earned on that money, so the gap can grow over decades."}},{"@type":"Question","name":"Does this include taxes?","acceptedAnswer":{"@type":"Answer","text":"No. This tool provides educational estimates using simplified assumptions. Taxes and account type can change real outcomes."}},{"@type":"Question","name":"What fees should I consider?","acceptedAnswer":{"@type":"Answer","text":"Common fees include fund expense ratios, platform or account fees, advisory fees, and transaction costs depending on your provider."}},{"@type":"Question","name":"How can I reduce fees?","acceptedAnswer":{"@type":"Answer","text":"Consider low‑cost index funds or ETFs, compare platforms, and review total costs (not just one fee) before investing."}}]}
-</script>
-<link href="/styles.css" rel="stylesheet"/><link rel="icon" href="/favicon.ico" sizes="any"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
-<link rel="apple-touch-icon" href="/apple-touch-icon.png"/><script defer="" src="/header.js"></script>
-<script data-twm-schema="org" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com","logo":"https://truewealthmetrics.com/logo.png"}</script>
-
-<script data-twm-schema="website" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com"}</script>
-  <script data-twm-schema="author" type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://truewealthmetrics.com/about-the-author/#author","name":"TrueWealthMetrics Editorial Team","url":"https://truewealthmetrics.com/about-the-author/","worksFor":{"@id":"https://truewealthmetrics.com/#org"},"jobTitle":"Personal Finance Research & Tools"}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Investment Fee Calculator | Compare Fees &amp; Cost Impact</title>
+<meta name="description" content="Investment fee calculator to compare expense ratios, adviser costs and portfolio fees. See how fees reduce returns over time.">
+<link rel="canonical" href="https://truewealthmetrics.com/investment-fee-impact-calculator/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0a1a33">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TrueWealthMetrics">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Investment Fee Calculator | Compare Fees &amp; Cost Impact">
+<meta property="og:description" content="Investment fee calculator to compare expense ratios, adviser costs and portfolio fees. See how fees reduce returns over time.">
+<meta property="og:url" content="https://truewealthmetrics.com/investment-fee-impact-calculator/">
+<meta property="og:image" content="https://truewealthmetrics.com/assets/img/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TrueWealthMetrics personal finance calculators">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Investment Fee Calculator | Compare Fees &amp; Cost Impact">
+<meta name="twitter:description" content="Investment fee calculator to compare expense ratios, adviser costs and portfolio fees. See how fees reduce returns over time.">
+<meta name="twitter:image" content="https://truewealthmetrics.com/assets/img/og-default.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/css/site.css?v=7bfd2bf34a">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://truewealthmetrics.com/#organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/","logo":{"@type":"ImageObject","url":"https://truewealthmetrics.com/logo.png"},"email":"support@truewealthmetrics.com"},{"@type":"WebSite","@id":"https://truewealthmetrics.com/#website","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/","publisher":{"@id":"https://truewealthmetrics.com/#organization"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","@id":"https://truewealthmetrics.com/investment-fee-impact-calculator/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://truewealthmetrics.com/financial-calculators/"},{"@type":"ListItem","position":3,"name":"Investment Fee Impact Calculator","item":"https://truewealthmetrics.com/investment-fee-impact-calculator/"}]},{"@type":"WebPage","@id":"https://truewealthmetrics.com/investment-fee-impact-calculator/#webpage","url":"https://truewealthmetrics.com/investment-fee-impact-calculator/","name":"Investment Fee Calculator | Compare Fees & Cost Impact","description":"Investment fee calculator to compare expense ratios, adviser costs and portfolio fees. See how fees reduce returns over time.","isPartOf":{"@id":"https://truewealthmetrics.com/#website"},"inLanguage":"en-GB","breadcrumb":{"@id":"https://truewealthmetrics.com/investment-fee-impact-calculator/#breadcrumb"},"dateModified":"2026-11-11"},{"@type":"WebApplication","@id":"https://truewealthmetrics.com/investment-fee-impact-calculator/#app","name":"Investment Fee Calculator: Compare Fees & Cost Impact","url":"https://truewealthmetrics.com/investment-fee-impact-calculator/","description":"Investment fee calculator to compare expense ratios, adviser costs and portfolio fees. See how fees reduce returns over time.","applicationCategory":"FinanceApplication","operatingSystem":"Any (runs in a web browser)","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"publisher":{"@id":"https://truewealthmetrics.com/#organization"},"mainEntityOfPage":{"@id":"https://truewealthmetrics.com/investment-fee-impact-calculator/#webpage"}},{"@type":"FAQPage","@id":"https://truewealthmetrics.com/investment-fee-impact-calculator/#faq","url":"https://truewealthmetrics.com/investment-fee-impact-calculator/","mainEntity":[{"@type":"Question","name":"What is an investment fee impact calculator?","acceptedAnswer":{"@type":"Answer","text":"It estimates how ongoing fees (like expense ratios or platform fees) can reduce your long‑term investment balance compared with a lower‑fee alternative."}},{"@type":"Question","name":"Why can a 1% fee be so costly?","acceptedAnswer":{"@type":"Answer","text":"Fees reduce your balance every year and also reduce the future growth you would have earned on that money, so the gap can grow over decades."}},{"@type":"Question","name":"Does this include taxes?","acceptedAnswer":{"@type":"Answer","text":"No. This tool provides educational estimates using simplified assumptions. Taxes and account type can change real outcomes."}},{"@type":"Question","name":"What fees should I consider?","acceptedAnswer":{"@type":"Answer","text":"Common fees include fund expense ratios, platform or account fees, advisory fees, and transaction costs depending on your provider."}},{"@type":"Question","name":"How can I reduce fees?","acceptedAnswer":{"@type":"Answer","text":"Consider low‑cost index funds or ETFs, compare platforms, and review total costs (not just one fee) before investing."}}]}]}</script>
+<script type="module" src="/assets/js/calculators/fees.js?v=85f054711d"></script>
 </head>
-<body><div id="site-header"></div>
-<div class="wrap">
-<section class="hero">
-<h1>Investment Fee Calculator: Compare Fees & Cost Impact</h1>
-<p class="sub">
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="/"><svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#0a1a33"/><path d="M9 25V19M15 25V15M21 25V17M27 25V10" stroke="#12a594" stroke-width="3.2" stroke-linecap="round"/><path d="M8.5 15.5 14.5 11l6 3 7-6.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>True<b>Wealth</b>Metrics</span></a><nav class="site-nav" aria-label="Main"><ul><li><a href="/financial-calculators/" aria-current="page">Calculators</a></li><li><a href="/financial-calculators/#budgeting">Budgeting</a></li><li><a href="/financial-calculators/#borrowing">Loans &amp; debt</a></li><li><a href="/financial-calculators/#investing">Investing</a></li><li><a href="/financial-calculators/#retirement">Retirement</a></li><li><a href="/learn/">Guides</a></li><li><a href="/calculator-methodology/">Methodology</a></li><li><a href="/about/">About</a></li></ul></nav></div></header>
+<main id="main">
+<div class="page-head"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/financial-calculators/">Calculators</a></li><li><span aria-current="page">Investment Fee Impact Calculator</span></li></ol></nav><h1>Investment Fee Calculator: Compare Fees &amp; Cost Impact</h1><p class="lead">
           Use this investment fee calculator to compare platform fees, fund expense ratios and adviser costs.
           See <strong>no-fee vs fee</strong> growth, estimated fee drag and a year-by-year breakdown. Educational estimates only.
-        </p>
+        </p><div class="meta-row"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12 5 5 9-10"/></svg>Free, no sign-up</span><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Runs in your browser</span><span>Formulas last reviewed <time datetime="2026-11-11">11 November 2026</time></span></div></div></div>
+<div class="container calc-wrap" id="calculator"><div class="calc" data-calc="fees">
+<form class="calc-form" novalidate aria-labelledby="calc-form-title" data-form>
+<h2 class="h-sm" id="calc-form-title">Your numbers</h2>
+<p class="alert alert-error" data-error-summary role="alert" hidden></p>
+<div class="field" data-field="initial"><label for="initial">Starting balance</label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="initial" name="initial" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="10000" aria-describedby="initial-err"></div><p class="field-err" id="initial-err" hidden></p></div><div class="field" data-field="monthly"><label for="monthly">Monthly contribution <span class="opt">(optional)</span></label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="monthly" name="monthly" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="200" aria-describedby="monthly-err"></div><p class="field-err" id="monthly-err" hidden></p></div><div class="field" data-field="years"><label for="years">Time period (years)</label><div class="input-wrap"><input id="years" name="years" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="20" aria-describedby="years-err"></div><p class="field-err" id="years-err" hidden></p></div><div class="field" data-field="rate"><label for="rate">Expected return before fees (per year)</label><div class="input-wrap has-suffix"><input id="rate" name="rate" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="7" aria-describedby="rate-err"><span class="affix affix-end" aria-hidden="true">%</span></div><p class="field-err" id="rate-err" hidden></p></div><div class="field" data-field="feeA"><label for="feeA">Annual fee (option A)</label><div class="input-wrap has-suffix"><input id="feeA" name="feeA" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="0.75" aria-describedby="feeA-help feeA-err"><span class="affix affix-end" aria-hidden="true">%</span></div><p class="field-help" id="feeA-help">Total ongoing charges: fund costs plus platform or adviser fees.</p><p class="field-err" id="feeA-err" hidden></p></div><div class="field" data-field="feeB"><label for="feeB">Annual fee to compare (option B)</label><div class="input-wrap has-suffix"><input id="feeB" name="feeB" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="0.2" aria-describedby="feeB-help feeB-err"><span class="affix affix-end" aria-hidden="true">%</span></div><p class="field-help" id="feeB-help">For example a lower-cost index fund. Use 0 to compare against no fees at all.</p><p class="field-err" id="feeB-err" hidden></p></div><div class="field" data-field="inflation"><label for="inflation">Inflation (per year) <span class="opt">(optional)</span></label><div class="input-wrap has-suffix"><input id="inflation" name="inflation" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="0" aria-describedby="inflation-err"><span class="affix affix-end" aria-hidden="true">%</span></div><p class="field-err" id="inflation-err" hidden></p></div><div class="field" data-field="currency"><label for="currency">Currency</label><select id="currency" name="currency" aria-describedby="currency-err"><option value="GBP" selected>GBP (£)</option><option value="USD">USD ($)</option><option value="EUR">EUR (€)</option></select></div>
+<div class="btn-row"><button type="submit" class="btn btn-primary">Update results</button><button type="button" class="btn btn-ghost" data-action="reset">Reset</button></div>
+<p class="privacy-note">Calculated in your browser. Nothing you enter is sent or stored.</p>
+</form>
+<section class="calc-results" aria-labelledby="calc-results-title" data-results-panel>
+<div class="results-head"><h2 class="h-sm" id="calc-results-title">Results</h2><div class="btn-row btn-row-tight no-print"><button type="button" class="btn btn-ghost btn-sm" data-action="save-scenario">Save as scenario A</button><button type="button" class="btn btn-ghost btn-sm" data-action="print">Print / save PDF</button></div></div>
+<div data-results aria-live="polite"><details class="assumptions" open><summary>Assumptions used</summary><ul><li>The same 7% annual return before fees for both options, compounded monthly.</li><li>Fees are taken monthly as a percentage of the balance (annual fee ÷ 12).</li><li>£200.00 added at the end of every month.</li><li>Excludes one-off charges, trading costs and tax.</li></ul></details><div class="kpis"><div class="kpi kpi-primary tone-warn"><p class="kpi-label">Cost of the higher fee</p><p class="kpi-value" data-kpi="cost">£10,575.45</p><p class="kpi-sub">7.3% of the no-fee value</p></div><div class="kpi"><p class="kpi-label">Value with 0.75% fee (A)</p><p class="kpi-value" data-kpi="a">£129,905.57</p></div><div class="kpi"><p class="kpi-label">Value with 0.2% fee (B)</p><p class="kpi-value" data-kpi="b">£140,481.02</p></div><div class="kpi"><p class="kpi-label">Fees paid under option A</p><p class="kpi-value" data-kpi="feesA">£8,685.08</p></div></div><p class="summary">Over 20 years, a 0.75% fee instead of 0.2% leaves you about <strong>£10,575.45</strong> worse off. That is more than the extra fees themselves, because money taken in fees can no longer grow.</p><figure class="chart"><figcaption><span class="chart-title" id="r-t">Balance with each fee level</span><ul class="legend"><li><span class="sw s3" aria-hidden="true"></span>A: 0.75% fee</li><li><span class="sw s2" aria-hidden="true"></span>B: 0.2% fee</li></ul></figcaption><svg viewBox="0 0 520 250" role="img" aria-labelledby="r-t r-d" focusable="false"><desc id="r-d">Projected balance each year under option A and option B.</desc><line class="gl" x1="60" x2="508" y1="214.0" y2="214.0"></line><text class="ax" x="52" y="218.0" text-anchor="end">£0</text><line class="gl" x1="60" x2="508" y1="164.0" y2="164.0"></line><text class="ax" x="52" y="168.0" text-anchor="end">£38k</text><line class="gl" x1="60" x2="508" y1="114.0" y2="114.0"></line><text class="ax" x="52" y="118.0" text-anchor="end">£75k</text><line class="gl" x1="60" x2="508" y1="64.0" y2="64.0"></line><text class="ax" x="52" y="68.0" text-anchor="end">£113k</text><line class="gl" x1="60" x2="508" y1="14.0" y2="14.0"></line><text class="ax" x="52" y="18.0" text-anchor="end">£150k</text><text class="ax" x="60.0" y="238" text-anchor="middle">Yr 1</text><text class="ax" x="154.3" y="238" text-anchor="middle">Yr 5</text><text class="ax" x="248.6" y="238" text-anchor="middle">Yr 9</text><text class="ax" x="342.9" y="238" text-anchor="middle">Yr 13</text><text class="ax" x="437.3" y="238" text-anchor="middle">Yr 17</text><text class="ax" x="508.0" y="238" text-anchor="middle">Yr 20</text><polyline class="line s3" points="60.0,196.5 83.6,192.1 107.2,187.4 130.7,182.4 154.3,177.1 177.9,171.4 201.5,165.4 225.1,159.0 248.6,152.1 272.2,144.9 295.8,137.1 319.4,128.9 342.9,120.1 366.5,110.8 390.1,100.9 413.7,90.3 437.3,79.1 460.8,67.1 484.4,54.3 508.0,40.8"></polyline><polyline class="line s2" points="60.0,196.4 83.6,191.9 107.2,187.0 130.7,181.9 154.3,176.3 177.9,170.3 201.5,164.0 225.1,157.2 248.6,149.9 272.2,142.1 295.8,133.7 319.4,124.8 342.9,115.3 366.5,105.0 390.1,94.1 413.7,82.4 437.3,69.8 460.8,56.4 484.4,42.1 508.0,26.7"></polyline><line class="axis" x1="60" x2="508" y1="214" y2="214"></line><text class="ax ax-title" x="508" y="249" text-anchor="end">Year</text></svg></figure><div class="breakdown"><h3 class="h-sm">Calculation breakdown</h3><dl><div class=""><dt>Value with no fees</dt><dd>£144,572.72</dd></div><div class=""><dt>Value under option A</dt><dd>£129,905.57</dd></div><div class=""><dt>Value under option B</dt><dd>£140,481.02</dd></div><div class="total"><dt>Difference</dt><dd>£10,575.45</dd></div></dl></div><details class="table-block"><summary>Year-by-year comparison</summary><div class="table-scroll" tabindex="0" role="region" aria-label="Year-by-year comparison"><table><thead><tr><th scope="col" class="num">Year</th><th scope="col" class="num">Balance (A)</th><th scope="col" class="num">Balance (B)</th><th scope="col" class="num">Difference</th></tr></thead><tbody><tr><th scope="row">1</th><td class="num">£13,112.66</td><td class="num">£13,177.69</td><td class="num">£65.03</td></tr><tr><th scope="row">2</th><td class="num">£16,425.39</td><td class="num">£16,578.29</td><td class="num">£152.90</td></tr><tr><th scope="row">3</th><td class="num">£19,951.05</td><td class="num">£20,217.43</td><td class="num">£266.38</td></tr><tr><th scope="row">4</th><td class="num">£23,703.32</td><td class="num">£24,111.85</td><td class="num">£408.53</td></tr><tr><th scope="row">5</th><td class="num">£27,696.77</td><td class="num">£28,279.46</td><td class="num">£582.68</td></tr><tr><th scope="row">6</th><td class="num">£31,946.91</td><td class="num">£32,739.41</td><td class="num">£792.50</td></tr><tr><th scope="row">7</th><td class="num">£36,470.22</td><td class="num">£37,512.21</td><td class="num">£1,042.00</td></tr><tr><th scope="row">8</th><td class="num">£41,284.27</td><td class="num">£42,619.82</td><td class="num">£1,335.55</td></tr><tr><th scope="row">9</th><td class="num">£46,407.74</td><td class="num">£48,085.71</td><td class="num">£1,677.97</td></tr><tr><th scope="row">10</th><td class="num">£51,860.53</td><td class="num">£53,935.01</td><td class="num">£2,074.49</td></tr><tr><th scope="row">11</th><td class="num">£57,663.80</td><td class="num">£60,194.64</td><td class="num">£2,530.84</td></tr><tr><th scope="row">12</th><td class="num">£63,840.07</td><td class="num">£66,893.36</td><td class="num">£3,053.28</td></tr><tr class="more" hidden><th scope="row">13</th><td class="num">£70,413.33</td><td class="num">£74,061.97</td><td class="num">£3,648.64</td></tr><tr class="more" hidden><th scope="row">14</th><td class="num">£77,409.09</td><td class="num">£81,733.45</td><td class="num">£4,324.36</td></tr><tr class="more" hidden><th scope="row">15</th><td class="num">£84,854.51</td><td class="num">£89,943.06</td><td class="num">£5,088.55</td></tr><tr class="more" hidden><th scope="row">16</th><td class="num">£92,778.48</td><td class="num">£98,728.56</td><td class="num">£5,950.08</td></tr><tr class="more" hidden><th scope="row">17</th><td class="num">£101,211.77</td><td class="num">£108,130.33</td><td class="num">£6,918.56</td></tr><tr class="more" hidden><th scope="row">18</th><td class="num">£110,187.12</td><td class="num">£118,191.62</td><td class="num">£8,004.50</td></tr><tr class="more" hidden><th scope="row">19</th><td class="num">£119,739.36</td><td class="num">£128,958.68</td><td class="num">£9,219.32</td></tr><tr class="more" hidden><th scope="row">20</th><td class="num">£129,905.57</td><td class="num">£140,481.02</td><td class="num">£10,575.45</td></tr></tbody></table></div><div class="btn-row"><button type="button" class="btn btn-ghost btn-sm" data-action="toggle-rows" aria-expanded="false">Show all 20 rows</button><button type="button" class="btn btn-ghost btn-sm" data-action="csv">Download CSV</button></div></details></div>
+<div class="compare" data-compare hidden></div>
+<p class="disclaimer">Estimates for education only, not financial advice. Results depend on the assumptions shown and are not guaranteed.</p>
 </section>
-<section class="card section" data-twm-explain="1">
-<h2>How this investment fee calculator works</h2>
+</div></div>
+<div class="container section content-area"><div class="content-grid"><article class="prose"><section><h2 id="how-this-investment-fee-calculator-works">How this investment fee calculator works</h2>
 <p>This investment fee impact calculator shows how ongoing fees can reduce long‑term returns. Enter your starting balance, monthly contribution, expected gross return, fee rate, and time horizon. The tool compares growth with and without fees and estimates the “fee drag” over decades. Small percentage fees compound just like returns — the longer the horizon, the larger the gap. Use this to compare funds, platforms, or advisory fees and to understand why low costs matter for long‑term investing.</p>
 <p>Practical tips: enter the total annual cost (fund + platform + advisor); compare two realistic fee levels side‑by‑side; remember that fees reduce the balance that compounds year after year. Limitations: results assume fixed rates and steady payments/contributions. If your situation changes (rate changes, fees, irregular income), rerun the calculator with updated inputs to keep your plan accurate.</p>
-<p>Because fees are taken every year, they lower not only your balance today but also the returns you could have earned on that money in future years.</p>
-</section>
-<p class="note">
-          Want the full explanation behind the numbers? Read
-          <a href="/investment-fees-retirement/"><strong>How 1% Investment Fees Quietly Destroy Your Retirement</strong></a>.
-        </p>
-<div class="grid">
-<!-- Inputs -->
-<section class="card">
-<h2>Inputs</h2>
-<div class="muted">Fees look small, but compound against you for decades.</div>
-<div class="rows">
-<div>
-<label for="initial">Starting balance</label>
-<input id="initial" min="0" step="100" type="number" value="10000"/>
-</div>
-<div>
-<label for="monthly">Monthly contribution</label>
-<input id="monthly" min="0" step="10" type="number" value="200"/>
-</div>
-<div>
-<label for="years">Time horizon (years)</label>
-<input id="years" min="1" step="1" type="number" value="20"/>
-</div>
-<div>
-<label for="returnRate">Expected annual return (before fees, %)</label>
-<input id="returnRate" min="-50" step="0.1" type="number" value="7"/>
-</div>
-<div>
-<label for="feeRate">Annual fee (%, e.g. 0.75)</label>
-<input id="feeRate" min="0" step="0.01" type="number" value="0.75"/>
-</div>
-<div>
-<label for="inflation">Inflation (optional, %)</label>
-<input id="inflation" min="0" step="0.1" type="number" value="2.5"/>
-</div>
-<div>
-<label for="currency">Currency</label>
-<select id="currency">
-<option selected="" value="GBP">GBP (£)</option>
-<option value="USD">USD ($)</option>
-<option value="EUR">EUR (€)</option>
-</select>
-</div>
-<div>
-<label for="freq">Compounding</label>
-<select id="freq">
-<option selected="" value="12">Monthly</option>
-<option value="4">Quarterly</option>
-<option value="1">Annually</option>
-</select>
-</div>
-</div>
-<div class="btnrow">
-<button class="primary" id="calcBtn">Calculate</button>
-<button class="secondary" id="resetBtn">Reset</button>
-<span class="badge" id="status">Ready</span>
-</div>
-<div class="note">
-            Tip: Many “all-in” fees are <span class="mono">0.20%–1.50%</span>. Even a <b>1% fee</b> can cost tens of thousands over long horizons.
-          </div>
-</section>
-<!-- Results -->
-<section class="card">
-<h2>Results</h2>
-<div class="muted">Updated when you click Calculate.</div>
-<div class="kpis">
-<div class="kpi">
-<div class="t">Ending value (no fees)</div>
-<div class="v" id="endNoFee">£0</div>
-<div class="s">Gross growth before fees</div>
-</div>
-<div class="kpi">
-<div class="t">Ending value (with fees)</div>
-<div class="v" id="endWithFee">£0</div>
-<div class="s">Net of annual fees</div>
-</div>
-<div class="kpi">
-<div class="t">Fee cost (lost value)</div>
-<div class="v" id="feeCost">£0</div>
-<div class="s"><span class="neg">No-fee ending − fee ending</span></div>
-</div>
-<div class="kpi">
-<div class="t">Effective annual return (after fees)</div>
-<div class="v" id="effectiveReturn">0.00%</div>
-<div class="s">Approx. <span class="pos">return − fee</span></div>
-</div>
-</div>
-<div class="note" id="summary">
-            Enter inputs and click Calculate.
-          </div>
-<div class="toolbar">
-<span class="badge" id="tableInfo">Year-by-year breakdown</span>
-<button class="smallbtn" id="toggleAll">Show all</button>
-</div>
-<div class="tablewrap">
-<table>
-<thead>
-<tr>
-<th>Year</th>
-<th class="r">No-fee balance</th>
-<th class="r">With-fee balance</th>
-<th class="r">Fees (est.)</th>
-<th class="r">Gap</th>
-</tr>
-</thead>
-<tbody id="tbody"></tbody>
-</table>
-</div>
-<details>
-<summary>How are fees modeled?</summary>
-<p>
-              We simulate growth period-by-period. The “no-fee” path uses the full return. The “with-fee” path reduces the
-              gross return by the fee rate (approximation). Fees are shown as an estimate of value reduction over time, not a bill.
-            </p>
-</details>
-<details>
-<summary>What counts as an “annual fee”?</summary>
-<p>
-              This can represent platform fees, fund expense ratios, advisory fees, or blended all-in costs. Always check your provider’s “total expense” or “all-in fee.”
-            </p>
-</details>
-<details>
-<summary>Does inflation matter here?</summary>
-<p>
-              Inflation is optional. If you add it, we also show the “today’s money” ending value (inflation-adjusted), so you can compare future purchasing power.
-            </p>
-</details>
-</section>
-</div>
-<section aria-labelledby="calc-methodology" class="card">
-<h2 id="calc-methodology">Calculator methodology &amp; assumptions</h2>
-<p>
-    This calculator uses standard financial formulas and simplified assumptions (for example: constant rates, regular payments,
-    and rounding). Real-world results can differ due to fees, taxes, rate changes, compounding conventions, and account rules.
-  </p>
-<p>
-    See how we build and validate our tools: <a href="/calculator-methodology/">Calculator Methodology</a>.
-    For how we review content: <a href="/editorial-policy/">Editorial Policy</a>.
-  </p>
-</section>
-
-<section class="card" style="margin-top:16px">
-<h2>Why investment fees matter over time</h2>
-<p class="muted" style="margin:0 0 10px">A small annual fee can look harmless, but it reduces the balance that compounds every year. Over long investing periods, that fee drag can become one of the biggest differences between two otherwise similar portfolios.</p>
-<h3 style="margin:14px 0 8px;font-size:15px">Example fee drag scenario</h3>
-<p class="muted" style="margin:0 0 10px">If two investors earn the same market return but one pays a lower total fee, the lower-cost portfolio keeps more money invested each year. That means the gap is not just the fee itself — it is also the lost growth on every fee taken out along the way.</p>
-<h3 style="margin:14px 0 8px;font-size:15px">What to compare before investing</h3>
-<ul class="muted" style="margin:0;padding-left:18px;line-height:1.8">
+<p>Because fees are taken every year, they lower not only your balance today but also the returns you could have earned on that money in future years.</p></section>
+<section><h2 id="why-investment-fees-matter-over-time">Why investment fees matter over time</h2>
+<p>A small annual fee can look harmless, but it reduces the balance that compounds every year. Over long investing periods, that fee drag can become one of the biggest differences between two otherwise similar portfolios.</p>
+<h3>Example fee drag scenario</h3>
+<p>If two investors earn the same market return but one pays a lower total fee, the lower-cost portfolio keeps more money invested each year. That means the gap is not just the fee itself — it is also the lost growth on every fee taken out along the way.</p>
+<h3>What to compare before investing</h3>
+<ul>
 <li>Fund expense ratio or ETF ongoing charge</li>
 <li>Platform or account fee</li>
 <li>Advisory or management fee</li>
 <li>Trading or transaction costs</li>
 <li>Whether the higher fee provides real extra value</li>
-</ul>
-</section>
-
-<section class="card" style="margin-top:16px">
-<h2>Common investment fees to watch</h2>
-<p class="muted" style="margin:0 0 10px">An investment fee calculator is most useful when you include your total annual cost, not just one headline charge. Two investments can look similar on the surface, but platform fees, fund costs, and adviser charges can create very different long-term outcomes.</p>
-<h3 style="margin:14px 0 8px;font-size:15px">Fees that often reduce long-term returns</h3>
-<ul class="muted" style="margin:0 0 10px;padding-left:18px;line-height:1.8">
+</ul></section>
+<section><h2 id="common-investment-fees-to-watch">Common investment fees to watch</h2>
+<p>An investment fee calculator is most useful when you include your total annual cost, not just one headline charge. Two investments can look similar on the surface, but platform fees, fund costs, and adviser charges can create very different long-term outcomes.</p>
+<h3>Fees that often reduce long-term returns</h3>
+<ul>
 <li><strong>Fund expense ratio:</strong> the ongoing charge built into many funds and ETFs.</li>
 <li><strong>Platform or account fee:</strong> a yearly charge for holding investments on a broker or pension platform.</li>
 <li><strong>Adviser fee:</strong> a percentage fee for portfolio advice or ongoing management.</li>
 <li><strong>Trading and dealing costs:</strong> one-off transaction charges that can still add up over time.</li>
 </ul>
-<h3 style="margin:14px 0 8px;font-size:15px">How to use this investment fee calculator well</h3>
-<p class="muted" style="margin:0">Run the calculator with your current fee level, then test a lower-cost option. That makes it easier to see whether the extra fee is buying meaningful value or just reducing your future balance. For retirement and long-term investing, even a small annual fee difference can grow into a large cash gap over 20 to 40 years. To estimate the growth side before fees, use the <a href="/investment-calculator/">Investment Calculator</a> with your expected return and monthly contribution.</p>
-</section>
-<section class="card" style="margin-top:16px">
-<h2 style="margin:0 0 8px;font-size:16px">Related calculators</h2>
-<p class="muted" style="margin:0">Use these tools together for better investing and planning decisions:</p>
-<ul class="muted" style="margin:12px 0 0;padding-left:18px;line-height:1.8">
-<li><a href="/compound-interest-calculator/"><b>Compound Interest Calculator</b></a> — model long‑term growth with monthly contributions.</li>
-<li><a href="/roi-calculator/"><b>ROI Calculator</b></a> — estimate profit, ROI %, and CAGR for a single investment.</li>
-<li><a href="/retirement-planning-calculator/"><b>Retirement Planning Calculator</b></a> — project retirement savings over time.</li>
-<li><a href="/savings-goal-calculator/"><b>Savings Goal Calculator</b></a> — find the monthly savings needed to reach a target.</li>
-<li><a href="/budget-planner-calculator/"><b>Budget Planner</b></a> — set a realistic contribution amount based on cash flow.</li>
-</ul>
-</section>
-<script>
-      const $ = (id) => document.getElementById(id);
+<h3>How to use this investment fee calculator well</h3>
+<p>Run the calculator with your current fee level, then test a lower-cost option. That makes it easier to see whether the extra fee is buying meaningful value or just reducing your future balance. For retirement and long-term investing, even a small annual fee difference can grow into a large cash gap over 20 to 40 years. To estimate the growth side before fees, use the <a href="/investment-calculator/">Investment Calculator</a> with your expected return and monthly contribution.</p></section>
+<section><h2 id="how-much-do-investment-fees-cost-over-time">How much do investment fees cost over time?</h2>
+<p>Investment fees may seem small, but over time they can significantly reduce your portfolio growth. This investment fees over time calculator helps you see how compounding works against you when fees are applied annually.</p>
 
-      function fmtCurrency(value, ccy){
-        const symbols = { GBP: "£", USD: "$", EUR: "€" };
-        const sym = symbols[ccy] || "";
-        const n = Number.isFinite(value) ? value : 0;
-        return sym + n.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-      }
+<h3>How investment fees affect returns</h3>
+<p>Understanding how investment fees affect returns is important because even a 1% fee difference can reduce your final balance by thousands over decades. Fees reduce today’s balance and the future growth that balance could have earned.</p>
 
-      function clamp(n, min, max){
-        return Math.max(min, Math.min(max, n));
-      }
+<h3>Expense ratio impact calculator explained</h3>
+<p>An expense ratio impact calculator shows how ongoing fund fees reduce your net return. Higher expense ratios directly lower your growth, especially when money stays invested for many years.</p>
 
-      function simulate({ initial, monthly, years, annualReturn, annualFee, inflation, periodsPerYear }){
-        const totalPeriods = Math.round(years * periodsPerYear);
-        const rGross = annualReturn / 100;
-        const fee = annualFee / 100;
-        const rNoFee = Math.pow(1 + rGross, 1 / periodsPerYear) - 1;
+<h3>Cost of fees on investments example</h3>
+<p>The cost of fees on investments becomes clear when comparing two portfolios with the same return but different annual fees. Over time, the lower-fee option usually keeps more money invested and compounds faster.</p>
 
-        // Approx: fee reduces gross return (common estimator)
-        const rNetAnnual = Math.max(-0.999, (1 + rGross) * (1 - fee) - 1);
-        const rWithFee = Math.pow(1 + rNetAnnual, 1 / periodsPerYear) - 1;
+<h3>Mutual fund fee calculator breakdown</h3>
+<p>A mutual fund fee calculator can help estimate management fees, expense ratios, platform charges, and other costs that affect your return. Use the total annual cost for the most realistic comparison.</p>
 
-        let balNo = initial;
-        let balFee = initial;
-
-        const yearly = [];
-        let feesEstYear = 0;
-
-        for(let p=1; p<=totalPeriods; p++){
-          // contributions at period start
-          balNo += monthly;
-          balFee += monthly;
-
-          // growth
-          const beforeFeeBal = balFee;
-          balNo *= (1 + rNoFee);
-          balFee *= (1 + rWithFee);
-
-          // estimate fee impact for this period as the gap in growth due to fee-return reduction
-          const grossStep = beforeFeeBal * (1 + rNoFee);
-          const netStep = beforeFeeBal * (1 + rWithFee);
-          const feeImpactStep = Math.max(0, grossStep - netStep);
-          feesEstYear += feeImpactStep;
-
-          // end of each year
-          if(p % periodsPerYear === 0){
-            const year = p / periodsPerYear;
-            const gap = Math.max(0, balNo - balFee);
-
-            yearly.push({
-              year,
-              noFee: balNo,
-              withFee: balFee,
-              feesEst: feesEstYear,
-              gap
-            });
-            feesEstYear = 0;
-          }
-        }
-
-        const endNoFee = balNo;
-        const endWithFee = balFee;
-        const feeCost = Math.max(0, endNoFee - endWithFee);
-
-        // inflation-adjusted (today's money)
-        let endWithFeeToday = endWithFee;
-        if(inflation > 0){
-          const inf = inflation / 100;
-          endWithFeeToday = endWithFee / Math.pow(1 + inf, years);
-        }
-
-        return { endNoFee, endWithFee, feeCost, yearly, rNetAnnual, endWithFeeToday };
-      }
-
-      function render(){
-        const currency = $("currency").value;
-
-        const initial = Number($("initial").value || 0);
-        const monthly = Number($("monthly").value || 0);
-        const years = Number($("years").value || 0);
-        const annualReturn = Number($("returnRate").value || 0);
-        const annualFee = Number($("feeRate").value || 0);
-        const inflation = Number($("inflation").value || 0);
-        const periodsPerYear = Number($("freq").value || 12);
-
-        const safeYears = clamp(years, 1, 80);
-
-        const out = simulate({
-          initial: Math.max(0, initial),
-          monthly: Math.max(0, monthly),
-          years: safeYears,
-          annualReturn,
-          annualFee: Math.max(0, annualFee),
-          inflation: Math.max(0, inflation),
-          periodsPerYear
-        });
-
-        $("endNoFee").textContent = fmtCurrency(out.endNoFee, currency);
-        $("endWithFee").textContent = fmtCurrency(out.endWithFee, currency);
-        $("feeCost").textContent = fmtCurrency(out.feeCost, currency);
-        $("effectiveReturn").textContent = (out.rNetAnnual * 100).toFixed(2) + "%";
-
-        const totalContrib = Math.max(0, initial) + Math.max(0, monthly) * safeYears * 12;
-        const feePct = out.endNoFee > 0 ? (out.feeCost / out.endNoFee) * 100 : 0;
-
-        const todayLine = inflation > 0
-          ? `Ending value (today’s money): <b>${fmtCurrency(out.endWithFeeToday, currency)}</b>.`
-          : `Add inflation to estimate “today’s money” purchasing power.`;
-
-        $("summary").innerHTML = `
-          <b>No-fee ending:</b> ${fmtCurrency(out.endNoFee, currency)} ·
-          <b>With-fee ending:</b> ${fmtCurrency(out.endWithFee, currency)} ·
-          <b>Fee cost:</b> <span class="mono">${fmtCurrency(out.feeCost, currency)}</span> (${feePct.toFixed(1)}% of the no-fee ending).<br/>
-          <b>Total contributions (rough):</b> ${fmtCurrency(totalContrib, currency)}.<br/>
-          ${todayLine}
-        `;
-
-        const tbody = $("tbody");
-        tbody.innerHTML = "";
-
-        const showAll = $("toggleAll").dataset.all === "1";
-        const rows = out.yearly;
-        const displayRows = showAll ? rows : rows.slice(0, Math.min(10, rows.length));
-
-        for(const r of displayRows){
-          const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td>${r.year}</td>
-            <td class="r">${fmtCurrency(r.noFee, currency)}</td>
-            <td class="r">${fmtCurrency(r.withFee, currency)}</td>
-            <td class="r">${fmtCurrency(r.feesEst, currency)}</td>
-            <td class="r">${fmtCurrency(r.gap, currency)}</td>
-          `;
-          tbody.appendChild(tr);
-        }
-
-        $("tableInfo").textContent = showAll
-          ? `Showing ${rows.length} of ${rows.length} years`
-          : `Showing ${Math.min(10, rows.length)} of ${rows.length} years`;
-
-        $("status").textContent = "Calculated";
-      }
-
-      function reset(){
-        $("initial").value = 10000;
-        $("monthly").value = 200;
-        $("years").value = 20;
-        $("returnRate").value = 7;
-        $("feeRate").value = 0.75;
-        $("inflation").value = 2.5;
-        $("currency").value = "GBP";
-        $("freq").value = "12";
-        $("toggleAll").dataset.all = "0";
-        $("toggleAll").textContent = "Show all";
-        $("status").textContent = "Ready";
-        $("endNoFee").textContent = "£0";
-        $("endWithFee").textContent = "£0";
-        $("feeCost").textContent = "£0";
-        $("effectiveReturn").textContent = "0.00%";
-        $("summary").textContent = "Enter inputs and click Calculate.";
-        $("tbody").innerHTML = "";
-        $("tableInfo").textContent = "Year-by-year breakdown";
-      }
-
-      $("calcBtn").addEventListener("click", render);
-      $("resetBtn").addEventListener("click", reset);
-      $("toggleAll").addEventListener("click", () => {
-        const all = $("toggleAll").dataset.all === "1";
-        $("toggleAll").dataset.all = all ? "0" : "1";
-        $("toggleAll").textContent = all ? "Show all" : "Show less";
-        render();
-      });
-
-      // first render
-      reset();
-    </script>
-<section class="card" style="margin-top:16px">
-<h2>How much do investment fees cost over time?</h2>
-<p class="muted" style="margin:0 0 12px">Investment fees may seem small, but over time they can significantly reduce your portfolio growth. This investment fees over time calculator helps you see how compounding works against you when fees are applied annually.</p>
-
-<h3 style="margin:14px 0 8px;font-size:15px">How investment fees affect returns</h3>
-<p class="muted" style="margin:0 0 12px">Understanding how investment fees affect returns is important because even a 1% fee difference can reduce your final balance by thousands over decades. Fees reduce today’s balance and the future growth that balance could have earned.</p>
-
-<h3 style="margin:14px 0 8px;font-size:15px">Expense ratio impact calculator explained</h3>
-<p class="muted" style="margin:0 0 12px">An expense ratio impact calculator shows how ongoing fund fees reduce your net return. Higher expense ratios directly lower your growth, especially when money stays invested for many years.</p>
-
-<h3 style="margin:14px 0 8px;font-size:15px">Cost of fees on investments example</h3>
-<p class="muted" style="margin:0 0 12px">The cost of fees on investments becomes clear when comparing two portfolios with the same return but different annual fees. Over time, the lower-fee option usually keeps more money invested and compounds faster.</p>
-
-<h3 style="margin:14px 0 8px;font-size:15px">Mutual fund fee calculator breakdown</h3>
-<p class="muted" style="margin:0 0 12px">A mutual fund fee calculator can help estimate management fees, expense ratios, platform charges, and other costs that affect your return. Use the total annual cost for the most realistic comparison.</p>
-
-<h3 style="margin:14px 0 8px;font-size:15px">Portfolio fee impact calculator use case</h3>
-<p class="muted" style="margin:0">A portfolio fee impact calculator is useful for long-term investors who want to compare advisory fees, fund expenses, and platform costs before choosing where to invest.</p>
-</section>
-
-<section class="card section" id="faq" data-twm-faq="1" style="margin-top:16px">
-<h2>Frequently Asked Questions</h2>
+<h3>Portfolio fee impact calculator use case</h3>
+<p>A portfolio fee impact calculator is useful for long-term investors who want to compare advisory fees, fund expenses, and platform costs before choosing where to invest.</p></section>
+<section id="faq" class="faq"><h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
 <h3>What is an investment fee impact calculator?</h3>
 <p>It estimates how ongoing fees (like expense ratios or platform fees) can reduce your long‑term investment balance compared with a lower‑fee alternative.</p>
 <h3>Why can a 1% fee be so costly?</h3>
@@ -456,31 +106,30 @@
 <h3>What fees should I consider?</h3>
 <p>Common fees include fund expense ratios, platform or account fees, advisory fees, and transaction costs depending on your provider.</p>
 <h3>How can I reduce fees?</h3>
-<p>Consider low‑cost index funds or ETFs, compare platforms, and review total costs (not just one fee) before investing.</p>
-</section>
-
+<p>Consider low‑cost index funds or ETFs, compare platforms, and review total costs (not just one fee) before investing.</p></section>
+<section><p>
+          Want the full explanation behind the numbers? Read
+          <a href="/investment-fees-retirement/"><strong>How 1% Investment Fees Quietly Destroy Your Retirement</strong></a>.
+        </p></section>
+<section class="method" id="methodology"><h2>How this calculator works</h2>
+<h3>Formula</h3><p class="formula">Each month: balance × (1 + r/k)^(k/12), then add the contribution
+where r = annual rate and k = compounding periods per year
+Fees: each month the balance is reduced by annual fee ÷ 12
+Cost of the higher fee = value at the lower fee − value at the higher fee</p>
+<h3>Conventions</h3><ul><li>The cost of a fee is larger than the fees paid, because money taken in fees no longer grows.</li></ul>
+<h3>Limitations</h3><ul><li>Assumes both options earn the same return before fees.</li><li>One-off charges, trading costs and tax are not included.</li></ul>
+<dl><dt>Jurisdiction</dt><dd>Not country-specific.</dd><dt>Tested</dt><dd>Checked against independent reference calculations (closed-form formulas and published textbook values), including edge cases such as 0% rates and unreachable goals.</dd><dt>Last reviewed</dt><dd><time datetime="2026-11-11">11 November 2026</time></dd></dl>
+<p>Read the full <a href="/calculator-methodology/">calculator methodology</a> or <a href="/contact/">report a problem</a>.</p></section></article><aside class="aside" aria-label="Related"><div class="card"><h2>Related calculators</h2><ul><li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li><li><a href="/investment-calculator/">Investment Calculator</a></li><li><a href="/roi-calculator/">ROI Calculator</a></li><li><a href="/budget-planner-calculator/">Budget Planner</a></li><li><a href="/savings-goal-calculator/">Savings Goal Calculator</a></li></ul></div><div class="card"><h2>Related guides</h2><ul><li><a href="/how-compound-interest-works/">How Compound Interest Works</a></li><li><a href="/how-investing-works-for-beginners/">How Investing Works for Beginners</a></li><li><a href="/inflation-vs-investing/">Inflation vs Investing</a></li><li><a href="/budgeting-tips-for-beginners/">Budgeting Tips for Beginners</a></li><li><a href="/how-much-should-you-save/">How Much Should You Save Each Month?</a></li></ul></div></aside></div></div>
+</main>
+<footer class="site-footer"><div class="container">
+<div class="footer-grid">
+<div class="footer-brand"><a class="brand" href="/"><svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#0a1a33"/><path d="M9 25V19M15 25V15M21 25V17M27 25V10" stroke="#12a594" stroke-width="3.2" stroke-linecap="round"/><path d="M8.5 15.5 14.5 11l6 3 7-6.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>True<b>Wealth</b>Metrics</span></a><p>Free, transparent personal finance calculators and plain-English guides. Calculations run in your browser: we don’t ask for an account or store what you enter.</p></div>
+<div><h2>Budget &amp; borrow</h2><ul><li><a href="/budget-planner-calculator/">Budget Planner</a></li><li><a href="/savings-goal-calculator/">Savings Goal Calculator</a></li><li><a href="/loan-repayment-calculator/">Loan Repayment Calculator</a></li><li><a href="/mortgage-payment-calculator/">Mortgage Calculator</a></li><li><a href="/credit-card-payoff-calculator/">Credit Card Payoff Calculator</a></li><li><a href="/debt-snowball-avalanche-calculator/">Debt Snowball vs Avalanche</a></li></ul></div>
+<div><h2>Invest &amp; retire</h2><ul><li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li><li><a href="/investment-calculator/">Investment Calculator</a></li><li><a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a></li><li><a href="/roi-calculator/">ROI Calculator</a></li><li><a href="/retirement-planning-calculator/">Retirement Planning Calculator</a></li></ul></div>
+<div><h2>Guides</h2><ul><li><a href="/learn/">All guides</a></li><li><a href="/budgeting-tips-for-beginners/">Budgeting Tips for Beginners</a></li><li><a href="/how-much-should-you-save/">How Much Should You Save Each Month?</a></li><li><a href="/how-much-emergency-fund/">How Much Emergency Fund Do You Need?</a></li><li><a href="/how-loan-interest-works/">How Loan Interest Works</a></li><li><a href="/how-to-calculate-loan-interest-easily/">How to Calculate Loan Interest Easily</a></li><li><a href="/amortization-schedule-explained/">Amortization Schedule Explained</a></li></ul></div>
+<div><h2>TrueWealthMetrics</h2><ul><li><a href="/about/">About</a></li><li><a href="/about-the-author/">About the author</a></li><li><a href="/editorial-policy/">Editorial policy</a></li><li><a href="/calculator-methodology/">Calculator methodology</a></li><li><a href="/contact/">Contact &amp; corrections</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms-of-use/">Terms of use</a></li></ul></div>
 </div>
-
-<footer class="site-footer">
-<div class="container">
-<div class="footer-row">
-<div class="footer-left">
-<div class="footer-brand">© <span id="footerYear"></span> TrueWealthMetrics.</div>
-<div class="footer-note">These calculators provide educational estimates only and do not constitute financial advice.</div>
-</div>
-<div class="footer-links">
-      <a href="/about/">About</a>
-      <a href="/about-the-author/">About the Author</a>
-      <a href="/editorial-policy/">Editorial Policy</a>
-      <a href="/calculator-methodology/">Calculator Methodology</a>
-      <a href="/contact/">Contact</a>
-      <a href="/privacy-policy/">Privacy Policy</a>
-      <a href="/terms-of-use/">Terms of Use</a>
-    </div>
-</div>
-</div>
-<script>
-    (function(){try{document.getElementById('footerYear').textContent=new Date().getFullYear();}catch(e){}})();
-  </script>
-</footer></body>
+<div class="footer-legal"><p><strong>Educational tools, not financial advice.</strong> TrueWealthMetrics is not a regulated financial adviser. Results are estimates based on the assumptions shown and are not guaranteed. Consider independent, regulated advice before making major financial decisions.</p><p>© 2026 TrueWealthMetrics</p></div>
+</div></footer>
+</body>
 </html>

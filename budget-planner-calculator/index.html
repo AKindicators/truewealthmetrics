@@ -1,392 +1,136 @@
-<!DOCTYPE html>
-
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Monthly Budget Calculator | Income, Expenses &amp; Savings</title>
-<meta content="Use this monthly budget calculator to track income, expenses and savings. See leftover cash, category spending and a realistic savings target." name="description"/>
-<link href="https://truewealthmetrics.com/budget-planner-calculator/" rel="canonical"/>
-<meta content="index,follow" name="robots"/>
-<meta content="Monthly Budget Calculator | Income, Expenses &amp; Savings" property="og:title"/>
-<meta content="Use this monthly budget calculator to track income, expenses and savings. Plan your monthly budget and stay in control of your cash flow." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://truewealthmetrics.com/budget-planner-calculator/" property="og:url"/>
-<meta content="TrueWealthMetrics" property="og:site_name"/>
-<meta content="https://truewealthmetrics.com/logo.png" property="og:image"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Monthly Budget Calculator | Income, Expenses &amp; Savings" name="twitter:title"/>
-<meta content="Use this monthly budget calculator to track income, expenses and savings. Plan your monthly budget and stay in control of your cash flow." name="twitter:description"/>
-<meta content="https://truewealthmetrics.com/logo.png" name="twitter:image"/>
-<meta content="#0b1220" name="theme-color"/>
-<!-- Primary schema: SoftwareApplication -->
-<!-- SEO schema: Breadcrumbs -->
-<link href="/styles.css" rel="stylesheet"/><link href="/favicon.ico" rel="icon" sizes="any"/>
-<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/apple-touch-icon.png" rel="apple-touch-icon"/><script defer="" src="/header.js"></script>
-
-
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Monthly Budget Calculator",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "url": "https://truewealthmetrics.com/budget-planner-calculator/",
-      "description": "Monthly budget calculator to break down income, expenses, leftover cash and savings goals.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "GBP"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "@id": "https://truewealthmetrics.com/#org",
-        "name": "TrueWealthMetrics",
-        "url": "https://truewealthmetrics.com/"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://truewealthmetrics.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Budget Planner Calculator",
-          "item": "https://truewealthmetrics.com/budget-planner-calculator/"
-        }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "@id": "https://truewealthmetrics.com/about-the-author/#author",
-      "name": "TrueWealthMetrics Editorial Team",
-      "url": "https://truewealthmetrics.com/about-the-author/",
-      "worksFor": {
-        "@id": "https://truewealthmetrics.com/#org"
-      },
-      "jobTitle": "Personal Finance Research & Tools"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What percentage of income should I save each month?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A strong starting point is 10–20% of take‑home pay. If money is tight, start with 5–10% and increase gradually as you reduce expenses or grow income."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I set a realistic savings target?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Start with your essentials and minimum debt payments. Then choose a savings % that still leaves breathing room for variable spending and one‑off costs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Should I pay debt or save first?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Usually build a small starter emergency fund first (e.g., one month of essentials), then focus on high‑interest debt while continuing some saving."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What counts as an essential expense?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Housing, utilities, basic food, transport to work, insurance, and minimum debt payments are typically essential. Treat subscriptions and dining out as non‑essential."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
+<meta name="description" content="Use this monthly budget calculator to track income, expenses and savings. See leftover cash, category spending and a realistic savings target.">
+<link rel="canonical" href="https://truewealthmetrics.com/budget-planner-calculator/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0a1a33">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TrueWealthMetrics">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Monthly Budget Calculator | Income, Expenses &amp; Savings">
+<meta property="og:description" content="Use this monthly budget calculator to track income, expenses and savings. See leftover cash, category spending and a realistic savings target.">
+<meta property="og:url" content="https://truewealthmetrics.com/budget-planner-calculator/">
+<meta property="og:image" content="https://truewealthmetrics.com/assets/img/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TrueWealthMetrics personal finance calculators">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Monthly Budget Calculator | Income, Expenses &amp; Savings">
+<meta name="twitter:description" content="Use this monthly budget calculator to track income, expenses and savings. See leftover cash, category spending and a realistic savings target.">
+<meta name="twitter:image" content="https://truewealthmetrics.com/assets/img/og-default.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/css/site.css?v=7bfd2bf34a">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://truewealthmetrics.com/#organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/","logo":{"@type":"ImageObject","url":"https://truewealthmetrics.com/logo.png"},"email":"support@truewealthmetrics.com"},{"@type":"WebSite","@id":"https://truewealthmetrics.com/#website","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/","publisher":{"@id":"https://truewealthmetrics.com/#organization"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","@id":"https://truewealthmetrics.com/budget-planner-calculator/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://truewealthmetrics.com/financial-calculators/"},{"@type":"ListItem","position":3,"name":"Budget Planner","item":"https://truewealthmetrics.com/budget-planner-calculator/"}]},{"@type":"WebPage","@id":"https://truewealthmetrics.com/budget-planner-calculator/#webpage","url":"https://truewealthmetrics.com/budget-planner-calculator/","name":"Monthly Budget Calculator | Income, Expenses & Savings","description":"Use this monthly budget calculator to track income, expenses and savings. See leftover cash, category spending and a realistic savings target.","isPartOf":{"@id":"https://truewealthmetrics.com/#website"},"inLanguage":"en-GB","breadcrumb":{"@id":"https://truewealthmetrics.com/budget-planner-calculator/#breadcrumb"},"dateModified":"2026-11-11"},{"@type":"WebApplication","@id":"https://truewealthmetrics.com/budget-planner-calculator/#app","name":"Monthly Budget Calculator for Income, Expenses and Savings","url":"https://truewealthmetrics.com/budget-planner-calculator/","description":"Use this monthly budget calculator to track income, expenses and savings. See leftover cash, category spending and a realistic savings target.","applicationCategory":"FinanceApplication","operatingSystem":"Any (runs in a web browser)","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"publisher":{"@id":"https://truewealthmetrics.com/#organization"},"mainEntityOfPage":{"@id":"https://truewealthmetrics.com/budget-planner-calculator/#webpage"}},{"@type":"FAQPage","@id":"https://truewealthmetrics.com/budget-planner-calculator/#faq","url":"https://truewealthmetrics.com/budget-planner-calculator/","mainEntity":[{"@type":"Question","name":"What percentage of income should I save each month?","acceptedAnswer":{"@type":"Answer","text":"A strong starting point is 10–20% of take‑home pay. If money is tight, start with 5–10% and increase gradually as you reduce expenses or grow income."}},{"@type":"Question","name":"How do I set a realistic savings target?","acceptedAnswer":{"@type":"Answer","text":"Start with your essentials and minimum debt payments. Then choose a savings % that still leaves breathing room for variable spending and one‑off costs."}},{"@type":"Question","name":"Should I pay debt or save first?","acceptedAnswer":{"@type":"Answer","text":"Usually build a small starter emergency fund first (e.g., one month of essentials), then focus on high‑interest debt while continuing some saving."}},{"@type":"Question","name":"What counts as an essential expense?","acceptedAnswer":{"@type":"Answer","text":"Housing, utilities, basic food, transport to work, insurance, and minimum debt payments are typically essential. Treat subscriptions and dining out as non‑essential."}},{"@type":"Question","name":"How often should I update my monthly budget?","acceptedAnswer":{"@type":"Answer","text":"Review your budget at least once a month and whenever income, rent, debt payments, or regular bills change. Frequent updates keep your savings target realistic."}},{"@type":"Question","name":"Can a budget planner help with debt payoff?","acceptedAnswer":{"@type":"Answer","text":"Yes. A budget planner calculator shows how much cash is left after essential spending, which helps you decide whether you can make extra debt payments without harming your savings buffer."}}]}]}</script>
+<script type="module" src="/assets/js/calculators/budget.js?v=b12cf6b58f"></script>
 </head>
-<body><div id="site-header"></div>
-<div class="wrap">
-<section class="hero">
-<h1>Monthly Budget Calculator for Income, Expenses and Savings</h1>
-<p class="sub">
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="/"><svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#0a1a33"/><path d="M9 25V19M15 25V15M21 25V17M27 25V10" stroke="#12a594" stroke-width="3.2" stroke-linecap="round"/><path d="M8.5 15.5 14.5 11l6 3 7-6.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>True<b>Wealth</b>Metrics</span></a><nav class="site-nav" aria-label="Main"><ul><li><a href="/financial-calculators/" aria-current="page">Calculators</a></li><li><a href="/financial-calculators/#budgeting">Budgeting</a></li><li><a href="/financial-calculators/#borrowing">Loans &amp; debt</a></li><li><a href="/financial-calculators/#investing">Investing</a></li><li><a href="/financial-calculators/#retirement">Retirement</a></li><li><a href="/learn/">Guides</a></li><li><a href="/calculator-methodology/">Methodology</a></li><li><a href="/about/">About</a></li></ul></nav></div></header>
+<main id="main">
+<div class="page-head"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/financial-calculators/">Calculators</a></li><li><span aria-current="page">Budget Planner</span></li></ol></nav><h1>Monthly Budget Calculator for Income, Expenses and Savings</h1><p class="lead">
       Enter your monthly income and expenses to estimate <strong>leftover cash</strong>, savings progress and where your money goes.
       Use it as a simple monthly budget planner; educational estimates only, not financial advice.
-    </p>
+    </p><div class="meta-row"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12 5 5 9-10"/></svg>Free, no sign-up</span><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Runs in your browser</span><span>Formulas last reviewed <time datetime="2026-11-11">11 November 2026</time></span></div></div></div>
+<div class="container calc-wrap" id="calculator"><div class="calc" data-calc="budget">
+<form class="calc-form" novalidate aria-labelledby="calc-form-title" data-form>
+<h2 class="h-sm" id="calc-form-title">Your numbers</h2>
+<p class="alert alert-error" data-error-summary role="alert" hidden></p>
+<div class="field" data-field="income"><label for="income">Monthly take-home pay</label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="income" name="income" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="3000" aria-describedby="income-help income-err"></div><p class="field-help" id="income-help">What actually reaches your account after tax and deductions.</p><p class="field-err" id="income-err" hidden></p></div><div class="field" data-field="currency"><label for="currency">Currency</label><select id="currency" name="currency" aria-describedby="currency-err"><option value="GBP" selected>GBP (£)</option><option value="USD">USD ($)</option><option value="EUR">EUR (€)</option></select></div><details class="field-group" open><summary>Essential costs (per month)</summary><div class="field" data-field="housing"><label for="housing">Rent or mortgage <span class="opt">(optional)</span></label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="housing" name="housing" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="1100" aria-describedby="housing-err"></div><p class="field-err" id="housing-err" hidden></p></div><div class="field" data-field="utilities"><label for="utilities">Energy, water, phone and internet <span class="opt">(optional)</span></label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="utilities" name="utilities" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="180" aria-describedby="utilities-err"></div><p class="field-err" id="utilities-err" hidden></p></div><div class="field" data-field="transport"><label for="transport">Transport <span class="opt">(optional)</span></label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="transport" name="transport" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="200" aria-describedby="transport-err"></div><p class="field-err" id="transport-err" hidden></p></div><div class="field" data-field="groceries"><label for="groceries">Groceries <span class="opt">(optional)</span></label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="groceries" name="groceries" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="350" aria-describedby="groceries-err"></div><p class="field-err" id="groceries-err" hidden></p></div><div class="field" data-field="insurance"><label for="insurance">Insurance <span class="opt">(optional)</span></label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="insurance" name="insurance" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="120" aria-describedby="insurance-err"></div><p class="field-err" id="insurance-err" hidden></p></div><div class="field" data-field="debt"><label for="debt">Minimum debt repayments <span class="opt">(optional)</span></label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="debt" name="debt" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="150" aria-describedby="debt-err"></div><p class="field-err" id="debt-err" hidden></p></div><div class="field" data-field="otherFixed"><label for="otherFixed">Other essential bills <span class="opt">(optional)</span></label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="otherFixed" name="otherFixed" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="80" aria-describedby="otherFixed-help otherFixed-err"></div><p class="field-help" id="otherFixed-help">For example council tax, childcare or prescriptions.</p><p class="field-err" id="otherFixed-err" hidden></p></div></details><details class="field-group" open><summary>Flexible spending (per month)</summary><div class="field" data-field="subscriptions"><label for="subscriptions">Subscriptions <span class="opt">(optional)</span></label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="subscriptions" name="subscriptions" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="45" aria-describedby="subscriptions-err"></div><p class="field-err" id="subscriptions-err" hidden></p></div><div class="field" data-field="variable"><label for="variable">Eating out, shopping and leisure <span class="opt">(optional)</span></label><div class="input-wrap has-prefix"><span class="affix" data-currency-symbol aria-hidden="true">£</span><input id="variable" name="variable" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="300" aria-describedby="variable-err"></div><p class="field-err" id="variable-err" hidden></p></div></details><details class="field-group" open><summary>Goals</summary><div class="field" data-field="savingsPct"><label for="savingsPct">Savings target (% of take-home pay)</label><div class="input-wrap has-suffix"><input id="savingsPct" name="savingsPct" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="20" aria-describedby="savingsPct-err"><span class="affix affix-end" aria-hidden="true">%</span></div><p class="field-err" id="savingsPct-err" hidden></p></div><div class="field" data-field="emergencyMonths"><label for="emergencyMonths">Emergency fund target (months of essentials)</label><div class="input-wrap"><input id="emergencyMonths" name="emergencyMonths" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="3" aria-describedby="emergencyMonths-err"></div><p class="field-err" id="emergencyMonths-err" hidden></p></div></details>
+<div class="btn-row"><button type="submit" class="btn btn-primary">Update results</button><button type="button" class="btn btn-ghost" data-action="reset">Reset</button></div>
+<p class="privacy-note">Calculated in your browser. Nothing you enter is sent or stored.</p>
+</form>
+<section class="calc-results" aria-labelledby="calc-results-title" data-results-panel>
+<div class="results-head"><h2 class="h-sm" id="calc-results-title">Results</h2><div class="btn-row btn-row-tight no-print"><button type="button" class="btn btn-ghost btn-sm" data-action="save-scenario">Save as scenario A</button><button type="button" class="btn btn-ghost btn-sm" data-action="print">Print / save PDF</button></div></div>
+<div data-results aria-live="polite"><details class="assumptions" open><summary>Assumptions used</summary><ul><li>All figures are monthly. Spread annual bills by dividing them by 12.</li><li>"Needs" are the essential costs (including minimum debt payments). "Wants" are subscriptions and flexible spending.</li><li>The 50/30/20 split is a common rule of thumb, not a requirement. Your savings target here is 20%.</li></ul></details><div class="kpis"><div class="kpi kpi-primary tone-warn"><p class="kpi-label">Left over each month</p><p class="kpi-value" data-kpi="leftover">£475.00</p><p class="kpi-sub">Take-home pay minus all costs</p></div><div class="kpi"><p class="kpi-label">Total monthly costs</p><p class="kpi-value" data-kpi="expenses">£2,525.00</p><p class="kpi-sub">£2,180.00 essential · £345.00 flexible</p></div><div class="kpi"><p class="kpi-label">Savings target</p><p class="kpi-value" data-kpi="target">£600.00</p><p class="kpi-sub">20% of take-home pay</p></div><div class="kpi"><p class="kpi-label">Emergency fund target</p><p class="kpi-value" data-kpi="emergency">£6,540.00</p><p class="kpi-sub">3 months of essential costs</p></div></div><p class="summary">You have <strong>£475.00</strong> left each month, which is <strong>£125.00</strong> short of your 20% savings target. Trimming flexible spending is usually the quickest fix.</p><figure class="chart"><figcaption><span class="chart-title" id="r-t">Your budget vs the 50/30/20 guide</span><ul class="legend"><li><span class="sw s1" aria-hidden="true"></span>Your budget</li><li><span class="sw s4" aria-hidden="true"></span>50/30/20 guide</li></ul></figcaption><svg viewBox="0 0 520 250" role="img" aria-labelledby="r-t r-d" focusable="false"><desc id="r-d">Monthly amounts for needs, wants and savings compared with a 50/30/20 split of take-home pay.</desc><text class="ax" x="52" y="51.3" text-anchor="end">Needs</text><rect class="s1" x="60" y="21.3" width="329.6" height="23.0" rx="3"></rect><text class="val" x="395.6" y="36.3">£2.2k</text><rect class="s4" x="60" y="47.3" width="226.8" height="23.0" rx="3"></rect><text class="val" x="292.8" y="62.3">£1.5k</text><text class="ax" x="52" y="118.0" text-anchor="end">Wants</text><rect class="s1" x="60" y="88.0" width="52.2" height="23.0" rx="3"></rect><text class="val" x="118.2" y="103.0">£345</text><rect class="s4" x="60" y="114.0" width="136.1" height="23.0" rx="3"></rect><text class="val" x="202.1" y="129.0">£900</text><text class="ax" x="52" y="184.7" text-anchor="end">Savings</text><rect class="s1" x="60" y="154.7" width="71.8" height="23.0" rx="3"></rect><text class="val" x="137.8" y="169.7">£475</text><rect class="s4" x="60" y="180.7" width="90.7" height="23.0" rx="3"></rect><text class="val" x="156.7" y="195.7">£600</text></svg></figure><div class="breakdown"><h3 class="h-sm">Calculation breakdown</h3><dl><div class=""><dt>Take-home pay</dt><dd>£3,000.00</dd></div><div class=""><dt>Essential costs</dt><dd>-£2,180.00</dd></div><div class=""><dt>Flexible spending</dt><dd>-£345.00</dd></div><div class="total"><dt>Left over</dt><dd>£475.00</dd></div><div class=""><dt>Needs as % of pay</dt><dd>72.67%</dd></div><div class=""><dt>Wants as % of pay</dt><dd>11.50%</dd></div><div class=""><dt>Available to save as % of pay</dt><dd>15.83%</dd></div></dl></div></div>
+<div class="compare" data-compare hidden></div>
+<p class="disclaimer">Estimates for education only, not financial advice. Results depend on the assumptions shown and are not guaranteed.</p>
 </section>
-<section class="card section" data-twm-explain="1">
-<h2>How this budget planner calculator works (monthly budget calculator & expense tracker)</h2>
+</div></div>
+<div class="container section content-area"><div class="content-grid"><article class="prose"><section><h2 id="how-this-budget-planner-calculator-works-monthly-budget-calc">How this budget planner calculator works (monthly budget calculator &amp; expense tracker)</h2>
 <p>This monthly budget planner helps you turn income and spending into a clear snapshot of your cash flow. Enter your take‑home income, then list your fixed costs (rent/mortgage, utilities, insurance) and variable costs (groceries, transport, subscriptions). The calculator totals expenses, shows leftover cash, and estimates a practical savings target you can aim for without breaking your lifestyle. Use it to spot the categories that move the needle most, set a realistic savings rate, and build an emergency‑fund buffer before increasing investing contributions. Numbers are estimates — if your income is irregular, run a “low month” and a “high month” scenario to stress‑test your plan.</p>
-<p>Practical tips: track your last 30 days of spending to avoid guessing; separate needs vs wants so cuts are clearer; budget for yearly bills by dividing them into monthly amounts. Limitations: results assume fixed rates and steady payments/contributions. If your situation changes (rate changes, fees, irregular income), rerun the calculator with updated inputs to keep your plan accurate.</p>
-</section>
-<div class="grid">
-<!-- Inputs -->
-<section class="card">
-<h2>Inputs</h2>
-<label>Monthly net income (£)</label>
-<input id="income" min="0" step="1" type="number" value="3000"/>
-<div class="row">
-<div>
-<label>Housing (rent/mortgage) (£)</label>
-<input id="housing" min="0" step="1" type="number" value="1100"/>
-</div>
-<div>
-<label>Utilities (gas/electric/water) (£)</label>
-<input id="utilities" min="0" step="1" type="number" value="180"/>
-</div>
-</div>
-<div class="row">
-<div>
-<label>Transport (£)</label>
-<input id="transport" min="0" step="1" type="number" value="200"/>
-</div>
-<div>
-<label>Groceries (£)</label>
-<input id="groceries" min="0" step="1" type="number" value="350"/>
-</div>
-</div>
-<div class="row">
-<div>
-<label>Insurance (£)</label>
-<input id="insurance" min="0" step="1" type="number" value="120"/>
-</div>
-<div>
-<label>Subscriptions (£)</label>
-<input id="subscriptions" min="0" step="1" type="number" value="45"/>
-</div>
-</div>
-<div class="row">
-<div>
-<label>Debt payments (min) (£)</label>
-<input id="debt" min="0" step="1" type="number" value="150"/>
-</div>
-<div>
-<label>Other fixed bills (£)</label>
-<input id="otherFixed" min="0" step="1" type="number" value="80"/>
-</div>
-</div>
-<label>Variable spending (eating out, shopping, fun) (£)</label>
-<input id="variable" min="0" step="1" type="number" value="300"/>
-<div class="row">
-<div>
-<label>Savings goal (% of income)</label>
-<input id="savingsPct" max="80" min="0" step="0.5" type="number" value="20"/>
-</div>
-<div>
-<label>Emergency fund target (months)</label>
-<input id="emergencyMonths" max="24" min="0" step="1" type="number" value="3"/>
-</div>
-</div>
-<div class="actions">
-<button class="primary" id="btnCalc">Calculate</button>
-<button id="btnReset">Reset</button>
-</div>
-<div class="note">
-          Tip: A simple starting point is <b>50/30/20</b> — needs, wants, savings/debt. Your numbers below will show if you’re close.
-        </div>
-</section>
-<!-- Results -->
-<section class="card">
-<h2>Results</h2>
-<div class="small">Updated instantly when you click Calculate.</div>
-<div class="kpiGrid">
-<div class="kpi">
-<div class="t">Total expenses</div>
-<div class="v" id="totalExpenses">—</div>
-<div class="h">Fixed + variable costs</div>
-</div>
-<div class="kpi">
-<div class="t">Leftover cash</div>
-<div class="v" id="leftover">—</div>
-<div class="h">Income − expenses</div>
-</div>
-<div class="kpi">
-<div class="t">Savings target</div>
-<div class="v" id="savingsTarget">—</div>
-<div class="h">Based on your % goal</div>
-</div>
-<div class="kpi">
-<div class="t">Emergency fund target</div>
-<div class="v" id="emergencyTarget">—</div>
-<div class="h">Months × essential spending</div>
-</div>
-</div>
-<div class="barWrap">
-<div class="barLabel"><span>Budget health</span><span class="mono" id="healthLabel">—</span></div>
-<div class="bar" id="healthBar"><div id="healthFill"></div></div>
-<div class="note" id="healthNote">Enter values and click Calculate.</div>
-</div>
-<span class="tag" id="ruleTag">—</span>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>£ / month</th>
-<th>% of income</th>
-</tr>
-</thead>
-<tbody id="breakdownBody"></tbody>
-</table>
-</section>
-</div>
-<section class="card" style="margin-top:16px">
-<h2>How the monthly budget planner calculator works</h2>
-<div class="note">
+<p>Practical tips: track your last 30 days of spending to avoid guessing; separate needs vs wants so cuts are clearer; budget for yearly bills by dividing them into monthly amounts. Limitations: results assume fixed rates and steady payments/contributions. If your situation changes (rate changes, fees, irregular income), rerun the calculator with updated inputs to keep your plan accurate.</p></section>
+<section><h2 id="how-the-monthly-budget-planner-calculator-works">How the monthly budget planner calculator works</h2>
+<p>
         We group your spending into <b>Needs</b> (housing, utilities, groceries, transport, insurance, other fixed),
         <b>Debt minimums</b>, and <b>Wants</b> (variable + subscriptions).
         Your savings target is calculated from income × savings %.
-      </div>
-<div class="faq" style="margin-top:10px">
-<details>
-<summary>Why use net (take-home) income?</summary>
-<div class="note">It makes the budget realistic. If you use gross income, taxes can make you think you have more money than you really do.</div>
-</details>
-<details>
-<summary>What is a good savings %?</summary>
-<div class="note">Many people aim for 10–20%. If you have high-interest debt, prioritize that while still saving something small for consistency.</div>
-</details>
-<details>
-<summary>How is the emergency fund target calculated?</summary>
-<div class="note">We estimate essential spending as (needs + debt minimums). Emergency target = essential spending × months.</div>
-</details>
-</div>
-</section>
-<!-- Internal linking: Related calculators -->
+      </p>
 
 
-<section class="card" style="margin-top:16px">
-<h2>New to budgeting? Start with the beginner guide</h2>
-<p class="muted" style="margin:0">
+<h3>Why use net (take-home) income?</h3>
+<p>It makes the budget realistic. If you use gross income, taxes can make you think you have more money than you really do.</p>
+
+
+<h3>What is a good savings %?</h3>
+<p>Many people aim for 10–20%. If you have high-interest debt, prioritize that while still saving something small for consistency.</p>
+
+
+<h3>How is the emergency fund target calculated?</h3>
+<p>We estimate essential spending as (needs + debt minimums). Emergency target = essential spending × months.</p></section>
+<section><h2 id="new-to-budgeting-start-with-the-beginner-guide">New to budgeting? Start with the beginner guide</h2>
+<p>
   If you are building your first monthly plan, review these
   <a href="/budgeting-tips-for-beginners/"><strong>budgeting tips for beginners</strong></a>
   before using the calculator. The guide explains how to separate essentials, savings, debt, and flexible spending so your calculator inputs are more realistic.
-</p>
-</section>
-
-<section class="card" style="margin-top:16px">
-<h2>How to use the monthly budget planner calculator effectively</h2>
-<p class="muted" style="margin:0 0 10px">A budget planner works best when you use real take-home income and realistic expense numbers. Start with your last bank statement or budgeting app so you can enter what you actually spend instead of what you hope to spend.</p>
-<h3 style="margin:14px 0 8px;font-size:15px">Separate needs, wants, and savings</h3>
-<p class="muted" style="margin:0 0 10px">Group housing, food, transport, insurance, and minimum debt payments as essentials first. Then review flexible categories like eating out, subscriptions, shopping, and entertainment. This makes it easier to see where cuts are possible without damaging the core parts of your budget.</p>
-<h3 style="margin:14px 0 8px;font-size:15px">Review your budget every month</h3>
-<p class="muted" style="margin:0">Your budget planner should be updated whenever income, rent, bills, or savings goals change. A simple monthly review helps you spot overspending early, protect your emergency fund, and increase your savings rate when cash flow improves.</p>
-</section>
-<section class="card" style="margin-top:16px">
-<h2>Why use a monthly budget planner calculator (personal & household budget calculator)?</h2>
-<p class="muted" style="margin:0 0 10px">
+</p></section>
+<section><h2 id="how-to-use-the-monthly-budget-planner-calculator-effectively">How to use the monthly budget planner calculator effectively</h2>
+<p>A budget planner works best when you use real take-home income and realistic expense numbers. Start with your last bank statement or budgeting app so you can enter what you actually spend instead of what you hope to spend.</p>
+<h3>Separate needs, wants, and savings</h3>
+<p>Group housing, food, transport, insurance, and minimum debt payments as essentials first. Then review flexible categories like eating out, subscriptions, shopping, and entertainment. This makes it easier to see where cuts are possible without damaging the core parts of your budget.</p>
+<h3>Review your budget every month</h3>
+<p>Your budget planner should be updated whenever income, rent, bills, or savings goals change. A simple monthly review helps you spot overspending early, protect your emergency fund, and increase your savings rate when cash flow improves.</p></section>
+<section><h2 id="why-use-a-monthly-budget-planner-calculator-personal-and-hou">Why use a monthly budget planner calculator (personal &amp; household budget calculator)?</h2>
+<p>
   A budget planner calculator helps you understand where your money goes each month before small spending problems become bigger cash-flow issues.
   By entering monthly income, fixed bills, flexible spending, debt minimums and savings goals, you can quickly see whether your current budget is realistic.
 </p>
-<p class="muted" style="margin:0">
+<p>
   This makes it easier to set a practical savings target, identify categories to reduce, and build a stronger monthly plan for emergency savings, debt payoff and future investing.
-</p>
-</section>
-
-<section class="card" style="margin-top:16px">
-<h2>What a monthly budget planner calculator can show you (monthly spending & expense tracker calculator)</h2>
-<p class="muted" style="margin:0 0 10px">
+</p></section>
+<section><h2 id="what-a-monthly-budget-planner-calculator-can-show-you-monthl">What a monthly budget planner calculator can show you (monthly spending &amp; expense tracker calculator)</h2>
+<p>
   A budget planner calculator gives you a quick monthly view of income, essential bills, flexible spending, minimum debt payments and savings goals in one place.
   Instead of guessing whether you can afford a higher savings target, extra debt payments or more variable spending, you can test the numbers first.
 </p>
-<p class="muted" style="margin:0 0 10px">
+<p>
   This is useful for people trying to build a first budget, recover from overspending, plan for rising bills, or create a more stable routine around saving.
   Small changes to rent, transport, groceries or subscriptions can make a bigger difference than expected over a full year.
 </p>
-<p class="muted" style="margin:0">
+<p>
   If your budget feels tight, use the calculator to compare your current spending with a reduced-spending version. That makes it easier to identify the categories that can be adjusted without affecting the essentials.
-</p>
-</section>
-
-<section class="card" style="margin-top:16px">
-<h2>How to improve your monthly budget plan (simple budget calculator tips)</h2>
-<p class="muted" style="margin:0 0 10px">
+</p></section>
+<section><h2 id="how-to-improve-your-monthly-budget-plan-simple-budget-calcul">How to improve your monthly budget plan (simple budget calculator tips)</h2>
+<p>
   Start by protecting the categories that keep your life running: housing, utilities, food, transport, insurance and minimum debt payments.
   Once those are covered, review the flexible categories where your budget can move more easily, such as subscriptions, shopping, eating out and entertainment.
 </p>
-<ul class="note" style="margin:0; padding-left:18px; line-height:1.7">
+<ul>
   <li>Use last month’s bank statement so your starting numbers are realistic.</li>
   <li>Turn annual or quarterly bills into monthly amounts so they do not surprise you later.</li>
   <li>Cut or cap one flexible category at a time to see which change has the biggest impact.</li>
   <li>Increase your savings goal gradually if your leftover cash is positive and stable.</li>
-</ul>
-</section>
-
-<section class="card" style="margin-top:16px">
-<h2>Common monthly budget planner mistakes to avoid</h2>
-<p class="muted" style="margin:0 0 10px">
+</ul></section>
+<section><h2 id="common-monthly-budget-planner-mistakes-to-avoid">Common monthly budget planner mistakes to avoid</h2>
+<p>
   One of the biggest mistakes is using rough guesses instead of real spending data. Another is forgetting irregular costs such as car repairs, gifts, travel or yearly renewals.
   A budget often looks stronger on paper than it does in real life when those costs are ignored.
 </p>
-<p class="muted" style="margin:0">
+<p>
   It also helps to avoid setting a savings target that leaves no room for normal life. A good monthly budget should be repeatable.
   A smaller goal you can maintain is usually better than an aggressive target that breaks after one difficult month.
-</p>
-</section>
-
-<section class="card" style="margin-top:16px">
-<h2>Use this monthly budget planner with other budgeting tools</h2>
-<p class="muted" style="margin:0">
+</p></section>
+<section><h2 id="use-this-monthly-budget-planner-with-other-budgeting-tools">Use this monthly budget planner with other budgeting tools</h2>
+<p>
   Once you know your monthly surplus, you can use it in other TrueWealthMetrics tools to test debt payoff scenarios, savings goals, emergency fund planning and long-term investing.
   That gives this budget planner calculator more practical value because each result can feed into your next financial decision.
-</p>
-</section>
-
-<section aria-labelledby="calc-methodology" class="card">
-<h2 id="calc-methodology">Calculator methodology &amp; assumptions</h2>
-<p>
-    This calculator uses standard financial formulas and simplified assumptions (for example: constant rates, regular payments,
-    and rounding). Real-world results can differ due to fees, taxes, rate changes, compounding conventions, and account rules.
-  </p>
-<p>
-    See how we build and validate our tools: <a href="/calculator-methodology/">Calculator Methodology</a>.
-    For how we review content: <a href="/editorial-policy/">Editorial Policy</a>.
-  </p>
-</section>
-<section class="card" style="margin-top:16px">
-<h2>Related calculators</h2>
-<div class="small">Jump to other tools in the TrueWealthMetrics suite:</div>
-<div class="linksGrid">
-<div class="linkCard">
-<h3>Debt &amp; payments</h3>
-<a href="/credit-card-payoff-calculator/">Credit Card Payoff</a>
-<a href="/debt-snowball-avalanche-calculator/">Debt Snowball/Avalanche</a>
-<a href="/loan-repayment-calculator/">Loan Repayment</a>
-<a href="/mortgage-payment-calculator/">Mortgage Payment</a>
-</div>
-<div class="linkCard">
-<h3>Investing &amp; planning</h3>
-<a href="/compound-interest-calculator/">Compound Interest</a>
-<a href="/roi-calculator/">ROI Calculator</a>
-<a href="/investment-fee-impact-calculator/">Investment Fee Impact</a>
-<a href="/retirement-planning-calculator/">Retirement Planning</a>
-<a href="/savings-goal-calculator/">Savings Goal</a>
-</div>
-</div>
-<div class="note">
-        Tip: Use the <b>Budget Planner</b> first, then try the debt and investing tools to model different scenarios.
-      </div>
-</section>
-<section class="card section" data-twm-faq="1" style="margin-top:16px">
-<h2>Frequently asked questions</h2>
+</p></section>
+<section id="faq" class="faq"><h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <h3>What percentage of income should I save each month?</h3>
 <p>A strong starting point is 10–20% of take‑home pay. If money is tight, start with 5–10% and increase gradually as you reduce expenses or grow income.</p>
 <h3>How do I set a realistic savings target?</h3>
@@ -398,156 +142,24 @@
 <h3>How often should I update my monthly budget?</h3>
 <p>Review your budget at least once a month and whenever income, rent, debt payments, or regular bills change. Frequent updates keep your savings target realistic.</p>
 <h3>Can a budget planner help with debt payoff?</h3>
-<p>Yes. A budget planner calculator shows how much cash is left after essential spending, which helps you decide whether you can make extra debt payments without harming your savings buffer.</p>
-</section>
+<p>Yes. A budget planner calculator shows how much cash is left after essential spending, which helps you decide whether you can make extra debt payments without harming your savings buffer.</p></section>
+<section class="method" id="methodology"><h2>How this calculator works</h2>
+<h3>Formula</h3><p class="formula">Left over = take-home pay − essential costs − flexible spending
+Emergency fund target = essential costs × months chosen</p>
+<h3>Conventions</h3><ul><li>Needs/wants/savings shares are compared with the 50/30/20 guide, a rule of thumb rather than a standard.</li><li>Minimum debt repayments are counted as essential costs.</li></ul>
+<h3>Limitations</h3><ul><li>Uses the figures you enter; irregular or annual costs should be converted to a monthly amount.</li><li>Does not calculate tax or benefits: enter take-home (net) pay.</li></ul>
+<dl><dt>Jurisdiction</dt><dd>Not country-specific. Works in GBP, USD or EUR.</dd><dt>Tested</dt><dd>Checked against independent reference calculations (closed-form formulas and published textbook values), including edge cases such as 0% rates and unreachable goals.</dd><dt>Last reviewed</dt><dd><time datetime="2026-11-11">11 November 2026</time></dd></dl>
+<p>Read the full <a href="/calculator-methodology/">calculator methodology</a> or <a href="/contact/">report a problem</a>.</p></section></article><aside class="aside" aria-label="Related"><div class="card"><h2>Related calculators</h2><ul><li><a href="/savings-goal-calculator/">Savings Goal Calculator</a></li><li><a href="/loan-repayment-calculator/">Loan Repayment Calculator</a></li><li><a href="/mortgage-payment-calculator/">Mortgage Calculator</a></li><li><a href="/credit-card-payoff-calculator/">Credit Card Payoff Calculator</a></li><li><a href="/debt-snowball-avalanche-calculator/">Debt Snowball vs Avalanche</a></li></ul></div><div class="card"><h2>Related guides</h2><ul><li><a href="/budgeting-tips-for-beginners/">Budgeting Tips for Beginners</a></li><li><a href="/how-much-should-you-save/">How Much Should You Save Each Month?</a></li><li><a href="/how-much-emergency-fund/">How Much Emergency Fund Do You Need?</a></li><li><a href="/how-loan-interest-works/">How Loan Interest Works</a></li><li><a href="/how-to-calculate-loan-interest-easily/">How to Calculate Loan Interest Easily</a></li></ul></div></aside></div></div>
+</main>
+<footer class="site-footer"><div class="container">
+<div class="footer-grid">
+<div class="footer-brand"><a class="brand" href="/"><svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#0a1a33"/><path d="M9 25V19M15 25V15M21 25V17M27 25V10" stroke="#12a594" stroke-width="3.2" stroke-linecap="round"/><path d="M8.5 15.5 14.5 11l6 3 7-6.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>True<b>Wealth</b>Metrics</span></a><p>Free, transparent personal finance calculators and plain-English guides. Calculations run in your browser: we don’t ask for an account or store what you enter.</p></div>
+<div><h2>Budget &amp; borrow</h2><ul><li><a href="/budget-planner-calculator/">Budget Planner</a></li><li><a href="/savings-goal-calculator/">Savings Goal Calculator</a></li><li><a href="/loan-repayment-calculator/">Loan Repayment Calculator</a></li><li><a href="/mortgage-payment-calculator/">Mortgage Calculator</a></li><li><a href="/credit-card-payoff-calculator/">Credit Card Payoff Calculator</a></li><li><a href="/debt-snowball-avalanche-calculator/">Debt Snowball vs Avalanche</a></li></ul></div>
+<div><h2>Invest &amp; retire</h2><ul><li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li><li><a href="/investment-calculator/">Investment Calculator</a></li><li><a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a></li><li><a href="/roi-calculator/">ROI Calculator</a></li><li><a href="/retirement-planning-calculator/">Retirement Planning Calculator</a></li></ul></div>
+<div><h2>Guides</h2><ul><li><a href="/learn/">All guides</a></li><li><a href="/budgeting-tips-for-beginners/">Budgeting Tips for Beginners</a></li><li><a href="/how-much-should-you-save/">How Much Should You Save Each Month?</a></li><li><a href="/how-much-emergency-fund/">How Much Emergency Fund Do You Need?</a></li><li><a href="/how-loan-interest-works/">How Loan Interest Works</a></li><li><a href="/how-to-calculate-loan-interest-easily/">How to Calculate Loan Interest Easily</a></li><li><a href="/amortization-schedule-explained/">Amortization Schedule Explained</a></li></ul></div>
+<div><h2>TrueWealthMetrics</h2><ul><li><a href="/about/">About</a></li><li><a href="/about-the-author/">About the author</a></li><li><a href="/editorial-policy/">Editorial policy</a></li><li><a href="/calculator-methodology/">Calculator methodology</a></li><li><a href="/contact/">Contact &amp; corrections</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms-of-use/">Terms of use</a></li></ul></div>
 </div>
-<script>
-(function(){
-  const el = (id)=>document.getElementById(id);
-
-  const money = (n)=>{
-    if(!isFinite(n)) return "—";
-    return new Intl.NumberFormat(undefined,{style:"currency",currency:"GBP"}).format(n);
-  };
-  const pct = (n)=>{
-    if(!isFinite(n)) return "—";
-    return (Math.round(n*10)/10).toFixed(1) + "%";
-  };
-  const num = (id)=>{
-    const v = parseFloat(el(id).value);
-    return isFinite(v) ? Math.max(0,v) : 0;
-  };
-
-  const defaults = {
-    income:3000, housing:1100, utilities:180, transport:200, groceries:350,
-    insurance:120, subscriptions:45, debt:150, otherFixed:80, variable:300,
-    savingsPct:20, emergencyMonths:3
-  };
-
-  function calc(){
-    const income = num("income");
-
-    const housing = num("housing");
-    const utilities = num("utilities");
-    const transport = num("transport");
-    const groceries = num("groceries");
-    const insurance = num("insurance");
-    const subscriptions = num("subscriptions");
-    const debt = num("debt");
-    const otherFixed = num("otherFixed");
-    const variable = num("variable");
-
-    const savingsPct = Math.min(80, num("savingsPct"));
-    const emergencyMonths = Math.min(24, num("emergencyMonths"));
-
-    const needs = housing + utilities + transport + groceries + insurance + otherFixed;
-    const wants = variable + subscriptions;
-    const debtMin = debt;
-
-    const totalExpenses = needs + wants + debtMin;
-    const leftover = income - totalExpenses;
-
-    const savingsTarget = income * (savingsPct/100);
-    const essentials = needs + debtMin; // for emergency fund
-    const emergencyTarget = essentials * emergencyMonths;
-
-    el("totalExpenses").textContent = money(totalExpenses);
-    el("leftover").textContent = money(leftover);
-    el("savingsTarget").textContent = money(savingsTarget);
-    el("emergencyTarget").textContent = money(emergencyTarget);
-
-    // breakdown table
-    const rows = [
-      ["Needs (housing, food, bills)", needs],
-      ["Debt minimums", debtMin],
-      ["Wants (variable + subs)", wants],
-      ["Total expenses", totalExpenses],
-      ["Leftover cash", leftover]
-    ];
-
-    const tbody = el("breakdownBody");
-    tbody.innerHTML = "";
-    rows.forEach(([name, val])=>{
-      const tr = document.createElement("tr");
-      const p = income>0 ? (val/income)*100 : NaN;
-      tr.innerHTML = `<td>${name}</td><td>${money(val)}</td><td>${pct(p)}</td>`;
-      tbody.appendChild(tr);
-    });
-
-    // 50/30/20 comparison tag
-    const needsPct = income>0 ? (needs/income)*100 : 0;
-    const wantsPct = income>0 ? (wants/income)*100 : 0;
-    const saveDebtPct = income>0 ? ((debtMin + Math.max(0, leftover))/income)*100 : 0;
-
-    el("ruleTag").textContent =
-      `Your split: Needs ${pct(needsPct)} • Wants ${pct(wantsPct)} • Leftover+Debt ${pct(saveDebtPct)} (50/30/20 reference)`;
-
-    // Health scoring (simple + transparent)
-    // Score 0-100 based on: leftover positivity, savings target feasibility, needs ratio
-    let score = 100;
-
-    if(income <= 0){ score = 0; }
-    if(leftover < 0){ score -= Math.min(70, Math.abs(leftover)/Math.max(1,income)*200); }
-    // if leftover is less than savings target, reduce score
-    const short = savingsTarget - Math.max(0,leftover);
-    if(short > 0){ score -= Math.min(40, short/Math.max(1,income)*200); }
-    // needs too high
-    if(needsPct > 60){ score -= Math.min(25, (needsPct-60)*1.2); }
-    score = Math.max(0, Math.min(100, Math.round(score)));
-
-    const fill = el("healthFill");
-    const bar = el("healthBar");
-    fill.style.width = score + "%";
-    bar.classList.toggle("bad", score < 55);
-
-    el("healthLabel").textContent = score + "/100";
-
-    const note = el("healthNote");
-    if(income <= 0){
-      note.textContent = "Add your monthly net income to calculate a budget health score.";
-    } else if(leftover < 0){
-      note.innerHTML = `Your expenses exceed your income by <b>${money(Math.abs(leftover))}</b>. Reduce categories or increase income to avoid debt growth.`;
-    } else if(leftover >= savingsTarget){
-      note.innerHTML = `You can hit your savings goal. Leftover after expenses is <b>${money(leftover)}</b> and your target is <b>${money(savingsTarget)}</b>.`;
-    } else {
-      note.innerHTML = `You're close. Leftover is <b>${money(leftover)}</b> but your savings target is <b>${money(savingsTarget)}</b>. Reduce wants or increase income.`;
-    }
-  }
-
-  function reset(){
-    Object.keys(defaults).forEach(k=>{ el(k).value = defaults[k]; });
-    calc();
-  }
-
-  el("btnCalc").addEventListener("click", calc);
-  el("btnReset").addEventListener("click", reset);
-
-  // compute once on load
-  calc();
-})();
-</script>
-<footer class="site-footer">
-<div class="container">
-<div class="footer-row">
-<div class="footer-left">
-<div class="footer-brand">© <span id="footerYear"></span> TrueWealthMetrics.</div>
-<div class="footer-note">These calculators provide educational estimates only and do not constitute financial advice.</div>
-</div>
-<div class="footer-links">
-<a href="/about/">About</a>
-<a href="/about-the-author/">About the Author</a>
-<a href="/editorial-policy/">Editorial Policy</a>
-<a href="/calculator-methodology/">Calculator Methodology</a>
-<a href="/contact/">Contact</a>
-<a href="/privacy-policy/">Privacy Policy</a>
-<a href="/terms-of-use/">Terms of Use</a>
-</div>
-</div>
-</div>
-<script>
-    (function(){try{document.getElementById('footerYear').textContent=new Date().getFullYear();}catch(e){}})();
-  </script>
-</footer>
-
+<div class="footer-legal"><p><strong>Educational tools, not financial advice.</strong> TrueWealthMetrics is not a regulated financial adviser. Results are estimates based on the assumptions shown and are not guaranteed. Consider independent, regulated advice before making major financial decisions.</p><p>© 2026 TrueWealthMetrics</p></div>
+</div></footer>
 </body>
 </html>

@@ -1,882 +1,501 @@
-<!DOCTYPE html>
-
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Personal Finance Calculators | TrueWealthMetrics</title>
-<meta content="Personal finance calculators for budgeting, loans, saving, investing and retirement. Compare free tools to plan smarter money decisions." name="description"/>
-<link href="https://truewealthmetrics.com/financial-calculators/" rel="canonical"/>
-<meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/>
-<meta content="#0b1220" name="theme-color"/>
-<link href="/favicon.ico" rel="icon" sizes="any"/>
-<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
-<meta content="website" property="og:type"/>
-<meta content="Personal Finance Calculators | TrueWealthMetrics" property="og:title"/>
-<meta content="Personal finance calculators for budgeting, loans, saving, investing and retirement. Compare free tools to plan smarter money decisions." property="og:description"/>
-<meta content="https://truewealthmetrics.com/financial-calculators/" property="og:url"/>
-<meta content="TrueWealthMetrics" property="og:site_name"/>
-<meta content="https://truewealthmetrics.com/logo.png" property="og:image"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Personal Finance Calculators | TrueWealthMetrics" name="twitter:title"/>
-<meta content="Personal finance calculators for budgeting, loans, saving, investing and retirement. Compare free tools to plan smarter money decisions." name="twitter:description"/>
-<meta content="https://truewealthmetrics.com/logo.png" name="twitter:image"/>
-<link href="/styles.css" rel="stylesheet"/>
-<script defer="" src="/header.js"></script>
-<style>
-    :root{
-      --hub-max:1160px;
-      --hub-card:rgba(255,255,255,.03);
-      --hub-card-border:rgba(255,255,255,.10);
-      --hub-soft:rgba(226,232,240,.84);
-      --hub-text:#f5f7fb;
-      --hub-accent:#7dd3fc;
-      --hub-accent-2:#a78bfa;
-      --hub-accent-3:#34d399;
-    }
-    *{box-sizing:border-box}
-    body{color:var(--hub-text)}
-    .hub-shell{
-      width:min(var(--hub-max), calc(100% - 32px));
-      margin:0 auto;
-      padding:20px 0 64px;
-    }
-    .hub-hero,
-    .hub-panel,
-    .hub-card,
-    .hub-faq-item,
-    .hub-cta,
-    .hub-popular-card,
-    .hub-stat{
-      border:1px solid var(--hub-card-border);
-      background:linear-gradient(180deg, rgba(6,13,28,.88), rgba(3,8,20,.92));
-      border-radius:24px;
-      box-shadow:none;
-      backdrop-filter:none;
-    }
-    .hub-hero{
-      position:relative;
-      overflow:hidden;
-      padding:24px;
-      background:
-        radial-gradient(circle at top left, rgba(125,211,252,.15), transparent 30%),
-        radial-gradient(circle at top right, rgba(167,139,250,.16), transparent 28%),
-        linear-gradient(135deg, rgba(30,58,95,.72), rgba(10,18,38,.94) 46%, rgba(44,23,62,.76));
-    }
-    .hub-kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border:1px solid rgba(125,211,252,.24);
-      background:rgba(125,211,252,.07);
-      color:#e6f7ff;
-      border-radius:999px;
-      padding:8px 12px;
-      font-size:.82rem;
-      font-weight:700;
-      letter-spacing:.02em;
-      text-transform:uppercase;
-    }
-    .hub-hero h1{
-      margin:16px 0 12px;
-      font-size:clamp(2.2rem, 5vw, 4rem);
-      line-height:1.02;
-      letter-spacing:-.035em;
-      max-width:930px;
-    }
-    .hub-lead{
-      margin:0;
-      max-width:860px;
-      color:var(--hub-soft);
-      font-size:1.02rem;
-      line-height:1.6;
-    }
-    .hub-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:16px;
-    }
-    .hub-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      min-height:44px;
-      padding:0 18px;
-      border-radius:999px;
-      font-weight:700;
-      text-decoration:none;
-      transition:transform .18s ease, border-color .18s ease, background .18s ease;
-    }
-    .hub-btn:hover{transform:translateY(-1px)}
-    .hub-btn-primary{
-      background:linear-gradient(135deg, rgba(125,211,252,.96), rgba(167,139,250,.96));
-      color:#08111d;
-    }
-    .hub-btn-secondary{
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.03);
-      color:#f5f7fb;
-    }
-    .hub-hero-grid{
-      display:grid;
-      grid-template-columns:1.35fr .85fr;
-      gap:18px;
-      margin-top:20px;
-    }
-    .hub-stat-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:12px;
-      align-content:start;
-    }
-    .hub-stat{padding:18px}
-    .hub-stat strong{
-      display:block;
-      font-size:1rem;
-      margin-bottom:6px;
-      letter-spacing:-.02em;
-    }
-    .hub-stat span{
-      color:var(--hub-soft);
-      line-height:1.55;
-      font-size:.95rem;
-    }
-    .hub-panel,
-    .hub-cta,
-    .hub-popular-card,
-    .hub-card,
-    .hub-faq-item{padding:20px}
-    .hub-panel h2,
-    .hub-section-head h2,
-    .hub-cta h2{
-      margin:0 0 10px;
-      font-size:1.25rem;
-      line-height:1.15;
-      letter-spacing:-.02em;
-    }
-    .hub-section-head h2{
-      font-size:1.15rem;
-      text-transform:none;
-    }
-    .hub-panel p,
-    .hub-section-head p,
-    .hub-cta p{
-      margin:0;
-      color:var(--hub-soft);
-      line-height:1.65;
-    }
-    .hub-bullets{
-      margin:14px 0 0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:10px;
-    }
-    .hub-bullets li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      color:var(--hub-soft);
-      line-height:1.55;
-    }
-    .hub-bullets li::before{
-      content:"✓";
-      flex:0 0 auto;
-      color:var(--hub-accent-3);
-      font-weight:800;
-      margin-top:1px;
-    }
-    .hub-section{margin-top:20px}
-    .hub-section-head{margin-bottom:12px}
-    .hub-category-grid,
-    .hub-popular-grid,
-    .hub-row{
-      display:grid;
-      gap:16px;
-    }
-    .hub-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .hub-popular-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .hub-row{grid-template-columns:1fr 1fr}
-    .hub-card h3,
-    .hub-popular-card h3{
-      margin:0 0 8px;
-      font-size:1rem;
-      letter-spacing:-.02em;
-    }
-    .hub-card p,
-    .hub-popular-card p{
-      margin:0 0 12px;
-      color:var(--hub-soft);
-      line-height:1.6;
-    }
-    .hub-links{display:grid;gap:10px}
-    .hub-tool{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:14px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.02);
-      color:inherit;
-      text-decoration:none;
-      border-radius:18px;
-      padding:14px 16px;
-      transition:transform .18s ease, border-color .18s ease, background .18s ease;
-    }
-    .hub-tool:hover{
-      transform:translateY(-1px);
-      border-color:rgba(125,211,252,.28);
-      background:rgba(255,255,255,.04);
-    }
-    .hub-tool strong{display:block;margin-bottom:4px;font-size:1rem;letter-spacing:-.02em}
-    .hub-tool span{color:var(--hub-soft);font-size:.94rem;line-height:1.5}
-    .hub-tool b{color:#dff6ff;font-size:.92rem;white-space:nowrap}
-    .hub-popular-card{display:flex;flex-direction:column;gap:10px}
-    .hub-popular-tag{
-      display:inline-flex;
-      align-items:center;
-      width:max-content;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(125,211,252,.08);
-      border:1px solid rgba(125,211,252,.18);
-      color:#d9f3ff;
-      font-size:.78rem;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.04em;
-    }
-    .hub-inline-link{color:#dff6ff}
-    .hub-faq{display:grid;gap:12px}
-    .hub-faq-item h3{margin:0 0 8px;font-size:1rem;letter-spacing:-.02em}
-    .hub-faq-item p{margin:0;color:var(--hub-soft);line-height:1.65}
-    .hub-mini-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-    .hub-mini-links a{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:9px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.03);
-      color:#ebf4ff;
-      text-decoration:none;
-      font-size:.92rem;
-    }
-    .hub-note{margin-top:16px;color:var(--hub-soft);font-size:.94rem;line-height:1.65}
-    @media (max-width: 980px){
-      .hub-hero-grid,.hub-row,.hub-category-grid,.hub-popular-grid{grid-template-columns:1fr}
-    }
-    @media (max-width: 640px){
-      .hub-shell{width:min(var(--hub-max), calc(100% - 20px)); padding:16px 0 48px}
-      .hub-hero{padding:18px}
-      .hub-stat-grid{grid-template-columns:1fr}
-      .hub-card,.hub-cta,.hub-panel,.hub-faq-item,.hub-popular-card,.hub-stat{padding:18px}
-      .hub-tool{align-items:flex-start}
-      .hub-tool b{white-space:normal}
-      .hub-hero h1{font-size:clamp(2rem, 10vw, 2.7rem)}
-      .hub-lead{font-size:.98rem}
-    }
-  </style>
-
-
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Personal Finance Calculators","url":"https://truewealthmetrics.com/financial-calculators/","description":"A hub of free financial calculators and personal finance tools for budgeting, debt, loans, investing, ROI, and retirement planning.","isPartOf":{"@type":"WebSite","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/"},"about":[{"@type":"Thing","name":"financial calculators"},{"@type":"Thing","name":"personal finance calculators"},{"@type":"Thing","name":"free finance tools"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},{"@type":"ListItem","position":2,"name":"Personal Finance Calculators","item":"https://truewealthmetrics.com/financial-calculators/"}]},{"@type":"SoftwareApplication","name":"Budget Planner Calculator","url":"https://truewealthmetrics.com/budget-planner-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web"},{"@type":"SoftwareApplication","name":"Savings Goal Calculator","url":"https://truewealthmetrics.com/savings-goal-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web"},{"@type":"SoftwareApplication","name":"Compound Interest Calculator","url":"https://truewealthmetrics.com/compound-interest-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web"},{"@type":"SoftwareApplication","name":"Investment Fee Impact Calculator","url":"https://truewealthmetrics.com/investment-fee-impact-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web"},{"@type":"SoftwareApplication","name":"ROI Calculator","url":"https://truewealthmetrics.com/roi-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web"},{"@type":"SoftwareApplication","name":"Loan Repayment Calculator","url":"https://truewealthmetrics.com/loan-repayment-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web"},{"@type":"SoftwareApplication","name":"Mortgage Payment Calculator","url":"https://truewealthmetrics.com/mortgage-payment-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web"},{"@type":"SoftwareApplication","name":"Credit Card Payoff Calculator","url":"https://truewealthmetrics.com/credit-card-payoff-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web"},{"@type":"SoftwareApplication","name":"Debt Snowball Avalanche Calculator","url":"https://truewealthmetrics.com/debt-snowball-avalanche-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web"},{"@type":"SoftwareApplication","name":"Retirement Planning Calculator","url":"https://truewealthmetrics.com/retirement-planning-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are financial calculators used for?","acceptedAnswer":{"@type":"Answer","text":"Financial calculators help you estimate the impact of money decisions before you commit real cash. They are commonly used for budgeting, savings goals, debt payoff, loan costs, mortgage repayments, investment growth, fees, ROI, and retirement planning."}},{"@type":"Question","name":"Which personal finance calculator should I start with?","acceptedAnswer":{"@type":"Answer","text":"Most people should start with a budget planner to understand cash flow first, then move into savings, debt, loan, or investing calculators depending on the next decision they need to make."}},{"@type":"Question","name":"Should I use one calculator or compare several?","acceptedAnswer":{"@type":"Answer","text":"Compare several when the decision affects more than one part of your finances. Budgeting, debt payoff, savings, investing, and retirement outcomes often influence one another, so running more than one calculator creates a better decision framework."}},{"@type":"Question","name":"Are these free finance tools accurate?","acceptedAnswer":{"@type":"Answer","text":"These calculators are designed to provide clear educational estimates using standard financial formulas and simplified assumptions. Real results can differ because of taxes, fees, changing rates, and personal circumstances, so the outputs should be used as planning guidance rather than personalized financial advice."}},{"@type":"Question","name":"Do I need to sign up to use these calculators?","acceptedAnswer":{"@type":"Answer","text":"No. The TrueWealthMetrics calculators are free to use and do not require signup."}},{"@type":"Question","name":"Why does this hub include both calculators and supporting explanations?","acceptedAnswer":{"@type":"Answer","text":"This hub includes both calculators and supporting explanations so users can understand what each result means, what assumptions are involved, and which calculator to use next."}}]}]}</script></head>
+<meta name="description" content="Personal finance calculators for budgeting, loans, saving, investing and retirement. Compare free tools to plan smarter money decisions.">
+<link rel="canonical" href="https://truewealthmetrics.com/financial-calculators/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0a1a33">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TrueWealthMetrics">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Personal Finance Calculators | TrueWealthMetrics">
+<meta property="og:description" content="Personal finance calculators for budgeting, loans, saving, investing and retirement. Compare free tools to plan smarter money decisions.">
+<meta property="og:url" content="https://truewealthmetrics.com/financial-calculators/">
+<meta property="og:image" content="https://truewealthmetrics.com/assets/img/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TrueWealthMetrics personal finance calculators">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Personal Finance Calculators | TrueWealthMetrics">
+<meta name="twitter:description" content="Personal finance calculators for budgeting, loans, saving, investing and retirement. Compare free tools to plan smarter money decisions.">
+<meta name="twitter:image" content="https://truewealthmetrics.com/assets/img/og-default.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/css/site.css?v=7bfd2bf34a">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://truewealthmetrics.com/#organization","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/","logo":{"@type":"ImageObject","url":"https://truewealthmetrics.com/logo.png"},"email":"support@truewealthmetrics.com"},{"@type":"WebSite","@id":"https://truewealthmetrics.com/#website","name":"TrueWealthMetrics","url":"https://truewealthmetrics.com/","publisher":{"@id":"https://truewealthmetrics.com/#organization"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","@id":"https://truewealthmetrics.com/financial-calculators/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://truewealthmetrics.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://truewealthmetrics.com/financial-calculators/"}]},{"@type":"CollectionPage","@id":"https://truewealthmetrics.com/financial-calculators/#webpage","url":"https://truewealthmetrics.com/financial-calculators/","name":"Personal Finance Calculators | TrueWealthMetrics","description":"Personal finance calculators for budgeting, loans, saving, investing and retirement. Compare free tools to plan smarter money decisions.","isPartOf":{"@id":"https://truewealthmetrics.com/#website"},"inLanguage":"en-GB","breadcrumb":{"@id":"https://truewealthmetrics.com/financial-calculators/#breadcrumb"}},{"@type":"FAQPage","@id":"https://truewealthmetrics.com/financial-calculators/#faq","url":"https://truewealthmetrics.com/financial-calculators/","mainEntity":[{"@type":"Question","name":"What are financial calculators used for?","acceptedAnswer":{"@type":"Answer","text":"Financial calculators are used to estimate the effect of money decisions before you act. Common use cases include monthly budgeting, debt payoff, loan and mortgage repayment estimates, savings goals, investment growth projections, fee comparisons, ROI analysis, and retirement planning."}},{"@type":"Question","name":"Which personal finance calculator should I use first?","acceptedAnswer":{"@type":"Answer","text":"If you are not sure where to begin, start with a budget calculator because it gives you a base view of income, expenses, and leftover cash. Once you know your monthly position, move into debt, savings, or investing tools based on the next decision you want to make."}},{"@type":"Question","name":"Should I use one calculator or compare several?","acceptedAnswer":{"@type":"Answer","text":"Compare several when the decision affects more than one part of your finances. A budgeting result can affect debt payoff speed. A debt decision can affect savings ability. An investing projection can change once you factor in fees, timeline, or contribution level. Using more than one calculator gives you a better decision framework."}},{"@type":"Question","name":"Are these free finance tools really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The TrueWealthMetrics calculators are free to use and do not require signup. They are built for education, planning, and scenario testing so you can understand trade-offs before committing real money."}},{"@type":"Question","name":"Are online financial calculators accurate?","acceptedAnswer":{"@type":"Answer","text":"Good calculators use standard formulas and reasonable assumptions, but real outcomes can differ because of taxes, fees, variable interest rates, policy changes, and personal behavior. Use the outputs as decision support, not as personalized financial advice."}},{"@type":"Question","name":"Can these calculators help with budgeting and debt before investing?","acceptedAnswer":{"@type":"Answer","text":"Yes. In many cases that is the best order. Start with budgeting tools to find available cash flow, then use debt calculators to see whether faster repayment gives a stronger guaranteed benefit than investing the same money right away."}},{"@type":"Question","name":"Why does this hub include both calculators and supporting explanations?","acceptedAnswer":{"@type":"Answer","text":"Financial calculators are more useful when you understand what each result means, what assumptions sit behind it, and which tool to open next. That is why this hub includes guidance, examples, categories, and internal links alongside the calculators."}}]}]}</script>
+<script src="/assets/js/site.js?v=7868041786" defer></script>
+</head>
 <body>
-<div id="site-header"></div>
-<main class="hub-shell">
-<section class="hub-hero">
-<div class="hub-kicker">Financial calculators · free personal finance tools</div>
-<h1>Personal Finance Calculators for Budgeting, Loans, Investing &amp; Retirement</h1>
-<p class="hub-lead">
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="/"><svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#0a1a33"/><path d="M9 25V19M15 25V15M21 25V17M27 25V10" stroke="#12a594" stroke-width="3.2" stroke-linecap="round"/><path d="M8.5 15.5 14.5 11l6 3 7-6.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>True<b>Wealth</b>Metrics</span></a><nav class="site-nav" aria-label="Main"><ul><li><a href="/financial-calculators/" aria-current="page">Calculators</a></li><li><a href="/financial-calculators/#budgeting">Budgeting</a></li><li><a href="/financial-calculators/#borrowing">Loans &amp; debt</a></li><li><a href="/financial-calculators/#investing">Investing</a></li><li><a href="/financial-calculators/#retirement">Retirement</a></li><li><a href="/learn/">Guides</a></li><li><a href="/calculator-methodology/">Methodology</a></li><li><a href="/about/">About</a></li></ul></nav></div></header>
+<main id="main">
+<div class="page-head"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Calculators</span></li></ol></nav><h1>Personal Finance Calculators for Budgeting, Loans, Investing &amp; Retirement</h1><p class="lead">
         Financial calculators help you compare money decisions before you commit real cash.
-        This financial calculators hub from <a class="hub-inline-link" href="/">TrueWealthMetrics</a> brings budgeting, savings, debt payoff, loans, mortgages, investing, ROI, and retirement planning tools together in one place.
+        This financial calculators hub from <a href="/">TrueWealthMetrics</a> brings budgeting, savings, debt payoff, loans, mortgages, investing, ROI, and retirement planning tools together in one place.
         Whether you need a monthly budget check, a debt payoff comparison, a mortgage estimate, or an investing projection,
         these personal finance calculators are designed to be simple, transparent, and useful before real money is on the line.
         All calculators are free to use, require no signup, and are built using standard financial formulas for accuracy and transparency.
-      </p>
-<div class="hub-actions">
-<a class="hub-btn hub-btn-primary" href="/budget-planner-calculator/">Start with Budget Planner</a>
-<a class="hub-btn hub-btn-secondary" href="/learn/">Read finance guides</a>
-</div>
-<p class="hub-note">Popular searches: <a class="hub-inline-link" href="/compound-interest-calculator/">compound interest calculator</a>, <a class="hub-inline-link" href="/retirement-planning-calculator/">retirement calculator</a>, <a class="hub-inline-link" href="/credit-card-payoff-calculator/">debt payoff calculator</a>, and <a class="hub-inline-link" href="/savings-goal-calculator/">savings goal calculator</a>.</p>
-<div class="hub-hero-grid">
-<div>
-<div class="hub-panel">
-<h2>Find the right calculator faster</h2>
+      </p><form class="finder" role="search" data-finder="#directory"><label for="q-directory" class="visually-hidden">Search calculators</label><div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q-directory" type="search" placeholder="Search calculators, e.g. mortgage, savings, ROI" autocomplete="off"></div><div class="filter-chips" aria-label="Filter by category"><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="budgeting" aria-pressed="false">Budgeting &amp; saving</button><button type="button" data-filter="borrowing" aria-pressed="false">Loans &amp; debt</button><button type="button" data-filter="investing" aria-pressed="false">Investing</button><button type="button" data-filter="retirement" aria-pressed="false">Retirement</button></div><p class="visually-hidden" data-status aria-live="polite"></p></form></div></div>
+<div class="container section"><div id="directory"><section data-group aria-labelledby="budgeting"><h2 class="cat-title" id="budgeting">Budgeting &amp; saving</h2><p class="muted">Plan monthly spending, set savings targets and build a safety net.</p><div class="grid grid-3"><article class="tool-card" data-item data-cat="budgeting" data-search="budget planner see where your monthly income goes, what is left and a realistic savings target. budget monthly planner income expenses 50/30/20 spending budgeting &amp; saving"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 7a2 2 0 0 1 2-2h12v4"/><path d="M3 7v10a2 2 0 0 0 2 2h14V9H5a2 2 0 0 1-2-2Z"/><circle cx="16" cy="14" r="1.2"/></svg></span><span class="cat">Budgeting &amp; saving</span><h3><a href="/budget-planner-calculator/">Budget Planner</a></h3><p>See where your monthly income goes, what is left and a realistic savings target.</p></article><article class="tool-card" data-item data-cat="budgeting" data-search="savings goal calculator find out how long a goal will take, or how much to save each month to hit a deadline. savings goal target deadline monthly saving interest budgeting &amp; saving"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></span><span class="cat">Budgeting &amp; saving</span><h3><a href="/savings-goal-calculator/">Savings Goal Calculator</a></h3><p>Find out how long a goal will take, or how much to save each month to hit a deadline.</p></article></div></section><section data-group aria-labelledby="borrowing"><h2 class="cat-title" id="borrowing">Loans &amp; debt</h2><p class="muted">Compare repayments, mortgages and the fastest way to clear debt.</p><div class="grid grid-3"><article class="tool-card" data-item data-cat="borrowing" data-search="loan repayment calculator monthly payment, total interest and a full schedule, with optional overpayments. loan repayment personal car loan monthly payment amortization interest overpayment loans &amp; debt"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 10 12 4l9 6"/><path d="M5 10v8m4-8v8m6-8v8m4-8v8"/><path d="M3 20h18"/></svg></span><span class="cat">Loans &amp; debt</span><h3><a href="/loan-repayment-calculator/">Loan Repayment Calculator</a></h3><p>Monthly payment, total interest and a full schedule, with optional overpayments.</p></article><article class="tool-card" data-item data-cat="borrowing" data-search="mortgage calculator monthly mortgage payments, all-in housing cost and the effect of overpaying. mortgage payment home loan house overpayment deposit ltv amortization loans &amp; debt"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="cat">Loans &amp; debt</span><h3><a href="/mortgage-payment-calculator/">Mortgage Calculator</a></h3><p>Monthly mortgage payments, all-in housing cost and the effect of overpaying.</p></article><article class="tool-card" data-item data-cat="borrowing" data-search="credit card payoff calculator how long a card balance will take to clear, and how much extra payments save. credit card payoff balance minimum payment interest apr extra loans &amp; debt"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span><span class="cat">Loans &amp; debt</span><h3><a href="/credit-card-payoff-calculator/">Credit Card Payoff Calculator</a></h3><p>How long a card balance will take to clear, and how much extra payments save.</p></article><article class="tool-card" data-item data-cat="borrowing" data-search="debt snowball vs avalanche compare the two most popular ways to pay off several debts. debt snowball avalanche payoff multiple debts strategy loans &amp; debt"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></span><span class="cat">Loans &amp; debt</span><h3><a href="/debt-snowball-avalanche-calculator/">Debt Snowball vs Avalanche</a></h3><p>Compare the two most popular ways to pay off several debts.</p></article></div></section><section data-group aria-labelledby="investing"><h2 class="cat-title" id="investing">Investing</h2><p class="muted">See how compound growth, returns and fees shape long-term results.</p><div class="grid grid-3"><article class="tool-card" data-item data-cat="investing" data-search="compound interest calculator grow a lump sum and monthly contributions with any compounding frequency. compound interest calculator savings growth monthly contributions daily yearly investing"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 17 9 11l4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="cat">Investing</span><h3><a href="/compound-interest-calculator/">Compound Interest Calculator</a></h3><p>Grow a lump sum and monthly contributions with any compounding frequency.</p></article><article class="tool-card" data-item data-cat="investing" data-search="investment calculator project an investment with monthly additions, fees and inflation. investment calculator growth future value portfolio returns fees inflation investing"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V10m6 10V4m6 16v-7m4 7H2"/></svg></span><span class="cat">Investing</span><h3><a href="/investment-calculator/">Investment Calculator</a></h3><p>Project an investment with monthly additions, fees and inflation.</p></article><article class="tool-card" data-item data-cat="investing" data-search="investment fee impact calculator compare two fee levels and see how much a higher fee costs over time. investment fees cost expense ratio ongoing charges platform adviser investing"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 5 5 19"/><circle cx="7" cy="7" r="2.2"/><circle cx="17" cy="17" r="2.2"/></svg></span><span class="cat">Investing</span><h3><a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a></h3><p>Compare two fee levels and see how much a higher fee costs over time.</p></article><article class="tool-card" data-item data-cat="investing" data-search="roi calculator work out roi and annualised return (cagr or irr) for a past or projected investment. roi return on investment cagr annualised return profit irr investing"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 15h11l-3-3m3 3-3 3"/><path d="M20 9H9l3-3M9 9l3 3"/></svg></span><span class="cat">Investing</span><h3><a href="/roi-calculator/">ROI Calculator</a></h3><p>Work out ROI and annualised return (CAGR or IRR) for a past or projected investment.</p></article></div></section><section data-group aria-labelledby="retirement"><h2 class="cat-title" id="retirement">Retirement</h2><p class="muted">Estimate the pot you may need and whether you are on track.</p><div class="grid grid-3"><article class="tool-card" data-item data-cat="retirement" data-search="retirement planning calculator estimate your future pot, the pot you may need and the monthly saving to get there. retirement planning pension savings goal nest egg withdrawal rate 4% rule retirement"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 18h18M6 14a6 6 0 0 1 12 0"/><path d="M12 4v3m-7.1.9 2.1 2.1m12.1-2.1L17 10"/></svg></span><span class="cat">Retirement</span><h3><a href="/retirement-planning-calculator/">Retirement Planning Calculator</a></h3><p>Estimate your future pot, the pot you may need and the monthly saving to get there.</p></article></div></section><p class="no-results" data-empty hidden>No calculators match that search. Try a broader word such as "loan", "save" or "invest".</p></div></div>
+<div class="container section content-area"><div class="content-grid"><article class="prose"><section><h2 id="personal-finance-calculators-for-better-money-decisions">Personal finance calculators for better money decisions</h2>
 <p>
-              Start with the tool that matches your next decision. Budget first if you need cash-flow clarity. Use debt and loan tools
-              if you are trying to lower interest costs. Open investing calculators when you want to compare long-term growth,
-              fees, and retirement scenarios.
-            </p>
-<ul class="hub-bullets">
-<li>Budgeting tools to understand income, spending, and savings capacity</li>
-<li>Debt and loan tools to compare payoff strategies and repayment costs</li>
-<li>Investing calculators to model compound growth, ROI, and fee drag</li>
-<li>Retirement planning tools to estimate future value and contribution needs</li>
-</ul>
-<div class="hub-mini-links">
-<a href="/budget-planner-calculator/">Budget Planner</a>
-<a href="/compound-interest-calculator/">Compound Interest</a>
-<a href="/credit-card-payoff-calculator/">Credit Card Payoff</a>
-<a href="/retirement-planning-calculator/">Retirement Planner</a>
-</div>
-</div>
-</div>
-<div class="hub-stat-grid">
-<div class="hub-stat">
-<strong>No signup</strong>
-<span>Use free finance tools instantly without creating an account.</span>
-</div>
-<div class="hub-stat">
-<strong>Clear outputs</strong>
-<span>See practical results for budgeting, debt, investing, and retirement.</span>
-</div>
-<div class="hub-stat">
-<strong>Fast comparisons</strong>
-<span>Test different scenarios before changing your spending, saving, or investing plan.</span>
-</div>
-<div class="hub-stat">
-<strong>Educational focus</strong>
-<span>Simple personal finance calculators designed to support better decisions, not replace advice.</span>
-</div>
-</div>
-</div>
-</section>
-<section style="margin-top:20px; padding:24px; border:1px solid rgba(255,255,255,.10); border-radius:24px; background:rgba(6,13,28,.88); color:#f5f7fb;">
-<h2 style="margin:0 0 12px; font-size:1.5rem;">Personal finance calculators for better money decisions</h2>
-<p style="margin:0 0 14px; line-height:1.7; color:rgba(226,232,240,.92);">
         Financial calculators help you make better money decisions by turning estimates into something practical and comparable.
         Instead of guessing how much you can save, how quickly you can pay off debt, or how much an investment could grow over time,
         you can use financial calculators to test realistic scenarios before you commit real cash. This financial calculators hub
         brings together free tools for budgeting, savings goals, debt payoff, loan repayments, mortgage costs, compound interest,
         investment returns, fee impact, and retirement planning in one place.
       </p>
-<p style="margin:0 0 14px; line-height:1.7; color:rgba(226,232,240,.92);">
-        Many people search for <a class="hub-inline-link" href="/">free financial calculators</a> when they are close to a real decision. You may be trying to build a
+<p>
+        Many people search for <a href="/">free financial calculators</a> when they are close to a real decision. You may be trying to build a
         monthly budget, decide whether to overpay debt, work out how much to save for a goal, compare loan costs, or see whether
         your retirement contributions are on track. Free financial calculators are useful because they help you compare trade-offs
         clearly. A budget calculator can show how much room you really have each month. A debt calculator can show how much time
         and interest you save by paying more. An investment calculator can show how returns, fees, and time affect long-term growth.
-        You can also use the <a class="hub-inline-link" href="/">personal finance calculators</a> homepage as a broader starting point for budgeting, debt, savings, investing, and retirement tools.
+        You can also use the <a href="/">personal finance calculators</a> homepage as a broader starting point for budgeting, debt, savings, investing, and retirement tools.
       </p>
-<p style="margin:0 0 14px; line-height:1.7; color:rgba(226,232,240,.92);">
+<p>
         This page is designed as a tool-first resource rather than just a list of links. You can start with a budgeting calculator
         to understand cash flow, move to savings and debt payoff calculators to plan your next steps, then use compound interest,
         ROI, and retirement calculators to model longer-term outcomes. That order makes these financial calculators more useful
         because each result gives context for the next decision. If you know your monthly surplus first, you can make better
         decisions about debt repayment, saving, investing, and retirement planning.
       </p>
-<p style="margin:0 0 14px; line-height:1.7; color:rgba(226,232,240,.92);">
+<p>
         Good financial calculators do more than return a number. They help you compare scenarios. You can test higher monthly
         payments, different savings timelines, lower or higher return assumptions, and different fee levels to understand what
         changes the outcome most. This is especially useful for personal finance because small changes in interest, time horizon,
         contribution amount, and fees can make a big difference over months or years.
       </p>
-<p style="margin:0; line-height:1.7; color:rgba(226,232,240,.92);">
+<p>
         Use this financial calculators hub when you want free personal finance tools that are simple, practical, and designed for
         real-life decisions. Whether you need a budgeting calculator, debt payoff calculator, savings calculator, investment
         calculator, ROI calculator, mortgage calculator, loan repayment calculator, or retirement calculator, this page helps you
         find the right tool faster and compare the numbers with more confidence.
-      </p>
-</section>
-<section class="hub-section">
-<div class="hub-panel">
-<h2>Best personal finance calculators by goal</h2>
+      </p></section>
+<section><h2 id="best-personal-finance-calculators-by-goal">Best personal finance calculators by goal</h2>
 <p>
           Different money goals need different tools. If you want to control spending, start with budgeting calculators.
           If you want to reduce borrowing costs, use debt payoff, loan, and mortgage calculators. If you want to build wealth,
           use savings, compound interest, ROI, and retirement calculators together so you can compare time, contributions,
           expected returns, and fees in one decision flow.
         </p>
-<ul class="hub-bullets">
+<ul>
 <li><strong>For monthly planning:</strong> budget planner and savings goal calculators</li>
 <li><strong>For debt reduction:</strong> credit card payoff, debt snowball vs avalanche, and loan repayment calculators</li>
 <li><strong>For home costs:</strong> mortgage payment calculator and loan repayment calculator</li>
 <li><strong>For investing:</strong> compound interest, ROI, and investment fee impact calculators</li>
 <li><strong>For retirement:</strong> retirement planning calculator plus compounding and fee impact tools</li>
-</ul>
-</div>
-</section>
-<section class="hub-section">
-<div class="hub-panel">
-<h2>What you can do with these personal finance calculators</h2>
+</ul></section>
+<section><h2 id="what-you-can-do-with-these-personal-finance-calculators">What you can do with these personal finance calculators</h2>
 <p>
           Use this hub to answer practical money questions faster. You can estimate monthly repayments before taking a loan,
           compare debt payoff strategies, test how much to save for a target, measure how fees affect investing outcomes,
           and check whether a retirement contribution plan is realistic. These financial calculators are designed to help you compare scenarios clearly before you act.
-        </p>
-</div>
-</section>
-<section class="hub-section">
-<div class="hub-row">
-<article class="hub-cta">
-<h2>How to choose the right personal finance calculator for your next decision</h2>
+        </p></section>
+<section><h2 id="how-to-choose-the-right-personal-finance-calculator-for-your">How to choose the right personal finance calculator for your next decision</h2>
 <p>
             The fastest way to use financial calculators well is to match the tool to the exact money decision in front of you.
             If you are trying to understand where your paycheck goes each month, start with the
-            <a class="hub-inline-link" href="/budget-planner-calculator/">budget planner calculator</a>.
+            <a href="/budget-planner-calculator/">budget planner calculator</a>.
             If your biggest pressure is debt, compare the
-            <a class="hub-inline-link" href="/credit-card-payoff-calculator/">credit card payoff calculator</a>,
-            <a class="hub-inline-link" href="/debt-snowball-avalanche-calculator/">debt snowball vs avalanche calculator</a>,
-            and <a class="hub-inline-link" href="/loan-repayment-calculator/">loan repayment calculator</a>
+            <a href="/credit-card-payoff-calculator/">credit card payoff calculator</a>,
+            <a href="/debt-snowball-avalanche-calculator/">debt snowball vs avalanche calculator</a>,
+            and <a href="/loan-repayment-calculator/">loan repayment calculator</a>
             before changing payment strategy.
           </p>
-<p class="hub-note">
+<p>
             When the decision is about saving or investing, use the
-            <a class="hub-inline-link" href="/savings-goal-calculator/">savings goal calculator</a>,
-            <a class="hub-inline-link" href="/compound-interest-calculator/">compound interest calculator</a>,
-            <a class="hub-inline-link" href="/investment-fee-impact-calculator/">investment fee impact calculator</a>,
-            and <a class="hub-inline-link" href="/roi-calculator/">ROI calculator</a>
+            <a href="/savings-goal-calculator/">savings goal calculator</a>,
+            <a href="/compound-interest-calculator/">compound interest calculator</a>,
+            <a href="/investment-fee-impact-calculator/">investment fee impact calculator</a>,
+            and <a href="/roi-calculator/">ROI calculator</a>
             together so you can compare contribution levels, timelines, fee drag, and return assumptions with more context.
           </p>
-</article>
-<article class="hub-cta">
-<h2>Use this hub as a practical finance decision map</h2>
+
+
+<h2 id="use-this-hub-as-a-practical-finance-decision-map">Use this hub as a practical finance decision map</h2>
 <p>
             This page is not just a list of links. It is a financial calculators hub designed to help you move in the right order.
             Start with cash flow, then test savings targets, then review debt costs, and only then move into long-term investing
             and retirement planning. That sequence makes these personal finance calculators more useful because each result gives
             context for the next one.
           </p>
-<ul class="hub-bullets">
+<ul>
 <li>Use budgeting tools first to find realistic room for saving, debt payoff, or investing</li>
 <li>Use debt calculators next to compare speed, interest cost, and repayment trade-offs</li>
 <li>Use investing tools after that to stress-test growth assumptions and fee impact</li>
 <li>Use retirement tools last to check whether long-term contributions still look realistic</li>
-</ul>
-</article>
-</div>
-</section>
-<section class="hub-section">
-<div class="hub-panel">
-<h2>Common money questions these free personal finance calculators can answer</h2>
+</ul></section>
+<section><h2 id="common-money-questions-these-free-personal-finance-calculato">Common money questions these free personal finance calculators can answer</h2>
 <p>
           People rarely search for financial calculators without a real decision in mind. You might want to know whether you can save more each month,
           how long credit card debt will take to clear, whether overpaying a mortgage is worth it, or how much a 1% annual investment fee could cost over 20 years.
           This hub helps you answer those questions with free financial calculators built for scenario testing rather than guesswork.
         </p>
-<ul class="hub-bullets">
+<ul>
 <li>How much leftover cash do I really have after essentials, debt payments, and variable spending?</li>
 <li>Should I focus on the smallest debt first or the highest interest rate first?</li>
 <li>How much interest will I pay if I stretch a loan term versus increasing monthly payments?</li>
 <li>How much can compounding grow if I save consistently for 10, 20, or 30 years?</li>
 <li>How badly do annual investment fees reduce long-term portfolio growth?</li>
 <li>What monthly contribution might I need to stay on track for retirement?</li>
-</ul>
-</div>
-</section>
-<section class="hub-section">
-<div class="hub-section-head">
-<h2>Browse free personal finance calculators by category</h2>
+</ul></section>
+<section><h2 id="browse-free-personal-finance-calculators-by-category">Browse free personal finance calculators by category</h2>
 <p>
           Explore our full suite of free financial calculators designed to help you plan, budget, invest, and reduce debt.
           These personal finance tools cover everything from monthly budgeting and loan repayment to long-term investing and retirement planning.
         </p>
-<p style="margin-top:10px">
+<p>
           These financial calculators are grouped by real-life use case so you can move quickly from question to action. Use this hub to compare debt payoff options,
           check mortgage and loan costs, estimate savings targets, test investment returns, and review retirement planning scenarios with calculators built for clear decision-making.
         </p>
-<p style="margin-top:10px">
+<p>
           Instead of opening random tools one by one, this page helps you find the right financial calculator for the exact decision you need to make next.
           That makes it a better starting point when you want free financial calculators that are practical, organized, and easy to compare.
         </p>
-</div>
-<div class="hub-category-grid">
-<article class="hub-card">
+
+
+
 <h3>Budgeting &amp; savings</h3>
 <p>
             Use these personal finance calculators to understand cash flow, build savings targets, and create a more stable monthly plan.
           </p>
-<div class="hub-links">
-<a class="hub-tool" href="/budget-planner-calculator/">
-<div>
+<ul class="link-list"><li><a href="/budget-planner-calculator/">
+
 <strong>Budget Planner Calculator</strong>
-<span>Estimate total spending, leftover cash, and monthly budget health.</span>
-</div>
+Estimate total spending, leftover cash, and monthly budget health.
+
 <b>Open tool →</b>
-</a>
-<a class="hub-tool" href="/savings-goal-calculator/">
-<div>
+</a></li><li><a href="/savings-goal-calculator/">
+
 <strong>Savings Goal Calculator</strong>
-<span>Work out how much to save each month or how long your target will take.</span>
-</div>
+Work out how much to save each month or how long your target will take.
+
 <b>Open tool →</b>
-</a>
-</div>
-</article>
-<article class="hub-card">
+</a></li></ul>
+
+
 <h3>Debt payoff &amp; borrowing</h3>
 <p>
             Compare debt strategies, estimate monthly repayments, and understand how interest affects payoff speed and total cost.
           </p>
-<div class="hub-links">
-<a class="hub-tool" href="/credit-card-payoff-calculator/">
-<div>
+<ul class="link-list"><li><a href="/credit-card-payoff-calculator/">
+
 <strong>Credit Card Payoff Calculator</strong>
-<span>See payoff time, total interest, and the effect of paying more each month.</span>
-</div>
+See payoff time, total interest, and the effect of paying more each month.
+
 <b>Open tool →</b>
-</a>
-<a class="hub-tool" href="/debt-snowball-avalanche-calculator/">
-<div>
+</a></li><li><a href="/debt-snowball-avalanche-calculator/">
+
 <strong>Debt Snowball vs Avalanche</strong>
-<span>Compare motivation-first vs interest-first payoff strategies side by side.</span>
-</div>
+Compare motivation-first vs interest-first payoff strategies side by side.
+
 <b>Open tool →</b>
-</a>
-<a class="hub-tool" href="/loan-repayment-calculator/">
-<div>
+</a></li><li><a href="/loan-repayment-calculator/">
+
 <strong>Loan Repayment Calculator</strong>
-<span>Estimate repayments, payoff timeline, and total loan interest.</span>
-</div>
+Estimate repayments, payoff timeline, and total loan interest.
+
 <b>Open tool →</b>
-</a>
-<a class="hub-tool" href="/mortgage-payment-calculator/">
-<div>
+</a></li><li><a href="/mortgage-payment-calculator/">
+
 <strong>Mortgage Payment Calculator</strong>
-<span>Model mortgage repayments, amortization, and the impact of overpayments.</span>
-</div>
+Model mortgage repayments, amortization, and the impact of overpayments.
+
 <b>Open tool →</b>
-</a>
-</div>
-</article>
-<article class="hub-card">
+</a></li></ul>
+
+
 <h3>Investing &amp; returns</h3>
 <p>
             Explore how compounding, fees, and investment performance shape long-term outcomes using free finance tools built for clear comparisons.
           </p>
-<div class="hub-links">
-<a class="hub-tool" href="/compound-interest-calculator/">
-<div>
+<ul class="link-list"><li><a href="/compound-interest-calculator/">
+
 <strong>Compound Interest Calculator</strong>
-<span>Model long-term growth with recurring contributions and compounding.</span>
-</div>
+Model long-term growth with recurring contributions and compounding.
+
 <b>Open tool →</b>
-</a>
-<a class="hub-tool" href="/investment-fee-impact-calculator/">
-<div>
+</a></li><li><a href="/investment-fee-impact-calculator/">
+
 <strong>Investment Fee Impact Calculator</strong>
-<span>Compare low-fee and high-fee outcomes over time to see the true drag of costs.</span>
-</div>
+Compare low-fee and high-fee outcomes over time to see the true drag of costs.
+
 <b>Open tool →</b>
-</a>
-<a class="hub-tool" href="/roi-calculator/">
-<div>
+</a></li><li><a href="/roi-calculator/">
+
 <strong>ROI Calculator</strong>
-<span>Estimate profit, return percentage, and CAGR with optional costs and inflation view.</span>
-</div>
+Estimate profit, return percentage, and CAGR with optional costs and inflation view.
+
 <b>Open tool →</b>
-</a>
-</div>
-</article>
-<article class="hub-card">
+</a></li></ul>
+
+
 <h3>Retirement planning</h3>
 <p>
             Use retirement-focused calculators to estimate future savings values and understand the contribution level needed for long-term goals.
           </p>
-<div class="hub-links">
-<a class="hub-tool" href="/retirement-planning-calculator/">
-<div>
+<ul class="link-list"><li><a href="/retirement-planning-calculator/">
+
 <strong>Retirement Planning Calculator</strong>
-<span>Project future retirement savings with contributions, growth rate, and time horizon.</span>
-</div>
+Project future retirement savings with contributions, growth rate, and time horizon.
+
 <b>Open tool →</b>
-</a>
-<a class="hub-tool" href="/investment-fee-impact-calculator/">
-<div>
+</a></li><li><a href="/investment-fee-impact-calculator/">
+
 <strong>Fee Impact for Retirement</strong>
-<span>Check how seemingly small annual fees can reduce retirement wealth over decades.</span>
-</div>
+Check how seemingly small annual fees can reduce retirement wealth over decades.
+
 <b>Open tool →</b>
-</a>
-<a class="hub-tool" href="/compound-interest-calculator/">
-<div>
+</a></li><li><a href="/compound-interest-calculator/">
+
 <strong>Compounding for Long-Term Saving</strong>
-<span>Stress-test contribution levels and time horizons to understand what changes matter most.</span>
-</div>
+Stress-test contribution levels and time horizons to understand what changes matter most.
+
 <b>Open tool →</b>
-</a>
-</div>
-</article>
-</div>
-</section>
-<section class="hub-section">
-<div class="hub-section-head">
-<h2>Popular calculators to start with</h2>
+</a></li></ul></section>
+<section><h2 id="popular-calculators-to-start-with">Popular calculators to start with</h2>
 <p>
           These are the best starting points when you want quick clarity on monthly money, long-term growth, or debt payoff.
         </p>
-</div>
-<div class="hub-popular-grid">
-<article class="hub-popular-card">
-<span class="hub-popular-tag">Popular</span>
+
+
+
+Popular
 <h3>Budget Planner Calculator</h3>
 <p>Best first step if you want to understand cash flow, spending, and how much room you have to save each month.</p>
-<a class="hub-btn hub-btn-secondary" href="/budget-planner-calculator/">Open Budget Planner</a>
-</article>
-<article class="hub-popular-card">
-<span class="hub-popular-tag">Long-term growth</span>
+<a href="/budget-planner-calculator/">Open Budget Planner</a>
+
+
+Long-term growth
 <h3>Compound Interest Calculator</h3>
 <p>Useful for savings and investing decisions when you want to model contributions, return assumptions, and compounding over time.</p>
-<a class="hub-btn hub-btn-secondary" href="/compound-interest-calculator/">Open Compound Interest</a>
-</article>
-<article class="hub-popular-card">
-<span class="hub-popular-tag">Debt payoff</span>
+<a href="/compound-interest-calculator/">Open Compound Interest</a>
+
+
+Debt payoff
 <h3>Credit Card Payoff Calculator</h3>
 <p>Ideal when you want to compare minimum payments versus faster payoff and see the interest cost difference clearly.</p>
-<a class="hub-btn hub-btn-secondary" href="/credit-card-payoff-calculator/">Open Credit Card Payoff</a>
-</article>
-</div>
-</section>
-<section class="hub-section">
-<div class="hub-row">
-<article class="hub-cta">
-<h2>How to use this hub</h2>
+<a href="/credit-card-payoff-calculator/">Open Credit Card Payoff</a></section>
+<section><h2 id="how-to-use-this-hub">How to use this hub</h2>
 <p>
-            A simple path works best. Start with the <a class="hub-inline-link" href="/budget-planner-calculator/">budget planner calculator</a>
+            A simple path works best. Start with the <a href="/budget-planner-calculator/">budget planner calculator</a>
             to understand your income, expenses, and leftover cash, then move to the
-            <a class="hub-inline-link" href="/credit-card-payoff-calculator/">credit card payoff calculator</a>,
-            <a class="hub-inline-link" href="/savings-goal-calculator/">savings goal calculator</a>, or
-            <a class="hub-inline-link" href="/compound-interest-calculator/">compound interest calculator</a>
+            <a href="/credit-card-payoff-calculator/">credit card payoff calculator</a>,
+            <a href="/savings-goal-calculator/">savings goal calculator</a>, or
+            <a href="/compound-interest-calculator/">compound interest calculator</a>
             depending on whether your next decision is debt reduction, saving, or investing.
           </p>
-<div class="hub-actions">
-<a class="hub-btn hub-btn-primary" href="/budget-planner-calculator/">Start with Budget Planner</a>
-<a class="hub-btn hub-btn-secondary" href="/financial-calculators/#faq">Jump to FAQ</a>
-</div>
-<p class="hub-note">
-            Looking for supporting content as well as calculators? Visit the main <a class="hub-inline-link" href="/">financial calculators homepage</a>
-            for quick answers, review the <a class="hub-inline-link" href="/learn/">Learning Hub</a> for educational articles,
-            or read <a class="hub-inline-link" href="/calculator-methodology/">calculator methodology</a> and
-            <a class="hub-inline-link" href="/editorial-policy/">editorial policy</a> for transparency around formulas, assumptions, and content review.
+<ul class="link-list"><li><a href="/budget-planner-calculator/">Start with Budget Planner</a></li><li><a href="/financial-calculators/#faq">Jump to FAQ</a></li></ul>
+<p>
+            Looking for supporting content as well as calculators? Visit the main <a href="/">financial calculators homepage</a>
+            for quick answers, review the <a href="/learn/">Learning Hub</a> for educational articles,
+            or read <a href="/calculator-methodology/">calculator methodology</a> and
+            <a href="/editorial-policy/">editorial policy</a> for transparency around formulas, assumptions, and content review.
           </p>
-</article>
-<article class="hub-cta">
-<h2>Why this page matters</h2>
+
+
+<h2 id="why-this-page-matters">Why this page matters</h2>
 <p>
             People usually search for financial calculators when they are close to a real decision: choosing a loan,
             reducing debt, setting a savings target, comparing fee levels, or projecting retirement outcomes.
             This page is designed to serve that intent directly by connecting every major calculator in one place.
           </p>
-<ul class="hub-bullets">
+<ul>
 <li>Find the right calculator faster based on your situation</li>
 <li>Understand budgeting, debt, investing, and retirement in one place</li>
 <li>Compare different financial scenarios before making decisions</li>
 <li>Move from planning to action with clear, practical tools</li>
 </ul>
-<p class="hub-note">
+<p>
             If you searched for financial calculators because you want one trusted page that brings budgeting, debt, investing, and retirement tools together,
             this hub is designed to be that starting point.
-          </p>
-</article>
-</div>
-</section>
-<section class="hub-section">
-<div class="hub-cta">
-<h2>Why use financial calculators?</h2>
+          </p></section>
+<section><h2 id="why-use-financial-calculators">Why use financial calculators?</h2>
 <p>
           Financial calculators help you make informed decisions before committing real money. Whether you are planning a budget,
           paying off debt, or investing for the future, these tools provide clarity by showing realistic projections based on your inputs.
         </p>
-<p class="hub-note">
+<p>
           A good financial calculator does more than show a single number. It lets you compare monthly payments, payoff speed,
           interest cost, savings timelines, investment growth, ROI, and retirement outcomes before you change your plan.
         </p>
-<p class="hub-note">
+<p>
           That is why this hub matters. Instead of searching for separate tools one by one, you can use one page to move from
           budgeting to debt payoff, then to savings, loans, mortgages, investing, and retirement planning with clearer context.
-        </p>
-</div>
-</section>
-<section class="hub-section">
-<div class="hub-row">
-<article class="hub-cta">
-<h2>How to compare results from financial calculators</h2>
+        </p></section>
+<section><h2 id="how-to-compare-results-from-financial-calculators">How to compare results from financial calculators</h2>
 <p>
             The best way to use financial calculators is to test more than one scenario. Run a base case first, then change one variable at a time.
             For example, raise the monthly payment, lower the expected return, increase the savings target, or shorten the timeline.
             This makes it easier to see what really changes the outcome.
           </p>
-<ul class="hub-bullets">
+<ul>
 <li>Increase repayments to estimate interest savings and faster payoff</li>
 <li>Adjust contribution amounts to see whether savings goals become realistic</li>
 <li>Test different return assumptions before trusting an investment projection</li>
 <li>Compare short and long timelines to understand how time changes results</li>
 </ul>
-</article>
-<article class="hub-cta">
-<h2>When to use each calculator category</h2>
+
+
+<h2 id="when-to-use-each-calculator-category">When to use each calculator category</h2>
 <p>
             Use budgeting calculators when you need control over monthly cash flow. Use debt, loan, and mortgage calculators when borrowing costs
             or payoff speed matter most. Use investing, ROI, and retirement calculators when you want to understand long-term growth,
             contribution needs, and the effect of fees over time.
           </p>
-<ul class="hub-bullets">
+<ul>
 <li>Budget and savings tools for monthly planning decisions</li>
 <li>Debt and borrowing tools for repayment strategy and affordability checks</li>
 <li>Investing tools for compounding, fee drag, and return comparisons</li>
 <li>Retirement tools for future value and long-term contribution planning</li>
-</ul>
-</article>
-</div>
-</section>
-<section class="hub-section">
-<div class="hub-row">
-<article class="hub-cta">
-<h2>Build a stronger plan by combining calculators, not using one in isolation</h2>
+</ul></section>
+<section><h2 id="build-a-stronger-plan-by-combining-calculators-not-using-one">Build a stronger plan by combining calculators, not using one in isolation</h2>
 <p>
             A single tool can answer one narrow question, but better financial decisions usually need more than one calculation.
             For example, a debt payoff result becomes more useful when you also know your cash-flow limit from the
-            <a class="hub-inline-link" href="/budget-planner-calculator/">budget planner calculator</a>.
+            <a href="/budget-planner-calculator/">budget planner calculator</a>.
             A retirement estimate becomes more realistic when you compare it against the
-            <a class="hub-inline-link" href="/investment-fee-impact-calculator/">investment fee impact calculator</a>
-            and <a class="hub-inline-link" href="/compound-interest-calculator/">compound interest calculator</a>.
+            <a href="/investment-fee-impact-calculator/">investment fee impact calculator</a>
+            and <a href="/compound-interest-calculator/">compound interest calculator</a>.
           </p>
-<p class="hub-note">
+<p>
             This is why the TrueWealthMetrics financial calculators hub is organized around real-world decision flow.
             You can move from budgeting to debt, then from savings to investing, then into retirement planning without losing context.
           </p>
-</article>
-<article class="hub-cta">
-<h2>Free finance tools with transparent assumptions</h2>
+
+
+<h2 id="free-finance-tools-with-transparent-assumptions">Free finance tools with transparent assumptions</h2>
 <p>
             These financial calculators are designed for educational planning. They use standard formulas and simplified assumptions
             so you can compare outcomes clearly, but real results still depend on rates, taxes, fees, lender terms, market returns,
             and personal behavior. For transparency, you can review the
-            <a class="hub-inline-link" href="/calculator-methodology/">calculator methodology</a>
-            and the <a class="hub-inline-link" href="/editorial-policy/">editorial policy</a>.
+            <a href="/calculator-methodology/">calculator methodology</a>
+            and the <a href="/editorial-policy/">editorial policy</a>.
           </p>
-<p class="hub-note">
+<p>
             That makes this page useful not only as a hub of free finance tools, but also as a trust layer for people who want
             clear assumptions before relying on a calculator result.
-          </p>
-</article>
-</div>
-</section>
-<section class="hub-section">
-<div class="hub-row">
-<article class="hub-cta">
-<h2>How to use this financial calculators hub step by step</h2>
+          </p></section>
+<section><h2 id="how-to-use-this-financial-calculators-hub-step-by-step">How to use this financial calculators hub step by step</h2>
 <p>
             If you are comparing several money decisions at once, use this financial calculators hub in a practical order.
-            Start with the <a class="hub-inline-link" href="/budget-planner-calculator/">budget planner calculator</a>
+            Start with the <a href="/budget-planner-calculator/">budget planner calculator</a>
             to measure cash flow and see what is realistically available each month. Then move to debt tools such as the
-            <a class="hub-inline-link" href="/credit-card-payoff-calculator/">credit card payoff calculator</a> or the
-            <a class="hub-inline-link" href="/debt-snowball-avalanche-calculator/">debt snowball vs avalanche calculator</a>
+            <a href="/credit-card-payoff-calculator/">credit card payoff calculator</a> or the
+            <a href="/debt-snowball-avalanche-calculator/">debt snowball vs avalanche calculator</a>
             if you need to reduce interest cost or speed up repayment. After that, use the
-            <a class="hub-inline-link" href="/savings-goal-calculator/">savings goal calculator</a>,
-            <a class="hub-inline-link" href="/compound-interest-calculator/">compound interest calculator</a>, and
-            <a class="hub-inline-link" href="/investment-fee-impact-calculator/">investment fee impact calculator</a>
+            <a href="/savings-goal-calculator/">savings goal calculator</a>,
+            <a href="/compound-interest-calculator/">compound interest calculator</a>, and
+            <a href="/investment-fee-impact-calculator/">investment fee impact calculator</a>
             to compare short-term savings needs with long-term investing outcomes.
           </p>
-<p class="hub-note">
+<p>
             This step-by-step flow makes the hub more useful because each calculator gives context for the next decision.
             A stronger budget improves debt planning, lower debt can improve savings capacity, and cleaner cash flow makes
             investing and retirement planning more realistic.
           </p>
-</article>
-<article class="hub-cta">
-<h2>What makes a good financial calculator useful</h2>
+
+
+<h2 id="what-makes-a-good-financial-calculator-useful">What makes a good financial calculator useful</h2>
 <p>
             A good financial calculator should not only return a number. It should help you test assumptions, compare scenarios,
             and understand trade-offs. That is why the TrueWealthMetrics financial calculators are grouped by decision type and
             supported with explanations, internal links, and practical next steps instead of acting like isolated widgets.
           </p>
-<ul class="hub-bullets">
+<ul>
 <li>Clear categories so you can find the right personal finance calculator faster</li>
 <li>Scenario testing so you can compare payments, timelines, returns, and fee drag</li>
 <li>Transparent assumptions through methodology and editorial policy pages</li>
 <li>Connected tools so budgeting, debt, investing, and retirement planning work together</li>
-</ul>
-</article>
-</div>
-</section>
-<section class="hub-section">
-<div class="hub-panel">
-<h2>Financial calculators for real-life money decisions</h2>
+</ul></section>
+<section><h2 id="financial-calculators-for-real-life-money-decisions">Financial calculators for real-life money decisions</h2>
 <p>
           Most people do not search for financial calculators out of curiosity. They search because they need to make a real decision.
           You may want to know whether you can afford higher debt payments, whether saving 15% of income is realistic,
           whether a mortgage payment fits your budget, or whether a 1% annual investment fee is quietly reducing long-term returns.
           This hub is designed for those real-life decisions by bringing together personal finance calculators that answer the most common
-          questions around budgeting, borrowing, saving, investing, and retirement. For a broader overview, return to the <a class="hub-inline-link" href="/">free financial calculators for budgeting, debt and savings</a> homepage.
+          questions around budgeting, borrowing, saving, investing, and retirement. For a broader overview, return to the <a href="/">free financial calculators for budgeting, debt and savings</a> homepage.
         </p>
-<ul class="hub-bullets">
+<ul>
 <li>Estimate monthly budget pressure before setting aggressive savings or debt targets</li>
 <li>Compare debt strategies before choosing snowball, avalanche, or fixed extra payments</li>
 <li>Test loan and mortgage costs before taking on long-term repayment commitments</li>
 <li>Model compound growth, ROI, and fee drag before increasing investing contributions</li>
 <li>Check retirement contributions against realistic time horizons and expected growth</li>
-</ul>
-</div>
-</section>
-<section class="hub-section" id="faq">
-<div class="hub-section-head">
-<h2>Frequently Asked Questions</h2>
+</ul></section>
+<section id="faq" class="faq"><h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
 <p>
           Quick answers for users searching for free finance tools, budgeting calculators, investment calculators, and retirement planners.
         </p>
-</div>
-<div class="hub-faq">
-<article class="hub-faq-item">
+
+
+
 <h3>What are financial calculators used for?</h3>
 <p>
             Financial calculators are used to estimate the effect of money decisions before you act. Common use cases include
             monthly budgeting, debt payoff, loan and mortgage repayment estimates, savings goals, investment growth projections,
             fee comparisons, ROI analysis, and retirement planning.
           </p>
-</article>
-<article class="hub-faq-item">
+
+
 <h3>Which personal finance calculator should I use first?</h3>
 <p>
             If you are not sure where to begin, start with a budget calculator because it gives you a base view of income,
             expenses, and leftover cash. Once you know your monthly position, move into debt, savings, or investing tools
             based on the next decision you want to make.
           </p>
-</article>
-<article class="hub-faq-item">
+
+
 <h3>Should I use one calculator or compare several?</h3>
 <p>
             Compare several when the decision affects more than one part of your finances. A budgeting result can affect debt payoff speed.
             A debt decision can affect savings ability. An investing projection can change once you factor in fees, timeline, or contribution level.
             Using more than one calculator gives you a better decision framework.
           </p>
-</article>
-<article class="hub-faq-item">
+
+
 <h3>Are these free finance tools really free?</h3>
 <p>
             Yes. The TrueWealthMetrics calculators are free to use and do not require signup. They are built for education,
             planning, and scenario testing so you can understand trade-offs before committing real money.
           </p>
-</article>
-<article class="hub-faq-item">
+
+
 <h3>Are online financial calculators accurate?</h3>
 <p>
             Good calculators use standard formulas and reasonable assumptions, but real outcomes can differ because of taxes,
             fees, variable interest rates, policy changes, and personal behavior. Use the outputs as decision support, not
             as personalized financial advice.
           </p>
-</article>
-<article class="hub-faq-item">
+
+
 <h3>Can these calculators help with budgeting and debt before investing?</h3>
 <p>
             Yes. In many cases that is the best order. Start with budgeting tools to find available cash flow, then use debt calculators
             to see whether faster repayment gives a stronger guaranteed benefit than investing the same money right away.
           </p>
-</article>
-<article class="hub-faq-item">
+
+
 <h3>Why does this hub include both calculators and supporting explanations?</h3>
 <p>
             Financial calculators are more useful when you understand what each result means, what assumptions sit behind it,
             and which tool to open next. That is why this hub includes guidance, examples, categories, and internal links alongside the calculators.
-          </p>
-</article>
-</div>
-</section>
+          </p></section></article><aside class="aside" aria-label="Guides"><nav class="card toc" aria-label="On this page"><h2>On this page</h2><ol><li><a href="#personal-finance-calculators-for-better-money-decisions">Personal finance calculators for better money decisions</a></li><li><a href="#best-personal-finance-calculators-by-goal">Best personal finance calculators by goal</a></li><li><a href="#what-you-can-do-with-these-personal-finance-calculators">What you can do with these personal finance calculators</a></li><li><a href="#how-to-choose-the-right-personal-finance-calculator-for-your">How to choose the right personal finance calculator for your next decision</a></li><li><a href="#use-this-hub-as-a-practical-finance-decision-map">Use this hub as a practical finance decision map</a></li><li><a href="#common-money-questions-these-free-personal-finance-calculato">Common money questions these free personal finance calculators can answer</a></li><li><a href="#browse-free-personal-finance-calculators-by-category">Browse free personal finance calculators by category</a></li><li><a href="#popular-calculators-to-start-with">Popular calculators to start with</a></li><li><a href="#how-to-use-this-hub">How to use this hub</a></li><li><a href="#why-this-page-matters">Why this page matters</a></li><li><a href="#why-use-financial-calculators">Why use financial calculators?</a></li><li><a href="#how-to-compare-results-from-financial-calculators">How to compare results from financial calculators</a></li><li><a href="#when-to-use-each-calculator-category">When to use each calculator category</a></li><li><a href="#build-a-stronger-plan-by-combining-calculators-not-using-one">Build a stronger plan by combining calculators, not using one in isolation</a></li><li><a href="#free-finance-tools-with-transparent-assumptions">Free finance tools with transparent assumptions</a></li><li><a href="#how-to-use-this-financial-calculators-hub-step-by-step">How to use this financial calculators hub step by step</a></li><li><a href="#what-makes-a-good-financial-calculator-useful">What makes a good financial calculator useful</a></li><li><a href="#financial-calculators-for-real-life-money-decisions">Financial calculators for real-life money decisions</a></li><li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li></ol></nav><div class="card"><h2>New to these topics?</h2><p class="muted">Start with the plain-English <a href="/learn/">personal finance guides</a>, then come back and run your own numbers.</p></div></aside></div></div>
 </main>
+<footer class="site-footer"><div class="container">
+<div class="footer-grid">
+<div class="footer-brand"><a class="brand" href="/"><svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="9" fill="#0a1a33"/><path d="M9 25V19M15 25V15M21 25V17M27 25V10" stroke="#12a594" stroke-width="3.2" stroke-linecap="round"/><path d="M8.5 15.5 14.5 11l6 3 7-6.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>True<b>Wealth</b>Metrics</span></a><p>Free, transparent personal finance calculators and plain-English guides. Calculations run in your browser: we don’t ask for an account or store what you enter.</p></div>
+<div><h2>Budget &amp; borrow</h2><ul><li><a href="/budget-planner-calculator/">Budget Planner</a></li><li><a href="/savings-goal-calculator/">Savings Goal Calculator</a></li><li><a href="/loan-repayment-calculator/">Loan Repayment Calculator</a></li><li><a href="/mortgage-payment-calculator/">Mortgage Calculator</a></li><li><a href="/credit-card-payoff-calculator/">Credit Card Payoff Calculator</a></li><li><a href="/debt-snowball-avalanche-calculator/">Debt Snowball vs Avalanche</a></li></ul></div>
+<div><h2>Invest &amp; retire</h2><ul><li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li><li><a href="/investment-calculator/">Investment Calculator</a></li><li><a href="/investment-fee-impact-calculator/">Investment Fee Impact Calculator</a></li><li><a href="/roi-calculator/">ROI Calculator</a></li><li><a href="/retirement-planning-calculator/">Retirement Planning Calculator</a></li></ul></div>
+<div><h2>Guides</h2><ul><li><a href="/learn/">All guides</a></li><li><a href="/budgeting-tips-for-beginners/">Budgeting Tips for Beginners</a></li><li><a href="/how-much-should-you-save/">How Much Should You Save Each Month?</a></li><li><a href="/how-much-emergency-fund/">How Much Emergency Fund Do You Need?</a></li><li><a href="/how-loan-interest-works/">How Loan Interest Works</a></li><li><a href="/how-to-calculate-loan-interest-easily/">How to Calculate Loan Interest Easily</a></li><li><a href="/amortization-schedule-explained/">Amortization Schedule Explained</a></li></ul></div>
+<div><h2>TrueWealthMetrics</h2><ul><li><a href="/about/">About</a></li><li><a href="/about-the-author/">About the author</a></li><li><a href="/editorial-policy/">Editorial policy</a></li><li><a href="/calculator-methodology/">Calculator methodology</a></li><li><a href="/contact/">Contact &amp; corrections</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms-of-use/">Terms of use</a></li></ul></div>
+</div>
+<div class="footer-legal"><p><strong>Educational tools, not financial advice.</strong> TrueWealthMetrics is not a regulated financial adviser. Results are estimates based on the assumptions shown and are not guaranteed. Consider independent, regulated advice before making major financial decisions.</p><p>© 2026 TrueWealthMetrics</p></div>
+</div></footer>
 </body>
 </html>
