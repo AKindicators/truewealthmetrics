@@ -8,9 +8,9 @@ const config = {
     { id: 'initial', label: 'Starting balance', type: 'money', default: 10000, min: 0, max: 100000000 },
     { id: 'monthly', label: 'Monthly contribution', type: 'money', default: 200, min: 0, max: 10000000, optional: true },
     { id: 'years', label: 'Time period (years)', type: 'int', default: 20, min: 1, max: 100 },
-    { id: 'rate', label: 'Expected return before fees (per year)', type: 'percent', unit: '%', default: 7, min: -50, max: 50 },
-    { id: 'feeA', label: 'Annual fee (option A)', type: 'percent', unit: '%', default: 0.75, min: 0, max: 10, help: 'Total ongoing charges: fund costs plus platform or adviser fees.' },
-    { id: 'feeB', label: 'Annual fee to compare (option B)', type: 'percent', unit: '%', default: 0.2, min: 0, max: 10, help: 'For example a lower-cost index fund. Use 0 to compare against no fees at all.' },
+    { id: 'rate', label: 'Expected return before fees (per year)', type: 'percent', unit: '%', default: 7, min: -50, max: 50, help: 'Before any fund, platform or adviser charges. A fund’s past returns are already after its ongoing charge.' },
+    { id: 'feeA', label: 'Total annual fee (option A)', type: 'percent', unit: '%', default: 0.75, min: 0, max: 10, help: 'The fund’s ongoing charge (OCF or expense ratio) plus any platform and adviser fees, as a % a year. Count each charge once.' },
+    { id: 'feeB', label: 'Total annual fee to compare (option B)', type: 'percent', unit: '%', default: 0.2, min: 0, max: 10, help: 'Add up the same charges for the option you are comparing. Use 0 to compare against no fees at all.' },
     { id: 'inflation', label: 'Inflation (per year)', type: 'percent', unit: '%', default: 0, min: -10, max: 30, optional: true },
     { id: 'currency', label: 'Currency', type: 'select', default: 'GBP', options: currencyOptions },
   ],
@@ -19,7 +19,7 @@ const config = {
       `The same ${v.rate}% annual return before fees for both options, compounded monthly.`,
       'Fees are taken monthly as a percentage of the balance (annual fee ÷ 12).',
       v.monthly > 0 ? `${f.money(v.monthly)} added at the end of every month.` : 'No monthly contributions.',
-      'Excludes one-off charges, trading costs and tax.',
+      'Excludes one-off charges, trading costs and tax. Fixed £ or $ fees are not modelled unless you convert them to a %.',
     ];
   },
   compute(v, f) {
