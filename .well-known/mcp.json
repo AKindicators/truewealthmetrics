@@ -3,11 +3,11 @@
   "description": "Free personal finance calculators and planning tools.",
   "url": "https://truewealthmetrics.com",
   "version": "1.1",
-  "contact_email": "support@truewealthmetrics.com",
+  "contact_email": "truewealthmetrics@gmail.com",
   "publisher": {
     "name": "TrueWealthMetrics",
     "website": "https://truewealthmetrics.com",
-    "support_email": "support@truewealthmetrics.com"
+    "support_email": "truewealthmetrics@gmail.com"
   },
   "tools": [
     {
