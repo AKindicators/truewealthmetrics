@@ -371,6 +371,7 @@ tbody th { font-weight: 600; color: var(--navy-900); }
 .toc li a::before { content: counter(toc, decimal-leading-zero); flex: none; font: 700 .74rem/1.9 var(--mono); color: var(--teal-600); }
 .toc li a:hover { background: var(--teal-50); color: var(--navy-900); }
 .toc li a::after { display: none; }
+.toc li a { justify-content: flex-start; }
 .byline { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .88rem; color: var(--muted); margin-top: 16px; }
 .byline strong { color: var(--navy-900); }
 .note-box { margin: 28px 0 0; padding: 20px 22px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--teal-500); font-size: .92rem; color: var(--muted); }
@@ -407,6 +408,9 @@ tbody th { font-weight: 600; color: var(--navy-900); }
 .footer-brand p { max-width: 340px; }
 .footer-legal { margin-top: 36px; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, .12); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: .84rem; }
 .footer-legal p { margin: 0; max-width: 760px; }
+.footer-legal a { text-decoration: underline; text-underline-offset: 3px; }
+
+mark.pending { background: #fde68a; color: #5c3209; padding: 0 4px; border-radius: 4px; font-weight: 700; }
 
 /* ---------- 404 ---------- */
 .notfound { padding-top: 64px; padding-bottom: 64px; text-align: left; }
