@@ -1,6 +1,6 @@
 // Homepage preview: a compact compound growth estimate using the same engine as the full tools.
 import { growth } from '../calc-core.js?v=98c18a5445';
-import { mount } from '../calc-ui.js?v=a0568ddf45';
+import { mount } from '../calc-ui.js?v=a49c19ca5a';
 import { growthChart } from './growth-shared.js?v=d7424a2b3f';
 
 const config = {

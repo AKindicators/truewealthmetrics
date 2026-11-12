@@ -1,5 +1,5 @@
 import { budget } from '../calc-core.js?v=98c18a5445';
-import { mount, currencyOptions } from '../calc-ui.js?v=a0568ddf45';
+import { mount, currencyOptions } from '../calc-ui.js?v=a49c19ca5a';
 
 const E = 'Essential costs (per month)';
 const W = 'Flexible spending (per month)';

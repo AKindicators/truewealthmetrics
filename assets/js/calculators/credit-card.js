@@ -1,5 +1,5 @@
 import { cardPayoff } from '../calc-core.js?v=98c18a5445';
-import { mount, currencyOptions } from '../calc-ui.js?v=a0568ddf45';
+import { mount, currencyOptions } from '../calc-ui.js?v=a49c19ca5a';
 
 const config = {
   slug: 'credit-card',
@@ -46,7 +46,7 @@ const config = {
       kpis: [
         { key: 'months', label: 'Time to clear the balance', value: r.months, format: 'months', primary: true, sub: v.extra > 0 ? `${f.months(base.months - r.months)} sooner with the extra payment` : '' },
         { key: 'interest', label: 'Total interest', value: r.totalInterest, format: 'money' },
-        { key: 'saved', label: 'Interest saved by extra payment', value: base.totalInterest - r.totalInterest, format: 'money', tone: v.extra > 0 ? 'good' : undefined },
+        { key: 'saved', label: 'Interest saved by extra payment', value: base.totalInterest - r.totalInterest, format: 'money', tone: v.extra > 0 ? 'good' : undefined, sub: v.extra > 0 ? '' : 'Add an extra monthly payment to see the saving' },
         { key: 'total', label: 'Total repaid', value: r.totalPaid, format: 'money' },
       ],
       summary: `Repaying <strong>${f.money(v.balance)}</strong> at <strong>${v.apr}% APR</strong> takes <strong>${f.months(r.months)}</strong> and costs <strong>${f.money(r.totalInterest)}</strong> in interest.${v.extra > 0 ? ` The extra ${f.money(v.extra)} a month saves <strong>${f.money(base.totalInterest - r.totalInterest)}</strong>.` : ''}`,

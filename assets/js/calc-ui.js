@@ -18,8 +18,9 @@ export function makeFormat(currency = 'GBP') {
   const n0 = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 0 });
   const f = {
     symbol: CURRENCIES[cur],
-    money: (x) => (Number.isFinite(x) ? m2.format(x) : '—'),
-    money0: (x) => (Number.isFinite(x) ? m0.format(Math.round(x)) : '—'),
+    // `|| 0` turns -0 (e.g. "less £0 other income") into 0 so it never shows as "-£0".
+    money: (x) => (Number.isFinite(x) ? m2.format(Math.round(x * 100) / 100 || 0) : '—'),
+    money0: (x) => (Number.isFinite(x) ? m0.format(Math.round(x) || 0) : '—'),
     compact: (x) => {
       if (!Number.isFinite(x)) return '';
       const a = Math.abs(x), s = x < 0 ? '-' : '';
@@ -137,21 +138,24 @@ function debtRowHTML(id, d, i, errors = {}) {
 
 /* ---------------------------------------------------------------- chart */
 
-const niceMax = (x) => {
-  if (!(x > 0)) return 1;
-  const p = Math.pow(10, Math.floor(Math.log10(x)));
-  for (const m of [1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10]) if (m * p >= x) return m * p;
-  return 10 * p;
+/** Round axis: a "nice" step (1, 2, 2.5 or 5 × 10^n) and 2–5 gridlines that cover x. */
+const niceAxis = (x) => {
+  if (!(x > 0)) return { max: 1, step: 0.25, ticks: 4 };
+  const raw = x / 4;
+  const p = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1, 2, 2.5, 5, 10].map((m) => m * p).find((s) => s >= raw);
+  const ticks = Math.max(2, Math.ceil(x / step - 1e-9));
+  return { max: step * ticks, step, ticks };
 };
 
 export function chartSVG(chart, fmt, uid = 'c') {
   if (!chart) return '';
-  const W = 520, H = 250, L = 60, R = 12, T = 14, B = 36;
+  const W = 520, H = 256, L = 72, R = 14, T = 14, B = 46;
   const iw = W - L - R, ih = H - T - B;
   const legend = chart.series.map((s, i) => `<li><span class="sw s${s.tone || i + 1}" aria-hidden="true"></span>${esc(s.name)}</li>`).join('');
   let body = '';
   if (chart.type === 'bars') {
-    const max = niceMax(Math.max(...chart.series.flatMap((s) => s.values)));
+    const { max } = niceAxis(Math.max(...chart.series.flatMap((s) => s.values)));
     const groups = chart.labels.length, per = chart.series.length;
     const gh = ih / groups, bh = Math.min(26, (gh - 10) / per);
     chart.labels.forEach((lab, gi) => {
@@ -167,15 +171,16 @@ export function chartSVG(chart, fmt, uid = 'c') {
     const n = chart.labels.length;
     const stacked = chart.type === 'area';
     const totals = chart.labels.map((_, i) => (stacked ? chart.series.reduce((s, se) => s + Math.max(0, se.values[i]), 0) : Math.max(...chart.series.map((se) => se.values[i]))));
-    const max = niceMax(Math.max(...totals));
+    const { max, step: tickStep, ticks } = niceAxis(Math.max(...totals));
     const x = (i) => L + (n === 1 ? iw / 2 : (i / (n - 1)) * iw);
     const y = (val) => T + ih - (Math.max(0, val) / max) * ih;
-    for (let k = 0; k <= 4; k++) {
-      const val = (max * k) / 4, yy = y(val).toFixed(1);
+    for (let k = 0; k <= ticks; k++) {
+      const val = tickStep * k, yy = y(val).toFixed(1);
       body += `<line class="gl" x1="${L}" x2="${W - R}" y1="${yy}" y2="${yy}"></line><text class="ax" x="${L - 8}" y="${(+yy + 4).toFixed(1)}" text-anchor="end">${esc(fmt.compact(val))}</text>`;
     }
     const step = Math.max(1, Math.ceil(n / 6));
-    chart.labels.forEach((lab, i) => { if (i % step === 0 || i === n - 1) body += `<text class="ax" x="${x(i).toFixed(1)}" y="${H - 12}" text-anchor="middle">${esc(lab)}</text>`; });
+    // Label every `step`th point plus the last one, skipping a regular label that would crowd the last.
+    chart.labels.forEach((lab, i) => { if ((i % step === 0 && (n - 1 - i >= step || i === n - 1)) || i === n - 1) body += `<text class="ax" x="${x(i).toFixed(1)}" y="${H - 22}" text-anchor="${i === n - 1 && n > 1 ? 'end' : i === 0 ? 'start' : 'middle'}">${esc(lab)}</text>`; });
     if (stacked) {
       const base = new Array(n).fill(0);
       chart.series.forEach((s, si) => {
@@ -192,7 +197,7 @@ export function chartSVG(chart, fmt, uid = 'c') {
       });
     }
     body += `<line class="axis" x1="${L}" x2="${W - R}" y1="${T + ih}" y2="${T + ih}"></line>`;
-    if (chart.xTitle) body += `<text class="ax ax-title" x="${W - R}" y="${H - 1}" text-anchor="end">${esc(chart.xTitle)}</text>`;
+    if (chart.xTitle) body += `<text class="ax ax-title" x="${L + iw / 2}" y="${H - 2}" text-anchor="middle">${esc(chart.xTitle)}</text>`;
   }
   return `<figure class="chart"><figcaption><span class="chart-title" id="${uid}-t">${esc(chart.title)}</span><ul class="legend">${legend}</ul></figcaption><svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="${uid}-t ${uid}-d" focusable="false"><desc id="${uid}-d">${esc(chart.desc)}</desc>${body}</svg></figure>`;
 }
@@ -248,6 +253,7 @@ export function calculatorHTML(config) {
   return `<div class="calc" data-calc="${esc(config.slug)}">
 <form class="calc-form" novalidate aria-labelledby="calc-form-title" data-form>
 <h2 class="h-sm" id="calc-form-title">Your numbers</h2>
+<a class="result-bar no-print" href="#calc-results-title" data-result-bar>${resultBarInner(result, values)}</a>
 <p class="alert alert-error" data-error-summary role="alert" hidden></p>
 ${formBody}
 <div class="btn-row"><button type="submit" class="btn btn-primary">Update results</button><button type="button" class="btn btn-ghost" data-action="reset">Reset</button></div>
@@ -259,7 +265,6 @@ ${formBody}
 <div class="compare" data-compare hidden></div>
 <p class="disclaimer">Estimates for education only, not financial advice. Results depend on the assumptions shown and are not guaranteed.</p>
 </section>
-<a class="result-bar no-print" href="#calc-results-title" data-result-bar>${resultBarInner(result, values)}</a>
 </div>`;
 }
 
@@ -271,20 +276,8 @@ export function mount(root, config) {
   const summaryBox = root.querySelector('[data-error-summary]');
   const compareBox = root.querySelector('[data-compare]');
   const bar = root.querySelector('[data-result-bar]');
-  const panel = root.querySelector('[data-results-panel]');
   const setBusy = (on) => { if (on) out.setAttribute('aria-busy', 'true'); else out.removeAttribute('aria-busy'); };
   const updateBar = (result, values) => { if (bar) bar.innerHTML = resultBarInner(result, values); };
-  if (bar && panel && 'IntersectionObserver' in window) {
-    // Hide the bar while the results panel (or the footer) is on screen.
-    const seen = new Set();
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => { if (en.isIntersecting) seen.add(en.target); else seen.delete(en.target); });
-      bar.classList.toggle('is-hidden', seen.size > 0);
-    }, { threshold: 0.05 });
-    io.observe(panel);
-    const foot = document.querySelector('.site-footer');
-    if (foot) io.observe(foot);
-  }
   let last = null;
   let scenario = null;
   let timer = null;

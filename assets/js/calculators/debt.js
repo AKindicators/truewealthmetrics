@@ -1,5 +1,5 @@
 import { debtPayoff } from '../calc-core.js?v=98c18a5445';
-import { mount, currencyOptions } from '../calc-ui.js?v=a0568ddf45';
+import { mount, currencyOptions } from '../calc-ui.js?v=a49c19ca5a';
 
 const config = {
   slug: 'debt',
